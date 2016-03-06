@@ -2497,6 +2497,9 @@ img {
   max-width: 100%;
   height: auto; }
 
+.post-thumbnail > img {
+  width: 100%; }
+
 input,
 select,
 textarea {
@@ -2627,7 +2630,11 @@ li > a {
 .material-design-hamburger__icon--from-arrow:after {
   animation-name: material-design-hamburger__icon--slide-after-from; }
 
-.img-float {
+.avatar {
   float: left; }
+
+.image-preview {
+  width: 200px;
+  height: 200px; }
 
 /*# sourceMappingURL=style.css.map */
