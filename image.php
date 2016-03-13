@@ -34,12 +34,12 @@ get_header(); ?>
 
 						<div class="entry-attachment">
 							<?php
-								$image_size = apply_filters('mpssv_attachment_size', 'large');
+								$image_size = apply_filters('mp_ssv_attachment_size', 'large');
 
 								echo wp_get_attachment_image(get_the_ID(), $image_size);
 							?>
 
-							<?php mpssv_excerpt('entry-caption'); ?>
+							<?php mp_ssv_excerpt('entry-caption'); ?>
 
 						</div><!-- .entry-attachment -->
 
@@ -57,7 +57,7 @@ get_header(); ?>
 					</div><!-- .entry-content -->
 
 					<footer class="entry-footer">
-						<?php mpssv_entry_meta(); ?>
+						<?php mp_ssv_entry_meta(); ?>
 						<?php
 							// Retrieve attachment metadata.
 							$metadata = wp_get_attachment_metadata();

@@ -19,14 +19,14 @@
 		</header><!-- .entry-header -->
 	</a>
 
-	<?php mpssv_post_thumbnail(); ?>
+	<?php mp_ssv_post_thumbnail(); ?>
 
-	<?php mpssv_excerpt(); ?>
+	<?php mp_ssv_excerpt(); ?>
 
 	<?php if ( 'post' === get_post_type() ) : ?>
 
 		<footer class="entry-footer">
-			<?php mpssv_entry_meta(); ?>
+			<?php mp_ssv_entry_meta(); ?>
 		</footer><!-- .entry-footer -->
 
 	<?php endif; ?>

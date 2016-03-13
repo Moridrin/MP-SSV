@@ -5,10 +5,10 @@
  * @since MP-SSV 1.0
  */
 
-if ( ! function_exists( 'mpssv_entry_meta' ) ) :
-function mpssv_entry_meta() {
+if ( ! function_exists( 'mp_ssv_entry_meta' ) ) :
+function mp_ssv_entry_meta() {
 	if ( 'post' === get_post_type() ) {
-		$author_avatar_size = apply_filters( 'mpssv_author_avatar_size', 49 );
+		$author_avatar_size = apply_filters( 'mp_ssv_author_avatar_size', 49 );
 		printf('<span class="byline" style="margin-right: 10px;"><span class="author vcard">%1$s<span class="screen-reader-text" style="margin-left: 10px;">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span><br/>',
 			get_avatar( get_the_author_meta( 'user_email' ), $author_avatar_size, "http://allterrain.nl/wp-content/uploads/2016/03/Mystery-Man.jpg", false, ["class" => "img-float"]),
 			_x( 'Author', 'Used before post author name.', 'mpssv' ),
@@ -18,7 +18,7 @@ function mpssv_entry_meta() {
 	}
 
 	if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
-		mpssv_entry_date();
+		mp_ssv_entry_date();
 	}
 
 	$format = get_post_format();
@@ -31,20 +31,20 @@ function mpssv_entry_meta() {
 	}
 
 	if ( 'post' === get_post_type() ) {
-		mpssv_entry_taxonomies();
+		mp_ssv_entry_taxonomies();
 	}
 }
 endif;
 
-if ( ! function_exists( 'mpssv_entry_date' ) ) :
+if ( ! function_exists( 'mp_ssv_entry_date' ) ) :
 /**
  * Prints HTML with date information for current post.
  *
- * Create your own mpssv_entry_date() function to override in a child theme.
+ * Create your own mp_ssv_entry_date() function to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  */
-function mpssv_entry_date() {
+function mp_ssv_entry_date() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -66,17 +66,17 @@ function mpssv_entry_date() {
 }
 endif;
 
-if ( ! function_exists( 'mpssv_entry_taxonomies' ) ) :
+if ( ! function_exists( 'mp_ssv_entry_taxonomies' ) ) :
 /**
  * Prints HTML with category and tags for current post.
  *
- * Create your own mpssv_entry_taxonomies() function to override in a child theme.
+ * Create your own mp_ssv_entry_taxonomies() function to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  */
-function mpssv_entry_taxonomies() {
+function mp_ssv_entry_taxonomies() {
 	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'mpssv' ) );
-	if ( $categories_list && mpssv_categorized_blog() ) {
+	if ( $categories_list && mp_ssv_categorized_blog() ) {
 		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
 			_x( 'Categories', 'Used before category names.', 'mpssv' ),
 			$categories_list
@@ -93,18 +93,18 @@ function mpssv_entry_taxonomies() {
 }
 endif;
 
-if ( ! function_exists( 'mpssv_post_thumbnail' ) ) :
+if ( ! function_exists( 'mp_ssv_post_thumbnail' ) ) :
 /**
  * Displays an optional post thumbnail.
  *
  * Wraps the post thumbnail in an anchor element on index views, or a div
  * element when on single views.
  *
- * Create your own mpssv_post_thumbnail() function to override in a child theme.
+ * Create your own mp_ssv_post_thumbnail() function to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  */
-function mpssv_post_thumbnail() {
+function mp_ssv_post_thumbnail() {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -126,19 +126,19 @@ function mpssv_post_thumbnail() {
 }
 endif;
 
-if ( ! function_exists( 'mpssv_excerpt' ) ) :
+if ( ! function_exists( 'mp_ssv_excerpt' ) ) :
 	/**
 	 * Displays the optional excerpt.
 	 *
 	 * Wraps the excerpt in a div element.
 	 *
-	 * Create your own mpssv_excerpt() function to override in a child theme.
+	 * Create your own mp_ssv_excerpt() function to override in a child theme.
 	 *
 	 * @since Twenty Sixteen 1.0
 	 *
 	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
 	 */
-	function mpssv_excerpt( $class = 'entry-summary' ) {
+	function mp_ssv_excerpt( $class = 'entry-summary' ) {
 		$class = esc_attr( $class );
 
 		if ( has_excerpt() || is_search() ) : ?>
@@ -149,18 +149,18 @@ if ( ! function_exists( 'mpssv_excerpt' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'mpssv_excerpt_more' ) && ! is_admin() ) :
+if ( ! function_exists( 'mp_ssv_excerpt_more' ) && ! is_admin() ) :
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
  *
- * Create your own mpssv_excerpt_more() function to override in a child theme.
+ * Create your own mp_ssv_excerpt_more() function to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function mpssv_excerpt_more() {
+function mp_ssv_excerpt_more() {
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
@@ -168,20 +168,20 @@ function mpssv_excerpt_more() {
 	);
 	return ' &hellip; ' . $link;
 }
-add_filter( 'excerpt_more', 'mpssv_excerpt_more' );
+add_filter( 'excerpt_more', 'mp_ssv_excerpt_more' );
 endif;
 
 /**
  * Determines whether blog/site has more than one category.
  *
- * Create your own mpssv_categorized_blog() function to override in a child theme.
+ * Create your own mp_ssv_categorized_blog() function to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  *
  * @return bool True if there is more than one category, false otherwise.
  */
-function mpssv_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'mpssv_categories' ) ) ) {
+function mp_ssv_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'mp_ssv_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -192,29 +192,29 @@ function mpssv_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'mpssv_categories', $all_the_cool_cats );
+		set_transient( 'mp_ssv_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so mpssv_categorized_blog should return true.
+		// This blog has more than 1 category so mp_ssv_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so mpssv_categorized_blog should return false.
+		// This blog has only 1 category so mp_ssv_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flushes out the transients used in mpssv_categorized_blog().
+ * Flushes out the transients used in mp_ssv_categorized_blog().
  *
  * @since Twenty Sixteen 1.0
  */
-function mpssv_category_transient_flusher() {
+function mp_ssv_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'mpssv_categories' );
+	delete_transient( 'mp_ssv_categories' );
 }
-add_action( 'edit_category', 'mpssv_category_transient_flusher' );
-add_action( 'save_post',     'mpssv_category_transient_flusher' );
+add_action( 'edit_category', 'mp_ssv_category_transient_flusher' );
+add_action( 'save_post',     'mp_ssv_category_transient_flusher' );

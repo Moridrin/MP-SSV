@@ -29,7 +29,7 @@
 		</div><!-- .widget-area -->
 	<?php endif; ?>
 	<div class="site-info">
-	<?php do_action('mpssv_credits'); ?>
+	<?php do_action('mp_ssv_credits'); ?>
 		Designed and Developed by <a href="<?php echo esc_url(__('http://nl.linkedin.com/in/jberkvens/', 'mpssv')); ?>"><?php printf(__('%s', 'mpssv'), 'Jeroen Berkvens'); ?></a><br/>
 		Proudly powered by <a href="<?php echo esc_url(__('https://wordpress.org/', 'mpssv')); ?>"><?php printf(__('%s', 'mpssv'), 'WordPress'); ?></a> and <a href="<?php echo esc_url(__('https://www.digitalocean.com/', 'mpssv')); ?>"><?php printf(__('%s', 'mpssv'), 'DigitalOcean'); ?></a>
 	</div>

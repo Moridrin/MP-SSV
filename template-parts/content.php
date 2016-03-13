@@ -18,9 +18,9 @@
 			<?php the_title('<h2 class="entry-title">', '</h2>'); ?>
 		</header><!-- .entry-header -->
 	</a>
-	<?php mpssv_excerpt(); ?>
+	<?php mp_ssv_excerpt(); ?>
 
-	<?php mpssv_post_thumbnail(); ?>
+	<?php mp_ssv_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -42,6 +42,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php mpssv_entry_meta(); ?>
+		<?php mp_ssv_entry_meta(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

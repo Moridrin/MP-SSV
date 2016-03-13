@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php mpssv_post_thumbnail();  ?>
+	<?php mp_ssv_post_thumbnail();  ?>
 
 	<div class="entry-content">
 		<?php
@@ -32,6 +32,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php mpssv_entry_meta(); ?>
+		<?php mp_ssv_entry_meta(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

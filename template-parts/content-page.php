@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php mpssv_post_thumbnail(); ?>
+	<?php mp_ssv_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

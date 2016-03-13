@@ -7,25 +7,25 @@
  * @since MP-SSV 1.0
  */
 
-function mpssv_custom_header_and_background() {
-	$color_scheme             = mpssv_get_color_scheme();
+function mp_ssv_custom_header_and_background() {
+	$color_scheme             = mp_ssv_get_color_scheme();
 	
 	$default_background_color = trim( $color_scheme[8], '#' );
-	add_theme_support( 'custom-background', apply_filters( 'mpssv_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'mp_ssv_custom_background_args', array(
 		'default-color' => $default_background_color,
 	) ) );
 	
 	$default_background_color = trim( $color_scheme[8], '#' );
-	add_theme_support( 'custom-background', apply_filters( 'mpssv_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'mp_ssv_custom_background_args', array(
 		'default-color' => $default_background_color,
 	) ) );
 
 	remove_theme_support( 'custom-header' );
 }
-add_action( 'after_setup_theme', 'mpssv_custom_header_and_background' );
+add_action( 'after_setup_theme', 'mp_ssv_custom_header_and_background' );
 
-if ( ! function_exists( 'mpssv_header_style' ) ) :
-function mpssv_header_style() {
+if ( ! function_exists( 'mp_ssv_header_style' ) ) :
+function mp_ssv_header_style() {
 	// If the header text option is untouched, let's bail.
 	if ( display_header_text() ) {
 		return;
@@ -46,10 +46,10 @@ function mpssv_header_style() {
 	</style>
 	<?php
 }
-endif; // mpssv_header_style
+endif; // mp_ssv_header_style
 
-function mpssv_customize_register( $wp_customize ) {
-	$color_scheme = mpssv_get_color_scheme();
+function mp_ssv_customize_register( $wp_customize ) {
+	$color_scheme = mp_ssv_get_color_scheme();
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -60,7 +60,7 @@ function mpssv_customize_register( $wp_customize ) {
 	// Add color scheme setting and control.
 	$wp_customize->add_setting( 'color_scheme', array(
 		'default'           => 'default',
-		'sanitize_callback' => 'mpssv_sanitize_color_scheme',
+		'sanitize_callback' => 'mp_ssv_sanitize_color_scheme',
 		'transport'         => 'postMessage',
 	) );
 
@@ -68,7 +68,7 @@ function mpssv_customize_register( $wp_customize ) {
 		'label'    => __( 'Base Color Scheme', 'mpssv' ),
 		'section'  => 'colors',
 		'type'     => 'select',
-		'choices'  => mpssv_get_color_scheme_choices(),
+		'choices'  => mp_ssv_get_color_scheme_choices(),
 		'priority' => 1,
 	) );
 
@@ -312,11 +312,11 @@ function mpssv_customize_register( $wp_customize ) {
 		'section'     => 'colors',
 	) ) );
 }
-add_action( 'customize_register', 'mpssv_customize_register', 11 );
+add_action( 'customize_register', 'mp_ssv_customize_register', 11 );
 
 
-function mpssv_get_color_schemes() {
-	return apply_filters( 'mpssv_color_schemes', array(
+function mp_ssv_get_color_schemes() {
+	return apply_filters( 'mp_ssv_color_schemes', array(
 		'default' => array(
 			'label'  => __( 'All Terrain', 'mpssv' ),
 			'colors' => array(
@@ -370,19 +370,19 @@ function mpssv_get_color_schemes() {
 	) );
 }
 
-if ( ! function_exists( 'mpssv_get_color_scheme' ) ) :
+if ( ! function_exists( 'mp_ssv_get_color_scheme' ) ) :
 /**
  * Retrieves the current MP-SSV color scheme.
  *
- * Create your own mpssv_get_color_scheme() function to override in a child theme.
+ * Create your own mp_ssv_get_color_scheme() function to override in a child theme.
  *
  * @since MP-SSV 1.0
  *
  * @return array An associative array of either the current or default color scheme HEX values.
  */
-function mpssv_get_color_scheme() {
+function mp_ssv_get_color_scheme() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
-	$color_schemes       = mpssv_get_color_schemes();
+	$color_schemes       = mp_ssv_get_color_schemes();
 
 	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
 		return $color_schemes[ $color_scheme_option ]['colors'];
@@ -390,21 +390,21 @@ function mpssv_get_color_scheme() {
 
 	return $color_schemes['default']['colors'];
 }
-endif; // mpssv_get_color_scheme
+endif; // mp_ssv_get_color_scheme
 
-if ( ! function_exists( 'mpssv_get_color_scheme_choices' ) ) :
+if ( ! function_exists( 'mp_ssv_get_color_scheme_choices' ) ) :
 /**
  * Retrieves an array of color scheme choices registered for MP-SSV.
  *
- * Create your own mpssv_get_color_scheme_choices() function to override
+ * Create your own mp_ssv_get_color_scheme_choices() function to override
  * in a child theme.
  *
  * @since MP-SSV 1.0
  *
  * @return array Array of color schemes.
  */
-function mpssv_get_color_scheme_choices() {
-	$color_schemes                = mpssv_get_color_schemes();
+function mp_ssv_get_color_scheme_choices() {
+	$color_schemes                = mp_ssv_get_color_schemes();
 	$color_scheme_control_options = array();
 
 	foreach ( $color_schemes as $color_scheme => $value ) {
@@ -413,14 +413,14 @@ function mpssv_get_color_scheme_choices() {
 
 	return $color_scheme_control_options;
 }
-endif; // mpssv_get_color_scheme_choices
+endif; // mp_ssv_get_color_scheme_choices
 
 
-if ( ! function_exists( 'mpssv_sanitize_color_scheme' ) ) :
+if ( ! function_exists( 'mp_ssv_sanitize_color_scheme' ) ) :
 /**
  * Handles sanitization for MP-SSV color schemes.
  *
- * Create your own mpssv_sanitize_color_scheme() function to override
+ * Create your own mp_ssv_sanitize_color_scheme() function to override
  * in a child theme.
  *
  * @since MP-SSV 1.0
@@ -428,8 +428,8 @@ if ( ! function_exists( 'mpssv_sanitize_color_scheme' ) ) :
  * @param string $value Color scheme name value.
  * @return string Color scheme name.
  */
-function mpssv_sanitize_color_scheme( $value ) {
-	$color_schemes = mpssv_get_color_scheme_choices();
+function mp_ssv_sanitize_color_scheme( $value ) {
+	$color_schemes = mp_ssv_get_color_scheme_choices();
 
 	if ( ! array_key_exists( $value, $color_schemes ) ) {
 		return 'default';
@@ -437,7 +437,7 @@ function mpssv_sanitize_color_scheme( $value ) {
 
 	return $value;
 }
-endif; // mpssv_sanitize_color_scheme
+endif; // mp_ssv_sanitize_color_scheme
 
 /**
  * Enqueues front-end CSS for color scheme.
@@ -446,7 +446,7 @@ endif; // mpssv_sanitize_color_scheme
  *
  * @see wp_add_inline_style()
  */
-function mpssv_color_scheme_css() {
+function mp_ssv_color_scheme_css() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
 
 	// Don't do anything if the default color scheme is selected.
@@ -454,7 +454,7 @@ function mpssv_color_scheme_css() {
 		return;
 	}
 
-	$color_scheme = mpssv_get_color_scheme();
+	$color_scheme = mp_ssv_get_color_scheme();
 
 	// If we get this far, we have a custom color scheme.
 	$colors = array(
@@ -481,11 +481,11 @@ function mpssv_color_scheme_css() {
 		'footer_color'			=> $color_scheme[19],
 	);
 
-	$color_scheme_css = mpssv_get_color_scheme_css( $colors );
+	$color_scheme_css = mp_ssv_get_color_scheme_css( $colors );
 
 	wp_add_inline_style( 'mpssv-style', $color_scheme_css );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_color_scheme_css' );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_color_scheme_css' );
 
 /**
  * Binds the JS listener to make Customizer color_scheme control.
@@ -494,21 +494,21 @@ add_action( 'wp_enqueue_scripts', 'mpssv_color_scheme_css' );
  *
  * @since MP-SSV 1.0
  */
-function mpssv_customize_control_js() {
+function mp_ssv_customize_control_js() {
 	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20150825', true );
-	wp_localize_script( 'color-scheme-control', 'colorScheme', mpssv_get_color_schemes() );
+	wp_localize_script( 'color-scheme-control', 'colorScheme', mp_ssv_get_color_schemes() );
 }
-add_action( 'customize_controls_enqueue_scripts', 'mpssv_customize_control_js' );
+add_action( 'customize_controls_enqueue_scripts', 'mp_ssv_customize_control_js' );
 
 /**
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
  *
  * @since MP-SSV 1.0
  */
-function mpssv_customize_preview_js() {
+function mp_ssv_customize_preview_js() {
 	wp_enqueue_script( 'mpssv-customize-preview', get_template_directory_uri() . '/js/customize-preview.js', array( 'customize-preview' ), '20150825', true );
 }
-add_action( 'customize_preview_init', 'mpssv_customize_preview_js' );
+add_action( 'customize_preview_init', 'mp_ssv_customize_preview_js' );
 
 /**
  * Returns CSS for the color schemes.
@@ -518,7 +518,7 @@ add_action( 'customize_preview_init', 'mpssv_customize_preview_js' );
  * @param array $colors Color scheme colors.
  * @return string Color scheme CSS.
  */
-function mpssv_get_color_scheme_css( $colors ) {
+function mp_ssv_get_color_scheme_css( $colors ) {
 	$colors = wp_parse_args( $colors, array(
 		'default_color'			=> '',
 		'default_color_light_1'	=> '',
@@ -860,7 +860,7 @@ CSS;
  *
  * @since MP-SSV 1.0
  */
-function mpssv_color_scheme_css_template() {
+function mp_ssv_color_scheme_css_template() {
 	$colors = array(
 		'default_color'			=> '{{ data.default_color }}',
 		'default_color_light_1'	=> '{{ data.default_color_light_1 }}',
@@ -885,14 +885,14 @@ function mpssv_color_scheme_css_template() {
 	);
 	?>
 	<script type="text/html" id="tmpl-mpssv-color-scheme">
-		<?php echo mpssv_get_color_scheme_css( $colors ); ?>
+		<?php echo mp_ssv_get_color_scheme_css( $colors ); ?>
 	</script>
 	<?php
 }
-add_action( 'customize_controls_print_footer_scripts', 'mpssv_color_scheme_css_template' );
+add_action( 'customize_controls_print_footer_scripts', 'mp_ssv_color_scheme_css_template' );
 
-function mpssv_default_color_css() {
-	$color_scheme          = mpssv_get_color_scheme();
+function mp_ssv_default_color_css() {
+	$color_scheme          = mp_ssv_get_color_scheme();
 	$def_color             = $color_scheme[0];
 	$default_color = get_theme_mod( 'default_color', $def_color );
 
@@ -937,10 +937,10 @@ function mpssv_default_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $default_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_default_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_default_color_css', 11 );
 
-function mpssv_default_color_light_1_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_default_color_light_1_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[1];
 	$default_color_light_1 = get_theme_mod( 'default_color_light_1', $default_color );
 
@@ -956,10 +956,10 @@ function mpssv_default_color_light_1_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $default_color_light_1 ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_default_color_light_1_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_default_color_light_1_css', 11 );
 
-function mpssv_default_color_dark_1_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_default_color_dark_1_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[2];
 	$default_color_dark_1 = get_theme_mod( 'default_color_dark_1', $default_color );
 
@@ -969,10 +969,10 @@ function mpssv_default_color_dark_1_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $default_color_dark_1 ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_default_color_dark_1_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_default_color_dark_1_css', 11 );
 
-function mpssv_default_color_light_2_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_default_color_light_2_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[3];
 	$default_color_light_2 = get_theme_mod( 'default_color_light_2', $default_color );
 
@@ -996,10 +996,10 @@ function mpssv_default_color_light_2_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $default_color_light_2 ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_default_color_light_2_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_default_color_light_2_css', 11 );
 
-function mpssv_default_color_dark_2_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_default_color_dark_2_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[4];
 	$default_color_dark_2 = get_theme_mod( 'default_color_dark_2', $default_color );
 
@@ -1009,10 +1009,10 @@ function mpssv_default_color_dark_2_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $default_color_dark_2 ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_default_color_dark_2_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_default_color_dark_2_css', 11 );
 
-function mpssv_accent_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_accent_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[5];
 	$accent_color = get_theme_mod( 'accent_color', $default_color );
 
@@ -1025,10 +1025,10 @@ function mpssv_accent_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $accent_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_accent_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_accent_color_css', 11 );
 
-function mpssv_accent_color_light_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_accent_color_light_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[6];
 	$accent_color_light = get_theme_mod( 'accent_color_light', $default_color );
 
@@ -1043,10 +1043,10 @@ function mpssv_accent_color_light_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $accent_color_light ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_accent_color_light_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_accent_color_light_css', 11 );
 
-function mpssv_accent_color_dark_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_accent_color_dark_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[7];
 	$accent_color_dark = get_theme_mod( 'accent_color_dark', $default_color );
 
@@ -1056,10 +1056,10 @@ function mpssv_accent_color_dark_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $accent_color_dark ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_accent_color_dark_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_accent_color_dark_css', 11 );
 
-function mpssv_background_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_background_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[8];
 	$background_color = get_theme_mod( 'background_color', $default_color );
 
@@ -1072,10 +1072,10 @@ function mpssv_background_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $background_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_background_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_background_color_css', 11 );
 
-function mpssv_menu_header_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_menu_header_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[9];
 	$menu_header_color = get_theme_mod( 'menu_header_color', $default_color );
 
@@ -1092,10 +1092,10 @@ function mpssv_menu_header_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $menu_header_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_menu_header_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_menu_header_color_css', 11 );
 
-function mpssv_entry_header_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_entry_header_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[10];
 	$entry_header_color = get_theme_mod( 'entry_header_color', $default_color );
 
@@ -1108,10 +1108,10 @@ function mpssv_entry_header_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $entry_header_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_entry_header_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_entry_header_color_css', 11 );
 
-function mpssv_main_text_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_main_text_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[11];
 	$main_text_color = get_theme_mod( 'main_text_color', $default_color );
 
@@ -1161,10 +1161,10 @@ function mpssv_main_text_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $main_text_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_main_text_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_main_text_color_css', 11 );
 
-function mpssv_secondary_text_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_secondary_text_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[12];
 	$secondary_text_color = get_theme_mod( 'secondary_text_color', $default_color );
 
@@ -1217,10 +1217,10 @@ function mpssv_secondary_text_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $secondary_text_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_secondary_text_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_secondary_text_color_css', 11 );
 
-function mpssv_header_text_color_css() {
-		$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_header_text_color_css() {
+		$color_scheme    = mp_ssv_get_color_scheme();
 		$default_color   = $color_scheme[13];
 		$header_text_color = get_theme_mod( 'header_text_color', $default_color );
 
@@ -1239,10 +1239,10 @@ function mpssv_header_text_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $header_text_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_header_text_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_header_text_color_css', 11 );
 
-function mpssv_link_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_link_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[14];
 	$link_color = get_theme_mod( 'link_color', $default_color );
 
@@ -1314,10 +1314,10 @@ function mpssv_link_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $link_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_link_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_link_color_css', 11 );
 
-function mpssv_light_text_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_light_text_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[15];
 	$light_text_color = get_theme_mod( 'light_text_color', $default_color );
 
@@ -1350,10 +1350,10 @@ function mpssv_light_text_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $light_text_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_light_text_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_light_text_color_css', 11 );
 
-function mpssv_danger_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_danger_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[16];
 	$danger_color = get_theme_mod( 'danger_color', $default_color );
 
@@ -1366,10 +1366,10 @@ function mpssv_danger_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $danger_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_danger_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_danger_color_css', 11 );
 
-function mpssv_danger_color_light_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_danger_color_light_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[17];
 	$danger_color_light = get_theme_mod( 'danger_color_light', $default_color );
 
@@ -1384,10 +1384,10 @@ function mpssv_danger_color_light_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $danger_color_light ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_danger_color_light_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_danger_color_light_css', 11 );
 
-function mpssv_danger_color_dark_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_danger_color_dark_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[18];
 	$danger_color_dark = get_theme_mod( 'danger_color_dark', $default_color );
 
@@ -1397,10 +1397,10 @@ function mpssv_danger_color_dark_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $danger_color_dark ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_danger_color_dark_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_danger_color_dark_css', 11 );
 
-function mpssv_footer_color_css() {
-	$color_scheme    = mpssv_get_color_scheme();
+function mp_ssv_footer_color_css() {
+	$color_scheme    = mp_ssv_get_color_scheme();
 	$default_color   = $color_scheme[19];
 	$footer_color = get_theme_mod( 'footer_color', $default_color );
 
@@ -1414,4 +1414,4 @@ function mpssv_footer_color_css() {
 
 	wp_add_inline_style( 'mpssv-style', sprintf( $css, $footer_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'mpssv_footer_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'mp_ssv_footer_color_css', 11 );
