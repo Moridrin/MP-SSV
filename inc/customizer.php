@@ -374,7 +374,7 @@ if ( ! function_exists( 'mp_ssv_get_color_scheme' ) ) :
 /**
  * Retrieves the current MP-SSV color scheme.
  *
- * Create your own mp_ssv_get_color_scheme() function to override in a child theme.
+ * Create your own mp_ssv_get_color_scheme() function mp_ssv_to override in a child theme.
  *
  * @since MP-SSV 1.0
  *
@@ -396,7 +396,7 @@ if ( ! function_exists( 'mp_ssv_get_color_scheme_choices' ) ) :
 /**
  * Retrieves an array of color scheme choices registered for MP-SSV.
  *
- * Create your own mp_ssv_get_color_scheme_choices() function to override
+ * Create your own mp_ssv_get_color_scheme_choices() function mp_ssv_to override
  * in a child theme.
  *
  * @since MP-SSV 1.0
@@ -420,7 +420,7 @@ if ( ! function_exists( 'mp_ssv_sanitize_color_scheme' ) ) :
 /**
  * Handles sanitization for MP-SSV color schemes.
  *
- * Create your own mp_ssv_sanitize_color_scheme() function to override
+ * Create your own mp_ssv_sanitize_color_scheme() function mp_ssv_to override
  * in a child theme.
  *
  * @since MP-SSV 1.0

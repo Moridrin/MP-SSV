@@ -170,7 +170,7 @@ function mp_ssv_post_thumbnail_sizes_attr($attr, $attachment, $size) {
 }
 add_filter('wp_get_attachment_image_attributes', 'mp_ssv_post_thumbnail_sizes_attr', 10, 3);
  
-function my_custom_sizes($sizes) {
+function mp_ssv_my_custom_sizes($sizes) {
     return array_merge($sizes, array(
         'mp-ssv-banner-xl' => __('MP SSV Banner XL'),
         'mp-ssv-banner-l' => __('MP SSV Banner L'),
@@ -180,7 +180,7 @@ function my_custom_sizes($sizes) {
 }
 add_filter('image_size_names_choose', 'my_custom_sizes');
 
-function override_toolbar_margin() {
+function mp_ssv_override_toolbar_margin() {
 	if (is_admin_bar_showing()) { ?>
 		<style type="text/css" media="screen">
 			html { margin-top: 100px !important; }

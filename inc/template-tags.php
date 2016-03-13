@@ -40,7 +40,7 @@ if ( ! function_exists( 'mp_ssv_entry_date' ) ) :
 /**
  * Prints HTML with date information for current post.
  *
- * Create your own mp_ssv_entry_date() function to override in a child theme.
+ * Create your own mp_ssv_entry_date() function mp_ssv_to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  */
@@ -70,7 +70,7 @@ if ( ! function_exists( 'mp_ssv_entry_taxonomies' ) ) :
 /**
  * Prints HTML with category and tags for current post.
  *
- * Create your own mp_ssv_entry_taxonomies() function to override in a child theme.
+ * Create your own mp_ssv_entry_taxonomies() function mp_ssv_to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  */
@@ -100,7 +100,7 @@ if ( ! function_exists( 'mp_ssv_post_thumbnail' ) ) :
  * Wraps the post thumbnail in an anchor element on index views, or a div
  * element when on single views.
  *
- * Create your own mp_ssv_post_thumbnail() function to override in a child theme.
+ * Create your own mp_ssv_post_thumbnail() function mp_ssv_to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  */
@@ -132,7 +132,7 @@ if ( ! function_exists( 'mp_ssv_excerpt' ) ) :
 	 *
 	 * Wraps the excerpt in a div element.
 	 *
-	 * Create your own mp_ssv_excerpt() function to override in a child theme.
+	 * Create your own mp_ssv_excerpt() function mp_ssv_to override in a child theme.
 	 *
 	 * @since Twenty Sixteen 1.0
 	 *
@@ -154,7 +154,7 @@ if ( ! function_exists( 'mp_ssv_excerpt_more' ) && ! is_admin() ) :
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
  *
- * Create your own mp_ssv_excerpt_more() function to override in a child theme.
+ * Create your own mp_ssv_excerpt_more() function mp_ssv_to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  *
@@ -174,7 +174,7 @@ endif;
 /**
  * Determines whether blog/site has more than one category.
  *
- * Create your own mp_ssv_categorized_blog() function to override in a child theme.
+ * Create your own mp_ssv_categorized_blog() function mp_ssv_to override in a child theme.
  *
  * @since Twenty Sixteen 1.0
  *

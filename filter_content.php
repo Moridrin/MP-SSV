@@ -1,11 +1,11 @@
 <?php
-function filter_content($content) {
+function mp_ssv_filter_content($content) {
 	$content = str_replace('<button>', '<button class="mui-btn mui-btn--primary">', $content);
 	$content = str_replace('<input type="submit"', '<input type="submit" class="mui-btn mui-btn--primary"', $content);
 	$content = str_replace('<input name="submit"', '<input name="submit" class="mui-btn mui-btn--primary"', $content);
 	return $content;
 
-	function replace_tag($content, $tag, $url) {
+	function mp_ssv_replace_tag($content, $tag, $url) {
 		$final_content = apply_filters('the_content', explode($tag, $content)[0]);
 		ob_start();
 		include_once get_stylesheet_directory().$url;
@@ -15,7 +15,7 @@ function filter_content($content) {
 		return $final_content;
 	}
 
-	function members_filter($content) {
+	function mp_ssv_members_filter($content) {
 		$users = get_users();
 		foreach ($users as $user) {
 			$search_term = $user->user_firstname." ".$user->user_lastname;
