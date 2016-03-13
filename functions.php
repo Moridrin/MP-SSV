@@ -7,7 +7,7 @@
  * @since MP-SSV 1.0
  */
 require_once 'filter_content.php';
-add_filter( 'the_content', 'filter_content' );
+add_filter( 'the_content', 'mp_ssv_filter_content' );
 
 if (!function_exists('mp_ssv_setup')) {
 	function mp_ssv_setup()
@@ -193,4 +193,4 @@ function mp_ssv_override_toolbar_margin() {
 		</style>
 	<?php }
 }
-add_action( 'wp_head', 'override_toolbar_margin', 11 );
+add_action( 'wp_head', 'mp_ssv_override_toolbar_margin', 11 );
