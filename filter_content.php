@@ -3,6 +3,7 @@ function mp_ssv_filter_content($content) {
 	$content = str_replace('<button>', '<button class="mui-btn mui-btn--primary">', $content);
 	$content = str_replace('<input type="submit"', '<input type="submit" class="mui-btn mui-btn--primary"', $content);
 	$content = str_replace('<input name="submit"', '<input name="submit" class="mui-btn mui-btn--primary"', $content);
+	$content = str_replace('[test]', test_content(), $content);
 	return $content;
 
 	function mp_ssv_replace_tag($content, $tag, $url) {
@@ -28,5 +29,21 @@ function mp_ssv_filter_content($content) {
 		}
 		return $content;
 	}
+}
+?>
+<?php
+function test_content() {
+	global $wpdb;
+	$table_name = $wpdb->prefix."mp_ssv_mailchimp_merge_fields";
+	$merge_fields_to_sync = $wpdb->get_results("SELECT * FROM $table_name");
+	ob_start();
+	var_dump($merge_fields_to_sync);
+	foreach ($merge_fields_to_sync as $row) {
+		$row = json_decode(json_encode($row),true);
+		if (in_array("preferred_language", $row)) {
+			echo "<br/><br/>Success<br/><br/>";
+		}
+	}
+	return ob_get_clean();
 }
 ?>
