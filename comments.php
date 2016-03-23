@@ -25,38 +25,23 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
-					/* translators: %s: post title */
-					printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'mpssv' ), get_the_title() );
-				} else {
-					printf(
-						/* translators: 1: number of comments, 2: post title */
-						_nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'mpssv'
-						),
-						number_format_i18n( $comments_number ),
-						get_the_title()
-					);
-				}
+					printf(_x('Thoughts on &ldquo;%1$s&rdquo;', 'comments title', 'mpssv'), get_the_title());
 			?>
 		</h2>
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<div class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
+				$comments = wp_list_comments( array(
+					'style'       => 'div',
 					'short_ping'  => true,
 					'avatar_size' => 42,
+					'callback'				=> "mp_ssv_format_comment"
 				) );
+			echo "<xmp>".$comments."</xmp>";
 			?>
-		</ol><!-- .comment-list -->
+		</div><!-- .comment-list -->
 
 		<?php the_comments_navigation(); ?>
 
@@ -78,3 +63,28 @@ if ( post_password_required() ) {
 	?>
 
 </div><!-- .comments-area -->
+<?php
+function mp_ssv_format_comment($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment; ?>
+	<div <?php comment_class('mui-panel mui-panel-comment'); ?> id="li-comment-<?php comment_ID() ?>">
+		<div class="comment-intro">
+			<?php
+			$author = get_user_by("email", $comment->comment_author_email);
+			if ($author != null) {
+			?><h5><a href="<?php echo esc_url(get_author_posts_url($author->ID)); ?>"><?php echo $author->display_name; ?>:</a></h5><?php
+			} else {
+				echo "<h5>".$comment->comment_author.":</h5>";
+			}
+			?>
+		</div>
+		
+		<?php if ($comment->comment_approved == '0') : ?>
+			<em><php _e('Your comment is awaiting moderation.') ?></em><br />
+		<?php endif; ?>
+		
+		<?php comment_text(); ?>
+		
+		<div class="reply">
+			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+		</div>
+<?php } ?>

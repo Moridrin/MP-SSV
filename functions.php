@@ -172,13 +172,13 @@ add_filter('wp_get_attachment_image_attributes', 'mp_ssv_post_thumbnail_sizes_at
  
 function mp_ssv_my_custom_sizes($sizes) {
     return array_merge($sizes, array(
-        'mp-ssv-banner-xl' => __('MP SSV Banner XL'),
-        'mp-ssv-banner-l' => __('MP SSV Banner L'),
-        'mp-ssv-banner-m' => __('MP SSV Banner M'),
-        'mp-ssv-banner-s' => __('MP SSV Banner S'),
+        'mp-ssv-banner-xl' => __('Banner XL'),
+        'mp-ssv-banner-l' => __('Banner L'),
+        'mp-ssv-banner-m' => __('Banner M'),
+        'mp-ssv-banner-s' => __('Banner S')
     ));
 }
-add_filter('image_size_names_choose', 'my_custom_sizes');
+add_filter('image_size_names_choose', 'mp_ssv_my_custom_sizes');
 
 function mp_ssv_override_toolbar_margin() {
 	if (is_admin_bar_showing()) { ?>
@@ -194,3 +194,12 @@ function mp_ssv_override_toolbar_margin() {
 	<?php }
 }
 add_action( 'wp_head', 'mp_ssv_override_toolbar_margin', 11 );
+
+if (!function_exists("mp_ssv_redirect")) {
+	function mp_ssv_redirect($location) {
+		$redirect_script = '<script type="text/javascript">';
+		$redirect_script .= 'window.location = "' . $location . '"';
+		$redirect_script .= '</script>';
+		echo $redirect_script;
+	}
+}

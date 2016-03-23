@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('mui-panel mui-panel-with-header'); ?>>
 	<?php echo sprintf('<a href="%s" class="header-link entry-header" rel="bookmark">', esc_url(get_permalink())) ?>
 		<header class="entry-header">
 			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
@@ -22,7 +22,7 @@
 
 	<?php mp_ssv_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content mui-panel-content">
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
@@ -40,7 +40,6 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-
 	<footer class="entry-footer">
 		<?php mp_ssv_entry_meta(); ?>
 	</footer><!-- .entry-footer -->

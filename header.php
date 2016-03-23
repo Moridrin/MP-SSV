@@ -22,7 +22,7 @@
 		<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	</head>
-	<header <?php if (is_user_logged_in()) { echo 'style="top: 32px"'; } ?> class="mui-appbar mui--z1 mui--hidden-xs">
+	<header <?php if (is_admin_bar_showing()) { echo 'style="top: 32px"'; } ?> class="mui-appbar mui--z1 mui--hidden-xs">
 		<div class="mui-container">
 			<table width="100%">
 				<tbody>
@@ -53,7 +53,7 @@
 			</table>
 		</div>
 	</header>
-	<header style="<?php if (is_user_logged_in()) { echo ' top: 46px;'; } ?>" class="mui-appbar mui--z1 mui--visible-xs-block">
+	<header style="<?php if (is_admin_bar_showing()) { echo ' top: 46px;'; } ?>" class="mui-appbar mui--z1 mui--visible-xs-block">
 		<div class="mui-container">
 						<div align="center" class="site-branding-center">
 							<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -79,7 +79,7 @@
 									<?php
 									wp_nav_menu(array(
 										'theme_location' => 'primary',
-										'menu_class'     => 'primary-menu mui-list--unstyled mui--text-body2',
+										'menu_class'     => 'primary-menu mui-list--unstyled mui--text-body2 mobile-menu',
 										'items_wrap'     => '<ul style="line-height: 48px;" id="%1$s" class="%2$s">%3$s</ul>',
 									));
 									?>
