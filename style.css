@@ -2658,7 +2658,8 @@ li > a {
 
 .sub-menu {
   display: none;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  white-space: nowrap; }
 
 .mui-panel-comment {
   margin: 5px 0; }
