@@ -4,35 +4,28 @@ function mp_ssv_filter_content($content) {
 	$content = str_replace('<input type="submit"', '<input type="submit" class="mui-btn mui-btn--primary"', $content);
 	$content = str_replace('<input name="submit"', '<input name="submit" class="mui-btn mui-btn--primary"', $content);
 	if (strpos($content, '[mp_ssv_test]') !== false) {
-		$content = str_replace('[mp_ssv_test]', mp_ssv_test_content(), $content);
+		mp_ssv_test_content();
+		//$content = str_replace('[mp_ssv_test]', , $content);
 	}
 	return $content;
-
-	function mp_ssv_replace_tag($content, $tag, $url) {
-		$final_content = apply_filters('the_content', explode($tag, $content)[0]);
-		ob_start();
-		include_once get_stylesheet_directory().$url;
-		$final_content .= ob_get_contents();
-		ob_end_clean();
-		$final_content .= apply_filters('the_content', explode($tag, $content)[1]);
-		return $final_content;
-	}
-
-	function mp_ssv_members_filter($content) {
-		$users = get_users();
-		foreach ($users as $user) {
-			$search_term = $user->user_firstname." ".$user->user_lastname;
-			$search_replace = '<a href="/profile/?user_id='.$user->ID.'">'.$user->user_firstname.' '.$user->user_lastname.'</a>';
-			if (!is_null($search_term) && isset($search_term) && $search_term != "" && $search_term != " ") {
-				$content = str_replace('="'.$search_term.'"', '#TMP_REPLACE#', $content);
-				$content = str_replace($search_term, $search_replace, $content);
-				$content = str_replace('#TMP_REPLACE#', '="'.$search_term.'"', $content);
-			}
-		}
-		return $content;
-	}
 }
+
+function mp_ssv_replace_tag($content, $tag, $url) {
+	$final_content = apply_filters('the_content', explode($tag, $content)[0]);
+	ob_start();
+	include_once get_stylesheet_directory().$url;
+	$final_content .= ob_get_contents();
+	ob_end_clean();
+	$final_content .= apply_filters('the_content', explode($tag, $content)[1]);
+	return $final_content;
+}
+
 function mp_ssv_test_content() {
-	return mp_ssv_add_google_member();
+	$to = "j.berkvens@allterrain.nl";
+	$subject = "test_email";
+	$message = "this is a test email.";
+	$returner = wp_mail($to, $subject, $message);
+	$returner .= "Test Mail sent";
+	return $returner;
 }
 ?>

@@ -8,12 +8,14 @@
  */
 
 get_header(); ?>
-
-<header class="entry-header">
-	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+<header class="full-width-entry-header mui--visible-xs-block">
+	<?php the_title( '<h1 class="entry-title mui--z2">', '</h1>' ); ?>
 </header><!-- .entry-header -->
 <div id="page" class="container mui-container">
-	<div class="mui-col-xs-12 mui-col-md-9">
+	<div class="mui-col-xs-12 <?php if (is_dynamic_sidebar()) { echo "mui-col-md-9"; } ?>">
+		<header class="breaking-entry-header mui--hidden-xs">
+			<?php the_title( '<h1 class="entry-title mui--z2">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 				<?php

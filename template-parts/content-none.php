@@ -21,12 +21,12 @@
 		<?php elseif ( is_search() ) : ?>
 
 			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'mpssv' ); ?></p>
-			<?php get_search_form(); ?>
+			<?php mp_ssv_get_search_form(); ?>
 
 		<?php else : ?>
 
 			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'mpssv' ); ?></p>
-			<?php get_search_form(); ?>
+			<?php mp_ssv_get_search_form(); ?>
 
 		<?php endif; ?>
 	</div><!-- .page-content -->

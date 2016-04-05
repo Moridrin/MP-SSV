@@ -7,7 +7,7 @@
  * @since MP-SSV 1.0
  */
 require_once 'filter_content.php';
-add_filter( 'the_content', 'mp_ssv_filter_content' );
+add_filter( 'the_content', 'mp_ssv_filter_content', 11);
 
 if (!function_exists('mp_ssv_setup')) {
 	function mp_ssv_setup()
@@ -60,15 +60,6 @@ function mp_ssv_widgets_init() {
 		'name' => __('Sidebar', 'mpssv'),
 		'id' => 'sidebar-1',
 		'description' => __('Add widgets here to appear in your sidebar.', 'mpssv'),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget' => '</section>',
-		'before_title' => '<h2 class="widget-title">',
-		'after_title' => '</h2>'
-	));
-	register_sidebar(array(
-		'name' => __('Content Bottom', 'mpssv'),
-		'id' => 'content-bottom',
-		'description' => __('Appears at the bottom of the content on posts and pages.', 'mpssv'),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget' => '</section>',
 		'before_title' => '<h2 class="widget-title">',
@@ -202,4 +193,22 @@ if (!function_exists("mp_ssv_redirect")) {
 		$redirect_script .= '</script>';
 		echo $redirect_script;
 	}
+}
+
+function mp_ssv_get_search_form($echo = true) {
+	ob_start();
+	?>
+	<form role="search" method="get" class="search-form" action="/">
+		<div class="mui-textfield mui-textfield--float-label">
+			<input type="search" class="search-field" value="" name="s" title="Search for:">
+			<label>Search for</label>
+		</div>
+		<button type="submit" class="mui-btn mui-btn--primary search-submit"><span class="screen-reader-text">Search</span></button>
+	</form>
+	<?php
+	$search_form = ob_get_clean();
+	if ($echo) {
+		echo $search_form;
+	}
+	return $search_form;
 }

@@ -99,9 +99,6 @@ header > .mui--text-display2,
 header > .mui--text-display1 {
     background-color: $mui-primary-color;
     border: 0;
-    border-bottom: 1px;
-    border-style: solid;
-    border-color: $mui-primary-color-dark;
     color: $mui-text-light;
     padding-left: 10px;
 }
@@ -398,4 +395,50 @@ li > a {
 
 .mui-panel-content {
   padding: 15px;
+}
+
+ol {
+  counter-reset: item;
+}
+
+ol > li > p {
+  margin: 0;
+}
+
+.multi-depth-count-list > li,
+.multi-depth-count-list > li > ol > li,
+.multi-depth-count-list > li > ol > li > ol > li {
+  display: block;
+}
+
+.multi-depth-count-list > li > ol {
+  margin: 0;
+}
+
+.multi-depth-count-list > p {
+  margin: 0;
+}
+
+.multi-depth-count-list > li:before,
+.multi-depth-count-list > li > ol > li:before,
+.multi-depth-count-list > li > ol > li > ol > li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+.entry-content,
+.page-content {
+  padding: 10px;
+}
+
+.breaking-entry-header {
+  margin: 10 -15px 0 -15px;
+}
+
+.full-width-entry-header {
+    margin-top: 10px;
+}
+
+.entry-title {
+    position: relative;
 }
