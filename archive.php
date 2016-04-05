@@ -17,13 +17,6 @@
  */
 
 get_header(); ?>
-
-<header class="page-header">
-	<?php
-		the_archive_title( '<h1 class="page-title mui-container mui--z2">', '</h1>' );
-		the_archive_description( '<div class="taxonomy-description">', '</div>' );
-	?>
-</header><!-- .page-header -->
 <div id="page" class="container mui-container">
 	<div class="mui-col-xs-12 <?php if (is_dynamic_sidebar()) { echo "mui-col-md-9"; } ?>">
 		<div id="primary" class="content-area">
