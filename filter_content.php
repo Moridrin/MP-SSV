@@ -4,8 +4,8 @@ function mp_ssv_filter_content($content) {
 	$content = str_replace('<input type="submit"', '<input type="submit" class="mui-btn mui-btn--primary"', $content);
 	$content = str_replace('<input name="submit"', '<input name="submit" class="mui-btn mui-btn--primary"', $content);
 	if (strpos($content, '[mp_ssv_test]') !== false) {
-		mp_ssv_test_content();
-		//$content = str_replace('[mp_ssv_test]', , $content);
+		$test = mp_ssv_test_content();
+		$content = str_replace('[mp_ssv_test]', $test, $content);
 	}
 	return $content;
 }
@@ -21,11 +21,7 @@ function mp_ssv_replace_tag($content, $tag, $url) {
 }
 
 function mp_ssv_test_content() {
-	$to = "j.berkvens@allterrain.nl";
-	$subject = "test_email";
-	$message = "this is a test email.";
-	$returner = wp_mail($to, $subject, $message);
-	$returner .= "Test Mail sent";
-	return $returner;
+//	return mp_ssv_register_mp_ssv_frontend_members();
+//	return mp_ssv_unregister_mp_ssv_frontend_members();
 }
 ?>
