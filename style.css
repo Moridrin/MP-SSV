@@ -1,4 +1,4 @@
-header > h1/**
+/**
  * MUI Colors module
  */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -1505,19 +1505,19 @@ hr {
 /**
  * MUI Panel module
  */
-.mui-panel {
+.mui-panel, .card {
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 0;
   background-color: #FFF;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12); }
-  .mui-panel:before, .mui-panel:after {
+  .mui-panel:before, .card:before, .mui-panel:after, .card:after {
     content: " ";
     display: table; }
-  .mui-panel:after {
+  .mui-panel:after, .card:after {
     clear: both; }
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .mui-panel {
+    .mui-panel, .card {
       box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.12), -1px 0px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12); } }
 
 /**
@@ -2884,16 +2884,29 @@ ol > li > p {
 
 .entry-content,
 .page-content {
-  padding: 10px;
-}
+  padding: 10px; }
 
 .breaking-entry-header {
-  margin: 10 -15px 0 -15px;
-}
+  margin: 10 -15px 0 -15px; }
+
 .full-width-entry-header {
-    margin-top: 10px;
-}
+  margin-top: 10px; }
+
 .entry-title {
-    position: relative;
-}
+  position: relative; }
+
+.card {
+  transition: box-shadow .2s;
+  position: relative; }
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.card .card-link {
+  top: 0;
+  left: 0;
+  bottom: 70px;
+  right: 0;
+  position: absolute; }
+
 /*# sourceMappingURL=style.css.map */

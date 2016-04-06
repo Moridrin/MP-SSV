@@ -104,7 +104,7 @@ if ( ! function_exists( 'mp_ssv_post_thumbnail' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
-function mp_ssv_post_thumbnail() {
+function mp_ssv_post_thumbnail($without_link = false) {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -117,11 +117,13 @@ function mp_ssv_post_thumbnail() {
 	</div><!-- .post-thumbnail -->
 
 	<?php else : ?>
-
+	<?php if (!$without_link) { ?>
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+	<?php } ?>
 		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => the_title_attribute( 'echo=0' ) ) ); ?>
+	<?php if (!$without_link) { ?>
 	</a>
-
+	<?php } ?>
 	<?php endif; // End is_singular()
 }
 endif;
