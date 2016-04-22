@@ -13,7 +13,7 @@
 
 	<head>
 		<?php wp_head(); ?>
-		<script src="//cdn.muicss.com/mui-0.2.9/js/mui.min.js"></script>
+		<script src="//cdn.muicss.com/mui-0.2.9/js/mui.js"></script>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
