@@ -2910,7 +2910,10 @@ ol > li > p {
   position: absolute; }
 
 input[type="checkbox"] {
-  width: auto;
-}
+  width: auto; }
+
+.wp-post-image {
+  margin: auto;
+  display: block; }
 
 /*# sourceMappingURL=style.css.map */
