@@ -7,10 +7,6 @@
  * @since MP-SSV 1.0
  */
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require_once 'filter_content.php';
 add_filter( 'the_content', 'mp_ssv_filter_content', 11);
 
