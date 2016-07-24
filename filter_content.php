@@ -13,7 +13,7 @@ function mp_ssv_filter_content($content) {
 function mp_ssv_replace_tag($content, $tag, $url) {
 	$final_content = apply_filters('the_content', explode($tag, $content)[0]);
 	ob_start();
-	include_once get_stylesheet_directory().$url;
+	require_once get_stylesheet_directory().$url;
 	$final_content .= ob_get_contents();
 	ob_end_clean();
 	$final_content .= apply_filters('the_content', explode($tag, $content)[1]);
