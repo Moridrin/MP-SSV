@@ -385,6 +385,16 @@ li > a {
   white-space: nowrap;
 }
 
+.notification {
+  background-color: $mui-accent-color;
+  color: mui-color('white');
+}
+
+.notification a {
+  color: mui-color('white');
+  font-weight: bold;
+}
+
 .mui-panel-comment {
   margin: 5px 0;
 }

@@ -2850,6 +2850,14 @@ li > a {
   background-color: #ffffff;
   white-space: nowrap; }
 
+.notification {
+  background-color: #AD3400;
+  color: #FFF; }
+
+.notification a {
+  color: #FFF;
+  font-weight: bold; }
+
 .mui-panel-comment {
   margin: 5px 0; }
 
