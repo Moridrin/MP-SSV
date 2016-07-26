@@ -79,7 +79,7 @@ function mp_ssv_format_comment($comment, $args, $depth) {
 		</div>
 		
 		<?php if ($comment->comment_approved == '0') : ?>
-			<em><php _e('Your comment is awaiting moderation.') ?></em><br />
+            <em><?php _e('Your comment is awaiting moderation.'); ?></em><br/>
 		<?php endif; ?>
 		
 		<?php comment_text(); ?>

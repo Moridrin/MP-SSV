@@ -17,7 +17,7 @@
 
 			<?php the_title('<h2 class="entry-title">', '</h2>'); ?>
 		</header><!-- .entry-header -->
-	</a>
+	<?php echo '</a>'; ?>
 
 	<?php mp_ssv_post_thumbnail(); ?>
 

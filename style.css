@@ -2695,7 +2695,7 @@ textarea {
   width: 100%; }
 
 li > a {
-  margin: 0px;
+    margin: 0;
   display: block;
   width: 100%; }
 
@@ -2704,7 +2704,7 @@ li > a {
 
 @media (min-width: 783px) {
   li > a {
-    margin: 0px;
+      margin: 0;
     display: block;
     width: 100%; } }
 /* Hamburger Animation */
