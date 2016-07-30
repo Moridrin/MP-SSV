@@ -1,12 +1,13 @@
 @import "bower_components/mui/src/sass/mui/colors";
 //Default Colors
 $mui-primary-color: #005E38;
-$mui-primary-color-dark: #004127;
-$mui-primary-color-light: #0B8F5A;
-$mui-accent-color: #AD3400;
-$mui-accent-color-dark: #8B2900;
-$mui-accent-color-light: #D24A10;
+$mui-primary-color-dark: #002818;
+$mui-primary-color-light: #002818;
+$mui-accent-color: #7C0024;
+$mui-accent-color-dark: #35000F;
+$mui-accent-color-light: #B92E56;
 $mui-danger-color: mui-color('red', '500');
+$mui-tab-border-color-active: $mui-accent-color !default;
 //Screen Sizes
 $mui-screen-sm-min: 783px;
 $mui-screen-md-min: 910px;
@@ -34,20 +35,20 @@ $mui-text-danger: $mui-danger-color;
 @import "bower_components/mui/src/sass/mui";
 //Header
 .mui-appbar {
-    height: 64px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 header a:hover,
 .header-link:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .site-title {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
 .site-branding-center {
@@ -58,23 +59,23 @@ header a:hover,
 }
 
 .site-description {
-    font-weight: 100;
-    font-size: initial;
+  font-weight: 100;
+  font-size: initial;
 }
 
 .site-description,
 .primary-menu {
-    margin: 0;
+  margin: 0;
 }
 
 .current-menu-item,
 .current-menu-ancestor {
-    background-color: $mui-primary-color;
+  background-color: $mui-primary-color;
 }
 
 .current-menu-item > a,
 .current-menu-ancestor > a {
-    color: $mui-text-light;
+  color: $mui-text-light;
 }
 
 .menu-item:hover {
@@ -82,12 +83,12 @@ header a:hover,
 }
 
 .menu-item:hover > a {
-    color: $mui-text-light;
+  color: $mui-text-light;
 }
 
 #page {
-    min-height: calc(100% - 150px);
-    overflow: hidden;
+  min-height: calc(100% - 150px);
+  overflow: hidden;
 }
 
 header > h1,
@@ -97,56 +98,56 @@ header > .mui--text-display4,
 header > .mui--text-display3,
 header > .mui--text-display2,
 header > .mui--text-display1 {
-    background-color: $mui-primary-color;
-    border: 0;
-    color: $mui-text-light;
-    padding-left: 10px;
+  background-color: $mui-primary-color;
+  border: 0;
+  color: $mui-text-light;
+  padding-left: 10px;
 }
 
 header > .mui--text-display4,
 header > .mui--text-display3,
 header > .mui--text-display2,
 header > .mui--text-display1 {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .entry-header,
 .entry-header:hover,
 .entry-header:focus {
-    color: $mui-text-light;
+  color: $mui-text-light;
 }
 
 h1,
 h2,
 h3 {
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 10px;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .mui--z1 {
-    z-index: 1;
+  z-index: 1;
 }
 
 .mui--z2 {
-    z-index: 2;
+  z-index: 2;
 }
 
 .mui--z3 {
-    z-index: 3;
+  z-index: 3;
 }
 
 .mui--z4 {
-    z-index: 4;
+  z-index: 4;
 }
 
 .mui--z5 {
-    z-index: 5;
+  z-index: 5;
 }
 
 .widget {
-    padding: 5px;
-    margin: 10px 0;
+  padding: 5px;
+  margin: 10px 0;
 }
 
 footer {
@@ -157,24 +158,24 @@ footer {
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .post-thumbnail > img {
-    width: 100%;
+  width: 100%;
 }
 
 input,
 select,
 textarea {
-    width: 100%;
+  width: 100%;
 }
 
 li > a {
   margin: 0;
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 #wpadminbar {
@@ -182,12 +183,12 @@ li > a {
 }
 
 @media (min-width: $mui-screen-sm-min) {
-  
-   li > a {
-     margin: 0;
-       display: block;
-       width: 100%;
-   }
+
+  li > a {
+    margin: 0;
+    display: block;
+    width: 100%;
+  }
 }
 
 /* Hamburger Animation */
@@ -446,11 +447,11 @@ ol > li > p {
 }
 
 .full-width-entry-header {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .entry-title {
-    position: relative;
+  position: relative;
 }
 
 .card {
@@ -464,11 +465,11 @@ ol > li > p {
 }
 
 .card .card-link {
-    top: 0;
-    left: 0;
-    bottom: 70px;
-    right: 0;
-    position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 70px;
+  right: 0;
+  position: absolute;
 }
 
 input[type="checkbox"] {
