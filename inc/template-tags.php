@@ -12,7 +12,7 @@ if (!function_exists('mp_ssv_entry_meta')) :
             $author_avatar_size = apply_filters('mp_ssv_author_avatar_size', 49);
             printf(
                 '<span class="byline" style="margin-right: 10px;"><span class="author vcard">%1$s<span class="screen-reader-text" style="margin-left: 10px;">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span><br/>',
-                get_avatar(get_the_author_meta('user_email'), $author_avatar_size, "http://allterrain.nl/wp-content/uploads/2016/03/Mystery-Man.jpg", false, ["class" => "img-float"]),
+                get_avatar(get_the_author_meta('user_email'), $author_avatar_size, get_site_url() . "/wp-content/uploads/2016/03/Mystery-Man.jpg", false, ["class" => "img-float"]),
                 _x('Author', 'Used before post author name.', 'mpssv'),
                 esc_url(get_author_posts_url(get_the_author_meta('ID'))),
                 get_the_author()
