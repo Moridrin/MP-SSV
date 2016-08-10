@@ -7,6 +7,7 @@
  * @since      MP-SSV 1.0
  */
 
+require_once 'general/general.php';
 require_once 'filter_content.php';
 add_filter('the_content', 'mp_ssv_filter_content', 11);
 
