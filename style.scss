@@ -391,6 +391,11 @@ li > a {
   color: mui-color('white');
 }
 
+.notification-error {
+  background-color: $mui-danger-color;
+}
+
+
 .notification a {
   color: mui-color('white');
   font-weight: bold;
