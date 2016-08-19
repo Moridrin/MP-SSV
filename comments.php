@@ -6,8 +6,8 @@
  * and the comment form.
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 
 /*
@@ -25,7 +25,7 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-					printf(_x('Thoughts on &ldquo;%1$s&rdquo;', 'comments title', 'mpssv'), get_the_title());
+            printf(_x('Thoughts on &ldquo;%1$s&rdquo;', 'comments title', 'ssv'), get_the_title());
 			?>
 		</h2>
 
@@ -34,10 +34,10 @@ if ( post_password_required() ) {
 		<div class="comment-list">
 			<?php
 				$comments = wp_list_comments( array(
-					'style'       => 'div',
-					'short_ping'  => true,
-					'avatar_size' => 42,
-					'callback'				=> "mp_ssv_format_comment"
+                                                  'style'       => 'div',
+                                                  'short_ping'  => true,
+                                                  'avatar_size' => 42,
+                                                  'callback'    => "ssv_format_comment"
 				) );
 			echo "<xmp>".$comments."</xmp>";
 			?>
@@ -51,7 +51,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'mpssv' ); ?></p>
+            <p class="no-comments"><?php _e('Comments are closed.', 'ssv'); ?></p>
 	<?php endif; ?>
 
 	<?php
@@ -64,7 +64,7 @@ if ( post_password_required() ) {
 
 </div><!-- .comments-area -->
 <?php
-function mp_ssv_format_comment($comment, $args, $depth) {
+function ssv_format_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment; ?>
 	<div <?php comment_class('mui-panel mui-panel-comment'); ?> id="li-comment-<?php comment_ID() ?>">
 		<div class="comment-intro">

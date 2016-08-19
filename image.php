@@ -3,8 +3,8 @@
  * The template for displaying image attachments
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 
 get_header(); ?>
@@ -21,8 +21,8 @@ get_header(); ?>
 
 					<nav id="image-navigation" class="navigation image-navigation">
 						<div class="nav-links">
-							<div class="nav-previous"><?php previous_image_link(false, __('Previous Image', 'mpssv')); ?></div>
-							<div class="nav-next"><?php next_image_link(false, __('Next Image', 'mpssv')); ?></div>
+                            <div class="nav-previous"><?php previous_image_link(false, __('Previous Image', 'ssv')); ?></div>
+                            <div class="nav-next"><?php next_image_link(false, __('Next Image', 'ssv')); ?></div>
 						</div><!-- .nav-links -->
 					</nav><!-- .image-navigation -->
 
@@ -34,39 +34,39 @@ get_header(); ?>
 
 						<div class="entry-attachment">
 							<?php
-								$image_size = apply_filters('mp_ssv_attachment_size', 'large');
+                            $image_size = apply_filters('ssv_attachment_size', 'large');
 
 								echo wp_get_attachment_image(get_the_ID(), $image_size);
 							?>
 
-							<?php mp_ssv_excerpt('entry-caption'); ?>
+                            <?php ssv_excerpt('entry-caption'); ?>
 
 						</div><!-- .entry-attachment -->
 
 						<?php
 							the_content();
 							wp_link_pages(array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'mpssv') . '</span>',
-								'after'       => '</div>',
-								'link_before' => '<span>',
-								'link_after'  => '</span>',
-								'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'mpssv') . ' </span>%',
-								'separator'   => '<span class="screen-reader-text">, </span>',
+                                              'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'ssv') . '</span>',
+                                              'after'       => '</div>',
+                                              'link_before' => '<span>',
+                                              'link_after'  => '</span>',
+                                              'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'ssv') . ' </span>%',
+                                              'separator'   => '<span class="screen-reader-text">, </span>',
 							));
 						?>
 					</div><!-- .entry-content -->
 
 					<footer class="entry-footer">
-						<?php mp_ssv_entry_meta(); ?>
+                        <?php ssv_entry_meta(); ?>
 						<?php
 							// Retrieve attachment metadata.
 							$metadata = wp_get_attachment_metadata();
 							if ($metadata) {
 								printf('<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
-									esc_html_x('Full size', 'Used before full size attachment link.', 'mpssv'),
-									esc_url(wp_get_attachment_url()),
-									absint($metadata['width']),
-									absint($metadata['height'])
+                                       esc_html_x('Full size', 'Used before full size attachment link.', 'ssv'),
+                                       esc_url(wp_get_attachment_url()),
+                                       absint($metadata['width']),
+                                       absint($metadata['height'])
 								);
 							}
 						?>
@@ -74,8 +74,8 @@ get_header(); ?>
 							edit_post_link(
 								sprintf(
 									/* translators: %s: Name of current post */
-									__('Edit<span class="screen-reader-text"> "%s"</span>', 'mpssv'),
-									get_the_title()
+                                    __('Edit<span class="screen-reader-text"> "%s"</span>', 'ssv'),
+                                    get_the_title()
 								),
 								'<span class="edit-link">',
 								'</span>'
@@ -92,7 +92,7 @@ get_header(); ?>
 
 					// Parent post navigation.
 					the_post_navigation(array(
-						'prev_text' => _x('<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'mpssv'),
+                                            'prev_text' => _x('<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'ssv'),
 					));
 				// End the loop.
 				endwhile;

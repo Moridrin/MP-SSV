@@ -3,8 +3,8 @@
  * The template for the content bottom widget areas on posts and pages
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 
 // If we get this far, we have widgets. Let's do this.

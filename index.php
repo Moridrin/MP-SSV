@@ -8,8 +8,8 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 
 get_header() ?>
@@ -42,9 +42,9 @@ get_header() ?>
 
 				// Previous/next page navigation.
 				the_posts_pagination( array(
-					'prev_text'          => __( 'Previous page', 'mp-ssv' ),
-					'next_text'          => __( 'Next page', 'mp-ssv' ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'mp-ssv' ) . ' </span>',
+                                          'prev_text'          => __('Previous page', 'ssv'),
+                                          'next_text'          => __('Next page', 'ssv'),
+                                          'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'ssv') . ' </span>',
 				) );
 
 			// If no content, include the "No posts found" template.

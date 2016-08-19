@@ -3,8 +3,8 @@
  * The template for displaying all single posts and attachments
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 
 get_header(); ?>

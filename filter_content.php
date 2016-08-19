@@ -1,16 +1,18 @@
 <?php
-function mp_ssv_filter_content($content) {
+function ssv_filter_content($content)
+{
 	$content = str_replace('<button>', '<button class="mui-btn mui-btn--primary">', $content);
 	$content = str_replace('<input type="submit"', '<input type="submit" class="mui-btn mui-btn--primary"', $content);
 	$content = str_replace('<input name="submit"', '<input name="submit" class="mui-btn mui-btn--primary"', $content);
-	if (strpos($content, '[mp_ssv_test]') !== false) {
-		$test = mp_ssv_test_content();
-		$content = str_replace('[mp_ssv_test]', $test, $content);
+    if (strpos($content, '[ssv_test]') !== false) {
+        $test = ssv_test_content();
+        $content = str_replace('[ssv_test]', $test, $content);
 	}
 	return $content;
 }
 
-function mp_ssv_replace_tag($content, $tag, $url) {
+function ssv_replace_tag($content, $tag, $url)
+{
 	$final_content = apply_filters('the_content', explode($tag, $content)[0]);
 	ob_start();
     /** @noinspection PhpIncludeInspection */
@@ -21,8 +23,9 @@ function mp_ssv_replace_tag($content, $tag, $url) {
 	return $final_content;
 }
 
-function mp_ssv_test_content() {
-//	return mp_ssv_register_mp_ssv_frontend_members();
-//	return mp_ssv_unregister_mp_ssv_frontend_members();
+function ssv_test_content()
+{
+//	return ssv_register_ssv_frontend_members();
+//	return ssv_unregister_ssv_frontend_members();
     return null;
 }

@@ -3,8 +3,8 @@
  * The template for the sidebar containing the main widget area
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 ?>
 

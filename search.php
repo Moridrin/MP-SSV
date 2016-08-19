@@ -3,15 +3,15 @@
  * The template for displaying search results pages
  *
  * @package Moridrin
- * @subpackage MP-SSV
- * @since MP-SSV 1.0
+ * @subpackage SSV
+ * @since SSV 1.0
  */
 
 get_header(); ?>
 
 
 <header class="page-header">
-	<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'mpssv' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
+    <h1 class="page-title"><?php printf(__('Search Results for: %s', 'ssv'), '<span>' . esc_html(get_search_query()) . '</span>'); ?></h1>
 </header><!-- .page-header -->
 <div id="page" class="container mui-container">
 	<div class="mui-col-xs-12 mui-col-md-9">
@@ -36,9 +36,9 @@ get_header(); ?>
 
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'mpssv' ),
-				'next_text'          => __( 'Next page', 'mpssv' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'mpssv' ) . ' </span>',
+                                      'prev_text'          => __('Previous page', 'ssv'),
+                                      'next_text'          => __('Next page', 'ssv'),
+                                      'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'ssv') . ' </span>',
 			) );
 
 		// If no content, include the "No posts found" template.

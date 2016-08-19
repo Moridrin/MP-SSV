@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: MP-SSV 0.1.20150828\n"
+"Project-Id-Version: SSV 0.1.20150828\n"
 "Report-Msgid-Bugs-To: http://allterrain.nl"
 "POT-Creation-Date: 2015-11-20 12:58:54+00:00\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Footer Social Links Menu"
 msgstr ""
 
-#. #-#-#-#-#  mpssv.pot (MP-SSV 0.1.20150828)  #-#-#-#-#
+#. #-#-#-#-#  ssv.pot (SSV 0.1.20150828)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: footer.php:51
 msgid "https://allterrain.nl/"
@@ -328,7 +328,7 @@ msgid "Twenty Sixteen"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://wordpress.org/themes/mpssv/"
+msgid "https://wordpress.org/themes/ssv/"
 msgstr ""
 
 #. Description of the plugin/theme
