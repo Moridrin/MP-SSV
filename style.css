@@ -776,61 +776,61 @@ h4, h5, h6 {
 
 .mui-btn--danger {
   color: #FFF;
-  background-color: #F44336;
+  background-color: #CC0000;
 }
 
 .mui-btn--danger:hover, .mui-btn--danger:focus, .mui-btn--danger:active {
     color: #FFF;
-  background-color: #f55a4e;
+  background-color: #e60000;
 }
 
 .mui-btn--danger[disabled]:hover, .mui-btn--danger[disabled]:focus, .mui-btn--danger[disabled]:active {
     color: #FFF;
-  background-color: #F44336;
+  background-color: #CC0000;
 }
 
 .mui-btn--danger.mui-btn--flat {
-    color: #F44336;
+  color: #CC0000;
   background-color: transparent;
 }
 
 .mui-btn--danger.mui-btn--flat:hover, .mui-btn--danger.mui-btn--flat:focus, .mui-btn--danger.mui-btn--flat:active {
-  color: #F44336;
+  color: #CC0000;
   background-color: #f2f2f2;
 }
 
 .mui-btn--danger.mui-btn--flat[disabled]:hover, .mui-btn--danger.mui-btn--flat[disabled]:focus, .mui-btn--danger.mui-btn--flat[disabled]:active {
-  color: #F44336;
+  color: #CC0000;
   background-color: transparent;
 }
 
 .mui-btn--accent {
   color: #FFF;
-  background-color: #7C0024;
+  background-color: #063359;
 }
 
 .mui-btn--accent:hover, .mui-btn--accent:focus, .mui-btn--accent:active {
     color: #FFF;
-  background-color: #96002b;
+  background-color: #084171;
 }
 
 .mui-btn--accent[disabled]:hover, .mui-btn--accent[disabled]:focus, .mui-btn--accent[disabled]:active {
     color: #FFF;
-  background-color: #7C0024;
+  background-color: #063359;
 }
 
 .mui-btn--accent.mui-btn--flat {
-    color: #7C0024;
+  color: #063359;
   background-color: transparent;
 }
 
 .mui-btn--accent.mui-btn--flat:hover, .mui-btn--accent.mui-btn--flat:focus, .mui-btn--accent.mui-btn--flat:active {
-  color: #7C0024;
+  color: #063359;
   background-color: #f2f2f2;
 }
 
 .mui-btn--accent.mui-btn--flat[disabled]:hover, .mui-btn--accent.mui-btn--flat[disabled]:focus, .mui-btn--accent.mui-btn--flat[disabled]:active {
-  color: #7C0024;
+  color: #063359;
   background-color: transparent;
 }
 
@@ -1868,7 +1868,7 @@ th {
 }
 
 .mui-tabs__bar > li.mui--is-active {
-  border-bottom: 2px solid #7C0024;
+  border-bottom: 2px solid #063359;
 }
 
 .mui-tabs__bar > li.mui--is-active > a {
@@ -2059,7 +2059,7 @@ th {
 .mui-textfield > textarea:not(:focus).mui--is-invalid:required.mui--is-empty.mui--is-dirty,
 .mui-textfield > textarea:not(:focus).mui--is-invalid:required[value]:not([value=""]):not(.mui--is-empty):not(.mui--is-not-empty),
 .mui-textfield > textarea:not(:focus).mui--is-invalid:required:not(:empty):not(.mui--is-empty):not(.mui--is-not-empty) {
-  border-color: #F44336;
+  border-color: #CC0000;
   border-width: 2px;
 }
 
@@ -2086,14 +2086,14 @@ th {
 .mui-textfield > textarea:not(:focus).mui--is-invalid:required.mui--is-not-empty ~ label,
 .mui-textfield > textarea:not(:focus).mui--is-invalid:required[value]:not([value=""]):not(.mui--is-empty):not(.mui--is-not-empty) ~ label,
 .mui-textfield > textarea:not(:focus).mui--is-invalid:required:not(:empty):not(.mui--is-empty):not(.mui--is-not-empty) ~ label {
-  color: #F44336;
+  color: #CC0000;
 }
 
 .mui-textfield:not(.mui-textfield--float-label) > input:invalid:not(:focus):required.mui--is-empty.mui--is-dirty ~ label,
 .mui-textfield:not(.mui-textfield--float-label) > textarea:invalid:not(:focus):required.mui--is-empty.mui--is-dirty ~ label,
 .mui-textfield:not(.mui-textfield--float-label) > input:not(:focus).mui--is-invalid:required.mui--is-empty.mui--is-dirty ~ label,
 .mui-textfield:not(.mui-textfield--float-label) > textarea:not(:focus).mui--is-invalid:required.mui--is-empty.mui--is-dirty ~ label {
-  color: #F44336;
+  color: #CC0000;
 }
 
 /**
@@ -2187,15 +2187,15 @@ th {
 }
 
 .mui--text-accent {
-  color: rgba(124, 0, 36, 0.87);
+  color: rgba(6, 51, 89, 0.87);
 }
 
 .mui--text-accent-secondary {
-  color: rgba(124, 0, 36, 0.54);
+  color: rgba(6, 51, 89, 0.54);
 }
 
 .mui--text-accent-hint {
-  color: rgba(124, 0, 36, 0.38);
+  color: rgba(6, 51, 89, 0.38);
 }
 
 .mui--text-black {
@@ -2207,7 +2207,7 @@ th {
 }
 
 .mui--text-danger {
-  color: #F44336;
+  color: #CC0000;
 }
 
 .mui--bg-primary {
@@ -2219,23 +2219,23 @@ th {
 }
 
 .mui--bg-primary-light {
-  background-color: #002818;
+  background-color: #238C62;
 }
 
 .mui--bg-accent {
-  background-color: #7C0024;
+  background-color: #063359;
 }
 
 .mui--bg-accent-dark {
-  background-color: #35000F;
+  background-color: #011526;
 }
 
 .mui--bg-accent-light {
-  background-color: #B92E56;
+  background-color: #285B85;
 }
 
 .mui--bg-danger {
-  background-color: #F44336;
+  background-color: #CC0000;
 }
 
 .mui-list--unstyled {
@@ -2665,8 +2665,15 @@ header a:hover,
   text-decoration: none;
 }
 
-.site-title {
+.site-title,
+a.site-title {
   font-size: xx-large;
+  color: #005E38;
+}
+
+a.site-title:hover,
+a.site-title:focus {
+  color: #002818;
 }
 
 .site-branding-center {
@@ -2686,6 +2693,18 @@ header a:hover,
   margin: 0;
 }
 
+.menu-item:hover {
+  background-color: #238C62;
+}
+
+.menu-item:hover > a {
+  color: #FFF;
+}
+
+.menu-item > a {
+  color: #005E38;
+}
+
 .current-menu-item,
 .current-menu-ancestor {
   background-color: #005E38;
@@ -2693,14 +2712,6 @@ header a:hover,
 
 .current-menu-item > a,
 .current-menu-ancestor > a {
-  color: #FFF;
-}
-
-.menu-item:hover {
-  background-color: #002818;
-}
-
-.menu-item:hover > a {
   color: #FFF;
 }
 
@@ -2986,12 +2997,12 @@ li > a {
 }
 
 .notification {
-  background-color: #7C0024;
+  background-color: #063359;
   color: #FFF;
 }
 
 .notification-error {
-  background-color: #F44336;
+  background-color: #CC0000;
 }
 
 .notification a {
@@ -3081,6 +3092,14 @@ input[type="checkbox"] {
 .wp-post-image {
   margin: auto;
   display: block;
+}
+
+a {
+  color: #063359;
+}
+
+a:hover {
+  color: #011526;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,11 +2,11 @@
 //Default Colors
 $mui-primary-color: #005E38;
 $mui-primary-color-dark: #002818;
-$mui-primary-color-light: #002818;
-$mui-accent-color: #7C0024;
-$mui-accent-color-dark: #35000F;
-$mui-accent-color-light: #B92E56;
-$mui-danger-color: mui-color('red', '500');
+$mui-primary-color-light: #238C62;
+$mui-accent-color: #063359;
+$mui-accent-color-dark: #011526;
+$mui-accent-color-light: #285B85;
+$mui-danger-color: #CC0000;
 $mui-tab-border-color-active: $mui-accent-color !default;
 //Screen Sizes
 $mui-screen-sm-min: 783px;
@@ -47,8 +47,15 @@ header a:hover,
   text-decoration: none;
 }
 
-.site-title {
+.site-title,
+a.site-title {
   font-size: xx-large;
+  color: $mui-primary-color;
+}
+
+a.site-title:hover,
+a.site-title:focus {
+  color: $mui-primary-color-dark;
 }
 
 .site-branding-center {
@@ -68,6 +75,18 @@ header a:hover,
   margin: 0;
 }
 
+.menu-item:hover {
+  background-color: $mui-primary-color-light;
+}
+
+.menu-item:hover > a {
+  color: $mui-text-light;
+}
+
+.menu-item > a {
+  color: $mui-primary-color;
+}
+
 .current-menu-item,
 .current-menu-ancestor {
   background-color: $mui-primary-color;
@@ -75,14 +94,6 @@ header a:hover,
 
 .current-menu-item > a,
 .current-menu-ancestor > a {
-  color: $mui-text-light;
-}
-
-.menu-item:hover {
-  background-color: $mui-primary-color-light;
-}
-
-.menu-item:hover > a {
   color: $mui-text-light;
 }
 
@@ -395,7 +406,6 @@ li > a {
   background-color: $mui-danger-color;
 }
 
-
 .notification a {
   color: mui-color('white');
   font-weight: bold;
@@ -484,4 +494,12 @@ input[type="checkbox"] {
 .wp-post-image {
   margin: auto;
   display: block;
+}
+
+a {
+  color: $mui-accent-color;
+}
+
+a:hover {
+  color: $mui-accent-color-dark;
 }
