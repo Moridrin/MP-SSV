@@ -230,16 +230,6 @@ function ssv_override_toolbar_margin()
 
 add_action('wp_head', 'ssv_override_toolbar_margin', 11);
 
-if (!function_exists("ssv_redirect")) {
-    function ssv_redirect($location)
-    {
-        $redirect_script = '<script type="text/javascript">';
-        $redirect_script .= 'window.location = "' . $location . '"';
-        $redirect_script .= '</script>';
-        echo $redirect_script;
-    }
-}
-
 function ssv_get_search_form($echo = true)
 {
     ob_start();
