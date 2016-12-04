@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('card mui-panel mui-panel-with-header'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('card panel panel-with-header'); ?>>
 	<?php echo sprintf('<a href="%s" class="card-link header-link entry-header" rel="bookmark"></a>', esc_url(get_permalink())) ?>
 		<header class="entry-header">
 			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
@@ -21,7 +21,7 @@
 
     <?php ssv_post_thumbnail(true); ?>
 
-	<div class="entry-content mui-panel-content">
+	<div class="entry-content panel-content">
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(

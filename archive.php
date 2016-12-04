@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
-<div id="page" class="container mui-container">
-	<div class="mui-col-xs-12 <?php if (is_dynamic_sidebar()) { echo "mui-col-md-9"; } ?>">
+<div id="page" class="container container">
+	<div class="col-xs-12 <?php if (is_dynamic_sidebar()) { echo "col-md-9"; } ?>">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 

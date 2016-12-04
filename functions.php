@@ -8,62 +8,100 @@
  */
 
 require_once 'general/general.php';
-require_once 'filter_content.php';
-add_filter('the_content', 'ssv_filter_content', 11);
+//require_once 'filter_content.php';
+require_once 'inc/template-tags.php';
 
-if (!function_exists('ssv_setup')) {
-    function ssv_setup()
-    {
-        load_theme_textdomain('ssv', get_template_directory() . '/languages');
-        add_theme_support('automatic-feed-links');
-        add_theme_support('title-tag');
-        add_theme_support('post-thumbnails');
-        add_theme_support('custom-header');
-        set_post_thumbnail_size(1920, 480, true);
-        add_image_size('ssv-banner-xl', 1920, 480, true);
-        add_image_size('ssv-banner-l', 1700, 425, true);
-        add_image_size('ssv-banner-m', 1200, 300, true);
-        add_image_size('ssv-banner-s', 600, 150, true);
-        register_nav_menus(
-            array(
-                'primary' => __('Primary Menu', 'ssv'),
-                'social'  => __('Social Links Menu', 'ssv')
-            )
-        );
-        add_theme_support(
-            'html5', array(
-                       'search-form',
-                       'comment-form',
-                       'comment-list',
-                       'gallery',
-                       'caption'
-                   )
-        );
-        add_theme_support(
-            'post-formats', array(
-                              'aside',
-                              'image',
-                              'video',
-                              'quote',
-                              'link',
-                              'gallery',
-                              'status',
-                              'audio',
-                              'chat'
-                          )
-        );
-        add_theme_support('tabs');
-        add_theme_support('mui');
-    }
+function mp_ssv_theme_setup()
+{
+    add_theme_support('automatic-feed-links');
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('custom-header');
+    set_post_thumbnail_size(1920, 480, true);
+    add_image_size('ssv-banner-xl', 1920, 480, true);
+    add_image_size('ssv-banner-l', 1700, 425, true);
+    add_image_size('ssv-banner-m', 1200, 300, true);
+    add_image_size('ssv-banner-s', 600, 150, true);
+    register_nav_menus(
+        array(
+            'primary'        => __('Primary Menu', 'ssv'),
+            'mobile_primary' => __('Primary Mobile Menu', 'ssv'),
+            'mobile_profile' => __('Profile Mobile Menu', 'ssv'),
+        )
+    );
+    add_theme_support(
+        'html5',
+        array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+        )
+    );
+//        add_theme_support(
+//            'post-formats', array(
+//                              'aside',
+//                              'image',
+//                              'video',
+//                              'quote',
+//                              'link',
+//                              'gallery',
+//                              'status',
+//                              'audio',
+//                              'chat'
+//                          )
+//        );
+    add_theme_support('tabs');
+    add_theme_support('mui');
 }
-add_action('after_setup_theme', 'ssv_setup');
+
+add_action('after_setup_theme', 'mp_ssv_theme_setup');
+
+function mp_ssv_enquire_scripts()
+{
+    wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv-v2/js/materialize.js', array('jquery'));
+}
+
+add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
+
+function mp_ssv_enquire_style()
+{
+    wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv-v2/css/materialize.css');
+}
+
+add_action('wp_enqueue_style', 'mp_ssv_enquire_style');
+
+function mp_special_nav_menu_class($classes, $item, $args)
+{
+    if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes) || in_array('current-menu-ancestor', $classes) || in_array('current-menu-parent', $classes)) {
+        $classes[] = 'active ';
+    }
+    if (in_array('menu-item-has-children', $classes) && strpos($args->theme_location, 'mobile') === false) {
+        $classes[]   = 'dropdown-button';
+        $item->title = $item->title . '<i class="material-icons right">arrow_drop_down</i>';
+    }
+    $classes[] = 'waves-effect';
+    return $classes;
+}
+
+add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
+
+//add_filter('the_content', 'ssv_filter_content', 11);
+
+function mp_ssv_menu_sub_menu_link_replace($matches)
+{
+    global $count;
+    $count = isset($count) ?: 0;
+    return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
+}
 
 function ssv_content_width()
 {
     $GLOBALS['content_width'] = apply_filters('ssv_content_width', 1920);
 }
 
-add_action('after_setup_theme', 'ssv_content_width', 0);
+//add_action('after_setup_theme', 'ssv_content_width', 0);
 
 function ssv_widgets_init()
 {
@@ -75,19 +113,19 @@ function ssv_widgets_init()
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
             'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>'
+            'after_title'   => '</h2>',
         )
     );
 }
 
-add_action('widgets_init', 'ssv_widgets_init');
+//add_action('widgets_init', 'ssv_widgets_init');
 
 if (!function_exists('ssv_fonts_url')) {
     function ssv_fonts_url()
     {
         $fonts_url = '';
-        $fonts = array();
-        $subsets = 'latin,latin-ext';
+        $fonts     = array();
+        $subsets   = 'latin,latin-ext';
         if ('off' !== _x('on', 'Merriweather font: on or off', 'ssv')) {
             $fonts[] = 'Merriweather:400,700,900,400italic,700italic,900italic';
         }
@@ -101,8 +139,9 @@ if (!function_exists('ssv_fonts_url')) {
             $fonts_url = add_query_arg(
                 array(
                     'family' => urlencode(implode('|', $fonts)),
-                    'subset' => urlencode($subsets)
-                ), 'https://fonts.googleapis.com/css'
+                    'subset' => urlencode($subsets),
+                ),
+                'https://fonts.googleapis.com/css'
             );
         }
         return $fonts_url;
@@ -116,7 +155,7 @@ function ssv_scripts()
     wp_enqueue_style('ssv-style', get_stylesheet_uri());
 }
 
-add_action('wp_enqueue_scripts', 'ssv_scripts');
+//add_action('wp_enqueue_scripts', 'ssv_scripts');
 
 function ssv_body_classes($classes)
 {
@@ -135,7 +174,7 @@ function ssv_body_classes($classes)
     return $classes;
 }
 
-add_filter('body_class', 'ssv_body_classes');
+//add_filter('body_class', 'ssv_body_classes');
 
 function ssv_hex2rgb($color)
 {
@@ -156,12 +195,9 @@ function ssv_hex2rgb($color)
     return array(
         'red'   => $r,
         'green' => $g,
-        'blue'  => $b
+        'blue'  => $b,
     );
 }
-
-/** @noinspection PhpIncludeInspection */
-require get_template_directory() . '/inc/template-tags.php';
 
 function ssv_content_image_sizes_attr($sizes, $size)
 {
@@ -176,7 +212,7 @@ function ssv_content_image_sizes_attr($sizes, $size)
     return $sizes;
 }
 
-add_filter('wp_calculate_image_sizes', 'ssv_content_image_sizes_attr', 10, 2);
+//add_filter('wp_calculate_image_sizes', 'ssv_content_image_sizes_attr', 10, 2);
 
 function ssv_post_thumbnail_sizes_attr($attr, $attachment, $size)
 {
@@ -187,21 +223,22 @@ function ssv_post_thumbnail_sizes_attr($attr, $attachment, $size)
     return $attr ?: $attachment;
 }
 
-add_filter('wp_get_attachment_image_attributes', 'ssv_post_thumbnail_sizes_attr', 10, 3);
+//add_filter('wp_get_attachment_image_attributes', 'ssv_post_thumbnail_sizes_attr', 10, 3);
 
 function ssv_my_custom_sizes($sizes)
 {
     return array_merge(
-        $sizes, array(
-                  'ssv-banner-xl' => __('Banner XL'),
-                  'ssv-banner-l'  => __('Banner L'),
-                  'ssv-banner-m'  => __('Banner M'),
-                  'ssv-banner-s'  => __('Banner S')
-              )
+        $sizes,
+        array(
+            'ssv-banner-xl' => __('Banner XL'),
+            'ssv-banner-l'  => __('Banner L'),
+            'ssv-banner-m'  => __('Banner M'),
+            'ssv-banner-s'  => __('Banner S'),
+        )
     );
 }
 
-add_filter('image_size_names_choose', 'ssv_my_custom_sizes');
+//add_filter('image_size_names_choose', 'ssv_my_custom_sizes');
 
 function ssv_override_toolbar_margin()
 {
@@ -228,18 +265,18 @@ function ssv_override_toolbar_margin()
     <?php }
 }
 
-add_action('wp_head', 'ssv_override_toolbar_margin', 11);
+//add_action('wp_head', 'ssv_override_toolbar_margin', 11);
 
 function ssv_get_search_form($echo = true)
 {
     ob_start();
     ?>
     <form role="search" method="get" class="search-form" action="/">
-        <div class="mui-textfield mui-textfield--float-label">
+        <div class="textfield textfield--float-label">
             <input type="search" class="search-field" value="" name="s" title="Search for:">
             <label>Search for</label>
         </div>
-        <button type="submit" class="mui-btn mui-btn--primary search-submit"><span class="screen-reader-text">Search</span></button>
+        <button type="submit" class="btn btn--primary search-submit"><span class="screen-reader-text">Search</span></button>
     </form>
     <?php
     $search_form = ob_get_clean();

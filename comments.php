@@ -58,7 +58,7 @@ if ( post_password_required() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'class_submit'       => 'mui-btn mui-btn--primary',
+			'class_submit'       => 'btn btn--primary',
 		) );
 	?>
 
@@ -66,7 +66,7 @@ if ( post_password_required() ) {
 <?php
 function ssv_format_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment; ?>
-	<div <?php comment_class('mui-panel mui-panel-comment'); ?> id="li-comment-<?php comment_ID() ?>">
+	<div <?php comment_class('panel panel-comment'); ?> id="li-comment-<?php comment_ID() ?>">
 		<div class="comment-intro">
 			<?php
 			$author = get_user_by("email", $comment->comment_author_email);
