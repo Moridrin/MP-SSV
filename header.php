@@ -12,11 +12,8 @@
 
     <head>
         <?php wp_head(); ?>
-        <?php wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv-v2/css/materialize.css'); ?>
-        <?php wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv-v2/js/materialize.js'); ?>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta charset="<?php bloginfo('charset'); ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <?php if (is_singular() && pings_open(get_queried_object())) : ?>
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
@@ -25,7 +22,6 @@
         <?= mp_ssv_get_main_nav_bar() ?>
         <?= mp_ssv_get_side_menu() ?>
     </header>
-
 <?php
 
 function mp_ssv_get_main_nav_bar()
@@ -115,15 +111,6 @@ function mp_ssv_get_side_menu()
         </li>
         <?= $mobile_profile_menu_items ?>
     </ul>
-    <script>
-        (function ($) {
-            $('.button-collapse').sideNav({
-                    closeOnClick: true,
-                    draggable: true
-                }
-            );
-        })(jQuery);
-    </script>
     <?php
 
     return ob_get_clean();

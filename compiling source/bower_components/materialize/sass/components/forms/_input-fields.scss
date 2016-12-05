@@ -11,7 +11,7 @@
   color: $placeholder-text-color;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder { /* Firefox 19+ */
   color: $placeholder-text-color;
 }
 
@@ -33,7 +33,7 @@ input[type=datetime-local],
 input[type=tel],
 input[type=number],
 input[type=search],
-textarea.materialize-textarea {
+textarea {
 
   // General Styles
   background-color: transparent;
@@ -58,8 +58,8 @@ textarea.materialize-textarea {
   }
 
   // Disabled label style
-  &:disabled+label,
-  &[readonly="readonly"]+label {
+  &:disabled + label,
+  &[readonly="readonly"] + label {
     color: $input-disabled-color;
   }
 
@@ -70,7 +70,7 @@ textarea.materialize-textarea {
   }
 
   // Focused label style
-  &:focus:not([readonly])+label {
+  &:focus:not([readonly]) + label {
     color: $input-focus-color;
   }
 
@@ -172,7 +172,9 @@ textarea.materialize-textarea {
     font-size: 2rem;
     transition: color .2s;
 
-    &.active { color: $input-focus-color; }
+    &.active {
+      color: $input-focus-color;
+    }
   }
 
   .prefix ~ input,
@@ -185,7 +187,9 @@ textarea.materialize-textarea {
     width: calc(100% - 3rem);
   }
 
-  .prefix ~ label { margin-left: 3rem; }
+  .prefix ~ label {
+    margin-left: 3rem;
+  }
 
   @media #{$medium-and-down} {
     .prefix ~ input {
@@ -202,7 +206,6 @@ textarea.materialize-textarea {
   }
 }
 
-
 /* Search Field */
 
 .input-field input[type=search] {
@@ -215,12 +218,12 @@ textarea.materialize-textarea {
     background-color: $input-background;
     border: 0;
     box-shadow: none;
-    color: #444;
+    color: #444444;
 
     & + label i,
     & ~ .mdi-navigation-close,
     & ~ .material-icons {
-      color: #444;
+      color: #444444;
     }
   }
 
@@ -240,7 +243,6 @@ textarea.materialize-textarea {
   }
 }
 
-
 /* Textarea */
 
 // Default textarea
@@ -248,13 +250,11 @@ textarea {
   width: 100%;
   height: $input-height;
   background-color: transparent;
+  overflow-y: hidden; /* prevents scroll bar flash */
+  padding: .8rem 0 1.6rem 0; /* prevents text jump on Enter keypress */
+  resize: none;
+  min-height: $input-height;
 
-  &.materialize-textarea {
-    overflow-y: hidden; /* prevents scroll bar flash */
-    padding: .8rem 0 1.6rem 0; /* prevents text jump on Enter keypress */
-    resize: none;
-    min-height: $input-height;
-  }
 }
 
 // For textarea autoresize
@@ -266,7 +266,6 @@ textarea {
   padding-top: 1.2rem; /* prevents text jump on Enter keypress */
 }
 
-
 /* Autocomplete */
 .autocomplete-content {
   margin-top: -15px;
@@ -275,7 +274,9 @@ textarea {
   position: static;
 
   li {
-    .highlight { color: #444; }
+    .highlight {
+      color: #444444;
+    }
 
     img {
       height: $dropdown-item-height - 10;
