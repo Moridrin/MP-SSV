@@ -44,7 +44,7 @@ function mp_ssv_get_main_nav_bar()
     preg_match_all('/<ul class="sub-menu">(.*?)<\/ul>/s', $menu, $subMenus);
     $i = 0;
     foreach ($subMenus[0] as $subMenu) {
-        $menu = preg_replace('/' . str_replace('/', '\/', addslashes($subMenu)) . '/s', '', $menu);
+        $menu = str_replace($subMenu, '', $menu);
         $i++;
     }
     $i = 0;

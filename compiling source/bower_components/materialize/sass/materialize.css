@@ -3013,6 +3013,8 @@ nav {
     font-size: 2.1rem;
     padding: 0;
     white-space: nowrap; }
+    nav .brand-logo:not(.center) {
+      margin-left: 20px; }
     nav .brand-logo.center {
       left: 50%;
       transform: translateX(-50%); }
