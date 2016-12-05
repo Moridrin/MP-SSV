@@ -11,7 +11,7 @@ jQuery(function ($) {
         );
 
         // Init DatePicker
-        $('.datepicker').pickadate({
+        $('input[type=date]').pickadate({
             selectMonths: true,
             selectYears: true,
             format: 'yyyy-mm-dd',

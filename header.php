@@ -14,6 +14,7 @@
         <?php wp_head(); ?>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="theme-color" content="#005E38">
         <?php if (is_singular() && pings_open(get_queried_object())) : ?>
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
@@ -44,7 +45,7 @@ function mp_ssv_get_main_nav_bar()
     preg_match_all('/<ul class="sub-menu">(.*?)<\/ul>/s', $menu, $subMenus);
     $i = 0;
     foreach ($subMenus[0] as $subMenu) {
-        $menu = preg_replace('/' . str_replace('/', '\/', addslashes($subMenu)) . '/s', '', $menu);
+        $menu = str_replace($subMenu, '', $menu);
         $i++;
     }
     $i = 0;
