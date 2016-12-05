@@ -184,4 +184,13 @@
       display: block;
     }
   }
+
+  footer {
+    padding: 10px;
+    background-color: color("shades", "darken-1");
+  }
+}
+
+.entry-content {
+  padding: 10px;
 }

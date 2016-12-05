@@ -1612,6 +1612,60 @@
 .transparent-text {
   color: transparent !important; }
 
+.darken-1 {
+  background-color: rgba(0, 0, 0, 0.1) !important; }
+
+.darken-1-text {
+  color: rgba(0, 0, 0, 0.1) !important; }
+
+.darken-2 {
+  background-color: rgba(0, 0, 0, 0.2) !important; }
+
+.darken-2-text {
+  color: rgba(0, 0, 0, 0.2) !important; }
+
+.darken-3 {
+  background-color: rgba(0, 0, 0, 0.3) !important; }
+
+.darken-3-text {
+  color: rgba(0, 0, 0, 0.3) !important; }
+
+.darken-4 {
+  background-color: rgba(0, 0, 0, 0.4) !important; }
+
+.darken-4-text {
+  color: rgba(0, 0, 0, 0.4) !important; }
+
+.darken-5 {
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.darken-5-text {
+  color: rgba(0, 0, 0, 0.5) !important; }
+
+.darken-6 {
+  background-color: rgba(0, 0, 0, 0.6) !important; }
+
+.darken-6-text {
+  color: rgba(0, 0, 0, 0.6) !important; }
+
+.darken-7 {
+  background-color: rgba(0, 0, 0, 0.7) !important; }
+
+.darken-7-text {
+  color: rgba(0, 0, 0, 0.7) !important; }
+
+.darken-8 {
+  background-color: rgba(0, 0, 0, 0.8) !important; }
+
+.darken-8-text {
+  color: rgba(0, 0, 0, 0.8) !important; }
+
+.darken-9 {
+  background-color: rgba(0, 0, 0, 0.9) !important; }
+
+.darken-9-text {
+  color: rgba(0, 0, 0, 0.9) !important; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -2049,8 +2103,8 @@ i {
   i.large {
     font-size: 6rem; }
 
-img.responsive-img,
-video.responsive-video {
+img,
+video {
   max-width: 100%;
   height: auto; }
 
@@ -3379,6 +3433,12 @@ small {
     .card .card-reveal .card-title {
       cursor: pointer;
       display: block; }
+  .card footer {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1); }
+
+.entry-content {
+  padding: 10px; }
 
 #toast-container {
   display: block;

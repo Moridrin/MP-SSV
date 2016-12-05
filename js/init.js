@@ -18,5 +18,8 @@ jQuery(function ($) {
             firstDay: 1
             // More Options: http://amsul.ca/pickadate.js/date/
         });
+
+        // Init Parallax
+        $('.parallax').parallax();
     });
 });

@@ -19,7 +19,7 @@
 		</header><!-- .entry-header -->
 	<?php echo '</a>'; ?>
 
-    <?php ssv_post_thumbnail(); ?>
+    <?php mp_ssv_post_thumbnail(); ?>
 
     <?php ssv_excerpt(); ?>
 

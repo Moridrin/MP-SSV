@@ -2,41 +2,45 @@
 /**
  * The template for displaying all single posts and attachments
  *
- * @package Moridrin
+ * @package    Moridrin
  * @subpackage SSV
- * @since SSV 1.0
+ * @since      SSV 1.0
  */
 
 get_header(); ?>
 <header class="full-width-entry-header visible-xs-block">
-	<?php the_title( '<h1 class="entry-title z2">', '</h1>' ); ?>
+    <div class="parallax-container valign-wrapper" style="height: 150px;">
+        <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+        <div class="shade darken-5 valign" style="position: absolute; bottom: 0; width: 100%; height: 100%">
+            <?php the_title('<h1 class="entry-title center-align white-text">', '</h1>'); ?>
+        </div>
+    </div>
 </header><!-- .entry-header -->
 <div id="page" class="container container">
-	<div class="col-xs-12 <?php if (is_dynamic_sidebar()) { echo "col-md-9"; } ?>">
-		<header class="breaking-entry-header hidden-xs">
-			<?php the_title( '<h1 class="entry-title z2">', '</h1>' ); ?>
-		</header><!-- .entry-header -->
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
-				<?php
-				// Start the loop.
-				while ( have_posts() ) : the_post();
+    <div class="card col s12 <?= is_dynamic_sidebar() ? 'col m8 l9' : '' ?>">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
+                <?php
+                // Start the loop.
+                while (have_posts()) : the_post();
 
-					// Include the single post content template.
-					get_template_part( 'template-parts/content', 'single' );
+                    // Include the single post content template.
+                    get_template_part('template-parts/content', 'single');
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
+                    ?><div style="padding: 10px;"><?php
+                    // If comments are open or we have at least one comment, load up the comment template.
+                    if (comments_open() || get_comments_number()) {
+                        comments_template();
+                    }
+                    ?></div><?php
 
-					// End of the loop.
-				endwhile;
-				?>
+                    // End of the loop.
+                endwhile;
+                ?>
 
-			</main><!-- .site-main -->
-		</div><!-- .content-area -->
-	</div>
-	<?php get_sidebar(); ?>
+            </main><!-- .site-main -->
+        </div><!-- .content-area -->
+    </div>
+    <?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
