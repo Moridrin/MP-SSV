@@ -12,7 +12,8 @@ function ssv_entry_meta()
     }
     $author_avatar_size = apply_filters('ssv_author_avatar_size', 49);
     ?>
-    <div class="valign-wrapper footer">
+    <footer class="entry-footer">
+        <div class="valign-wrapper footer">
         <span style="float: left;">
             <span class="author vcard">
                 <?= get_avatar(
@@ -26,17 +27,18 @@ function ssv_entry_meta()
                 ) ?>
             </span>
         </span>
-        <div class="valign">
-            <span class="screen-reader-text" style="margin-left: 10px;">Author</span>
-            <a class="url fn n" href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?= get_the_author() ?></a>
-            <br/>
-            <span class="posted-on" style="margin-left: 10px;"><span class="screen-reader-text">Posted on </span>
+            <div class="valign">
+                <span class="screen-reader-text" style="margin-left: 10px;">Author</span>
+                <a class="url fn n" href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?= get_the_author() ?></a>
+                <br/>
+                <span class="posted-on" style="margin-left: 10px;"><span class="screen-reader-text">Posted on </span>
                 <time class="entry-date published updated" datetime="<?= esc_attr(get_the_date('c')) ?>"><?= get_the_date() ?></time>
             </span>
-            <br/>
-            <span class="tags-links" style="margin-left: 10px;"><span class="screen-reader-text">Categories </span><?= get_the_category_list(', ') ?></span>
+                <br/>
+                <span class="tags-links" style="margin-left: 10px;"><span class="screen-reader-text">Categories </span><?= get_the_category_list(', ') ?></span>
+            </div>
         </div>
-    </div>
+    </footer>
     <?php
 }
 

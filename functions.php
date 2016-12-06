@@ -88,10 +88,53 @@ add_action('widgets_init', 'ssv_widgets_init');
 
 function mp_ssv_init_js()
 {
-
 }
 
 add_action('wp_loaded', 'mp_ssv_init_js');
+
+function mp_ssv_get_pagination()
+{
+    global $wp_query;
+    $pageCount   = $wp_query->max_num_pages;
+    $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    ob_start();
+    ?>
+    <ul class="pagination right">
+        <?php
+        if ($currentPage > 1) {
+            ?>
+            <li class="waves-effect"><a href="?paged=<?= $currentPage - 1 ?>"><i class="material-icons">chevron_left</i></a></li><?php
+        } else {
+            ?>
+            <li class="disabled waves-effect"><i class="material-icons">chevron_left</i></li><?php
+        }
+        ?>
+        <?php
+        for ($i = 1; $i <= $pageCount; $i++) {
+            if ($i != $currentPage) {
+                ?>
+                <li class="waves-effect"><a href="?paged=<?= $i ?>"><?= $i ?></a></li><?php
+            } else {
+                ?>
+                <li class="active waves-effect"><span class="non-link"><?= $i ?></span></li><?php
+            }
+        }
+        if ($currentPage < $pageCount) {
+            ?>
+            <li class="waves-effect"><a href="?paged=<?= $currentPage + 1 ?>"><i class="material-icons">chevron_right</i></a></li><?php
+        } else {
+            ?>
+            <li class="disabled waves-effect"><i class="material-icons">chevron_right</i></li><?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+
+
+
 
 
 

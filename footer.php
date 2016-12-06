@@ -10,19 +10,6 @@
  */
 ?>
 <footer id="colophon" class="site-footer" role="contentinfo" style="margin-bottom: 0;">
-	<?php if (has_nav_menu( 'social')) { ?>
-		<nav class="social-navigation" role="navigation" aria-label="<?php _e('Footer Social Links Menu', 'ssv'); ?>">
-	<?php
-		wp_nav_menu(array(
-			'theme_location'	=> 'social',
-			'menu_class'		=> 'social-links-menu',
-			'depth'				=> 1,
-			'link_before'		=> '<span class="screen-reader-text">',
-			'link_after'		=> '</span>',
-		));
-	?>
-	</nav>
-	<?php } ?>
 	<?php if ( is_active_sidebar( 'content-bottom' ) ) : ?>
 		<div class="widget-area footer-widget-area">
 			<?php dynamic_sidebar( 'content-bottom' ); ?>

@@ -64,7 +64,7 @@ function mp_ssv_get_side_menu()
     $mobile_primary_menu       = wp_nav_menu(
         array(
             'theme_location' => 'mobile_primary',
-            'menu_class'     => 'right hide-on-med-and-down',
+            'menu_class'     => 'left hide-on-med-and-down',
             'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
             'echo'           => false,
         )
@@ -76,7 +76,7 @@ function mp_ssv_get_side_menu()
     $mobile_profile_menu       = wp_nav_menu(
         array(
             'theme_location' => 'mobile_profile',
-            'menu_class'     => 'right hide-on-med-and-down',
+            'menu_class'     => 'left hide-on-med-and-down',
             'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
             'echo'           => false,
         )
@@ -86,7 +86,7 @@ function mp_ssv_get_side_menu()
     $mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
     ob_start();
     ?>
-    <ul id="slide-out" class="side-nav">
+    <ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
         <?php
         if (is_user_logged_in()) {
             $user = FrontendMember::get_current_user();

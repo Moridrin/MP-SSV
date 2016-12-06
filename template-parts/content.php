@@ -15,7 +15,7 @@
         <div class="card-content">
             <header class="entry-header">
                 <?php if (is_sticky() && is_home() && !is_paged()) : ?>
-                    <span class="sticky-post"><?php _e('Featured', 'ssv'); ?></span>
+                    <span class="sticky-post">Featured</span>
                 <?php endif; ?>
 
                 <span class="card-title activator grey-text text-darken-4"><?= the_title() ?></span>
@@ -25,24 +25,17 @@
         <div class="card-reveal">
             <header class="entry-header">
                 <?php if (is_sticky() && is_home() && !is_paged()) : ?>
-                    <span class="sticky-post"><?php _e('Featured', 'ssv'); ?></span>
+                    <span class="sticky-post">Featured</span>
                 <?php endif; ?>
 
                 <span class="card-title activator grey-text text-darken-4"><?= the_title() ?><i class="material-icons right">close</i></span>
             </header>
             <p>
                 <?php
-                the_content(
-                    sprintf(
-                        __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'ssv'),
-                        get_the_title()
-                    )
-                );
+                the_content('Full Post');
                 ?>
             </p>
         </div>
-        <footer class="entry-footer">
-            <?php ssv_entry_meta(); ?>
-        </footer><!-- .entry-footer -->
+        <?php ssv_entry_meta(); ?>
     </div>
-</article><!-- #post-## -->
+</article>

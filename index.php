@@ -30,13 +30,7 @@ get_header() ?>
                             the_post();
                             get_template_part('template-parts/content', get_post_format());
                         }
-                        the_posts_pagination(
-                            array(
-                                'prev_text'          => __('Previous page', 'ssv'),
-                                'next_text'          => __('Next page', 'ssv'),
-                                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'ssv') . ' </span>',
-                            )
-                        );
+                        echo mp_ssv_get_pagination();
                     } else {
                         get_template_part('template-parts/content', 'none');
                     }
