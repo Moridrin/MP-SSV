@@ -32,7 +32,7 @@ nav {
     height: 100%;
   }
 
-  @media #{$large-and-up} {
+  @media #{$medium-and-up} {
     a.button-collapse {
       display: none;
     }
@@ -70,7 +70,7 @@ nav {
       transform: translateX(-50%);
     }
 
-    @media #{$medium-and-down} {
+    @media #{$small-and-down} {
       left: 50%;
       transform: translateX(-50%);
 
@@ -189,7 +189,7 @@ nav {
   }
 }
 
-@media #{$large-and-up} {
+@media #{$medium-and-up} {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: $navbar-height;
     line-height: $navbar-height;

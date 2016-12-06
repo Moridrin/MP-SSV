@@ -2594,10 +2594,13 @@ input[type=range] + .thumb {
 
 @media only screen and (min-width: 783px) {
   .container {
-    width: 85%; } }
+    width: 720px; } }
 @media only screen and (min-width: 901px) {
   .container {
-    width: 70%; } }
+    width: 840px; } }
+@media only screen and (min-width: 1201px) {
+  .container {
+    width: 1100px; } }
 .container .row {
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
@@ -3048,7 +3051,7 @@ nav {
   nav .nav-wrapper {
     position: relative;
     height: 100%; }
-  @media only screen and (min-width: 901px) {
+  @media only screen and (min-width: 783px) {
     nav a.button-collapse {
       display: none; } }
   nav .button-collapse {
@@ -3072,7 +3075,7 @@ nav {
     nav .brand-logo.center {
       left: 50%;
       transform: translateX(-50%); }
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 782px) {
       nav .brand-logo {
         left: 50%;
         transform: translateX(-50%); }
@@ -3146,7 +3149,7 @@ nav {
   .navbar-fixed nav {
     position: fixed; }
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 783px) {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: 64px;
     line-height: 64px; }

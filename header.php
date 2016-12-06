@@ -34,7 +34,7 @@ function mp_ssv_get_main_nav_bar()
     $menu               = wp_nav_menu(
         array(
             'theme_location' => 'primary',
-            'menu_class'     => 'right hide-on-med-and-down',
+            'menu_class'     => 'right hide-on-small-and-down',
             'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
             'echo'           => false,
         )
