@@ -21,5 +21,27 @@ jQuery(function ($) {
 
         // Init Parallax
         $('.parallax').parallax();
+        $('.modal').modal();
+
+        registerLinkAction();
     });
+
+    function registerLinkAction() {
+        $('.register_link').click(function (e) {
+            e.preventDefault();
+            var container = $(e.target).parent();
+            container.load(materialize_init.themeURL + '/html-parts/spinner.html');
+            var url = $(e.target).attr('href');
+            $.post(url, null, function (data) {
+                if (data.indexOf("Registered=Yes") >= 0) {
+                    container.html('<a href="' + url + '" class="register_link">Cancel Registration</a>');
+                } else if (data.indexOf("Registered=No") >= 0) {
+                    container.html('<a href="' + url + '" class="register_link">Register</a>');
+                } else {
+                    container.html('<div>Something went wrong.</div>');
+                }
+                registerLinkAction();
+            });
+        });
+    }
 });

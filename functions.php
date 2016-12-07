@@ -48,6 +48,14 @@ function mp_ssv_enquire_scripts()
 {
     wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv/js/materialize.js', array('jquery'));
     wp_enqueue_script('materialize_init', get_theme_root_uri() . '/mp-ssv/js/init.js', array('jquery'));
+    wp_localize_script(
+        'materialize_init',
+        'materialize_init',
+        array(
+            'themeURL' => get_template_directory_uri(),
+            'URL' => get_site_url(),
+        )
+    );
     wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
 }
@@ -131,26 +139,6 @@ function mp_ssv_get_pagination()
     <?php
     return ob_get_clean();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //add_filter('the_content', 'ssv_filter_content', 11);
 
