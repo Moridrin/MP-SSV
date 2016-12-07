@@ -1,9 +1,9 @@
 <?php
 function ssv_filter_content($content)
 {
-	$content = str_replace('<button>', '<button class="btn btn--primary">', $content);
-	$content = str_replace('<input type="submit"', '<input type="submit" class="btn btn--primary"', $content);
-	$content = str_replace('<input name="submit"', '<input name="submit" class="btn btn--primary"', $content);
+	$content = str_replace('<button>', '<button class="btn btn--primary waves-effect waves-light">', $content);
+	$content = str_replace('<input type="submit"', '<input type="submit" class="btn btn--primary waves-effect waves-light"', $content);
+	$content = str_replace('<input name="submit"', '<input name="submit" class="btn btn--primary waves-effect waves-light"', $content);
     if (strpos($content, '[ssv_test]') !== false) {
         $test = ssv_test_content();
         $content = str_replace('[ssv_test]', $test, $content);

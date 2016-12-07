@@ -324,7 +324,7 @@ function ssv_get_search_form($echo = true)
             <input type="search" class="search-field" value="" name="s" title="Search for:">
             <label>Search for</label>
         </div>
-        <button type="submit" class="btn btn--primary search-submit"><span class="screen-reader-text">Search</span></button>
+        <button type="submit" class="btn btn--primary waves-effect waves-light search-submit"><span class="screen-reader-text">Search</span></button>
     </form>
     <?php
     $search_form = ob_get_clean();
