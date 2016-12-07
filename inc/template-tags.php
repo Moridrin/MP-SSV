@@ -5,65 +5,42 @@
  * @since      SSV 1.0
  */
 
-if (!function_exists('ssv_entry_meta')) :
-    function ssv_entry_meta()
-    {
-        if ('post' === get_post_type()) {
-            $author_avatar_size = apply_filters('ssv_author_avatar_size', 49);
-            printf(
-                '<span class="byline" style="margin-right: 10px;"><span class="author vcard">%1$s<span class="screen-reader-text" style="margin-left: 10px;">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span><br/>',
-                get_avatar(get_the_author_meta('user_email'), $author_avatar_size, get_site_url() . "/wp-content/uploads/2016/03/Mystery-Man.jpg", false, ["class" => "img-float"]),
-                _x('Author', 'Used before post author name.', 'ssv'),
-                esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-                get_the_author()
-            );
-        }
-
-        if (in_array(get_post_type(), array('post', 'attachment'))) {
-            ssv_entry_date();
-        }
-
-        $format = get_post_format();
-        if (current_theme_supports('post-formats', $format)) {
-            printf(
-                '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-                sprintf('<span class="screen-reader-text">%s </span>', _x('Format', 'Used before post format.', 'ssv')),
-                esc_url(get_post_format_link($format)),
-                get_post_format_string($format)
-            );
-        }
-
-        if ('post' === get_post_type()) {
-            ssv_entry_taxonomies();
-        }
+function ssv_entry_meta()
+{
+    if (get_post_type() != 'post') {
+        return;
     }
-endif;
-
-if (!function_exists('ssv_entry_date')) :
-    function ssv_entry_date()
-    {
-        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-
-        if (get_the_time('U') !== get_the_modified_time('U')) {
-            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-        }
-
-        $time_string = sprintf(
-            $time_string,
-            esc_attr(get_the_date('c')),
-            get_the_date(),
-            esc_attr(get_the_modified_date('c')),
-            get_the_modified_date()
-        );
-
-        printf(
-            '<span class="posted-on" style="margin-left: 10px;"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
-            _x('Posted on', 'Used before publish date.', 'ssv'),
-            esc_url(get_permalink()),
-            $time_string
-        );
-    }
-endif;
+    $author_avatar_size = apply_filters('ssv_author_avatar_size', 49);
+    ?>
+    <footer class="entry-footer">
+        <div class="valign-wrapper footer">
+        <span style="float: left;">
+            <span class="author vcard">
+                <?= get_avatar(
+                    get_the_author_meta('user_email'),
+                    $author_avatar_size,
+                    '',
+                    '',
+                    array(
+                        'class' => 'circle',
+                    )
+                ) ?>
+            </span>
+        </span>
+            <div class="valign">
+                <span class="screen-reader-text" style="margin-left: 10px;">Author</span>
+                <a class="url fn n" href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?= get_the_author() ?></a>
+                <br/>
+                <span class="posted-on" style="margin-left: 10px;"><span class="screen-reader-text">Posted on </span>
+                <time class="entry-date published updated" datetime="<?= esc_attr(get_the_date('c')) ?>"><?= get_the_date() ?></time>
+            </span>
+                <br/>
+                <span class="tags-links" style="margin-left: 10px;"><span class="screen-reader-text">Categories </span><?= get_the_category_list(', ') ?></span>
+            </div>
+        </div>
+    </footer>
+    <?php
+}
 
 if (!function_exists('ssv_entry_taxonomies')) :
     function ssv_entry_taxonomies()
@@ -88,28 +65,24 @@ if (!function_exists('ssv_entry_taxonomies')) :
     }
 endif;
 
-if (!function_exists('ssv_post_thumbnail')) :
-    function ssv_post_thumbnail($without_link = false)
+if (!function_exists('mp_ssv_post_thumbnail')) :
+    function mp_ssv_post_thumbnail($without_link = false, $args = array())
     {
         if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
             return;
         }
+        $class = isset($args['class']) ? $args['class'] : '';
 
-        if (is_singular()) :
-            ?>
-
-            <div class="post-thumbnail">
-                <?php echo get_the_post_thumbnail(get_the_ID(), 'ssv-banner-m'); ?>
+        if (is_singular()) : ?>
+            <div class="post-thumbnail parallax">
+                <?php the_post_thumbnail('ssv-banner-xl', array('class' => $class)); ?>
             </div><!-- .post-thumbnail -->
-
-        <?php else : ?>
-            <?php if (!$without_link) { ?>
-                <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-            <?php } ?>
-            <?php the_post_thumbnail('post-thumbnail', array('alt' => the_title_attribute('echo=0'))); ?>
-            <?php if (!$without_link) { ?>
-                </a>
-            <?php } ?>
+        <?php elseif (!$without_link) : ?>
+            <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+                <?php the_post_thumbnail('ssv-banner-xl', array('alt' => the_title_attribute('echo=0'), 'class' => $class)); ?>
+            </a>
+        <?php else: ?>
+            <?php the_post_thumbnail('ssv-banner-xl', array('alt' => the_title_attribute('echo=0'), 'class' => $class)); ?>
         <?php endif; // End is_singular()
     }
 endif;

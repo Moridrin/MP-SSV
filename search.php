@@ -13,8 +13,8 @@ get_header(); ?>
 <header class="page-header">
     <h1 class="page-title"><?php printf(__('Search Results for: %s', 'ssv'), '<span>' . esc_html(get_search_query()) . '</span>'); ?></h1>
 </header><!-- .page-header -->
-<div id="page" class="container mui-container">
-	<div class="mui-col-xs-12 mui-col-md-9">
+<div id="page" class="container container">
+	<div class="col-xs-12 col-md-9">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 

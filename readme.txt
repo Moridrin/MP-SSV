@@ -5,7 +5,7 @@ Tested up to: WordPress 4.4
 Version: 1.0
 License: WTFPL-2.0 or later
 License URI: http://www.wtfpl.net/txt/copying/
-Tags: one-column, two-columns, right-sidebar, responsive-layout, custom-colors, editor-style, featured-images, post-formats, mui
+Tags: one-column, two-columns, right-sidebar, responsive-layout, featured-images, materialize
 
 == Description ==
 The SSV theme is a theme designed by Jeroen Berkvens (based on the Twenty Sixteen theme from the WordPress team) to provide a theme for all Student Sports Clubs (Studenten Sport Verenigingen in Dutch) that they can use and customize to fit their specific needs. The theme features custom coloring in order to make sure that the sports club can change it to match their colors.
