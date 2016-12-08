@@ -2364,7 +2364,7 @@ td, th {
     margin: 0;
     border-bottom: 1px solid #e0e0e0; }
     .collection .collection-item.avatar {
-      min-height: 84px;
+      min-height: 64px;
       padding-left: 72px;
       position: relative; }
       .collection .collection-item.avatar .circle {
@@ -3366,7 +3366,6 @@ small {
   transition: box-shadow .25s;
   border-radius: 2px; }
   .card .card-title {
-    font-size: 24px;
     font-weight: 300; }
     .card .card-title.activator {
       cursor: pointer; }
