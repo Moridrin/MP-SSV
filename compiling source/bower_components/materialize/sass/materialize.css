@@ -1594,6 +1594,18 @@
 .all-terrain-text.text-accent {
   color: #063359 !important; }
 
+.all-terrain.text-on-primary {
+  background-color: #FFFFFF !important; }
+
+.all-terrain-text.text-text-on-primary {
+  color: #FFFFFF !important; }
+
+.all-terrain.text-on-accent {
+  background-color: #FFFFFF !important; }
+
+.all-terrain-text.text-text-on-accent {
+  color: #FFFFFF !important; }
+
 .black {
   background-color: #000000 !important; }
 
@@ -1665,6 +1677,14 @@
 
 .darken-9-text {
   color: rgba(0, 0, 0, 0.9) !important; }
+
+.primary {
+  background-color: #005E38 !important;
+  color: #FFFFFF !important; }
+
+.accent {
+  background-color: #063359 !important;
+  color: #FFFFFF !important; }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**

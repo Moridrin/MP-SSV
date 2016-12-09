@@ -334,20 +334,22 @@ $shades: (
         "black": #000000,
         "white": #FFFFFF,
         "transparent": transparent,
-        "darken-1": rgba(0,0,0,0.1),
-        "darken-2": rgba(0,0,0,0.2),
-        "darken-3": rgba(0,0,0,0.3),
-        "darken-4": rgba(0,0,0,0.4),
-        "darken-5": rgba(0,0,0,0.5),
-        "darken-6": rgba(0,0,0,0.6),
-        "darken-7": rgba(0,0,0,0.7),
-        "darken-8": rgba(0,0,0,0.8),
-        "darken-9": rgba(0,0,0,0.9)
+        "darken-1": rgba(0, 0, 0, 0.1),
+        "darken-2": rgba(0, 0, 0, 0.2),
+        "darken-3": rgba(0, 0, 0, 0.3),
+        "darken-4": rgba(0, 0, 0, 0.4),
+        "darken-5": rgba(0, 0, 0, 0.5),
+        "darken-6": rgba(0, 0, 0, 0.6),
+        "darken-7": rgba(0, 0, 0, 0.7),
+        "darken-8": rgba(0, 0, 0, 0.8),
+        "darken-9": rgba(0, 0, 0, 0.9)
 );
 
 $all-terrain: (
         "primary": #005E38,
         "accent": #063359,
+        "text-on-primary": #FFFFFF,
+        "text-on-accent": #FFFFFF,
 );
 
 $colors: (
@@ -372,7 +374,7 @@ $colors: (
         "blue-grey": $blue-grey,
         "grey": $grey,
         "shades": $shades,
-        "all-terrain": $all-terrain
+        "all-terrain": $all-terrain,
 );
 
 // Color Classes
@@ -405,6 +407,16 @@ $colors: (
   .#{$color}-text {
     color: $color_value !important;
   }
+}
+
+// Primary Color classes
+.primary {
+  background-color: map-get($all-terrain, 'primary') !important;
+  color: map-get($all-terrain, 'text-on-primary') !important;
+}
+.accent {
+  background-color: map-get($all-terrain, 'accent') !important;
+  color: map-get($all-terrain, 'text-on-accent') !important;
 }
 
 // usage: color("name_of_color", "type_of_color")
