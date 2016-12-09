@@ -16,7 +16,7 @@ get_header(); ?>
                 <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
             </div>
         <?php else : ?>
-            <div class="parallax shade darken-5 valign-wrapper">
+            <div class="parallax shade darken-1 valign-wrapper">
                 <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
             </div>
         <?php endif; ?>

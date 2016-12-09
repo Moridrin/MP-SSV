@@ -19,7 +19,7 @@ get_header(); ?>
                 <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
             </div>
         <?php else : ?>
-            <div class="shade darken-5 valign-wrapper" style="height: 100%">
+            <div class="shade darken-1 valign-wrapper" style="height: 100%">
                 <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
             </div>
         <?php endif; ?>
