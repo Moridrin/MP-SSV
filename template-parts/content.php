@@ -18,7 +18,7 @@
                     <span class="sticky-post">Featured</span>
                 <?php endif; ?>
 
-                <span class="card-title activator grey-text text-darken-4"><?= the_title() ?></span>
+                <h1 class="card-title activator grey-text text-darken-4"><?= the_title() ?></h1>
             </header>
             <p><a href="<?= esc_url(get_permalink()) ?>">Full Post</a></p>
         </div>
@@ -28,7 +28,7 @@
                     <span class="sticky-post">Featured</span>
                 <?php endif; ?>
 
-                <span class="card-title activator grey-text text-darken-4"><?= the_title() ?><i class="material-icons right">close</i></span>
+                <h1 class="card-title activator grey-text text-darken-4"><?= the_title() ?><i class="material-icons right">close</i></h1>
             </header>
             <p>
                 <?php
