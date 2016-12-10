@@ -2588,7 +2588,7 @@ input[type=range] + .thumb {
   user-select: none; }
 
 .circle {
-  border-radius: 50%; }
+  border-radius: 50% !important; }
 
 .center-block {
   display: block;

@@ -2588,7 +2588,7 @@ input[type=range] + .thumb {
   user-select: none; }
 
 .circle {
-  border-radius: 50%; }
+  border-radius: 50% !important; }
 
 .center-block {
   display: block;
@@ -3561,23 +3561,26 @@ small {
   white-space: nowrap; }
   .tabs.tabs-transparent {
     background-color: transparent; }
-    .tabs.tabs-transparent .tab a,
+    .tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab-like a,
     .tabs.tabs-transparent .tab.disabled a,
-    .tabs.tabs-transparent .tab.disabled a:hover {
+    .tabs.tabs-transparent .disabled.tab-like a,
+    .tabs.tabs-transparent .tab.disabled a:hover,
+    .tabs.tabs-transparent .disabled.tab-like a:hover {
       color: rgba(255, 255, 255, 0.7); }
-    .tabs.tabs-transparent .tab a:hover,
-    .tabs.tabs-transparent .tab a.active {
+    .tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab-like a:hover,
+    .tabs.tabs-transparent .tab a.active,
+    .tabs.tabs-transparent .tab-like a.active {
       color: #fff; }
     .tabs.tabs-transparent .indicator {
       background-color: #fff; }
   .tabs.tabs-fixed-width {
     display: flex; }
-    .tabs.tabs-fixed-width .tab {
+    .tabs.tabs-fixed-width .tab, .tabs.tabs-fixed-width .tab-like {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
       flex-grow: 1; }
-  .tabs .tab {
+  .tabs .tab, .tabs .tab-like {
     display: inline-block;
     text-align: center;
     line-height: 48px;
@@ -3585,7 +3588,7 @@ small {
     padding: 0;
     margin: 0;
     text-transform: uppercase; }
-    .tabs .tab a {
+    .tabs .tab a, .tabs .tab-like a {
       color: rgba(0, 94, 56, 0.7);
       display: block;
       width: 100%;
@@ -3595,10 +3598,10 @@ small {
       text-overflow: ellipsis;
       overflow: hidden;
       transition: color .28s ease; }
-      .tabs .tab a:hover, .tabs .tab a.active {
+      .tabs .tab a:hover, .tabs .tab-like a:hover, .tabs .tab a.active, .tabs .tab-like a.active {
         background-color: transparent;
         color: #005E38; }
-    .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
+    .tabs .tab.disabled a, .tabs .disabled.tab-like a, .tabs .tab.disabled a:hover, .tabs .disabled.tab-like a:hover {
       color: rgba(0, 94, 56, 0.7);
       cursor: default; }
   .tabs .indicator {
@@ -3611,12 +3614,12 @@ small {
 @media only screen and (max-width: 900px) {
   .tabs {
     display: flex; }
-    .tabs .tab {
+    .tabs .tab, .tabs .tab-like {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
       flex-grow: 1; }
-      .tabs .tab a {
+      .tabs .tab a, .tabs .tab-like a {
         padding: 0 12px; } }
 .material-tooltip {
   padding: 10px 8px;

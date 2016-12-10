@@ -35,6 +35,10 @@ jQuery(function ($) {
         registerLinkAction();
     });
 
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+    });
+
     // function registerLinkAction() {
     //     $('.register_link').click(function (e) {
     //         e.preventDefault();
