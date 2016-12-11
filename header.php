@@ -116,3 +116,10 @@ function mp_ssv_get_side_menu()
 
     return ob_get_clean();
 }
+
+function mp_ssv_menu_sub_menu_link_replace($matches)
+{
+    global $count;
+    $count = isset($count) ?: 0;
+    return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
+}

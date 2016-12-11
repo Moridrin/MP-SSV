@@ -11,11 +11,14 @@ jQuery(function ($) {
         );
 
         // Init DatePicker
+        var date = new Date();
         $('input[type=date]').pickadate({
             selectMonths: true,
-            selectYears: true,
+            selectYears: 30,
             format: 'yyyy-mm-dd',
-            firstDay: 1
+            firstDay: 1,
+            min: new Date(date.getFullYear() - 30, date.getMonth(), date.getDay()),
+            max: date,
             // More Options: http://amsul.ca/pickadate.js/date/
         });
 
@@ -32,29 +35,31 @@ jQuery(function ($) {
             });
         });
 
-        registerLinkAction();
-    });
-
-    $(document).ready(function(){
+        // Init Tabs
         $('ul.tabs').tabs();
+
+        // Init Select
+        $('select').material_select();
+
+        // registerLinkAction();
     });
 
-    // function registerLinkAction() {
-    //     $('.register_link').click(function (e) {
-    //         e.preventDefault();
-    //         var container = $(e.target).parent();
-    //         container.load(materialize_init.themeURL + '/html-parts/spinner.html');
-    //         var url = $(e.target).attr('href');
-    //         $.post(url, null, function (data) {
-    //             if (data.indexOf("Registered=Yes") >= 0) {
-    //                 container.html('<a href="' + url + '" class="register_link">Cancel Registration</a>');
-    //             } else if (data.indexOf("Registered=No") >= 0) {
-    //                 container.html('<a href="' + url + '" class="register_link">Register</a>');
-    //             } else {
-    //                 container.html('<div>Something went wrong.</div>');
-    //             }
-    //             registerLinkAction();
-    //         });
-    //     });
-    // }
+    function registerLinkAction() {
+        $('.register_link').click(function (e) {
+            e.preventDefault();
+            var container = $(e.target).parent();
+            container.load(materialize_init.themeURL + '/html-parts/spinner.html');
+            var url = $(e.target).attr('href');
+            $.post(url, null, function (data) {
+                if (data.indexOf("Registered=Yes") >= 0) {
+                    container.html('<a href="' + url + '" class="register_link">Cancel Registration</a>');
+                } else if (data.indexOf("Registered=No") >= 0) {
+                    container.html('<a href="' + url + '" class="register_link">Register</a>');
+                } else {
+                    container.html('<div>Something went wrong.</div>');
+                }
+                registerLinkAction();
+            });
+        });
+    }
 });
