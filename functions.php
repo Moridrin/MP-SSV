@@ -68,7 +68,7 @@ function mp_ssv_enquire_scripts()
         'materialize_init',
         array(
             'themeURL' => get_template_directory_uri(),
-            'URL' => get_site_url(),
+            'URL'      => get_site_url(),
         )
     );
     wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
@@ -76,6 +76,14 @@ function mp_ssv_enquire_scripts()
 }
 
 add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
+
+function mp_ssv_enquire_admin_scripts()
+{
+    wp_enqueue_script('datetimepicker', get_theme_root_uri() . '/mp-ssv/js/jquery.datetimepicker.full.js', 'jquery-ui-datepicker');
+    wp_enqueue_script('datetimepicker_admin_init', get_theme_root_uri() . '/mp-ssv/js/admin-init.js', 'datetimepicker');
+    wp_enqueue_style('datetimepicker_admin_css', get_theme_root_uri() . '/mp-ssv/css/jquery.datetimepicker.css');
+}
+add_action('admin_enqueue_scripts', 'mp_ssv_enquire_admin_scripts', 12);
 
 function mp_special_nav_menu_class($classes, $item, $args)
 {
