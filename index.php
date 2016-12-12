@@ -14,7 +14,7 @@
 get_header() ?>
 <div id="page" class="container">
     <div class="row">
-        <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9' : '' ?>">
+        <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9 xl10' : '' ?>">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <?php

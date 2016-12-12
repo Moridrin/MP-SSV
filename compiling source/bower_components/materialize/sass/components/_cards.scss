@@ -1,4 +1,6 @@
-
+.widget {
+  @extend .card-panel;
+}
 
 .card-panel {
   transition: box-shadow .25s;
