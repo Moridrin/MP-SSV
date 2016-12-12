@@ -21,6 +21,8 @@ jQuery(function ($) {
             max: date,
             // More Options: http://amsul.ca/pickadate.js/date/
         });
+        $('.picker__input').focus();
+        $('form').find('*').filter(':input:enabled:visible:first').focus();
 
         // Init Parallax
         $('.parallax').parallax();
