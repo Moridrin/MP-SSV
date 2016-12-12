@@ -1,2 +1,8 @@
 general/
-.sass-cache/
+!compiling-source
+compiling-source/*
+!compiling-source/bower_components
+compiling-source/bower_components/*
+!compiling-source/bower_components/materialize
+compiling-source/bower_components/materialize/*
+!compiling-source/bower_components/materialize/sass
