@@ -3232,6 +3232,139 @@ input[type=range] + .thumb {
         right: 100%; }
       .row .col.push-xl12 {
         left: 100%; } }
+    @media only screen and (min-width: 1821px) {
+      .row .col.xxl1 {
+        width: 8.33333%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl2 {
+        width: 16.66667%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl3 {
+        width: 25%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl4 {
+        width: 33.33333%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl5 {
+        width: 41.66667%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl6 {
+        width: 50%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl7 {
+        width: 58.33333%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl8 {
+        width: 66.66667%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl9 {
+        width: 75%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl10 {
+        width: 83.33333%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl11 {
+        width: 91.66667%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.xxl12 {
+        width: 100%;
+        margin-left: auto;
+        left: auto;
+        right: auto; }
+      .row .col.offset-xxl1 {
+        margin-left: 8.33333%; }
+      .row .col.pull-xxl1 {
+        right: 8.33333%; }
+      .row .col.push-xxl1 {
+        left: 8.33333%; }
+      .row .col.offset-xxl2 {
+        margin-left: 16.66667%; }
+      .row .col.pull-xxl2 {
+        right: 16.66667%; }
+      .row .col.push-xxl2 {
+        left: 16.66667%; }
+      .row .col.offset-xxl3 {
+        margin-left: 25%; }
+      .row .col.pull-xxl3 {
+        right: 25%; }
+      .row .col.push-xxl3 {
+        left: 25%; }
+      .row .col.offset-xxl4 {
+        margin-left: 33.33333%; }
+      .row .col.pull-xxl4 {
+        right: 33.33333%; }
+      .row .col.push-xxl4 {
+        left: 33.33333%; }
+      .row .col.offset-xxl5 {
+        margin-left: 41.66667%; }
+      .row .col.pull-xxl5 {
+        right: 41.66667%; }
+      .row .col.push-xxl5 {
+        left: 41.66667%; }
+      .row .col.offset-xxl6 {
+        margin-left: 50%; }
+      .row .col.pull-xxl6 {
+        right: 50%; }
+      .row .col.push-xxl6 {
+        left: 50%; }
+      .row .col.offset-xxl7 {
+        margin-left: 58.33333%; }
+      .row .col.pull-xxl7 {
+        right: 58.33333%; }
+      .row .col.push-xxl7 {
+        left: 58.33333%; }
+      .row .col.offset-xxl8 {
+        margin-left: 66.66667%; }
+      .row .col.pull-xxl8 {
+        right: 66.66667%; }
+      .row .col.push-xxl8 {
+        left: 66.66667%; }
+      .row .col.offset-xxl9 {
+        margin-left: 75%; }
+      .row .col.pull-xxl9 {
+        right: 75%; }
+      .row .col.push-xxl9 {
+        left: 75%; }
+      .row .col.offset-xxl10 {
+        margin-left: 83.33333%; }
+      .row .col.pull-xxl10 {
+        right: 83.33333%; }
+      .row .col.push-xxl10 {
+        left: 83.33333%; }
+      .row .col.offset-xxl11 {
+        margin-left: 91.66667%; }
+      .row .col.pull-xxl11 {
+        right: 91.66667%; }
+      .row .col.push-xxl11 {
+        left: 91.66667%; }
+      .row .col.offset-xxl12 {
+        margin-left: 100%; }
+      .row .col.pull-xxl12 {
+        right: 100%; }
+      .row .col.push-xxl12 {
+        left: 100%; } }
 
 nav {
   color: #FFFFFF;
@@ -3716,7 +3849,8 @@ small {
   align-items: center;
   justify-content: space-between; }
   .toast .btn, .toast .btn-large, .toast .btn-flat {
-    margin: 0 0 0 3rem; }
+    margin: 0;
+    margin-left: 3rem; }
   .toast.rounded {
     border-radius: 24px; }
   @media only screen and (max-width: 782px) {
@@ -4458,7 +4592,8 @@ input[type=number],
 input[type=search],
 textarea {
   background-color: transparent;
-  border-style: none;
+  border: none;
+  border-bottom: 1px solid #9E9E9E;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -4971,6 +5106,8 @@ form p:last-child {
   height: 22px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
+  border-right: 2px solid #26A69A;
+  border-bottom: 2px solid #26A69A;
   transform: rotate(40deg);
   backface-visibility: hidden;
   transform-origin: 100% 100%; }
@@ -4984,9 +5121,10 @@ form p:last-child {
   left: -12px;
   width: 10px;
   height: 22px;
-  border-top-style: none;
-  border-bottom-style: none;
-  border-left-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: 2px solid #26A69A;
+  border-bottom: none;
   transform: rotate(90deg);
   backface-visibility: hidden;
   transform-origin: 100% 100%; }
@@ -5026,9 +5164,10 @@ form p:last-child {
   left: 1px;
   width: 8px;
   height: 13px;
-  border: 2px solid;
-  border-top-color: transparent;
-  border-left-color: transparent;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
   -webkit-transform: rotateZ(37deg);
   transform: rotateZ(37deg);
   -webkit-transform-origin: 100% 100%;
@@ -5090,6 +5229,7 @@ form p:last-child {
   height: 15px;
   background-color: #818181;
   border-radius: 15px;
+  margin-right: 10px;
   transition: background 0.3s ease;
   vertical-align: middle;
   margin: 0 16px; }
@@ -5146,7 +5286,8 @@ select {
     position: relative;
     cursor: pointer;
     background-color: transparent;
-    border-style: none;
+    border: none;
+    border-bottom: 1px solid #9E9E9E;
     outline: none;
     height: 3rem;
     line-height: 3rem;
@@ -6663,5 +6804,17 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     top: 0; }
   .widget-area.fixed.wpadminbar {
     top: 30px; }
+    @media only screen and (min-width: 783px) {
+      .widget-area.fixed.wpadminbar {
+        width: 225.984px; } }
+    @media only screen and (min-width: 901px) {
+      .widget-area.fixed.wpadminbar {
+        width: 193.688px; } }
+    @media only screen and (min-width: 1201px) {
+      .widget-area.fixed.wpadminbar {
+        width: 258.125px; } }
+    @media only screen and (min-width: 1821px) {
+      .widget-area.fixed.wpadminbar {
+        width: 264.578px; } }
 
 /*# sourceMappingURL=materialize.css.map */

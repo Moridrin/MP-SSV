@@ -37,7 +37,8 @@ textarea {
 
   // General Styles
   background-color: transparent;
-  border-style: none;
+  border: none;
+  border-bottom: $input-border;
   border-radius: 0;
   outline: none;
   height: $input-height;

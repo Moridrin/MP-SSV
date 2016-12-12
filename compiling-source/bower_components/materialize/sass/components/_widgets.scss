@@ -1,0 +1,27 @@
+.widget-area {
+  &:not(.fixed) {
+    position: inherit;
+  }
+  &.fixed {
+    position: fixed;
+    &:not(.wpadminbar) {
+      top: 0;
+    }
+    &.wpadminbar {
+      top: 30px;
+      @media #{$medium-and-up} {
+        width: 225.984px;
+      }
+      @media #{$large-and-up} {
+        width: 193.688px;
+      }
+      @media #{$extra-large-and-up} {
+        width: 258.125px;
+      }
+      @media #{$extra-extra-large-only} {
+        width: 264.578px;
+        //width: calc(calc(calc(1700px - 1.5rem) * 0.1666667) - 1.5rem); //Should be something like this
+      }
+    }
+  }
+}

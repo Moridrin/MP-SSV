@@ -24,7 +24,8 @@ select {
     position: relative;
     cursor: pointer;
     background-color: transparent;
-    border-style: none;
+    border: none;
+    border-bottom: $input-border;
     outline: none;
     height: $input-height;
     line-height: $input-height;
