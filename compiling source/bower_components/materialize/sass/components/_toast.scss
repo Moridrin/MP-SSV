@@ -3,7 +3,7 @@
   position: fixed;
   z-index: 10000;
 
-  @media #{$small-and-down} {
+  @media #{$small-only} {
     min-width: 100%;
     bottom: 0%;
   }
@@ -51,7 +51,7 @@
     border-radius: 24px;
   }
 
-  @media #{$small-and-down} {
+  @media #{$small-only} {
     width:100%;
     border-radius: 0;
   }

@@ -41,17 +41,18 @@ jQuery(function ($) {
         // Init Select
         $('select').material_select();
 
+        var offset = jQuery(".widget-area").offset().top;
         $(window).on("scroll", function (e) {
-            setWidgetAreaState();
+            setWidgetAreaState(offset);
         });
-        setWidgetAreaState();
+        setWidgetAreaState(offset);
     });
 });
 
-function setWidgetAreaState()
+function setWidgetAreaState(offset)
 {
     var wrap = jQuery(".widget-area");
-    if (jQuery(window).scrollTop() > 106) {
+    if (jQuery(window).scrollTop() > offset - 25) {
         wrap.addClass("fixed");
     } else {
         wrap.removeClass("fixed");

@@ -70,7 +70,7 @@ nav {
       transform: translateX(-50%);
     }
 
-    @media #{$small-and-down} {
+    @media #{$small-only} {
       left: 50%;
       transform: translateX(-50%);
 

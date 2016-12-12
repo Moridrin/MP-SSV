@@ -7,7 +7,7 @@
  * @since      SSV 1.0
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('card panel panel-with-header'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="card hoverable">
         <div class="card-image waves-effect waves-block waves-light">
             <?php mp_ssv_post_thumbnail(true, array('class' => 'activator')); ?>

@@ -1,10 +1,11 @@
 //Default styles
 
 html {
- box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 *, *:before, *:after {
- box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -29,13 +30,12 @@ ul {
 }
 
 a {
-	color: $link-color;
-	text-decoration: none;
+  color: $link-color;
+  text-decoration: none;
 
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
 }
-
 
 // Positioning
 .valign-wrapper {
@@ -47,32 +47,36 @@ a {
   }
 }
 
-
 // classic clearfix
 .clearfix {
   clear: both;
 }
 
-
 // Z-levels
 .z-depth-0 {
   box-shadow: none !important;
 }
+
 .z-depth-1 {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
+
 .z-depth-1-half {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
+
 .z-depth-2 {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
+
 .z-depth-3 {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
 }
+
 .z-depth-4 {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
 }
+
 .z-depth-5 {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
 }
@@ -94,7 +98,6 @@ a {
   overflow: hidden;
   background-color: color("grey", "lighten-2");
 }
-
 
 //  Blockquote
 
@@ -138,7 +141,6 @@ video {
   height: auto;
 }
 
-
 // Pagination
 
 .pagination {
@@ -152,7 +154,7 @@ video {
 
     .non-link,
     a {
-      color: #444;
+      color: #444444;
       display: inline-block;
       font-size: 1.2rem;
       padding: 0 10px;
@@ -160,14 +162,18 @@ video {
     }
 
     &.active .non-link,
-    &.active a { color: #fff; }
+    &.active a {
+      color: #FFFFFF;
+    }
 
-    &.active { background-color: $primary-color; }
+    &.active {
+      background-color: $primary-color;
+    }
 
     &.disabled a,
     &.disabled i {
       cursor: default;
-      color: #999;
+      color: #999999;
     }
 
     i {
@@ -175,12 +181,12 @@ video {
     }
   }
 
-
   li.pages ul li {
     display: inline-block;
     float: none;
   }
 }
+
 @media #{$medium-and-down} {
   .pagination {
     width: 100%;
@@ -201,7 +207,7 @@ video {
 // Breadcrumbs
 .breadcrumb {
   font-size: 18px;
-  color: rgba(255,255,255, .7);
+  color: rgba(255, 255, 255, .7);
 
   i,
   [class^="mdi-"], [class*="mdi-"],
@@ -213,7 +219,7 @@ video {
 
   &:before {
     content: '\E5CC';
-    color: rgba(255,255,255, .7);
+    color: rgba(255, 255, 255, .7);
     vertical-align: top;
     display: inline-block;
     font-family: 'Material Icons';
@@ -229,10 +235,9 @@ video {
   }
 
   &:last-child {
-    color: #fff;
+    color: #FFFFFF;
   }
 }
-
 
 // Parallax
 .parallax-container {
@@ -256,8 +261,8 @@ video {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     transform: translateX(-50%);
   }
 }
@@ -266,6 +271,7 @@ video {
 .pin-top, .pin-bottom {
   position: relative;
 }
+
 .pinned {
   position: fixed !important;
 }
@@ -283,65 +289,154 @@ ul.staggered-list li {
   transform-origin: 0 50%;
 }
 
-
 /*********************
   Media Query Classes
 **********************/
+//small
 .hide-on-small-only, .hide-on-small-and-down {
-  @media #{$small-and-down} {
+  @media #{$small-only} {
     display: none !important;
   }
 }
+
+//medium
 .hide-on-med-and-down {
   @media #{$medium-and-down} {
     display: none !important;
   }
 }
+
 .hide-on-med-and-up {
   @media #{$medium-and-up} {
     display: none !important;
   }
 }
+
 .hide-on-med-only {
-  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+  @media #{$medium-only} {
     display: none !important;
   }
 }
+
+//large
+.hide-on-large-and-down {
+  @media #{$large-and-down} {
+    display: none !important;
+  }
+}
+
+.hide-on-large-and-up {
+  @media #{$large-and-up} {
+    display: none !important;
+  }
+}
+
 .hide-on-large-only {
-  @media #{$large-and-up} {
+  @media #{$large-only} {
     display: none !important;
   }
 }
-.show-on-large {
-  @media #{$large-and-up} {
-    display: block !important;
+
+//extra large
+.hide-on-extra-large-and-down {
+  @media #{$extra-large-and-down} {
+    display: none !important;
   }
 }
-.show-on-medium {
-  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
-    display: block !important;
+
+.hide-on-extra-large-and-up {
+  @media #{$extra-large-and-up} {
+    display: none !important;
   }
 }
+
+.hide-on-extra-large-only {
+  @media #{$extra-large-only} {
+    display: none !important;
+  }
+}
+
+//extra extra large
+.hide-on-extra-extra-large-only, .hide-on-extra-extra-large-and-up {
+  @media #{$extra-extra-large-only} {
+    display: none !important;
+  }
+}
+
+//small
 .show-on-small {
-  @media #{$small-and-down} {
+  @media #{$small-only} {
     display: block !important;
   }
 }
+
+//medium
+.show-on-medium {
+  @media #{$medium-only} {
+    display: block !important;
+  }
+}
+
 .show-on-medium-and-up {
   @media #{$medium-and-up} {
     display: block !important;
   }
 }
+
 .show-on-medium-and-down {
   @media #{$medium-and-down} {
     display: block !important;
   }
 }
 
+//large
+.show-on-large {
+  @media #{$large-only} {
+    display: block !important;
+  }
+}
+
+.show-on-large-and-up {
+  @media #{$large-and-up} {
+    display: block !important;
+  }
+}
+
+.show-on-large-and-down {
+  @media #{$large-and-down} {
+    display: block !important;
+  }
+}
+
+//extra large
+.show-on-extra-large {
+  @media #{$extra-large-only} {
+    display: block !important;
+  }
+}
+
+.show-on-extra-large-and-up {
+  @media #{$extra-large-and-up} {
+    display: block !important;
+  }
+}
+
+.show-on-extra-large-and-down {
+  @media #{$extra-large-and-down} {
+    display: block !important;
+  }
+}
+
+//extra extra large
+.show-on-extra-extra-large-and-down {
+  @media #{$extra-extra-large-and-down} {
+    display: block !important;
+  }
+}
 
 // Center text on mobile
 .center-on-small-only {
-  @media #{$small-and-down} {
+  @media #{$small-only} {
     text-align: center;
   }
 }
@@ -356,19 +451,19 @@ footer.page-footer {
     overflow: hidden;
     height: 50px;
     line-height: 50px;
-    color: rgba(255,255,255,.8);
-    background-color: rgba(51,51,51,.08);
+    color: rgba(255, 255, 255, .8);
+    background-color: rgba(51, 51, 51, .08);
     @extend .light;
   }
 }
 
 // Tables
 table, th, td {
-   border: none;
+  border: none;
 }
 
 table {
-  width:100%;
+  width: 100%;
   display: table;
 
   &.bordered > thead > tr,
@@ -405,7 +500,7 @@ thead {
   border-bottom: 1px solid $table-border-color;
 }
 
-td, th{
+td, th {
   padding: 15px 5px;
   display: table-cell;
   text-align: left;
@@ -433,7 +528,9 @@ td, th{
       vertical-align: top;
     }
 
-    th { text-align: left; }
+    th {
+      text-align: left;
+    }
     thead {
       display: block;
       float: left;
@@ -468,7 +565,9 @@ td, th{
       min-height: 1.25em;
       text-align: left;
     }
-    tr { padding: 0 10px; }
+    tr {
+      padding: 0 10px;
+    }
 
     /* sort out borders */
     thead {
@@ -477,16 +576,26 @@ td, th{
     }
 
     &.bordered {
-      th { border-bottom: 0; border-left: 0; }
-      td { border-left: 0; border-right: 0; border-bottom: 0; }
-      tr { border: 0; }
-      tbody tr { border-right: 1px solid $table-border-color; }
+      th {
+        border-bottom: 0;
+        border-left: 0;
+      }
+      td {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+      tr {
+        border: 0;
+      }
+      tbody tr {
+        border-right: 1px solid $table-border-color;
+      }
     }
 
   }
 
 }
-
 
 // Collections
 .collection {
@@ -521,11 +630,10 @@ td, th{
       i.circle {
         font-size: 18px;
         line-height: 42px;
-        color: #fff;
-        background-color: #999;
+        color: #FFFFFF;
+        background-color: #999999;
         text-align: center;
       }
-
 
       .title {
         font-size: 16px;
@@ -543,7 +651,6 @@ td, th{
 
     }
 
-
     &:last-child {
       border-bottom: none;
     }
@@ -553,11 +660,11 @@ td, th{
       color: $collection-active-color;
 
       .secondary-content {
-        color: #fff;
+        color: #FFFFFF;
       }
     }
   }
-  a.collection-item{
+  a.collection-item {
     display: block;
     transition: .25s;
     color: $collection-link-color;
@@ -583,17 +690,17 @@ td, th{
   }
 
 }
+
 // Made less specific to allow easier overriding
 .secondary-content {
   float: right;
   color: $secondary-color;
 }
+
 .collapsible .collection {
   margin: 0;
   border: none;
 }
-
-
 
 // Badges
 span.badge {
@@ -610,7 +717,7 @@ span.badge {
   &.new {
     font-weight: 300;
     font-size: 0.8rem;
-    color: #fff;
+    color: #FFFFFF;
     background-color: $badge-bg-color;
     border-radius: 2px;
   }
@@ -622,6 +729,7 @@ span.badge {
     content: " " attr(data-badge-caption);
   }
 }
+
 nav ul a span.badge {
   display: inline-block;
   float: none;
@@ -629,6 +737,7 @@ nav ul a span.badge {
   line-height: 22px;
   height: 22px;
 }
+
 .side-nav span.badge.new,
 .collapsible span.badge.new {
   &::before {
@@ -646,38 +755,37 @@ nav ul a span.badge {
   position: relative;
   background-color: transparent;
 }
+
 .collapsible span.badge.new {
   z-index: 1;
 }
 
-
-
 // Responsive Videos
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
 
-    iframe, object, embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 // Progress Bar
 .progress {
-    position: relative;
-    height: 4px;
-    display: block;
-    width: 100%;
-    background-color: lighten($progress-bar-color, 40%);
-    border-radius: 2px;
-    margin: $element-top-margin 0 $element-bottom-margin 0;
-    overflow: hidden;
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: lighten($progress-bar-color, 40%);
+  border-radius: 2px;
+  margin: $element-top-margin 0 $element-bottom-margin 0;
+  overflow: hidden;
   .determinate {
     position: absolute;
     top: 0;
@@ -693,7 +801,7 @@ nav ul a span.badge {
       position: absolute;
       background-color: inherit;
       top: 0;
-      left:0;
+      left: 0;
       bottom: 0;
       will-change: left, right;
       // Custom bezier
@@ -705,7 +813,7 @@ nav ul a span.badge {
       position: absolute;
       background-color: inherit;
       top: 0;
-      left:0;
+      left: 0;
       bottom: 0;
       will-change: left, right;
       // Custom bezier
@@ -714,36 +822,36 @@ nav ul a span.badge {
     }
   }
 }
+
 @keyframes indeterminate {
-    0% {
-      left: -35%;
-      right:100%;
-    }
-    60% {
-      left: 100%;
-      right: -90%;
-    }
-    100% {
-      left: 100%;
-      right: -90%;
-    }
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
 }
 
 @keyframes indeterminate-short {
-    0% {
-      left: -200%;
-      right: 100%;
-    }
-    60% {
-      left: 107%;
-      right: -8%;
-    }
-    100% {
-      left: 107%;
-      right: -8%;
-    }
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
 }
-
 
 /*******************
   Utility Classes
@@ -757,9 +865,11 @@ nav ul a span.badge {
 .left-align {
   text-align: left;
 }
+
 .right-align {
   text-align: right
 }
+
 .center, .center-align {
   text-align: center;
   width: 100%;
@@ -768,6 +878,7 @@ nav ul a span.badge {
 .left {
   float: left !important;
 }
+
 .right {
   float: right !important;
 }

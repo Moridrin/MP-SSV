@@ -198,7 +198,7 @@ textarea {
     }
   }
 
-  @media #{$small-and-down} {
+  @media #{$small-only} {
     .prefix ~ input {
       width: 80%;
       width: calc(100% - 3rem);
