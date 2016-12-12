@@ -3381,6 +3381,7 @@ small {
 
 .card {
   position: relative;
+  overflow: hidden;
   margin: 0.5rem 0 1rem 0;
   background-color: #fff;
   transition: box-shadow .25s;
@@ -3394,8 +3395,6 @@ small {
     .card.small .card-image, .card.medium .card-image, .card.large .card-image {
       max-height: 60%;
       overflow: hidden; }
-    .card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content {
-      max-height: 40%; }
     .card.small .card-content, .card.medium .card-content, .card.large .card-content {
       max-height: 100%;
       overflow: hidden; }
@@ -3561,26 +3560,23 @@ small {
   white-space: nowrap; }
   .tabs.tabs-transparent {
     background-color: transparent; }
-    .tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab-like a,
+    .tabs.tabs-transparent .tab a,
     .tabs.tabs-transparent .tab.disabled a,
-    .tabs.tabs-transparent .disabled.tab-like a,
-    .tabs.tabs-transparent .tab.disabled a:hover,
-    .tabs.tabs-transparent .disabled.tab-like a:hover {
+    .tabs.tabs-transparent .tab.disabled a:hover {
       color: rgba(255, 255, 255, 0.7); }
-    .tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab-like a:hover,
-    .tabs.tabs-transparent .tab a.active,
-    .tabs.tabs-transparent .tab-like a.active {
+    .tabs.tabs-transparent .tab a:hover,
+    .tabs.tabs-transparent .tab a.active {
       color: #fff; }
     .tabs.tabs-transparent .indicator {
       background-color: #fff; }
   .tabs.tabs-fixed-width {
     display: flex; }
-    .tabs.tabs-fixed-width .tab, .tabs.tabs-fixed-width .tab-like {
+    .tabs.tabs-fixed-width .tab {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
       flex-grow: 1; }
-  .tabs .tab, .tabs .tab-like {
+  .tabs .tab {
     display: inline-block;
     text-align: center;
     line-height: 48px;
@@ -3588,7 +3584,7 @@ small {
     padding: 0;
     margin: 0;
     text-transform: uppercase; }
-    .tabs .tab a, .tabs .tab-like a {
+    .tabs .tab a {
       color: rgba(0, 94, 56, 0.7);
       display: block;
       width: 100%;
@@ -3598,10 +3594,10 @@ small {
       text-overflow: ellipsis;
       overflow: hidden;
       transition: color .28s ease; }
-      .tabs .tab a:hover, .tabs .tab-like a:hover, .tabs .tab a.active, .tabs .tab-like a.active {
+      .tabs .tab a:hover, .tabs .tab a.active {
         background-color: transparent;
         color: #005E38; }
-    .tabs .tab.disabled a, .tabs .disabled.tab-like a, .tabs .tab.disabled a:hover, .tabs .disabled.tab-like a:hover {
+    .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
       color: rgba(0, 94, 56, 0.7);
       cursor: default; }
   .tabs .indicator {
@@ -3614,12 +3610,12 @@ small {
 @media only screen and (max-width: 900px) {
   .tabs {
     display: flex; }
-    .tabs .tab, .tabs .tab-like {
+    .tabs .tab {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
       flex-grow: 1; }
-      .tabs .tab a, .tabs .tab-like a {
+      .tabs .tab a {
         padding: 0 12px; } }
 .material-tooltip {
   padding: 10px 8px;
@@ -6485,5 +6481,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
+.widget-area:not(.fixed) {
+  position: inherit; }
+.widget-area.fixed {
+  position: fixed; }
+  .widget-area.fixed:not(.wpadminbar) {
+    top: 0; }
+  .widget-area.fixed.wpadminbar {
+    top: 30px; }
 
 /*# sourceMappingURL=materialize.css.map */

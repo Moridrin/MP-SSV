@@ -26,7 +26,7 @@ jQuery(function ($) {
         $('.parallax').parallax();
         $('.modal').modal();
 
-        $('.pushpin-demo-nav').each(function() {
+        $('.pushpin-demo-nav').each(function () {
             var $this = $(this);
             var $target = $('#' + $(this).attr('data-target'));
             $this.pushpin({
@@ -40,5 +40,20 @@ jQuery(function ($) {
 
         // Init Select
         $('select').material_select();
+
+        $(window).on("scroll", function (e) {
+            setWidgetAreaState();
+        });
+        setWidgetAreaState();
     });
 });
+
+function setWidgetAreaState()
+{
+    var wrap = jQuery(".widget-area");
+    if (jQuery(window).scrollTop() > 106) {
+        wrap.addClass("fixed");
+    } else {
+        wrap.removeClass("fixed");
+    }
+}

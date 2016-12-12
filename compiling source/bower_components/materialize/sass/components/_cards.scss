@@ -11,6 +11,7 @@
 
 .card {
   position: relative;
+  overflow: hidden;
   margin: $element-top-margin 0 $element-bottom-margin 0;
   background-color: $card-bg-color;
   transition: box-shadow .25s;
@@ -34,7 +35,7 @@
       overflow: hidden;
     }
     .card-image + .card-content {
-      max-height: 40%;
+      //max-height: 40%;
     }
     .card-content {
       max-height: 100%;

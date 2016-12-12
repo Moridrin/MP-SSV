@@ -3381,6 +3381,7 @@ small {
 
 .card {
   position: relative;
+  overflow: hidden;
   margin: 0.5rem 0 1rem 0;
   background-color: #fff;
   transition: box-shadow .25s;
@@ -3394,8 +3395,6 @@ small {
     .card.small .card-image, .card.medium .card-image, .card.large .card-image {
       max-height: 60%;
       overflow: hidden; }
-    .card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content {
-      max-height: 40%; }
     .card.small .card-content, .card.medium .card-content, .card.large .card-content {
       max-height: 100%;
       overflow: hidden; }
@@ -6482,5 +6481,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
+.widget-area:not(.fixed) {
+  position: inherit; }
+.widget-area.fixed {
+  position: fixed; }
+  .widget-area.fixed:not(.wpadminbar) {
+    top: 0; }
+  .widget-area.fixed.wpadminbar {
+    top: 30px; }
 
 /*# sourceMappingURL=materialize.css.map */

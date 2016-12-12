@@ -1,0 +1,14 @@
+.widget-area {
+  &:not(.fixed) {
+    position: inherit;
+  }
+  &.fixed {
+    position: fixed;
+    &:not(.wpadminbar) {
+      top: 0;
+    }
+    &.wpadminbar {
+      top: 30px;
+    }
+  }
+}
