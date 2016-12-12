@@ -81,8 +81,6 @@ form p:last-child {
     height: 22px;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
-    border-right: $radio-border;
-    border-bottom: $radio-border;
     transform: rotate(40deg);
     backface-visibility: hidden;
     transform-origin: 100% 100%;
@@ -101,10 +99,9 @@ form p:last-child {
     left: -12px;
     width: 10px;
     height: 22px;
-    border-top: none;
-    border-left: none;
-    border-right: $radio-border;
-    border-bottom: none;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
     transform: rotate(90deg);
     backface-visibility: hidden;
     transform-origin: 100% 100%;
@@ -153,7 +150,7 @@ form p:last-child {
     width: 20px;
     background-color: transparent;
     border: 2px solid $radio-empty-color;
-    top: 0px;
+    top: 0;
     z-index: 0;
   }
 
@@ -164,10 +161,9 @@ form p:last-child {
       left: 1px;
       width: 8px;
       height: 13px;
-      border-top: 2px solid transparent;
-      border-left: 2px solid transparent;
-      border-right: 2px solid $input-background;
-      border-bottom: 2px solid $input-background;
+      border: 2px solid;
+      border-top-color: transparent;
+      border-left-color: transparent;
       -webkit-transform: rotateZ(37deg);
       transform: rotateZ(37deg);
 

@@ -5,7 +5,7 @@
 
   @media #{$small-only} {
     min-width: 100%;
-    bottom: 0%;
+    bottom: 0;
   }
   @media #{$medium-only} {
     left: 5%;
@@ -43,8 +43,7 @@
   justify-content: space-between;
 
   .btn, .btn-flat {
-    margin: 0;
-    margin-left: 3rem;
+    margin: 0 0 0 3rem;
   }
 
   &.rounded{

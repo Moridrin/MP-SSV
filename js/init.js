@@ -18,7 +18,7 @@ jQuery(function ($) {
             format: 'yyyy-mm-dd',
             firstDay: 1,
             min: new Date(date.getFullYear() - 30, date.getMonth(), date.getDay()),
-            max: date,
+            max: date
             // More Options: http://amsul.ca/pickadate.js/date/
         });
         $('.picker__input').focus();
@@ -44,7 +44,7 @@ jQuery(function ($) {
         $('select').material_select();
 
         var offset = jQuery(".widget-area").offset().top;
-        $(window).on("scroll", function (e) {
+        $(window).on("scroll", function () {
             setWidgetAreaState(offset);
         });
         setWidgetAreaState(offset);
