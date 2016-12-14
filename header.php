@@ -28,7 +28,9 @@
 function mp_ssv_get_main_nav_bar()
 {
     ob_start();
-    ?><a class="brand-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a><?php
+    if (!is_home() && !is_front_page()) {
+        ?><a class="brand-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a><?php
+    }
     $branding           = ob_get_clean();
     $mobile_menu_toggle = '<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>';
     $menu               = wp_nav_menu(
@@ -51,8 +53,7 @@ function mp_ssv_get_main_nav_bar()
     $i = 0;
     ob_start();
     foreach ($subMenus[1] as $subMenuContent) {
-        ?>
-        <ul id="dropdown<?= $i ?>" class="dropdown-content"><?= $subMenuContent ?></ul><?php
+        ?><ul id="dropdown<?= $i ?>" class="dropdown-content"><?= $subMenuContent ?></ul><?php
         $i++;
     }
     $subMenus = ob_get_clean();

@@ -22,7 +22,7 @@ get_header(); ?>
         <?php endif; ?>
     </div>
 </header><!-- .entry-header -->
-<div id="page" class="container">
+<div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
     <div class="row">
         <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9' : '' ?>">
             <div id="primary" class="content-area">

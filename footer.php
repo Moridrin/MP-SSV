@@ -9,7 +9,7 @@
  */
 ?>
 <footer class="page-footer">
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">About All Terrain</h5>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="footer-copyright darken-1">
-        <div class="container">
+        <div class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
             © <?= date("Y", time()) ?> Copyright <a href="http://www.dutchconceptgroup.com/" target="_blank">Dutch Concept Group</a>.
             Designed and Developed by <a href="http://nl.linkedin.com/in/jberkvens/" target="_blank">Jeroen Berkvens</a>. Proudly powered by <a href="https://wordpress.org/" target="_blank">WordPress</a> and <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a>
             <?php do_action('ssv_credits'); ?>

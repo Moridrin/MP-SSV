@@ -15,7 +15,10 @@ jQuery(function ($) {
         $('input[type=date]').pickadate({
             selectMonths: true,
             selectYears: 30,
+            mask: '9999-19-39',
             format: 'yyyy-mm-dd',
+            closeOnSelect: true,
+            close: '',
             firstDay: 1,
             min: new Date(date.getFullYear() - 30, date.getMonth(), date.getDay()),
             max: date

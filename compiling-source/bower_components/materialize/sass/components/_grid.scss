@@ -1,26 +1,37 @@
 .container {
   margin: 0 auto;
+  &.wpadminbar {
+    min-height: calc(100vh - 476px);
+  }
+  &:not(.wpadminbar) {
+    min-height: calc(100vh - 446px);
+  }
 }
+
 @media #{$medium-and-up} {
   .container {
     width: 720px;
   }
 }
+
 @media #{$large-and-up} {
   .container {
     width: 840px;
   }
 }
+
 @media #{$extra-large-and-up} {
   .container {
     width: 1100px;
   }
 }
+
 @media #{$extra-extra-large-only} {
   .container {
     width: 1700px;
   }
 }
+
 .container .row {
   margin-left: (-1 * $gutter-width / 2);
   margin-right: (-1 * $gutter-width / 2);
@@ -40,7 +51,6 @@
     padding-top: 0;
   }
 }
-
 
 .row {
   margin-left: auto;

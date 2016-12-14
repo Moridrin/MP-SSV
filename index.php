@@ -12,20 +12,21 @@
  */
 
 get_header() ?>
-<div id="page" class="container">
+<header class="full-width-entry-header">
+    <div class="parallax-container primary" style="height: 150px;">
+        <div class="shade darken-1" style="height: 100%">
+            <h1 class="entry-title center-align white-text" style="margin-top: 0; padding-top: 30px"><?= get_bloginfo() ?></h1>
+            <h3 class="entry-title center-align white-text"><?= get_bloginfo('description') ?></h3>
+        </div>
+    </div>
+</header>
+<div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
     <div class="row">
         <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9 xl10' : '' ?>">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <?php
                     if (have_posts()) {
-                        if (is_home() && !is_front_page()) {
-                            ?>
-                            <header>
-                                <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                            </header>
-                            <?php
-                        }
                         while (have_posts()) {
                             the_post();
                             get_template_part('template-parts/content', get_post_format());

@@ -10,9 +10,10 @@
  * @since      SSV 1.0
  */
 
+the_post();
 get_header(); ?>
-<header class="full-width-entry-header test">
-    <div class="parallax-container all-terrain primary" style="height: 150px;">
+<header class="full-width-entry-header">
+    <div class="parallax-container primary" style="height: 150px;">
         <?php if (has_post_thumbnail()) : ?>
             <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
             <div class="shade darken-1 valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
@@ -25,13 +26,12 @@ get_header(); ?>
         <?php endif; ?>
     </div>
 </header>
-<div id="page" class="container container">
+<div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
     <div class="row">
-        <div class="card col s12 <?= is_dynamic_sidebar() ? 'm8 l9 xxl10' : '' ?>">
+        <div class="<?= strpos(get_the_content(), 'class="card') === false ? 'card' : '' ?> col s12 <?= is_dynamic_sidebar() ? 'm8 l9 xxl10' : '' ?>">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <?php
-                    the_post();
                     get_template_part('template-parts/content', 'single');
                     if (comments_open() || get_comments_number()) {
                         ?>
@@ -45,6 +45,7 @@ get_header(); ?>
             </div>
         </div>
         <?php get_sidebar(); ?>
+        <div style="clear: both;"></div>
     </div>
 </div>
 <?php get_footer(); ?>
