@@ -124,9 +124,8 @@ function mp_ssv_init_js()
 add_action('wp_loaded', 'mp_ssv_init_js');
 
 /**
- * @param null|WP_Query $query
- *
  * @return string
+ * @internal param null|WP_Query $query
  */
 function mp_ssv_get_pagination()
 {
