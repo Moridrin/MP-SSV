@@ -17,9 +17,12 @@
                 <?php if (is_sticky() && is_home() && !is_paged()) : ?>
                     <span class="sticky-post">Featured</span>
                 <?php endif; ?>
-
                 <h1 class="card-title activator grey-text text-darken-4"><?= the_title() ?></h1>
             </header>
+            <?php $content = get_the_content(); ?>
+            <?php $content = wp_trim_words($content, 50); ?>
+            <?= $content ?>
+            <span class="activator link">Read More</span><br/>
             <p><a href="<?= esc_url(get_permalink()) ?>">Full Post</a></p>
         </div>
         <div class="card-reveal">
@@ -32,7 +35,7 @@
             </header>
             <p>
                 <?php
-                the_content('Full Post');
+                the_content('');
                 ?>
             </p>
         </div>

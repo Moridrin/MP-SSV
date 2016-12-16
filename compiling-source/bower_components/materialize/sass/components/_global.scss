@@ -37,6 +37,15 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.link {
+  @extend a;
+  cursor: hand;
+}
+
+.disable-links {
+  pointer-events: none;
+}
+
 // Positioning
 .valign-wrapper {
   display: flex;
