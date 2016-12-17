@@ -22,11 +22,7 @@
                 'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'ssv') . ' </span>%',
                 'separator'   => '<span class="screen-reader-text">, </span>',
             )
-        );
-
-        if ('' !== get_the_author_meta('description')) {
-            get_template_part('template-parts/biography');
-        }
+        )
         ?>
     </div>
     <?php ssv_entry_meta(); ?>

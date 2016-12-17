@@ -21,33 +21,24 @@ get_header(); ?>
             </div>
         <?php endif; ?>
     </div>
-</header><!-- .entry-header -->
+</header>
 <div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
     <div class="row">
-        <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9' : '' ?>">
-            <div id="primary" class="content-area">
+        <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9 xxl10' : '' ?>">
+            <div id="primary" class="content-area <?= strpos(get_the_content(), 'class="card') === false ? 'card' : '' ?>">
                 <main id="main" class="site-main" role="main">
                     <?php
-                    // Start the loop.
-                    while (have_posts()) : the_post();
-
-                        // Include the single post content template.
-                        get_template_part('template-parts/content', 'single');
-
-                        ?>
-                        <div style="padding: 10px;"><?php
-                        // If comments are open or we have at least one comment, load up the comment template.
+                    the_post();
+                    get_template_part('template-parts/content', 'single');
+                    ?>
+                    <div style="padding: 10px;"><?php
                         if (comments_open() || get_comments_number()) {
                             comments_template();
                         }
-                        ?></div><?php
-
-                        // End of the loop.
-                    endwhile;
-                    ?>
-
-                </main><!-- .site-main -->
-            </div><!-- .content-area -->
+                        ?>
+                    </div>
+                </main>
+            </div>
         </div>
         <?php get_sidebar(); ?>
     </div>

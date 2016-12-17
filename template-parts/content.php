@@ -23,7 +23,7 @@
             <?php $content = wp_trim_words($content, 50); ?>
             <?= $content ?>
             <span class="activator link">Read More</span><br/>
-            <p><a href="<?= esc_url(get_permalink()) ?>">Full Post</a></p>
+            <p><a href="<?= get_permalink() ?>">Full Post</a></p>
         </div>
         <div class="card-reveal">
             <header class="entry-header">

@@ -3801,6 +3801,7 @@ small {
       .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover, .card .card-action .link:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
         color: #ffd8a6; }
   .card .card-reveal {
+    margin-top: -1px;
     padding: 20px;
     position: absolute;
     background-color: #FFFFFF;
