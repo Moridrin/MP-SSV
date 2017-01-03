@@ -90,7 +90,7 @@ function mp_ssv_get_side_menu()
     <ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
         <?php
         if (is_user_logged_in()) {
-            $user = FrontendMember::get_current_user();
+            $user = User::getCurrent();
             ?>
             <li>
                 <div class="userView">
