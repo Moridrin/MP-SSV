@@ -49,6 +49,8 @@ jQuery(function ($) {
             setWidgetAreaState(offset);
         });
         setWidgetAreaState(offset);
+
+        $('.collapsible').collapsible();
     });
 });
 
