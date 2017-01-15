@@ -12,11 +12,11 @@
     <div>
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">About All Terrain</h5>
+                <h3 class="white-text">About All Terrain</h3>
                 <p class="grey-text text-lighten-4">Officially All Terrain was named "Eerste Studenten All Terrain Sportveriging" (ESATS for short) and started in 1991 as the first student outdoor sports club intended for all the non-motorized outdoor sporters.</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Partners</h5>
+                <h3 class="white-text">Partners</h3>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/survivalruneindhoven/">Survivalrun Eindhoven</a></li>
                     <li><a class="grey-text text-lighten-3" href="http://eindhoven-studentenstad.nl/">Eindhoven Studentenstad</a></li>

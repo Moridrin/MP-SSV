@@ -1,10 +1,10 @@
 .container {
   margin: 0 auto;
   &.wpadminbar {
-    min-height: calc(100vh - 476px);
+    min-height: calc(100vh - 491px);
   }
   &:not(.wpadminbar) {
-    min-height: calc(100vh - 446px);
+    min-height: calc(100vh - 459px);
   }
 }
 

@@ -2668,9 +2668,9 @@ input[type=range] + .thumb {
 .container {
   margin: 0 auto; }
   .container.wpadminbar {
-    min-height: calc(100vh - 476px); }
+    min-height: calc(100vh - 491px); }
   .container:not(.wpadminbar) {
-    min-height: calc(100vh - 446px); }
+    min-height: calc(100vh - 459px); }
 
 @media only screen and (min-width: 783px) {
   .container {
