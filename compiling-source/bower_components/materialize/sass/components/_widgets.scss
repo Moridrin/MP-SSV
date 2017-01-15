@@ -1,17 +1,15 @@
-@media #{$medium-and-up} {
-  .widget-area {
-    z-index: -1;
+.widget-area {
+  z-index: -1;
 
-    &.fixed {
-      position: fixed;
+  &.fixed {
+    position: fixed;
 
-      &:not(.wpadminbar) {
-        top: 0;
-      }
+    &:not(.wpadminbar) {
+      top: 0;
+    }
 
-      &.wpadminbar {
-        top: 30px;
-      }
+    &.wpadminbar {
+      top: 30px;
     }
 
     @media #{$medium-and-up} {
@@ -19,11 +17,11 @@
     }
 
     @media #{$large-and-up} {
-      width: 193.688px;
+      width: 193.689px;
     }
 
     @media #{$extra-large-and-up} {
-      width: 258.125px;
+      width: 197.91px;
     }
 
     @media #{$extra-extra-large-only} {

@@ -150,6 +150,10 @@ video {
   height: auto;
 }
 
+img.banner {
+  object-fit: cover;
+}
+
 // Pagination
 
 .pagination {
@@ -516,6 +520,13 @@ td, th {
   text-align: left;
   vertical-align: middle;
   border-radius: 2px;
+}
+
+.small-spacing {
+  td, th {
+    padding: 1px 5px;
+    vertical-align: top;
+  }
 }
 
 // Responsive Table

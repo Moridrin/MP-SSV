@@ -3,6 +3,13 @@
  */
 jQuery(function ($) {
     $(document).ready(function () {
+
+        var image_banner = $('img.banner');
+        $(window).resize(function() {
+            image_banner.height(image_banner.width() / 4);
+        });
+        image_banner.height(image_banner.width() / 4);
+
         // Init SideNav
         $('.button-collapse').sideNav({
                 closeOnClick: true,

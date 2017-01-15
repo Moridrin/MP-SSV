@@ -10,7 +10,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="card hoverable">
         <div class="card-image waves-effect waves-block waves-light">
-            <?php mp_ssv_post_thumbnail(true, array('class' => 'activator')); ?>
+            <?php mp_ssv_post_thumbnail(true, array('class' => 'activator banner')); ?>
         </div>
         <div class="card-content">
             <header class="entry-header">

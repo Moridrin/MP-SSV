@@ -9,9 +9,15 @@ function ssv_entry_meta()
 {
     $author_avatar_size = apply_filters('ssv_author_avatar_size', 49);
     ?>
-    <footer class="entry-footer">
-        <div class="valign-wrapper footer">
-            <span style="float: left;">
+    <footer class="entry-footer valign-wrapper">
+        <?php if (is_home()): ?>
+            <div class="valign">
+                <a href="<?= get_permalink() ?>" class="btn waves-effect waves-light">Full Post</a>
+            </div>
+        <?php endif; ?>
+        <div class="valign" style="margin-left: auto;">
+            <div class="valign-wrapper">
+            <span class="valign">
                 <span class="author vcard">
                     <?= get_avatar(
                         get_the_author_meta('user_email'),
@@ -24,19 +30,23 @@ function ssv_entry_meta()
                     ) ?>
                 </span>
             </span>
-            <div class="valign <?= is_home() ? 'left' : '' ?>">
-                <span class="screen-reader-text" style="margin-left: 10px;">Author</span>
-                <a class="url fn n" href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?= get_the_author() ?></a>
-                <br/>
-                <span class="posted-on" style="margin-left: 10px;"><span class="screen-reader-text">Posted on </span><time class="entry-date published updated" datetime="<?= esc_attr(get_the_date('c')) ?>"><?= get_the_date() ?></time></span>
-                <br/>
-                <span class="tags-links" style="margin-left: 10px;"><span class="screen-reader-text">Categories </span><?= get_the_category_list(', ') ?></span>
+                <table class="small-spacing" style="width: auto;">
+                    <tr>
+                        <th>Author</th>
+                        <td>
+                            <a class="url fn n" href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?= get_the_author() ?></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Posted</th>
+                        <td>
+                            <time class="entry-date published updated" datetime="<?= esc_attr(get_the_date('c')) ?>"><?= get_the_date() ?></time>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <?php if (is_home()): ?>
-                <div class="valign" style="margin-left: auto;">
-                    <a href="<?= get_permalink() ?>" class="btn waves-effect waves-light right">Full Post</a>
-                </div>
-            <?php endif; ?>
+            <span class="right">
+            </span>
         </div>
     </footer>
     <?php
