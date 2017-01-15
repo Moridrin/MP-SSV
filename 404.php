@@ -1,63 +1,54 @@
 <?php
 /**
  * The main template file
- *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @package Moridrin
+ * @package    Moridrin
  * @subpackage SSV
- * @since SSV 1.0
+ * @since      SSV 1.0
  */
 
 get_header() ?>
-
+<header class="full-width-entry-header">
+    <div class="parallax-container primary" style="height: 150px;">
+        <div class="shade darken-1 valign-wrapper" style="height: 100%">
+            <h1 class="entry-title center-align white-text valign">404 Page Not Found</h1>
+        </div>
+    </div>
+</header>
 <div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
-	<div class="col-xs-12 col-md-9">
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
-
-			<?php if ( have_posts() ) : ?>
-
-				<?php if ( is_home() && ! is_front_page() ) : ?>
-					<header>
-						<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-					</header>
-				<?php endif; ?>
-
-				<?php
-				// Start the loop.
-				while ( have_posts() ) : the_post();
-
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-
-				// End the loop.
-				endwhile;
-
-				// Previous/next page navigation.
-				the_posts_pagination( array(
-                                          'prev_text'          => __('Previous page', 'ssv'),
-                                          'next_text'          => __('Next page', 'ssv'),
-                                          'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'ssv') . ' </span>',
-				) );
-
-			// If no content, include the "No posts found" template.
-			else :
-				get_template_part( 'template-parts/content', 'none' );
-
-			endif;
-			?>
-
-			</main><!-- .site-main -->
-		</div><!-- .content-area -->
-	</div>
-	<?php get_sidebar(); ?>
+    <div class="col-xs-12 col-md-9">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
+                <div class="sand"></div>
+                <div class="bb8">
+                    <div class="antennas">
+                        <div class="antenna short"></div>
+                        <div class="antenna long"></div>
+                    </div>
+                    <div class="head">
+                        <div class="stripe one"></div>
+                        <div class="stripe two"></div>
+                        <div class="eyes">
+                            <div class="eye one"></div>
+                            <div class="eye two"></div>
+                        </div>
+                        <div class="stripe three"></div>
+                    </div>
+                    <div class="ball">
+                        <div class="lines one"></div>
+                        <div class="lines two"></div>
+                        <div class="ring one"></div>
+                        <div class="ring two"></div>
+                        <div class="ring three"></div>
+                    </div>
+                    <div class="shadow"></div>
+                </div>
+            </main><!-- .site-main -->
+        </div><!-- .content-area -->
+    </div>
 </div>
 <?php get_footer(); ?>

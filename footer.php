@@ -30,6 +30,11 @@
             © <?= date("Y", time()) ?> Copyright All Terrain.
             Designed and Developed by <a href="http://nl.linkedin.com/in/jberkvens/" target="_blank">Jeroen Berkvens</a>. Proudly powered by <a href="https://wordpress.org/" target="_blank">WordPress</a> and <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a>
             <?php do_action('ssv_credits'); ?>
+            <?php if (is_404()): ?>
+                <div class="right">
+                    <a href="http://apexdesignstudios.com" target="_blank">apex design studio</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </footer>
