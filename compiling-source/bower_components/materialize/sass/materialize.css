@@ -2133,10 +2133,8 @@ i {
 img,
 video {
   max-width: 100%;
+  object-fit: cover;
   height: auto; }
-
-img.banner {
-  object-fit: cover; }
 
 .pagination li {
   display: inline-block;

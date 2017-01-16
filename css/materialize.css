@@ -2133,9 +2133,7 @@ i {
 img,
 video {
   max-width: 100%;
-  height: auto; }
-
-img.banner {
+  height: auto;
   object-fit: cover; }
 
 .pagination li {
