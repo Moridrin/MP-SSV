@@ -65,7 +65,7 @@ add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 function mp_ssv_enquire_scripts()
 {
     wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv/js/materialize.js', array('jquery'));
-    wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
+//    wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {
         wp_enqueue_script('bb8', get_theme_root_uri() . '/mp-ssv/js/BB8.js', array('jquery'));
@@ -101,7 +101,7 @@ function mp_special_nav_menu_class($classes, $item, $args)
 
 add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
 
-function ssv_widgets_init()
+function mp_ssv_widgets_init()
 {
     register_sidebar(
         array(
@@ -116,7 +116,7 @@ function ssv_widgets_init()
     );
 }
 
-add_action('widgets_init', 'ssv_widgets_init');
+add_action('widgets_init', 'mp_ssv_widgets_init');
 
 function mp_ssv_init_js()
 {
@@ -167,3 +167,49 @@ function mp_ssv_get_pagination()
     <?php
     return ob_get_clean();
 }
+
+function mp_ssv_customize_register($wp_customize)
+{
+    /** @var WP_Customize_Manager $wp_customize */
+    $wp_customize->add_section(
+        'mp_ssv',
+        array(
+            'title' => 'SSV',
+        )
+    );
+
+    //adding setting for copyright text
+    $wp_customize->add_setting(
+        'primary_color',
+        array(
+            'default' => '#0f0f0f0f',
+        )
+    );
+
+    $wp_customize->add_control(
+        'primary_color',
+        array(
+            'label'   => 'Primary Color',
+            'section' => 'mp_ssv',
+            'type'    => 'color',
+        )
+    );
+}
+
+add_action('customize_register', 'mp_ssv_customize_register');
+
+function mp_ssv_customize_css()
+{
+    require_once "compiling-source/scssphp/scss.inc.php";
+    $scss = new \Leafo\ScssPhp\Compiler();
+    $scss->setVariables(array(
+                            'primary-color' => get_theme_mod('primary_color', '#000000'),
+                        ));
+    echo '<style id="moridrin">';
+    echo $scss->compile(
+        '@import "' . get_theme_file_path() . '/css/materialize"'
+    );
+    echo '</style>';
+}
+
+add_action('wp_head', 'mp_ssv_customize_css');
