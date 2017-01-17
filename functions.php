@@ -218,12 +218,13 @@ function mp_ssv_customize_css()
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
             array(
+                'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
                 'primary-color'           => get_theme_mod('primary_color', '#005E38'),
                 'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
-                'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
+                'secondary-color'         => get_theme_mod('secondary_color', '#063359'),
                 'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
                 'link-color'              => get_theme_mod('link_color', '#039BE5'),
-                'success-color'           => get_theme_mod('success_color', '#4CAF50'),
+                'success-color'           => get_theme_mod('success_color', '#8A2900'),
                 'error-color'             => get_theme_mod('error_color', '#F44336'),
             )
         );
@@ -239,4 +240,3 @@ function mp_ssv_customize_css()
 }
 
 add_action('wp_head', 'mp_ssv_customize_css');
-
