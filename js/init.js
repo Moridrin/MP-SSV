@@ -52,7 +52,7 @@ jQuery(function ($) {
         $('select').material_select();
 
         var widgetAreaOffset = jQuery(".widget-area").offset();
-        if (widgetAreaOffset) {
+        if (typeof widgetAreaOffset != 'undefined') {
             var offset = widgetAreaOffset.top;
             $(window).on("scroll", function () {
                 setWidgetAreaState(offset);

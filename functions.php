@@ -18,7 +18,10 @@ function mp_ssv_theme_setup()
     add_theme_support('automatic-feed-links');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
-    add_theme_support('custom-header');
+    $args = array(
+        'default-image' => get_template_directory_uri() . '/images/banner.jpg',
+    );
+    add_theme_support('custom-header', $args);
     set_post_thumbnail_size(1920, 480, true);
     add_image_size('ssv-banner-xl', 1920, 480, true);
     add_image_size('ssv-banner-l', 1700, 425, true);
