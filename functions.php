@@ -65,7 +65,9 @@ add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 function mp_ssv_enquire_scripts()
 {
     wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv/js/materialize.js', array('jquery'));
-//    wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
+    if (!is_customize_preview()) {
+        wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
+    }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {
         wp_enqueue_script('bb8', get_theme_root_uri() . '/mp-ssv/js/BB8.js', array('jquery'));
@@ -178,19 +180,29 @@ function mp_ssv_customize_register($wp_customize)
         )
     );
 
-    //adding setting for copyright text
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'primary_color', 'Primary Color', '#005E38');
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'secondary_color', 'Secondary Color', '#26A69A');
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'text_on_secondary_color', 'Text On Secondary Color', '#FFFFFF');
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'link_color', 'Link Color', '#039BE5');
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'success_color', 'Success Color', '#4CAF50');
+    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'error_color', 'Error Color', '#F44336');
+}
+
+function mp_ssv_add_color_customizer($wp_customize, $section, $name, $label, $default)
+{
+    /** @var WP_Customize_Manager $wp_customize */
     $wp_customize->add_setting(
-        'primary_color',
+        $name,
         array(
-            'default' => '#0f0f0f0f',
+            'default' => $default,
         )
     );
-
     $wp_customize->add_control(
-        'primary_color',
+        $name,
         array(
-            'label'   => 'Primary Color',
-            'section' => 'mp_ssv',
+            'label'   => $label,
+            'section' => $section,
             'type'    => 'color',
         )
     );
@@ -200,16 +212,30 @@ add_action('customize_register', 'mp_ssv_customize_register');
 
 function mp_ssv_customize_css()
 {
-    require_once "compiling-source/scssphp/scss.inc.php";
-    $scss = new \Leafo\ScssPhp\Compiler();
-    $scss->setVariables(array(
-                            'primary-color' => get_theme_mod('primary_color', '#000000'),
-                        ));
-    echo '<style id="moridrin">';
-    echo $scss->compile(
-        '@import "' . get_theme_file_path() . '/css/materialize"'
-    );
-    echo '</style>';
+    if (is_customize_preview()) {
+        require_once "compiling-source/scssphp/scss.inc.php";
+        $scss = new \Leafo\ScssPhp\Compiler();
+        $scss->setVariables(
+            array(
+                'primary-color' => get_theme_mod('primary_color', '#005E38'),
+                'text-on-primary-color' => get_theme_mod('text_on_primary_color', '#FFFFFF'),
+                'secondary-color' => get_theme_mod('secondary_color', '#26A69A'),
+                'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
+                'link-color' => get_theme_mod('link_color', '#039BE5'),
+                'success-color' => get_theme_mod('success_color', '#4CAF50'),
+                'error-color' => get_theme_mod('error_color', '#F44336'),
+            )
+        );
+        $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/bower_components/materialize/sass/materialize"');
+
+        $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export('test', 1);
+        fwrite($materializeCSSFile, $compiled);
+        fclose($materializeCSSFile);
+        echo '<style id="moridrin">';
+        echo $compiled;
+        echo '</style>';
+    }
 }
 
 add_action('wp_head', 'mp_ssv_customize_css');
+

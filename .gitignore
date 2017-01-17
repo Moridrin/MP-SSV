@@ -2,6 +2,7 @@ general/
 !compiling-source
 compiling-source/*
 !compiling-source/bower_components
+!compiling-source/scssphp
 compiling-source/bower_components/*
 !compiling-source/bower_components/materialize
 compiling-source/bower_components/materialize/*

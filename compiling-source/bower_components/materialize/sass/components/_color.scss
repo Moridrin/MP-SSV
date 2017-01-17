@@ -345,11 +345,11 @@ $shades: (
         "darken-9": rgba(0, 0, 0, 0.9)
 );
 
-$all-terrain: (
-        "primary": #005E38,
-        "accent": #063359,
-        "text-on-primary": #FFFFFF,
-        "text-on-accent": #FFFFFF,
+$theme: (
+        "primary": $primary-color,
+        "accent": $secondary-color,
+        "text-on-primary": $text-on-primary-color,
+        "text-on-accent": $text-on-secondary-color,
 );
 
 $colors: (
@@ -374,7 +374,7 @@ $colors: (
         "blue-grey": $blue-grey,
         "grey": $grey,
         "shades": $shades,
-        "all-terrain": $all-terrain,
+        "all-terrain": $theme,
 );
 
 // Color Classes
@@ -411,12 +411,12 @@ $colors: (
 
 // Primary Color classes
 .primary {
-  background-color: map-get($all-terrain, 'primary') !important;
-  color: map-get($all-terrain, 'text-on-primary') !important;
+  background-color: map-get($theme, 'primary') !important;
+  color: map-get($theme, 'text-on-primary') !important;
 }
 .accent {
-  background-color: map-get($all-terrain, 'accent') !important;
-  color: map-get($all-terrain, 'text-on-accent') !important;
+  background-color: map-get($theme, 'accent') !important;
+  color: map-get($theme, 'text-on-accent') !important;
 }
 
 // usage: color("name_of_color", "type_of_color")
