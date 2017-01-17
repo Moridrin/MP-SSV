@@ -65,7 +65,9 @@ add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 function mp_ssv_enquire_scripts()
 {
     wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv/js/materialize.js', array('jquery'));
-    if (!is_customize_preview()) {
+    if (is_customize_preview()) {
+        //Uses Generated CSS
+    } else {
         wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -179,17 +181,16 @@ function mp_ssv_customize_register($wp_customize)
             'title' => 'SSV',
         )
     );
-
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'primary_color', 'Primary Color', '#005E38');
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'secondary_color', 'Secondary Color', '#26A69A');
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'text_on_secondary_color', 'Text On Secondary Color', '#FFFFFF');
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'link_color', 'Link Color', '#039BE5');
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'success_color', 'Success Color', '#4CAF50');
-    mp_ssv_add_color_customizer($wp_customize, 'mp_ssv', 'error_color', 'Error Color', '#F44336');
+    mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
+    mp_ssv_add_color_customizer($wp_customize, 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
+    mp_ssv_add_color_customizer($wp_customize, 'secondary_color', 'Secondary Color', '#26A69A');
+    mp_ssv_add_color_customizer($wp_customize, 'text_on_secondary_color', 'Text On Secondary Color', '#FFFFFF');
+    mp_ssv_add_color_customizer($wp_customize, 'link_color', 'Link Color', '#039BE5');
+    mp_ssv_add_color_customizer($wp_customize, 'success_color', 'Success Color', '#4CAF50');
+    mp_ssv_add_color_customizer($wp_customize, 'error_color', 'Error Color', '#F44336');
 }
 
-function mp_ssv_add_color_customizer($wp_customize, $section, $name, $label, $default)
+function mp_ssv_add_color_customizer($wp_customize, $name, $label, $default)
 {
     /** @var WP_Customize_Manager $wp_customize */
     $wp_customize->add_setting(
@@ -202,7 +203,7 @@ function mp_ssv_add_color_customizer($wp_customize, $section, $name, $label, $de
         $name,
         array(
             'label'   => $label,
-            'section' => $section,
+            'section' => 'colors',
             'type'    => 'color',
         )
     );
@@ -217,16 +218,16 @@ function mp_ssv_customize_css()
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
             array(
-                'primary-color' => get_theme_mod('primary_color', '#005E38'),
-                'text-on-primary-color' => get_theme_mod('text_on_primary_color', '#FFFFFF'),
-                'secondary-color' => get_theme_mod('secondary_color', '#26A69A'),
+                'primary-color'           => get_theme_mod('primary_color', '#005E38'),
+                'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
+                'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
                 'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
-                'link-color' => get_theme_mod('link_color', '#039BE5'),
-                'success-color' => get_theme_mod('success_color', '#4CAF50'),
-                'error-color' => get_theme_mod('error_color', '#F44336'),
+                'link-color'              => get_theme_mod('link_color', '#039BE5'),
+                'success-color'           => get_theme_mod('success_color', '#4CAF50'),
+                'error-color'             => get_theme_mod('error_color', '#F44336'),
             )
         );
-        $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/bower_components/materialize/sass/materialize"');
+        $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
 
         $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export('test', 1);
         fwrite($materializeCSSFile, $compiled);

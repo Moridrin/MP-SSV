@@ -51,11 +51,14 @@ jQuery(function ($) {
         // Init Select
         $('select').material_select();
 
-        var offset = jQuery(".widget-area").offset().top;
-        $(window).on("scroll", function () {
+        var widgetAreaOffset = jQuery(".widget-area").offset();
+        if (widgetAreaOffset) {
+            var offset = widgetAreaOffset.top;
+            $(window).on("scroll", function () {
+                setWidgetAreaState(offset);
+            });
             setWidgetAreaState(offset);
-        });
-        setWidgetAreaState(offset);
+        }
 
         $('.collapsible').collapsible();
     });
