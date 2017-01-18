@@ -271,7 +271,7 @@ function mp_ssv_customize_save_css()
     );
     $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
 
-    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export('test', 1);
+    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export("Couldn't open file.", 1);
     fwrite($materializeCSSFile, $compiled);
     fclose($materializeCSSFile);
 }
