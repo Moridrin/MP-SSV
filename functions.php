@@ -228,7 +228,7 @@ function mp_ssv_add_color_customizer($wp_customize, $name, $label, $default)
 
 add_action('customize_register', 'mp_ssv_customize_register');
 
-function mp_ssv_customize_css()
+function mp_ssv_customize_preview_css()
 {
     if (is_customize_preview()) {
         require_once "compiling-source/scssphp/scss.inc.php";
@@ -245,15 +245,35 @@ function mp_ssv_customize_css()
                 'error-color'             => get_theme_mod('error_color', '#F44336'),
             )
         );
-        $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
-
-        $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export('test', 1);
-        fwrite($materializeCSSFile, $compiled);
-        fclose($materializeCSSFile);
         echo '<style id="moridrin">';
-        echo $compiled;
+        echo $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
         echo '</style>';
     }
 }
 
-add_action('wp_head', 'mp_ssv_customize_css');
+add_action('wp_head', 'mp_ssv_customize_preview_css');
+
+function mp_ssv_customize_save_css()
+{
+    require_once "compiling-source/scssphp/scss.inc.php";
+    $scss = new \Leafo\ScssPhp\Compiler();
+    $scss->setVariables(
+        array(
+            'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+            'primary-color'           => get_theme_mod('primary_color', '#005E38'),
+            'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
+            'secondary-color'         => get_theme_mod('secondary_color', '#063359'),
+            'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
+            'link-color'              => get_theme_mod('link_color', '#039BE5'),
+            'success-color'           => get_theme_mod('success_color', '#8A2900'),
+            'error-color'             => get_theme_mod('error_color', '#F44336'),
+        )
+    );
+    $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
+
+    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export('test', 1);
+    fwrite($materializeCSSFile, $compiled);
+    fclose($materializeCSSFile);
+}
+
+add_action('customize_save_after', 'mp_ssv_customize_save_css');
