@@ -29,13 +29,12 @@ get_header() ?>
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <div class="card-panel hoverable">
-                            Welcome to the website of All Terrain. We are a sports association which focusses mainly on outdoor sports. We do mountainbiking, running, climbing, mountaineering, canoeing and orienteering. We train up to three times a week, mountain biking or orienteering on monday and <a href="/what-is-a-survivalrun">survivalrun</a> training on wednesday.
-                            <br>
-                            Besides training we also organize many weekends in which we go camping somewhere out in nature. Furthermore we sometimes organize courses on climbing techniques, knotting, canoeing or bushcraft.
-                            <br>
-                            Do you like being active outdoors, do you want to work on your condition and would you rather become strong by doing climbing rather than sitting inside in the gym? Then come and join one of our <a href="/training-sessions/">trainings</a>!
-                        </div>
+                        <?php $welcomeMessage = get_theme_mod('welcome_message', ''); ?>
+                        <?php if (!empty($welcomeMessage)): ?>
+                            <div class="card-panel hoverable">
+                                <?= $welcomeMessage ?>
+                            </div>
+                        <?php endif; ?>
                     </article>
                     <?php
                     if (have_posts()) {

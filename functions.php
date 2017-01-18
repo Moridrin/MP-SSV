@@ -178,10 +178,24 @@ function mp_ssv_get_pagination()
 function mp_ssv_customize_register($wp_customize)
 {
     /** @var WP_Customize_Manager $wp_customize */
-    $wp_customize->add_section(
-        'mp_ssv',
+//    $wp_customize->add_section(
+//        'mp_ssv',
+//        array(
+//            'title' => 'SSV',
+//        )
+//    );
+    $wp_customize->add_setting(
+        'welcome_message',
         array(
-            'title' => 'SSV',
+            'default' => '',
+        )
+    );
+    $wp_customize->add_control(
+        'welcome_message',
+        array(
+            'label'   => 'Welcome Message',
+            'section' => 'title_tagline',
+            'type'    => 'textarea',
         )
     );
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
