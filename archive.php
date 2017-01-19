@@ -1,7 +1,7 @@
 <?php
 get_header() ?>
     <header class="full-width-entry-header">
-        <div class="parallax-container primary" style="height: 150px;">
+        <div class="parallax-container primary" style="height: 250px;">
             <div class="shade darken-1 valign-wrapper" style="height: 100%">
                 <h1 class="entry-title center-align white-text valign">Archive</h1>
             </div>

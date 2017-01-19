@@ -31,7 +31,7 @@ get_header() ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <?php $welcomeMessage = get_theme_mod('welcome_message', ''); ?>
                         <?php if (!empty($welcomeMessage)): ?>
-                            <div class="card-panel hoverable">
+                            <div class="card-panel">
                                 <?= $welcomeMessage ?>
                             </div>
                         <?php endif; ?>
