@@ -60,6 +60,13 @@ function mp_ssv_get_main_nav_bar()
     return $subMenus . '<nav><div class="nav-wrapper">' . $mobile_menu_toggle . $branding . $menu . '</div></nav>';
 }
 
+function mp_ssv_menu_sub_menu_link_replace($matches)
+{
+    global $count;
+    $count = isset($count) ?: 0;
+    return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
+}
+
 function mp_ssv_get_side_menu()
 {
     $mobile_primary_menu       = wp_nav_menu(
@@ -114,13 +121,5 @@ function mp_ssv_get_side_menu()
         <?= $mobile_profile_menu_items ?>
     </ul>
     <?php
-
     return ob_get_clean();
-}
-
-function mp_ssv_menu_sub_menu_link_replace($matches)
-{
-    global $count;
-    $count = isset($count) ?: 0;
-    return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
 }

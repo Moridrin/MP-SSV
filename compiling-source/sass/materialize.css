@@ -2673,7 +2673,8 @@ input[type=range] + .thumb {
 .container {
   margin: 0 auto; }
   .container.wpadminbar {
-    min-height: calc(100vh - 491px); }
+      min-height: calc(100vh - 791px);
+  }
   .container:not(.wpadminbar) {
     min-height: calc(100vh - 459px); }
 

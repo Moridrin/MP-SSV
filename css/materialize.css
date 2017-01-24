@@ -2042,9 +2042,11 @@ nav ul a span.badge, nav ul .link span.badge {
 .container {
   margin: 0 auto; }
   .container.wpadminbar {
-    min-height: calc(100vh - 491px); }
+      min-height: calc(100vh - 791px);
+  }
   .container:not(.wpadminbar) {
-    min-height: calc(100vh - 459px); }
+      min-height: calc(100vh - 759px);
+  }
 
 @media only screen and (min-width : 783px) {
     .container {
