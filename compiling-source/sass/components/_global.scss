@@ -479,7 +479,26 @@ table {
 
   &.bordered > thead > tr,
   &.bordered > tbody > tr {
+    border: 1px solid $table-border-color;
+  }
+
+  &.xdebug-error > tbody > tr {
     border-bottom: 1px solid $table-border-color;
+  }
+
+  &.xdebug-error > tbody > tr > td {
+    @media #{$medium-and-up} {
+      max-width: 85px;
+    }
+    @media #{$large-and-up} {
+      max-width: 405px;
+    }
+    @media #{$extra-large-and-up} {
+      max-width: 765px;
+    }
+    @media #{$extra-extra-large-only} {
+      max-width: 1265px;
+    }
   }
 
   &.striped > tbody {

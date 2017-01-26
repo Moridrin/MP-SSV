@@ -1714,7 +1714,35 @@ table {
   width: 100%;
   display: table; }
   table.bordered > thead > tr, table.bordered > tbody > tr {
+      border: 1px solid #D0D0D0;
+  }
+
+table.xdebug-error > tbody > tr {
     border-bottom: 1px solid #d0d0d0; }
+
+@media only screen and (min-width: 783px) {
+    table.xdebug-error > tbody > tr > td {
+        max-width: 85px;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    table.xdebug-error > tbody > tr > td {
+        max-width: 405px;
+    }
+}
+
+@media only screen and (min-width: 1401px) {
+    table.xdebug-error > tbody > tr > td {
+        max-width: 865px;
+    }
+}
+
+@media only screen and (min-width: 1821px) {
+    table.xdebug-error > tbody > tr > td {
+        max-width: 1265px;
+    }
+}
   table.striped > tbody > tr:nth-child(odd) {
     background-color: #f2f2f2; }
   table.striped > tbody > tr > td {
