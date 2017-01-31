@@ -1129,6 +1129,18 @@
 .accent {
     background-color: #063359 !important;
   color: #fff !important; }
+
+.success {
+    background-color: #4CAF50 !important;
+}
+
+.soft-error {
+    background-color: #F4B942 !important;
+}
+
+.error {
+    background-color: #F44336 !important;
+}
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -1734,7 +1746,7 @@ table.xdebug-error > tbody > tr {
 
 @media only screen and (min-width: 1401px) {
     table.xdebug-error > tbody > tr > td {
-        max-width: 865px;
+        max-width: 765px;
     }
 }
 

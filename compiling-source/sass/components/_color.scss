@@ -419,6 +419,14 @@ $colors: (
   color: map-get($all-terrain, 'text-on-accent') !important;
 }
 
+.success {
+  background-color: $success-color !important;
+}
+
+.error {
+  background-color: $error-color !important;
+}
+
 // usage: color("name_of_color", "type_of_color")
 // to avoid to repeating map-get($colors, ...)
 
