@@ -5786,7 +5786,7 @@ button.btn-floating {
     line-height: inherit; }
 
 .input-field.col .dropdown-content [type="checkbox"] + label {
-    top: 1px;
+  top: 1px;
   left: 0;
   height: 18px; }
 
@@ -6097,7 +6097,7 @@ button.btn-floating {
       border-radius: 50%; }
   .chip .close {
     cursor: pointer;
-    float: right;
+      float: right;
       font-size: 16px;
       line-height: 32px;
       padding-left: 8px;
@@ -6131,7 +6131,7 @@ button.btn-floating {
     font-size: 1rem;
     height: 3rem;
     line-height: 32px;
-    outline: 0;
+      outline: 0;
       margin: 0;
       padding: 0 !important;
       width: 120px !important; }
@@ -6196,8 +6196,7 @@ select:focus {
 
 button:focus {
     outline: none;
-    background-color: #073E6C;
-}
+    background-color: #073e6c; }
 
 label {
   font-size: 0.8rem;
@@ -6212,8 +6211,7 @@ label {
 
 :-moz-placeholder {
     /* Firefox 18- */
-  color: #d1d1d1;
-}
+  color: #d1d1d1; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
@@ -6515,13 +6513,14 @@ input[type=search] + label:after,
 }
 
 .input-field {
-    position: relative;
+  position: relative;
   margin-top: 1rem; }
-  .input-field.inline {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 5px;
-  }
+
+.input-field.inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
 
 .input-field.inline input,
 .input-field.inline .select-dropdown {
@@ -6539,7 +6538,7 @@ input[type=search] + label:after,
     color: #9E9E9E;
     position: absolute;
     top: 0.8rem;
-    left: 0;
+      left: 0;
       font-size: 1rem;
       cursor: text;
       transition: .2s ease-out;
@@ -6549,7 +6548,7 @@ input[type=search] + label:after,
     font-size: 0.8rem;
     transform: translateY(-140%); }
   .input-field .prefix {
-    position: absolute;
+      position: absolute;
       width: 3rem;
       font-size: 2rem;
       transition: color .2s;
@@ -6660,7 +6659,7 @@ textarea {
    ========================================================================== */
 [type="radio"]:not(:checked),
 [type="radio"]:checked {
-    position: absolute;
+  position: absolute;
   left: -9999px;
   opacity: 0; }
 
@@ -6686,7 +6685,7 @@ textarea {
     top: 0;
     margin: 4px;
     width: 16px;
-    height: 16px;
+  height: 16px;
   z-index: 0;
   transition: .28s ease; }
 
@@ -6758,7 +6757,7 @@ textarea {
    ========================================================================== */
 /* CUSTOM CSS CHECKBOXES */
 form p {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
   text-align: left; }
 
 form p:last-child {
@@ -7091,7 +7090,7 @@ select:disabled {
 
 .select-dropdown li img {
     height: 40px;
-    width: 40px;
+  width: 40px;
   margin: 5px 15px;
   float: right; }
 
@@ -7209,7 +7208,7 @@ input[type=range] {
     -webkit-appearance: none; }
 
 input[type=range]::-webkit-slider-runnable-track {
-    height: 3px;
+  height: 3px;
   background: #c2c0c2;
   border: none; }
 
@@ -7234,7 +7233,7 @@ input[type=range] {
     /*required for proper track sizing in FF*/ }
 
 input[type=range]::-moz-range-track {
-    height: 3px;
+  height: 3px;
   background: #ddd;
   border: none; }
 
@@ -7242,7 +7241,7 @@ input[type=range]::-moz-range-thumb {
     border: none;
     height: 14px;
     width: 14px;
-    border-radius: 50%;
+  border-radius: 50%;
   background: #063359;
   margin-top: -5px; }
 
@@ -7270,7 +7269,7 @@ input[type=range]::-ms-fill-upper {
 input[type=range]::-ms-thumb {
     border: none;
     height: 14px;
-    width: 14px;
+  width: 14px;
   border-radius: 50%;
   background: #063359; }
 
@@ -7335,13 +7334,11 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
 .side-nav .collapsible {
-    margin: 0;
-}
-
-.side-nav li {
-    float: none;
-    line-height: 48px;
-}
+    margin: 0; }
+  .side-nav li {
+      float: none;
+      line-height: 48px;
+  }
 
 .side-nav li.active {
     background-color: rgba(0, 0, 0, 0.05);
@@ -7391,8 +7388,7 @@ input[type=range]:focus::-ms-fill-upper {
     line-height: 48px;
     margin: 0 32px 0 0;
     width: 24px;
-    color: rgba(0, 0, 0, 0.54);
-}
+    color: rgba(0, 0, 0, 0.54); }
   .side-nav .divider {
     margin: 8px 0 0 0; }
   .side-nav .subheader {
@@ -7406,11 +7402,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 .side-nav .subheader:hover {
     background-color: transparent; }
-  .side-nav .userView {
-      position: relative;
-      padding: 32px 32px 0;
-      margin-bottom: 8px;
-  }
+
+.side-nav .userView {
+    position: relative;
+    padding: 32px 32px 0;
+    margin-bottom: 8px;
+}
 
 .side-nav .userView > a, .side-nav .userView > .link {
     height: auto;
@@ -7461,8 +7458,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 .drag-target {
     height: 100%;
-    width: 10px;
-  position: fixed;
+  width: 10px;
+    position: fixed;
     top: 0;
   z-index: 998;
 }
@@ -7485,8 +7482,7 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     .side-nav a, .side-nav .link {
-        padding: 0 16px;
-    }
+    padding: 0 16px; }
   .side-nav .userView {
     padding: 16px 16px 0; } }
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
@@ -7538,13 +7534,13 @@ input[type=range]:focus::-ms-fill-upper {
 .preloader-wrapper {
     display: inline-block;
     position: relative;
-    width: 48px;
+  width: 48px;
   height: 48px; }
   .preloader-wrapper.small {
-      width: 36px;
+    width: 36px;
     height: 36px; }
   .preloader-wrapper.big {
-      width: 64px;
+    width: 64px;
     height: 64px; }
   .preloader-wrapper.active {
     /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
@@ -7563,7 +7559,7 @@ input[type=range]:focus::-ms-fill-upper {
 .spinner-layer {
     position: absolute;
     width: 100%;
-    height: 100%;
+  height: 100%;
   opacity: 0;
   border-color: #063359; }
 
@@ -7701,9 +7697,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     89% {
-        opacity: 0;
-    }
-    90% {
+        opacity: 0; }
+  90% {
     opacity: 1; }
   100% {
     opacity: 1; } }
@@ -7718,9 +7713,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     89% {
-        opacity: 0;
-    }
-    90% {
+        opacity: 0; }
+  90% {
     opacity: 1; }
   100% {
     opacity: 1; } }
@@ -7732,9 +7726,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     25% {
-        opacity: 1;
-    }
-    50% {
+        opacity: 1; }
+  50% {
     opacity: 1; }
   51% {
     opacity: 0; } }
@@ -7746,9 +7739,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     25% {
-        opacity: 1;
-    }
-    50% {
+        opacity: 1; }
+  50% {
     opacity: 1; }
   51% {
     opacity: 0; } }
@@ -7760,9 +7752,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     50% {
-        opacity: 1;
-    }
-    75% {
+        opacity: 1; }
+  75% {
     opacity: 1; }
   76% {
     opacity: 0; } }
@@ -7774,9 +7765,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     50% {
-        opacity: 1;
-    }
-    75% {
+        opacity: 1; }
+  75% {
     opacity: 1; }
   76% {
     opacity: 0; } }
@@ -7788,9 +7778,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     75% {
-        opacity: 1;
-    }
-    90% {
+        opacity: 1; }
+  90% {
     opacity: 1; }
   100% {
     opacity: 0; } }
@@ -7802,9 +7791,8 @@ input[type=range]:focus::-ms-fill-upper {
         opacity: 0;
     }
     75% {
-        opacity: 1;
-    }
-    90% {
+        opacity: 1; }
+  90% {
     opacity: 1; }
   100% {
     opacity: 0; } }
@@ -7844,7 +7832,7 @@ input[type=range]:focus::-ms-fill-upper {
     border-bottom-color: transparent !important;
     border-radius: 50%;
     -webkit-animation: none;
-    animation: none;
+      animation: none;
       position: absolute;
       top: 0;
       right: 0;
@@ -7936,12 +7924,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 .slider {
     position: relative;
-    height: 400px;
+  height: 400px;
   width: 100%; }
   .slider.fullscreen {
     height: 100%;
     width: 100%;
-    position: absolute;
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
@@ -7953,7 +7941,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .slider.fullscreen ul.indicators {
-    z-index: 2;
+      z-index: 2;
       bottom: 30px; }
   .slider .slides {
     background-color: #9E9E9E;
@@ -7996,7 +7984,7 @@ input[type=range]:focus::-ms-fill-upper {
         z-index: 2; }
   .slider .indicators {
     position: absolute;
-    text-align: center;
+      text-align: center;
       left: 0;
       right: 0;
       bottom: 0;
@@ -8064,7 +8052,7 @@ input[type=range]:focus::-ms-fill-upper {
         font-size: 15px; }
   .carousel .carousel-item {
     display: none;
-    width: 200px;
+      width: 200px;
       height: 400px;
       position: absolute;
       top: 0;
@@ -8075,7 +8063,7 @@ input[type=range]:focus::-ms-fill-upper {
       width: 100%; }
   .carousel .indicators {
     position: absolute;
-    text-align: center;
+      text-align: center;
       left: 0;
       right: 0;
       bottom: 0;
@@ -8111,7 +8099,7 @@ input[type=range]:focus::-ms-fill-upper {
     position: absolute;
     z-index: 10000;
     -webkit-user-select: none;
-    -moz-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
 
@@ -8182,7 +8170,7 @@ input[type=range]:focus::-ms-fill-upper {
 @media (min-height: 28.875em) {
     .picker__frame {
         overflow: visible;
-        top: auto;
+    top: auto;
     bottom: -100%;
     max-height: 80%; } }
 @media (min-height: 40.125em) {
@@ -8203,7 +8191,7 @@ input[type=range]:focus::-ms-fill-upper {
  * The box contains all the picker contents.
  */
 .picker__box {
-    background: #ffffff;
+  background: #ffffff;
   display: table-cell;
   vertical-align: middle; }
 
@@ -8250,8 +8238,7 @@ input[type=range]:focus::-ms-fill-upper {
    CUSTOM MATERIALIZE STYLES
    ========================================================================== */
 .picker__input.picker__input--active {
-  border-color: #E3F2FD;
-}
+  border-color: #E3F2FD; }
 
 .picker__frame {
   margin: 0 auto;
@@ -8274,7 +8261,7 @@ input[type=range]:focus::-ms-fill-upper {
  * The header containing the month and year stuff.
  */
 .picker__header {
-    text-align: center;
+  text-align: center;
   position: relative;
   margin-top: .75em; }
 
@@ -8283,7 +8270,7 @@ input[type=range]:focus::-ms-fill-upper {
  */
 .picker__month,
 .picker__year {
-    display: inline-block;
+  display: inline-block;
   margin-left: .25em;
   margin-right: .25em; }
 
@@ -8293,7 +8280,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__select--month,
 .picker__select--year {
     height: 2em;
-    padding: 0;
+  padding: 0;
   margin-left: .25em;
   margin-right: .25em; }
 
@@ -8326,8 +8313,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .picker__nav--prev {
     left: -1em;
-  padding-right: 1.25em;
-}
+  padding-right: 1.25em; }
 
 .picker__nav--next {
   right: -1em;
@@ -8351,7 +8337,7 @@ input[type=range]:focus::-ms-fill-upper {
     border-spacing: 0;
     table-layout: fixed;
     font-size: 1rem;
-    width: 100%;
+  width: 100%;
   margin-top: .75em;
   margin-bottom: .5em; }
 
@@ -8392,16 +8378,16 @@ input[type=range]:focus::-ms-fill-upper {
 
 .picker__day--infocus:hover {
     cursor: pointer;
-    color: #000;
+  color: #000;
   font-weight: 500; }
 
 .picker__day--outfocus {
-    display: none;
+  display: none;
   padding: .75rem 0;
   color: #fff; }
 
 .picker__day--outfocus:hover {
-    cursor: pointer;
+  cursor: pointer;
   color: #dddddd;
   font-weight: 500; }
 
@@ -8413,15 +8399,15 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__day--selected:hover,
 .picker--focused .picker__day--selected {
     border-radius: 50%;
-    transform: scale(0.75);
+  transform: scale(0.75);
   background: #0089ec;
   color: #ffffff; }
 
 .picker__day--disabled,
 .picker__day--disabled:hover,
 .picker--focused .picker__day--disabled {
-    background: #F5F5F5;
-    border-color: #f5f5f5;
+    background: #f5f5f5;
+  border-color: #f5f5f5;
   color: #dddddd;
   cursor: default; }
 
@@ -8446,7 +8432,7 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: .8em;
     padding: .66em 0;
     font-weight: bold;
-    width: 33%;
+  width: 33%;
   display: inline-block;
   vertical-align: bottom; }
 
@@ -8468,7 +8454,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__button--today:before,
 .picker__button--clear:before,
 .picker__button--close:before {
-    position: relative;
+  position: relative;
   display: inline-block;
   height: 0; }
 
@@ -8492,14 +8478,14 @@ input[type=range]:focus::-ms-fill-upper {
     content: "\D7";
     top: -0.1em;
     vertical-align: top;
-    font-size: 1.1em;
+  font-size: 1.1em;
   margin-right: .35em;
   color: #777777; }
 
 .picker__button--today[disabled],
 .picker__button--today[disabled]:hover {
-    background: #F5F5F5;
-    border-color: #f5f5f5;
+    background: #f5f5f5;
+  border-color: #f5f5f5;
   color: #dddddd;
   cursor: default; }
 
@@ -8517,14 +8503,14 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__date-display {
     text-align: center;
     background-color: #063359;
-    color: #fff;
+  color: #fff;
   padding-bottom: 15px;
   font-weight: 300; }
 
 .picker__nav--prev:hover,
 .picker__nav--next:hover {
     cursor: pointer;
-    color: #000000;
+  color: #000000;
   background: #3390de; }
 
 .picker__weekday-display {
@@ -8532,7 +8518,7 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 10px;
     font-weight: 200;
     letter-spacing: .5px;
-    font-size: 1rem;
+  font-size: 1rem;
   margin-bottom: 15px; }
 
 .picker__month-display {
@@ -8547,8 +8533,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .picker__year-display {
     font-size: 1.8rem;
-    color: rgba(255, 255, 255, 0.4);
-}
+    color: rgba(255, 255, 255, 0.4); }
 
 .picker__box {
   padding: 0; }
@@ -8569,7 +8554,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__day--infocus {
     color: #595959;
     letter-spacing: -.3;
-    padding: .75rem 0;
+  padding: .75rem 0;
   font-weight: 400;
   border: 1px solid transparent; }
 
@@ -8598,7 +8583,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__footer {
-    text-align: right;
+  text-align: right;
   padding: 5px 10px; }
 
 .picker__close, .picker__today {
@@ -8612,9 +8597,9 @@ input[type=range]:focus::-ms-fill-upper {
     border-top: .5em solid transparent;
     border-bottom: .5em solid transparent;
     border-right: 0.75em solid #676767;
-  width: 0;
-  height: 0;
-    display: block;
+    width: 0;
+    height: 0;
+  display: block;
   margin: 0 auto; }
 
 .picker__nav--next:before {
@@ -8631,7 +8616,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
  * The list of times.
  */
 .picker__list {
-    list-style: none;
+  list-style: none;
   padding: 0.75em 0 4.2em;
   margin: 0; }
 
@@ -8643,7 +8628,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     border-top: 1px solid #DDDDDD;
     margin-bottom: -1px;
     position: relative;
-    background: #FFFFFF;
+  background: #ffffff;
   padding: .75em 1.25em; }
 
 @media (min-height: 46.75em) {
@@ -8653,7 +8638,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .picker__list-item:hover {
     cursor: pointer;
     color: #000000;
-    background: #b1dcfb;
+  background: #b1dcfb;
   border-color: #0089ec;
   z-index: 10; }
 
@@ -8664,7 +8649,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .picker__list-item--highlighted:hover,
 .picker--focused .picker__list-item--highlighted {
-    cursor: pointer;
+  cursor: pointer;
   color: #000000;
   background: #b1dcfb; }
 
@@ -8682,8 +8667,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .picker--focused .picker__list-item--disabled {
     background: #F5F5F5;
     border-color: #F5F5F5;
-    color: #DDDDDD;
-    cursor: default;
+    color: #dddddd;
+  cursor: default;
   border-color: #dddddd;
   z-index: auto; }
 
@@ -8707,15 +8692,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .picker--time .picker__button--clear:focus {
     color: #000000;
     background: #B1DCFB;
-    background: #EE2200;
-    border-color: #ee2200;
+    background: #ee2200;
+  border-color: #ee2200;
   cursor: pointer;
   color: #ffffff;
   outline: none; }
 
 .picker--time .picker__button--clear:before {
     top: -0.25em;
-    color: #666;
+  color: #666;
   font-size: 1.25em;
   font-weight: bold; }
 
@@ -8737,8 +8722,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
  * The picker box.
  */
 .picker--time .picker__box {
-  font-size: 1em;
-    background: #f2f2f2;
+    font-size: 1em;
+  background: #f2f2f2;
   padding: 0; }
 
 @media (min-height: 40.125em) {
