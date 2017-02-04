@@ -1,12 +1,23 @@
 .container {
   margin: 0 auto;
-  &.wpadminbar {
-    min-height: calc(100vh - 791px);
-  }
-  &:not(.wpadminbar) {
-    min-height: calc(100vh - 759px);
+  &:not(.footer-container) {
+    &.wpadminbar {
+      min-height: calc(100vh - 491px);
+    }
+    &:not(.wpadminbar) {
+      min-height: calc(100vh - 459px);
+    }
+    &.large-bar {
+      &.wpadminbar {
+        min-height: calc(100vh - 791px);
+      }
+      &:not(.wpadminbar) {
+        min-height: calc(100vh - 759px);
+      }
+    }
   }
 }
+
 .container {
   @media #{$medium-and-up} {
     width: 720px;
@@ -20,11 +31,6 @@
   @media #{$extra-extra-large-only} {
     width: 1700px;
   }
-}
-
-.container .row {
-  margin-left: (-1 * $gutter-width / 2);
-  margin-right: (-1 * $gutter-width / 2);
 }
 
 .section {

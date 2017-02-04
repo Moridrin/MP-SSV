@@ -198,6 +198,34 @@ function mp_ssv_customize_register($wp_customize)
             'type'    => 'textarea',
         )
     );
+    $wp_customize->add_setting(
+        'footer_main',
+        array(
+            'default' => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
+        )
+    );
+    $wp_customize->add_control(
+        'footer_main',
+        array(
+            'label'   => 'Footer Main',
+            'section' => 'title_tagline',
+            'type'    => 'textarea',
+        )
+    );
+    $wp_customize->add_setting(
+        'foorer_right',
+        array(
+            'default' => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>',
+        )
+    );
+    $wp_customize->add_control(
+        'foorer_right',
+        array(
+            'label'   => 'Footer Right',
+            'section' => 'title_tagline',
+            'type'    => 'textarea',
+        )
+    );
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
     mp_ssv_add_color_customizer($wp_customize, 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
     mp_ssv_add_color_customizer($wp_customize, 'secondary_color', 'Secondary Color', '#26A69A');

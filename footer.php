@@ -8,25 +8,21 @@
  * @since      SSV 1.0
  */
 ?>
-<footer class="page-footer">
+<footer class="page-footer primary">
     <div>
-        <div class="row">
-            <div class="col l6 s12">
-                <h3 class="white-text">About All Terrain</h3>
-                <p class="grey-text text-lighten-4">Officially All Terrain was named "Eerste Studenten All Terrain Sportveriging" (ESATS for short) and started in 1991 as the first student outdoor sports club intended for all the non-motorized outdoor sporters.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h3 class="white-text">Partners</h3>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/survivalruneindhoven/">Survivalrun Eindhoven</a></li>
-                    <li><a class="grey-text text-lighten-3" href="http://eindhoven-studentenstad.nl/">Eindhoven Studentenstad</a></li>
-                    <li><a class="grey-text text-lighten-3" href="mailto:Board@AllTerrain.nl">Become a Sponsor</a></li>
-                </ul>
+        <div class="container footer-container">
+            <div class="row">
+                <div class="col s12 m8 l9 xl10">
+                    <?= get_theme_mod('footer_main', '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>'); ?>
+                </div>
+                <div class="col s12 m4 l3 xl2">
+                    <?= get_theme_mod('foorer_right', '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>'); ?>
+                </div>
             </div>
         </div>
     </div>
     <div class="footer-copyright darken-1">
-        <div class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
+        <div class="container footer-container" style="overflow-x: scroll; white-space: nowrap; padding: 0 10px;">
             © <?= date("Y", time()) ?> Copyright All Terrain.
             Designed and Developed by <a href="http://nl.linkedin.com/in/jberkvens/" target="_blank">Jeroen Berkvens</a>. Proudly powered by <a href="https://wordpress.org/" target="_blank">WordPress</a> and <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a>
             <?php do_action('ssv_credits'); ?>

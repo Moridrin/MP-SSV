@@ -23,19 +23,19 @@ get_header() ?>
         </div>
     </div>
 </header>
-<div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
+<div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?> large-bar">
     <div class="row">
         <div class="col s12 <?= is_dynamic_sidebar() ? 'm8 l9 xl10' : '' ?>">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <?php $welcomeMessage = get_theme_mod('welcome_message', ''); ?>
-                        <?php if (!empty($welcomeMessage)): ?>
+                    <?php $welcomeMessage = get_theme_mod('welcome_message', ''); ?>
+                    <?php if (!empty($welcomeMessage)): ?>
+                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                             <div class="card-panel">
                                 <?= $welcomeMessage ?>
                             </div>
-                        <?php endif; ?>
-                    </article>
+                        </article>
+                    <?php endif; ?>
                     <?php
                     if (have_posts()) {
                         while (have_posts()) {
