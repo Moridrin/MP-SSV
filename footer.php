@@ -8,7 +8,7 @@
  * @since      SSV 1.0
  */
 ?>
-<footer class="page-footer primary">
+<footer class="page-footer <?= is_404() ? '' : 'primary' ?>">
     <div>
         <div class="container footer-container">
             <div class="row">
