@@ -1,9 +1,9 @@
 .widget-area {
-  z-index: -1;
 
   &.fixed {
-    position: fixed;
-    z-index: 1;
+    @media #{$medium-and-up} {
+      position: fixed;
+    }
 
     &:not(.wpadminbar) {
       top: 0;
@@ -14,20 +14,19 @@
     }
 
     @media #{$medium-and-up} {
-      width: 225.984px;
+      width: 218.98px;
     }
 
     @media #{$large-and-up} {
-      width: 193.689px;
+      width: 188.25px;
     }
 
     @media #{$extra-large-and-up} {
-      width: 197.91px;
+      width: 194.16px;
     }
 
     @media #{$extra-extra-large-only} {
-      width: 264.578px;
-      //width: calc(calc(calc(1700px - 1.5rem) * 0.1666667) - 1.5rem); //Should be something like this
+      width: 260.83px;
     }
   }
 }

@@ -70,10 +70,14 @@ jQuery(function ($) {
 
 function setWidgetAreaState(offset)
 {
-    var wrap = jQuery(".widget-area");
-    if (jQuery(window).scrollTop() > offset - 25) {
-        wrap.addClass("fixed");
-    } else {
-        wrap.removeClass("fixed");
-    }
+    jQuery(function ($) {
+        var page = $("#page");
+        var wrap = $(".widget-area");
+        if ($(window).scrollTop() > offset - 25) {
+            wrap.addClass("fixed");
+            page.css("min-height", "100vh");
+        } else {
+            wrap.removeClass("fixed");
+        }
+    });
 }

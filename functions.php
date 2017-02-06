@@ -7,9 +7,6 @@
  * @since      SSV 1.0
  */
 
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
 require_once 'general/general.php';
 require_once 'inc/template-tags.php';
 
@@ -269,7 +266,7 @@ function mp_ssv_customize_preview_css()
                 'secondary-color'         => get_theme_mod('secondary_color', '#063359'),
                 'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
                 'link-color'              => get_theme_mod('link_color', '#039BE5'),
-                'success-color'           => get_theme_mod('success_color', '#8A2900'),
+                'success-color'           => get_theme_mod('success_color', '#4CAF50'),
                 'error-color'             => get_theme_mod('error_color', '#F44336'),
             )
         );
@@ -290,10 +287,10 @@ function mp_ssv_customize_save_css()
             'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
             'primary-color'           => get_theme_mod('primary_color', '#005E38'),
             'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
-            'secondary-color'         => get_theme_mod('secondary_color', '#063359'),
+            'secondary-color'         => get_theme_mod('secondary_color', '#00ff00'),
             'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
             'link-color'              => get_theme_mod('link_color', '#039BE5'),
-            'success-color'           => get_theme_mod('success_color', '#8A2900'),
+            'success-color'           => get_theme_mod('success_color', '#4CAF50'),
             'error-color'             => get_theme_mod('error_color', '#F44336'),
         )
     );
