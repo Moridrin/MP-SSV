@@ -3,6 +3,7 @@
 
   &.fixed {
     position: fixed;
+    z-index: 1;
 
     &:not(.wpadminbar) {
       top: 0;

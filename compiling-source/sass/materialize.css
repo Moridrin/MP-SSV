@@ -6861,7 +6861,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .widget-area {
   z-index: -1; }
   .widget-area.fixed {
-    position: fixed; }
+    position: fixed;
+    z-index: 1; }
     .widget-area.fixed:not(.wpadminbar) {
       top: 0; }
     .widget-area.fixed.wpadminbar {
