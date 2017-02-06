@@ -1060,11 +1060,9 @@
     .all-terrain-text.text-primary {
       color: #005e38 !important; }
     .all-terrain.accent {
-        background-color: #063359 !important;
-    }
+      background-color: #063359 !important; }
     .all-terrain-text.text-accent {
-        color: #063359 !important;
-    }
+      color: #063359 !important; }
     .all-terrain.text-on-primary {
       background-color: #fff !important; }
     .all-terrain-text.text-text-on-primary {
@@ -1127,20 +1125,14 @@
   color: #fff !important; }
 
 .accent {
-    background-color: #063359 !important;
+  background-color: #063359 !important;
   color: #fff !important; }
 
 .success {
-    background-color: #4CAF50 !important;
-}
-
-.soft-error {
-    background-color: #F4B942 !important;
-}
+  background-color: #8a2900 !important; }
 
 .error {
-    background-color: #F44336 !important;
-}
+  background-color: #f44336 !important; }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -1710,8 +1702,7 @@ ul.staggered-list li {
 
 footer.page-footer {
   margin-top: 20px;
-  padding-top: 20px;
-  background-color: #005e38; }
+  padding-top: 20px; }
   footer.page-footer .footer-copyright {
     overflow: hidden;
     height: 50px;
@@ -1726,35 +1717,21 @@ table {
   width: 100%;
   display: table; }
   table.bordered > thead > tr, table.bordered > tbody > tr {
-      border: 1px solid #D0D0D0;
-  }
-
-table.xdebug-error > tbody > tr {
+    border: 1px solid #d0d0d0; }
+  table.xdebug-error > tbody > tr {
     border-bottom: 1px solid #d0d0d0; }
-
-@media only screen and (min-width: 783px) {
+  @media only screen and (min-width : 783px) {
     table.xdebug-error > tbody > tr > td {
-        max-width: 85px;
-    }
-}
-
-@media only screen and (min-width: 901px) {
+      max-width: 85px; } }
+  @media only screen and (min-width : 901px) {
     table.xdebug-error > tbody > tr > td {
-        max-width: 405px;
-    }
-}
-
-@media only screen and (min-width: 1401px) {
+      max-width: 405px; } }
+  @media only screen and (min-width : 1401px) {
     table.xdebug-error > tbody > tr > td {
-        max-width: 765px;
-    }
-}
-
-@media only screen and (min-width: 1821px) {
+      max-width: 765px; } }
+  @media only screen and (min-width : 1821px) {
     table.xdebug-error > tbody > tr > td {
-        max-width: 1265px;
-    }
-}
+      max-width: 1265px; } }
   table.striped > tbody > tr:nth-child(odd) {
     background-color: #f2f2f2; }
   table.striped > tbody > tr > td {
@@ -1877,16 +1854,14 @@ td, th {
   .collection .collection-item:last-child {
     border-bottom: none; }
   .collection .collection-item.active {
-      background-color: #063359;
-      color: #81C1F7;
-  }
+    background-color: #063359;
+    color: #81c1f7; }
     .collection .collection-item.active .secondary-content {
       color: #fff; }
   .collection a.collection-item, .collection .link.collection-item {
     display: block;
     transition: 0.25s;
-      color: #063359;
-  }
+    color: #063359; }
   .collection a.collection-item:not(.active):hover, .collection .link.collection-item:not(.active):hover {
     background-color: #ddd; }
   .collection.with-header .collection-header {
@@ -1900,8 +1875,7 @@ td, th {
 
 .secondary-content {
   float: right;
-    color: #063359;
-}
+  color: #063359; }
 
 .collapsible .collection {
   margin: 0;
@@ -1921,7 +1895,7 @@ span.badge {
     font-weight: 300;
     font-size: 0.8rem;
     color: #fff;
-      background-color: #063359;
+    background-color: #063359;
     border-radius: 2px; }
   span.badge.new:after {
     content: " new"; }
@@ -1945,7 +1919,7 @@ nav ul a span.badge, nav ul .link span.badge {
     right: 0;
     bottom: 10px;
     left: 0;
-      background-color: #063359;
+    background-color: #063359;
     border-radius: 2px;
     z-index: -1; }
 
@@ -1969,7 +1943,7 @@ nav ul a span.badge, nav ul .link span.badge {
   height: 4px;
   display: block;
   width: 100%;
-    background-color: #399DF2;
+  background-color: #399df2;
   border-radius: 2px;
   margin: 0.5rem 0 1rem 0;
   overflow: hidden; }
@@ -1978,11 +1952,10 @@ nav ul a span.badge, nav ul .link span.badge {
     top: 0;
     left: 0;
     bottom: 0;
-      background-color: #063359;
+    background-color: #063359;
     transition: width 0.3s linear; }
   .progress .indeterminate {
-      background-color: #063359;
-  }
+    background-color: #063359; }
   .progress .indeterminate:before {
     content: '';
     position: absolute;
@@ -2081,12 +2054,14 @@ nav ul a span.badge, nav ul .link span.badge {
 
 .container {
   margin: 0 auto; }
-  .container.wpadminbar {
-      min-height: calc(100vh - 791px);
-  }
-  .container:not(.wpadminbar) {
-      min-height: calc(100vh - 759px);
-  }
+  .container:not(.footer-container).wpadminbar {
+    min-height: calc(100vh - 491px); }
+  .container:not(.footer-container):not(.wpadminbar) {
+    min-height: calc(100vh - 459px); }
+  .container:not(.footer-container).large-bar.wpadminbar {
+    min-height: calc(100vh - 791px); }
+    .container:not(.footer-container).large-bar:not(.wpadminbar) {
+      min-height: calc(100vh - 759px); }
 
 @media only screen and (min-width : 783px) {
     .container {
@@ -2100,10 +2075,6 @@ nav ul a span.badge, nav ul .link span.badge {
   @media only screen and (min-width : 1821px) {
   .container {
     width: 1700px; } }
-
-.container .row {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem; }
 
 .section {
   padding-top: 1rem;
@@ -2977,86 +2948,62 @@ h1 a, h1 .link, h2 a, h2 .link, h3 a, h3 .link, h4 a, h4 .link, h5 a, h5 .link, 
 h1.large {
   font-size: 4.2rem;
   line-height: 110%;
-  margin: 2.1rem 0 1.68rem 0;
-    color: blank;
-}
+  margin: 2.1rem 0 1.68rem 0; }
 
 h2.large {
   font-size: 3.56rem;
   line-height: 110%;
-  margin: 1.78rem 0 1.424rem 0;
-    color: blank;
-}
+  margin: 1.78rem 0 1.424rem 0; }
 
 h3.large {
   font-size: 2.92rem;
   line-height: 110%;
-  margin: 1.46rem 0 1.168rem 0;
-    color: blank;
-}
+  margin: 1.46rem 0 1.168rem 0; }
 
 h4.large {
   font-size: 2.28rem;
   line-height: 110%;
-  margin: 1.14rem 0 0.912rem 0;
-    color: blank;
-}
+  margin: 1.14rem 0 0.912rem 0; }
 
 h5.large {
   font-size: 1.64rem;
   line-height: 110%;
-  margin: 0.82rem 0 0.656rem 0;
-    color: blank;
-}
+  margin: 0.82rem 0 0.656rem 0; }
 
 h6.large {
   font-size: 1rem;
   line-height: 110%;
-  margin: 0.5rem 0 0.4rem 0;
-    color: blank;
-}
+  margin: 0.5rem 0 0.4rem 0; }
 
 h1 {
   font-size: 2.92rem;
   line-height: 110%;
-  margin: 1.46rem 0 1.168rem 0;
-    color: blank;
-}
+  margin: 1.46rem 0 1.168rem 0; }
 
 h2 {
   font-size: 2.28rem;
   line-height: 110%;
-  margin: 1.14rem 0 0.912rem 0;
-    color: blank;
-}
+  margin: 1.14rem 0 0.912rem 0; }
 
 h3 {
   font-size: 1.64rem;
   line-height: 110%;
-  margin: 0.82rem 0 0.656rem 0;
-    color: blank;
-}
+  margin: 0.82rem 0 0.656rem 0; }
 
 h4 {
   font-size: 1rem;
   line-height: 110%;
-  margin: 0.5rem 0 0.4rem 0;
-    color: blank;
-}
+  margin: 0.5rem 0 0.4rem 0; }
 
 h5 {
   font-size: 1rem;
   line-height: 110%;
-  margin: 0.5rem 0 0.4rem 0;
-    color: blank;
-}
+  margin: 0.5rem 0 0.4rem 0; }
 
 h6 {
   font-size: 1rem;
   line-height: 110%;
-  margin: 0.5rem 0 0.4rem 0;
-    color: blank;
-}
+  margin: 0.5rem 0 0.4rem 0; }
 
 em {
   font-style: italic; }
@@ -3445,20 +3392,18 @@ small {
     line-height: inherit; }
 
 .btn:focus, .btn-large:focus, .btn-floating:focus {
-    background-color: #031829;
-}
+  background-color: #031829; }
 
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-    background-color: #063359;
+  background-color: #063359;
   text-align: center;
   letter-spacing: 0.5px;
   transition: 0.2s ease-out;
   cursor: pointer; }
   .btn:hover, .btn-large:hover {
-      background-color: #084171;
-  }
+    background-color: #084171; }
 
 .btn-floating {
   display: inline-block;
@@ -3470,7 +3415,7 @@ small {
   height: 40px;
   line-height: 40px;
   padding: 0;
-    background-color: #063359;
+  background-color: #063359;
   border-radius: 50%;
   transition: 0.3s;
   cursor: pointer;
@@ -3483,8 +3428,7 @@ small {
     font-size: 1.6rem;
     line-height: 40px; }
   .btn-floating:hover {
-      background-color: #063359;
-  }
+    background-color: #063359; }
   .btn-floating:before {
     border-radius: 0; }
   .btn-floating.btn-large {
@@ -3566,7 +3510,7 @@ button.btn-floating {
     z-index: -1;
     width: 40px;
     height: 40px;
-      background-color: #063359;
+    background-color: #063359;
     border-radius: 50%;
     transform: scale(0); }
 
@@ -3626,7 +3570,7 @@ button.btn-floating {
     height: 1px; }
   .dropdown-content li > a, .dropdown-content li > .link, .dropdown-content li > span {
     font-size: 16px;
-      color: #063359;
+    color: #063359;
     display: block;
     line-height: 22px;
     padding: 14px 16px; }
@@ -3964,13 +3908,11 @@ button.btn-floating {
   -webkit-font-smoothing: antialiased; }
 
 select:focus {
-    outline: 1px solid #5BAEF4;
-}
+  outline: 1px solid #5baef4; }
 
 button:focus {
   outline: none;
-    background-color: #073E6C;
-}
+  background-color: #073e6c; }
 
 label {
   font-size: 0.8rem;
@@ -4006,47 +3948,34 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   box-shadow: none;
   box-sizing: content-box;
   transition: all 0.3s; }
-
-input:not([type]):disabled, input[type=text]:disabled, input[type=password]:disabled, input[type=email]:disabled, input[type=url]:disabled, input[type=time]:disabled, input[type=date]:disabled, input[type=iban]:disabled, input[type=datetime]:disabled, input[type=datetime-local]:disabled, input[type=tel]:disabled, input[type=number]:disabled, input[type=search]:disabled, textarea:disabled, input:not([type])[readonly="readonly"], input[type=text][readonly="readonly"], input[type=password][readonly="readonly"], input[type=email][readonly="readonly"], input[type=url][readonly="readonly"], input[type=time][readonly="readonly"], input[type=date][readonly="readonly"], input[type=iban][readonly="readonly"], input[type=datetime][readonly="readonly"], input[type=datetime-local][readonly="readonly"], input[type=tel][readonly="readonly"], input[type=number][readonly="readonly"], input[type=search][readonly="readonly"], textarea[readonly="readonly"] {
+  input:not([type]):disabled, input[type=text]:disabled, input[type=password]:disabled, input[type=email]:disabled, input[type=url]:disabled, input[type=time]:disabled, input[type=date]:disabled, input[type=iban]:disabled, input[type=datetime]:disabled, input[type=datetime-local]:disabled, input[type=tel]:disabled, input[type=number]:disabled, input[type=search]:disabled, textarea:disabled, input:not([type])[readonly="readonly"], input[type=text][readonly="readonly"], input[type=password][readonly="readonly"], input[type=email][readonly="readonly"], input[type=url][readonly="readonly"], input[type=time][readonly="readonly"], input[type=date][readonly="readonly"], input[type=iban][readonly="readonly"], input[type=datetime][readonly="readonly"], input[type=datetime-local][readonly="readonly"], input[type=tel][readonly="readonly"], input[type=number][readonly="readonly"], input[type=search][readonly="readonly"], textarea[readonly="readonly"] {
     color: rgba(0, 0, 0, .26);
     border-bottom: 1px dotted rgba(0, 0, 0, .26); }
-
-input:not([type]):disabled + label, input[type=text]:disabled + label, input[type=password]:disabled + label, input[type=email]:disabled + label, input[type=url]:disabled + label, input[type=time]:disabled + label, input[type=date]:disabled + label, input[type=iban]:disabled + label, input[type=datetime]:disabled + label, input[type=datetime-local]:disabled + label, input[type=tel]:disabled + label, input[type=number]:disabled + label, input[type=search]:disabled + label, textarea:disabled + label, input:not([type])[readonly="readonly"] + label, input[type=text][readonly="readonly"] + label, input[type=password][readonly="readonly"] + label, input[type=email][readonly="readonly"] + label, input[type=url][readonly="readonly"] + label, input[type=time][readonly="readonly"] + label, input[type=date][readonly="readonly"] + label, input[type=iban][readonly="readonly"] + label, input[type=datetime][readonly="readonly"] + label, input[type=datetime-local][readonly="readonly"] + label, input[type=tel][readonly="readonly"] + label, input[type=number][readonly="readonly"] + label, input[type=search][readonly="readonly"] + label, textarea[readonly="readonly"] + label {
+  input:not([type]):disabled + label, input[type=text]:disabled + label, input[type=password]:disabled + label, input[type=email]:disabled + label, input[type=url]:disabled + label, input[type=time]:disabled + label, input[type=date]:disabled + label, input[type=iban]:disabled + label, input[type=datetime]:disabled + label, input[type=datetime-local]:disabled + label, input[type=tel]:disabled + label, input[type=number]:disabled + label, input[type=search]:disabled + label, textarea:disabled + label, input:not([type])[readonly="readonly"] + label, input[type=text][readonly="readonly"] + label, input[type=password][readonly="readonly"] + label, input[type=email][readonly="readonly"] + label, input[type=url][readonly="readonly"] + label, input[type=time][readonly="readonly"] + label, input[type=date][readonly="readonly"] + label, input[type=iban][readonly="readonly"] + label, input[type=datetime][readonly="readonly"] + label, input[type=datetime-local][readonly="readonly"] + label, input[type=tel][readonly="readonly"] + label, input[type=number][readonly="readonly"] + label, input[type=search][readonly="readonly"] + label, textarea[readonly="readonly"] + label {
     color: rgba(0, 0, 0, .26); }
-
-input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=iban]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea:focus:not([readonly]) {
+  input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=iban]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea:focus:not([readonly]) {
     border-bottom: 1px solid #063359;
-    box-shadow: 0 1px 0 0 #063359;
-}
-
-input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=iban]:focus:not([readonly]) + label, input[type=datetime]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea:focus:not([readonly]) + label {
-    color: #063359;
-}
-
-input:not([type]).valid, input[type=text].valid, input[type=password].valid, input[type=email].valid, input[type=url].valid, input[type=time].valid, input[type=date].valid, input[type=iban].valid, input[type=datetime].valid, input[type=datetime-local].valid, input[type=tel].valid, input[type=number].valid, input[type=search].valid, textarea.valid, input:not([type]):focus.valid, input[type=text]:focus.valid, input[type=password]:focus.valid, input[type=email]:focus.valid, input[type=url]:focus.valid, input[type=time]:focus.valid, input[type=date]:focus.valid, input[type=iban]:focus.valid, input[type=datetime]:focus.valid, input[type=datetime-local]:focus.valid, input[type=tel]:focus.valid, input[type=number]:focus.valid, input[type=search]:focus.valid, textarea:focus.valid {
-    border-bottom: 1px solid #4CAF50;
-    box-shadow: 0 1px 0 0 #4CAF50;
-}
-
-input:not([type]).valid + label:after, input[type=text].valid + label:after, input[type=password].valid + label:after, input[type=email].valid + label:after, input[type=url].valid + label:after, input[type=time].valid + label:after, input[type=date].valid + label:after, input[type=iban].valid + label:after, input[type=datetime].valid + label:after, input[type=datetime-local].valid + label:after, input[type=tel].valid + label:after, input[type=number].valid + label:after, input[type=search].valid + label:after, textarea.valid + label:after, input:not([type]):focus.valid + label:after, input[type=text]:focus.valid + label:after, input[type=password]:focus.valid + label:after, input[type=email]:focus.valid + label:after, input[type=url]:focus.valid + label:after, input[type=time]:focus.valid + label:after, input[type=date]:focus.valid + label:after, input[type=iban]:focus.valid + label:after, input[type=datetime]:focus.valid + label:after, input[type=datetime-local]:focus.valid + label:after, input[type=tel]:focus.valid + label:after, input[type=number]:focus.valid + label:after, input[type=search]:focus.valid + label:after, textarea:focus.valid + label:after {
+    box-shadow: 0 1px 0 0 #063359; }
+  input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=iban]:focus:not([readonly]) + label, input[type=datetime]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea:focus:not([readonly]) + label {
+    color: #063359; }
+  input:not([type]).valid, input[type=text].valid, input[type=password].valid, input[type=email].valid, input[type=url].valid, input[type=time].valid, input[type=date].valid, input[type=iban].valid, input[type=datetime].valid, input[type=datetime-local].valid, input[type=tel].valid, input[type=number].valid, input[type=search].valid, textarea.valid, input:not([type]):focus.valid, input[type=text]:focus.valid, input[type=password]:focus.valid, input[type=email]:focus.valid, input[type=url]:focus.valid, input[type=time]:focus.valid, input[type=date]:focus.valid, input[type=iban]:focus.valid, input[type=datetime]:focus.valid, input[type=datetime-local]:focus.valid, input[type=tel]:focus.valid, input[type=number]:focus.valid, input[type=search]:focus.valid, textarea:focus.valid {
+    border-bottom: 1px solid #8a2900;
+    box-shadow: 0 1px 0 0 #8a2900; }
+  input:not([type]).valid + label:after, input[type=text].valid + label:after, input[type=password].valid + label:after, input[type=email].valid + label:after, input[type=url].valid + label:after, input[type=time].valid + label:after, input[type=date].valid + label:after, input[type=iban].valid + label:after, input[type=datetime].valid + label:after, input[type=datetime-local].valid + label:after, input[type=tel].valid + label:after, input[type=number].valid + label:after, input[type=search].valid + label:after, textarea.valid + label:after, input:not([type]):focus.valid + label:after, input[type=text]:focus.valid + label:after, input[type=password]:focus.valid + label:after, input[type=email]:focus.valid + label:after, input[type=url]:focus.valid + label:after, input[type=time]:focus.valid + label:after, input[type=date]:focus.valid + label:after, input[type=iban]:focus.valid + label:after, input[type=datetime]:focus.valid + label:after, input[type=datetime-local]:focus.valid + label:after, input[type=tel]:focus.valid + label:after, input[type=number]:focus.valid + label:after, input[type=search]:focus.valid + label:after, textarea:focus.valid + label:after {
     content: attr(data-success);
-    color: #4CAF50;
+    color: #8a2900;
     opacity: 1; }
-
-input:not([type]).invalid, input[type=text].invalid, input[type=password].invalid, input[type=email].invalid, input[type=url].invalid, input[type=time].invalid, input[type=date].invalid, input[type=iban].invalid, input[type=datetime].invalid, input[type=datetime-local].invalid, input[type=tel].invalid, input[type=number].invalid, input[type=search].invalid, textarea.invalid, input:not([type]):focus.invalid, input[type=text]:focus.invalid, input[type=password]:focus.invalid, input[type=email]:focus.invalid, input[type=url]:focus.invalid, input[type=time]:focus.invalid, input[type=date]:focus.invalid, input[type=iban]:focus.invalid, input[type=datetime]:focus.invalid, input[type=datetime-local]:focus.invalid, input[type=tel]:focus.invalid, input[type=number]:focus.invalid, input[type=search]:focus.invalid, textarea:focus.invalid {
+  input:not([type]).invalid, input[type=text].invalid, input[type=password].invalid, input[type=email].invalid, input[type=url].invalid, input[type=time].invalid, input[type=date].invalid, input[type=iban].invalid, input[type=datetime].invalid, input[type=datetime-local].invalid, input[type=tel].invalid, input[type=number].invalid, input[type=search].invalid, textarea.invalid, input:not([type]):focus.invalid, input[type=text]:focus.invalid, input[type=password]:focus.invalid, input[type=email]:focus.invalid, input[type=url]:focus.invalid, input[type=time]:focus.invalid, input[type=date]:focus.invalid, input[type=iban]:focus.invalid, input[type=datetime]:focus.invalid, input[type=datetime-local]:focus.invalid, input[type=tel]:focus.invalid, input[type=number]:focus.invalid, input[type=search]:focus.invalid, textarea:focus.invalid {
     border-bottom: 1px solid #f44336;
     box-shadow: 0 1px 0 0 #f44336; }
-
-input:not([type]).invalid + label:after, input[type=text].invalid + label:after, input[type=password].invalid + label:after, input[type=email].invalid + label:after, input[type=url].invalid + label:after, input[type=time].invalid + label:after, input[type=date].invalid + label:after, input[type=iban].invalid + label:after, input[type=datetime].invalid + label:after, input[type=datetime-local].invalid + label:after, input[type=tel].invalid + label:after, input[type=number].invalid + label:after, input[type=search].invalid + label:after, textarea.invalid + label:after, input:not([type]):focus.invalid + label:after, input[type=text]:focus.invalid + label:after, input[type=password]:focus.invalid + label:after, input[type=email]:focus.invalid + label:after, input[type=url]:focus.invalid + label:after, input[type=time]:focus.invalid + label:after, input[type=date]:focus.invalid + label:after, input[type=iban]:focus.invalid + label:after, input[type=datetime]:focus.invalid + label:after, input[type=datetime-local]:focus.invalid + label:after, input[type=tel]:focus.invalid + label:after, input[type=number]:focus.invalid + label:after, input[type=search]:focus.invalid + label:after, textarea:focus.invalid + label:after {
+  input:not([type]).invalid + label:after, input[type=text].invalid + label:after, input[type=password].invalid + label:after, input[type=email].invalid + label:after, input[type=url].invalid + label:after, input[type=time].invalid + label:after, input[type=date].invalid + label:after, input[type=iban].invalid + label:after, input[type=datetime].invalid + label:after, input[type=datetime-local].invalid + label:after, input[type=tel].invalid + label:after, input[type=number].invalid + label:after, input[type=search].invalid + label:after, textarea.invalid + label:after, input:not([type]):focus.invalid + label:after, input[type=text]:focus.invalid + label:after, input[type=password]:focus.invalid + label:after, input[type=email]:focus.invalid + label:after, input[type=url]:focus.invalid + label:after, input[type=time]:focus.invalid + label:after, input[type=date]:focus.invalid + label:after, input[type=iban]:focus.invalid + label:after, input[type=datetime]:focus.invalid + label:after, input[type=datetime-local]:focus.invalid + label:after, input[type=tel]:focus.invalid + label:after, input[type=number]:focus.invalid + label:after, input[type=search]:focus.invalid + label:after, textarea:focus.invalid + label:after {
     content: attr(data-error);
     color: #f44336;
     opacity: 1; }
-
-input:not([type]).validate + label, input[type=text].validate + label, input[type=password].validate + label, input[type=email].validate + label, input[type=url].validate + label, input[type=time].validate + label, input[type=date].validate + label, input[type=iban].validate + label, input[type=datetime].validate + label, input[type=datetime-local].validate + label, input[type=tel].validate + label, input[type=number].validate + label, input[type=search].validate + label, textarea.validate + label {
+  input:not([type]).validate + label, input[type=text].validate + label, input[type=password].validate + label, input[type=email].validate + label, input[type=url].validate + label, input[type=time].validate + label, input[type=date].validate + label, input[type=iban].validate + label, input[type=datetime].validate + label, input[type=datetime-local].validate + label, input[type=tel].validate + label, input[type=number].validate + label, input[type=search].validate + label, textarea.validate + label {
     width: 100%;
     pointer-events: none; }
-
-input:not([type]) + label:after, input[type=text] + label:after, input[type=password] + label:after, input[type=email] + label:after, input[type=url] + label:after, input[type=time] + label:after, input[type=date] + label:after, input[type=iban] + label:after, input[type=datetime] + label:after, input[type=datetime-local] + label:after, input[type=tel] + label:after, input[type=number] + label:after, input[type=search] + label:after, textarea + label:after {
+  input:not([type]) + label:after, input[type=text] + label:after, input[type=password] + label:after, input[type=email] + label:after, input[type=url] + label:after, input[type=time] + label:after, input[type=date] + label:after, input[type=iban] + label:after, input[type=datetime] + label:after, input[type=datetime-local] + label:after, input[type=tel] + label:after, input[type=number] + label:after, input[type=search] + label:after, textarea + label:after {
     display: block;
     content: "";
     position: absolute;
@@ -4084,8 +4013,7 @@ input:not([type]) + label:after, input[type=text] + label:after, input[type=pass
     font-size: 2rem;
     transition: color 0.2s; }
   .input-field .prefix.active {
-      color: #063359;
-  }
+    color: #063359; }
   .input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
     margin-left: 3rem;
     width: 92%;
@@ -4199,12 +4127,10 @@ textarea {
   border: 2px solid transparent; }
 
 [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
-    border: 2px solid #063359;
-}
+  border: 2px solid #063359; }
 
 [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-    background-color: #063359;
-}
+  background-color: #063359; }
 
 [type="radio"]:checked + label:after {
   transform: scale(1.02); }
@@ -4300,8 +4226,8 @@ form p:last-child {
   height: 22px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-    border-right: 2px solid #063359;
-    border-bottom: 2px solid #063359;
+  border-right: 2px solid #063359;
+  border-bottom: 2px solid #063359;
   transform: rotate(40deg);
   backface-visibility: hidden;
   transform-origin: 100% 100%; }
@@ -4316,7 +4242,7 @@ form p:last-child {
   height: 22px;
   border-top: none;
   border-left: none;
-    border-right: 2px solid #063359;
+  border-right: 2px solid #063359;
   border-bottom: none;
   transform: rotate(90deg);
   backface-visibility: hidden;
@@ -4368,8 +4294,8 @@ form p:last-child {
     top: 0;
     width: 20px;
     height: 20px;
-      border: 2px solid #063359;
-      background-color: #063359;
+    border: 2px solid #063359;
+    background-color: #063359;
     z-index: 0; }
   [type="checkbox"].filled-in.tabbed:focus + label:after {
     border-radius: 2px;
@@ -4377,9 +4303,8 @@ form p:last-child {
     background-color: rgba(0, 0, 0, .1); }
   [type="checkbox"].filled-in.tabbed:checked:focus + label:after {
     border-radius: 2px;
-      background-color: #063359;
-      border-color: #063359;
-  }
+    background-color: #063359;
+    border-color: #063359; }
   [type="checkbox"].filled-in:disabled:not(:checked) + label:before {
     background-color: transparent;
     border: 2px solid transparent; }
@@ -4407,10 +4332,9 @@ form p:last-child {
   width: 0;
   height: 0; }
   .switch label input[type=checkbox]:checked + .lever {
-      background-color: #2A75B5;
-  }
+    background-color: #2a75b5; }
   .switch label input[type=checkbox]:checked + .lever:after {
-      background-color: #063359;
+    background-color: #063359;
     left: 24px; }
 
 .switch label .lever {
@@ -4439,8 +4363,7 @@ form p:last-child {
     transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease; }
 
 input[type=checkbox]:checked:not(:disabled) ~ .lever:active::after, input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::after {
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .4), 0 0 0 15px rgba(6, 51, 89, 0.1);
-}
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .4), 0 0 0 15px rgba(6, 51, 89, 0.1); }
 
 input[type=checkbox]:not(:disabled) ~ .lever:active:after, input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .4), 0 0 0 15px rgba(0, 0, 0, .08); }
@@ -4598,7 +4521,7 @@ input[type=range] + .thumb {
   height: 0;
   width: 0;
   border-radius: 50%;
-    background-color: #063359;
+  background-color: #063359;
   top: 10px;
   margin-left: -6px;
   transform-origin: 50% 50%;
@@ -4607,7 +4530,7 @@ input[type=range] + .thumb {
     display: block;
     width: 30px;
     text-align: center;
-      color: #063359;
+    color: #063359;
     font-size: 0;
     transform: rotate(45deg); }
   input[type=range] + .thumb.active {
@@ -4632,7 +4555,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-    background-color: #063359;
+  background-color: #063359;
   transform-origin: 50% 50%;
   margin: -5px 0 0 0;
   transition: 0.3s; }
@@ -4655,7 +4578,7 @@ input[type=range]::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-    background: #063359;
+  background: #063359;
   margin-top: -5px; }
 
 input[type=range]:-moz-focusring {
@@ -4684,8 +4607,7 @@ input[type=range]::-ms-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-    background: #063359;
-}
+  background: #063359; }
 
 input[type=range]:focus::-ms-fill-lower {
   background: #888; }
@@ -4763,11 +4685,9 @@ input[type=range]:focus::-ms-fill-upper {
   .side-nav a.btn-flat, .side-nav .link.btn-flat {
     color: #343434; }
   .side-nav a.btn:hover, .side-nav .link.btn:hover, .side-nav .btn-large.link:hover, .side-nav a.btn-large:hover, .side-nav .link.btn-large:hover {
-      background-color: #084171;
-  }
+    background-color: #084171; }
   .side-nav a.btn-floating:hover, .side-nav .link.btn-floating:hover {
-      background-color: #063359;
-  }
+    background-color: #063359; }
   .side-nav li > a > i, .side-nav li > .link > i, .side-nav li > a > [class^="mdi-"], .side-nav li > .link > [class^="mdi-"], .side-nav li > a > [class*="mdi-"], .side-nav li > .link > [class*="mdi-"], .side-nav li > a > i.material-icons, .side-nav li > .link > i.material-icons {
     float: left;
     height: 48px;
@@ -4912,8 +4832,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
   height: 100%;
   opacity: 0;
-    border-color: #063359;
-}
+  border-color: #063359; }
 
 .spinner-blue, .spinner-blue-only {
   border-color: #4285f4; }
@@ -5788,7 +5707,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .picker__date-display {
   text-align: center;
-    background-color: #063359;
+  background-color: #063359;
   color: #fff;
   padding-bottom: 15px;
   font-weight: 300; }
@@ -5796,11 +5715,10 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__nav--prev:hover, .picker__nav--next:hover {
   cursor: pointer;
   color: #000;
-    background: #3390DE;
-}
+  background: #3390de; }
 
 .picker__weekday-display {
-    background-color: #042038;
+  background-color: #042038;
   padding: 10px;
   font-weight: 200;
   letter-spacing: 0.5px;
@@ -5839,8 +5757,7 @@ input[type=range]:focus::-ms-fill-upper {
   border: 1px solid transparent; }
 
 .picker__day.picker__day--today {
-    color: #063359;
-}
+  color: #063359; }
 
 .picker__day.picker__day--today.picker__day--selected {
   color: #fff; }
@@ -5851,11 +5768,10 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
   border-radius: 50%;
   transform: scale(0.9);
-    background-color: #063359;
+  background-color: #063359;
   color: #fff; }
   .picker__day--selected.picker__day--outfocus, .picker__day--selected:hover.picker__day--outfocus, .picker--focused .picker__day--selected.picker__day--outfocus {
-      background-color: #3390DE;
-  }
+    background-color: #3390de; }
 
 .picker__footer {
   text-align: right;
@@ -5864,8 +5780,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__close, .picker__today {
   font-size: 1.1rem;
   padding: 0 1rem;
-    color: #063359;
-}
+  color: #063359; }
 
 .picker__nav--prev:before, .picker__nav--next:before {
   content: " ";
@@ -5882,8 +5797,7 @@ input[type=range]:focus::-ms-fill-upper {
   border-left: 0.75em solid #676767; }
 
 button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
-    background-color: #3390DE;
-}
+  background-color: #3390de; }
 /* ==========================================================================
  $BASE-TIME-PICKER
  ========================================================================== */
@@ -5994,7 +5908,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .widget-area {
   z-index: -1; }
   .widget-area.fixed {
-    position: fixed; }
+    position: fixed;
+    z-index: 1; }
   .widget-area.fixed:not(.wpadminbar) {
     top: 0; }
   .widget-area.fixed.wpadminbar {
