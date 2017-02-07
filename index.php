@@ -13,11 +13,11 @@
 
 get_header() ?>
 <header class="full-width-entry-header">
-    <div class="parallax-container" style="height: 450px;">
-        <div class="parallax"><img src="<?= get_theme_mod('header_image', get_template_directory_uri() . '/images/banner.jpg') ?>"></div>
+    <div class="parallax-container" style="height: 450px; background-color: rgba(0,0,0,0.2);">
+        <div class="parallax"><img src="<?= get_header_image() ?>"></div>
         <div class="valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
             <div class="valign center-align">
-                <h1 class="entry-title center-align white-text valign" style="margin-top: 0; padding-top: 30px"><?= get_bloginfo() ?></h1>
+                <h1 class="entry-title center-align white-text valign" style="margin-top: 0; padding-top: 30px;"><?= get_bloginfo() ?></h1>
                 <h3 class="entry-title center-align white-text valign"><?= get_bloginfo('description') ?></h3>
             </div>
         </div>
