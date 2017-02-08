@@ -11,14 +11,31 @@
  * @since      SSV 1.0
  */
 
+$birthdayNames = array();
+
+global $wpdb;
+$table   = $wpdb->usermeta;
+$sql     = "SELECT user_id FROM $table WHERE `meta_key` = 'date_of_birth' AND DATE(CONCAT(YEAR(CURDATE()), RIGHT(`meta_value`, 6))) = CURDATE();";
+$results = $wpdb->get_results($sql);
+foreach ($results as $result) {
+    $birthdayNames[] = User::getByID($result->user_id)->display_name;
+}
+
 get_header() ?>
 <header class="full-width-entry-header">
     <div class="parallax-container" style="height: 450px; background-color: rgba(0,0,0,0.2);">
-        <div class="parallax"><img src="<?= get_header_image() ?>"></div>
+        <div class="parallax"><img src="<?= count($birthdayNames) > 0 ? get_template_directory_uri() . '/images/birthday.gif' : get_header_image() ?>"></div>
         <div class="valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
             <div class="valign center-align">
-                <h1 class="entry-title center-align white-text valign" style="margin-top: 0; padding-top: 30px;"><?= get_bloginfo() ?></h1>
-                <h3 class="entry-title center-align white-text valign"><?= get_bloginfo('description') ?></h3>
+                <?php if (count($birthdayNames) > 0): ?>
+                    <h2 class="entry-title center-align white-text valign">A Very Happy Birthday To:</h2>
+                    <?php foreach ($birthdayNames as $birthdayName): ?>
+                        <h1 class="entry-title center-align white-text valign"><?= $birthdayName ?></h1>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h1 class="entry-title center-align white-text valign" style="margin-top: 0; padding-top: 30px;"><?= get_bloginfo() ?></h1>
+                    <h3 class="entry-title center-align white-text valign"><?= get_bloginfo('description') ?></h3>
+                <?php endif; ?>
             </div>
         </div>
     </div>
