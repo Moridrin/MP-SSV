@@ -8,243 +8,299 @@
  */
 
 require_once 'general/general.php';
-require_once 'filter_content.php';
-add_filter('the_content', 'ssv_filter_content', 11);
+require_once 'inc/template-tags.php';
 
-if (!function_exists('ssv_setup')) {
-    function ssv_setup()
-    {
-        load_theme_textdomain('ssv', get_template_directory() . '/languages');
-        add_theme_support('automatic-feed-links');
-        add_theme_support('title-tag');
-        add_theme_support('post-thumbnails');
-        add_theme_support('custom-header');
-        set_post_thumbnail_size(1920, 480, true);
-        add_image_size('ssv-banner-xl', 1920, 480, true);
-        add_image_size('ssv-banner-l', 1700, 425, true);
-        add_image_size('ssv-banner-m', 1200, 300, true);
-        add_image_size('ssv-banner-s', 600, 150, true);
-        register_nav_menus(
-            array(
-                'primary' => __('Primary Menu', 'ssv'),
-                'social'  => __('Social Links Menu', 'ssv')
-            )
-        );
-        add_theme_support(
-            'html5', array(
-                       'search-form',
-                       'comment-form',
-                       'comment-list',
-                       'gallery',
-                       'caption'
-                   )
-        );
-        add_theme_support(
-            'post-formats', array(
-                              'aside',
-                              'image',
-                              'video',
-                              'quote',
-                              'link',
-                              'gallery',
-                              'status',
-                              'audio',
-                              'chat'
-                          )
-        );
-        add_theme_support('tabs');
-        add_theme_support('mui');
-    }
-}
-add_action('after_setup_theme', 'ssv_setup');
-
-function ssv_content_width()
+function mp_ssv_theme_setup()
 {
-    $GLOBALS['content_width'] = apply_filters('ssv_content_width', 1920);
-}
-
-add_action('after_setup_theme', 'ssv_content_width', 0);
-
-function ssv_widgets_init()
-{
-    register_sidebar(
+    add_theme_support('automatic-feed-links');
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    $args = array(
+        'default-image' => get_template_directory_uri() . '/images/banner.jpg',
+        'width'         => 2048,
+        'height'        => 1000,
+    );
+    add_theme_support('custom-header', $args);
+    set_post_thumbnail_size(1920, 480, true);
+    add_image_size('ssv-banner-xl', 1920, 480, true);
+    add_image_size('ssv-banner-l', 1700, 425, true);
+    add_image_size('ssv-banner-m', 1200, 300, true);
+    add_image_size('ssv-banner-s', 600, 150, true);
+    register_nav_menus(
         array(
-            'name'          => __('Sidebar', 'ssv'),
-            'id'            => 'sidebar-1',
-            'description'   => __('Add widgets here to appear in your sidebar.', 'ssv'),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>'
+            'primary'        => __('Primary Menu', 'ssv'),
+            'mobile_primary' => __('Primary Mobile Menu', 'ssv'),
+            'mobile_profile' => __('Profile Mobile Menu', 'ssv'),
+        )
+    );
+    add_theme_support(
+        'html5',
+        array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+        )
+    );
+    add_theme_support('tabs');
+    add_theme_support('materialize');
+}
+
+add_action('after_setup_theme', 'mp_ssv_theme_setup');
+
+function mp_ssv_custom_image_sizes($sizes)
+{
+    return array_merge(
+        $sizes,
+        array(
+            'ssv-banner-xl' => __('Banner XL'),
+            'ssv-banner-l'  => __('Banner L'),
+            'ssv-banner-m'  => __('Banner M'),
+            'ssv-banner-s'  => __('Banner S'),
         )
     );
 }
 
-add_action('widgets_init', 'ssv_widgets_init');
+add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 
-if (!function_exists('ssv_fonts_url')) {
-    function ssv_fonts_url()
-    {
-        $fonts_url = '';
-        $fonts = array();
-        $subsets = 'latin,latin-ext';
-        if ('off' !== _x('on', 'Merriweather font: on or off', 'ssv')) {
-            $fonts[] = 'Merriweather:400,700,900,400italic,700italic,900italic';
-        }
-        if ('off' !== _x('on', 'Montserrat font: on or off', 'ssv')) {
-            $fonts[] = 'Montserrat:400,700';
-        }
-        if ('off' !== _x('on', 'Inconsolata font: on or off', 'ssv')) {
-            $fonts[] = 'Inconsolata:400';
-        }
-        if ($fonts) {
-            $fonts_url = add_query_arg(
-                array(
-                    'family' => urlencode(implode('|', $fonts)),
-                    'subset' => urlencode($subsets)
-                ), 'https://fonts.googleapis.com/css'
-            );
-        }
-        return $fonts_url;
+function mp_ssv_enquire_scripts()
+{
+    wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv/js/materialize.js', array('jquery'));
+    if (is_customize_preview()) {
+        //Uses Generated CSS
+    } else {
+        wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
+    }
+    wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
+    if (is_404()) {
+        wp_enqueue_script('bb8', get_theme_root_uri() . '/mp-ssv/js/BB8.js', array('jquery'));
+        wp_enqueue_style('bb8', get_theme_root_uri() . '/mp-ssv/css/BB8.css');
+    } else {
+        wp_enqueue_script('materialize_init', get_theme_root_uri() . '/mp-ssv/js/init.js', array('jquery'));
     }
 }
 
-function ssv_scripts()
+add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
+
+function mp_ssv_enquire_admin_scripts()
 {
-    wp_enqueue_style('ssv-fonts', ssv_fonts_url(), array(), null);
-    wp_enqueue_style('genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1');
-    wp_enqueue_style('ssv-style', get_stylesheet_uri());
+    wp_enqueue_script('datetimepicker', get_theme_root_uri() . '/mp-ssv/js/jquery.datetimepicker.full.js', 'jquery-ui-datepicker');
+    wp_enqueue_script('datetimepicker_admin_init', get_theme_root_uri() . '/mp-ssv/js/admin-init.js', 'datetimepicker');
+    wp_enqueue_style('datetimepicker_admin_css', get_theme_root_uri() . '/mp-ssv/css/jquery.datetimepicker.css');
 }
 
-add_action('wp_enqueue_scripts', 'ssv_scripts');
+add_action('admin_enqueue_scripts', 'mp_ssv_enquire_admin_scripts', 12);
 
-function ssv_body_classes($classes)
+function mp_special_nav_menu_class($classes, $item, $args)
 {
-    if (get_background_image()) {
-        $classes[] = 'custom-background-image';
+    if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes) || in_array('current-menu-ancestor', $classes) || in_array('current-menu-parent', $classes)) {
+        $classes[] = 'menu-item-active ';
     }
-    if (is_multi_author()) {
-        $classes[] = 'group-blog';
+    if (in_array('menu-item-has-children', $classes) && strpos($args->theme_location, 'mobile') === false) {
+        $classes[]   = 'dropdown-button';
+        $item->title = $item->title . '<i class="material-icons right">arrow_drop_down</i>';
     }
-    if (!is_active_sidebar('sidebar-1')) {
-        $classes[] = 'no-sidebar';
-    }
-    if (!is_singular()) {
-        $classes[] = 'hfeed';
-    }
+    $classes[] = 'waves-effect';
     return $classes;
 }
 
-add_filter('body_class', 'ssv_body_classes');
+add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
 
-function ssv_hex2rgb($color)
+function mp_ssv_widgets_init()
 {
-    $color = trim($color, '#');
-    if (strlen($color) === 3) {
-        $r = hexdec(substr($color, 0, 1) . substr($color, 0, 1));
-        $g = hexdec(substr($color, 1, 1) . substr($color, 1, 1));
-        $b = hexdec(substr($color, 2, 1) . substr($color, 2, 1));
-    } else {
-        if (strlen($color) === 6) {
-            $r = hexdec(substr($color, 0, 2));
-            $g = hexdec(substr($color, 2, 2));
-            $b = hexdec(substr($color, 4, 2));
-        } else {
-            return array();
-        }
-    }
-    return array(
-        'red'   => $r,
-        'green' => $g,
-        'blue'  => $b
+    register_sidebar(
+        array(
+            'name'          => __('Sidebar', 'ssv'),
+            'id'            => 'sidebar',
+            'description'   => __('Add widgets here to appear in your sidebar.', 'ssv'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
     );
 }
 
-/** @noinspection PhpIncludeInspection */
-require get_template_directory() . '/inc/template-tags.php';
+add_action('widgets_init', 'mp_ssv_widgets_init');
 
-function ssv_content_image_sizes_attr($sizes, $size)
+function mp_ssv_init_js()
 {
-    $width = $size[0];
-    840 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px';
-    if ('page' === get_post_type()) {
-        840 > $width && $sizes = '(max-width: ' . $width . 'px) 85vw, ' . $width . 'px';
-    } else {
-        840 > $width && 600 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px';
-        600 > $width && $sizes = '(max-width: ' . $width . 'px) 85vw, ' . $width . 'px';
-    }
-    return $sizes;
 }
 
-add_filter('wp_calculate_image_sizes', 'ssv_content_image_sizes_attr', 10, 2);
+add_action('wp_loaded', 'mp_ssv_init_js');
 
-function ssv_post_thumbnail_sizes_attr($attr, $attachment, $size)
+/**
+ * @return string
+ * @internal param null|WP_Query $query
+ */
+function mp_ssv_get_pagination()
 {
-    if ('post-thumbnail' === $size) {
-        is_active_sidebar('sidebar-1') && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
-        !is_active_sidebar('sidebar-1') && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
-    }
-    return $attr ?: $attachment;
-}
-
-add_filter('wp_get_attachment_image_attributes', 'ssv_post_thumbnail_sizes_attr', 10, 3);
-
-function ssv_my_custom_sizes($sizes)
-{
-    return array_merge(
-        $sizes, array(
-                  'ssv-banner-xl' => __('Banner XL'),
-                  'ssv-banner-l'  => __('Banner L'),
-                  'ssv-banner-m'  => __('Banner M'),
-                  'ssv-banner-s'  => __('Banner S')
-              )
-    );
-}
-
-add_filter('image_size_names_choose', 'ssv_my_custom_sizes');
-
-function ssv_override_toolbar_margin()
-{
-    if (is_admin_bar_showing()) { ?>
-        <style type="text/css" media="screen">
-            html {
-                margin-top: 100px !important;
-            }
-
-            * html body {
-                margin-top: 100px !important;
-            }
-        </style>
-    <?php } else { ?>
-        <style type="text/css" media="screen">
-            html {
-                margin-top: 70px !important;
-            }
-
-            * html body {
-                margin-top: 70px !important;
-            }
-        </style>
-    <?php }
-}
-
-add_action('wp_head', 'ssv_override_toolbar_margin', 11);
-
-function ssv_get_search_form($echo = true)
-{
+    global $wp_query;
+    $pageCount   = $wp_query->max_num_pages;
+    $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
     ob_start();
     ?>
-    <form role="search" method="get" class="search-form" action="/">
-        <div class="mui-textfield mui-textfield--float-label">
-            <input type="search" class="search-field" value="" name="s" title="Search for:">
-            <label>Search for</label>
-        </div>
-        <button type="submit" class="mui-btn mui-btn--primary search-submit"><span class="screen-reader-text">Search</span></button>
-    </form>
+    <ul class="pagination right">
+        <?php
+        if ($currentPage > 1) {
+            ?>
+            <li class="waves-effect"><a href="?paged=<?= $currentPage - 1 ?>"><i class="material-icons">chevron_left</i></a></li><?php
+        } else {
+            ?>
+            <li class="disabled waves-effect"><i class="material-icons">chevron_left</i></li><?php
+        }
+        ?>
+        <?php
+        for ($i = 1; $i <= $pageCount; $i++) {
+            if ($i != $currentPage) {
+                ?>
+                <li class="waves-effect"><a href="?paged=<?= $i ?>"><?= $i ?></a></li><?php
+            } else {
+                ?>
+                <li class="active waves-effect"><span class="non-link"><?= $i ?></span></li><?php
+            }
+        }
+        if ($currentPage < $pageCount) {
+            ?>
+            <li class="waves-effect"><a href="?paged=<?= $currentPage + 1 ?>"><i class="material-icons">chevron_right</i></a></li><?php
+        } else {
+            ?>
+            <li class="disabled waves-effect"><i class="material-icons">chevron_right</i></li><?php
+        }
+        ?>
+    </ul>
     <?php
-    $search_form = ob_get_clean();
-    if ($echo) {
-        echo $search_form;
-    }
-    return $search_form;
+    return ob_get_clean();
 }
+
+function mp_ssv_customize_register($wp_customize)
+{
+    /** @var WP_Customize_Manager $wp_customize */
+//    $wp_customize->add_section(
+//        'mp_ssv',
+//        array(
+//            'title' => 'SSV',
+//        )
+//    );
+    $wp_customize->add_setting(
+        'welcome_message',
+        array(
+            'default' => '',
+        )
+    );
+    $wp_customize->add_control(
+        'welcome_message',
+        array(
+            'label'   => 'Welcome Message',
+            'section' => 'title_tagline',
+            'type'    => 'textarea',
+        )
+    );
+    $wp_customize->add_setting(
+        'footer_main',
+        array(
+            'default' => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
+        )
+    );
+    $wp_customize->add_control(
+        'footer_main',
+        array(
+            'label'   => 'Footer Main',
+            'section' => 'title_tagline',
+            'type'    => 'textarea',
+        )
+    );
+    $wp_customize->add_setting(
+        'foorer_right',
+        array(
+            'default' => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>',
+        )
+    );
+    $wp_customize->add_control(
+        'foorer_right',
+        array(
+            'label'   => 'Footer Right',
+            'section' => 'title_tagline',
+            'type'    => 'textarea',
+        )
+    );
+    mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
+    mp_ssv_add_color_customizer($wp_customize, 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
+    mp_ssv_add_color_customizer($wp_customize, 'secondary_color', 'Secondary Color', '#26A69A');
+    mp_ssv_add_color_customizer($wp_customize, 'text_on_secondary_color', 'Text On Secondary Color', '#FFFFFF');
+    mp_ssv_add_color_customizer($wp_customize, 'link_color', 'Link Color', '#039BE5');
+    mp_ssv_add_color_customizer($wp_customize, 'success_color', 'Success Color', '#4CAF50');
+    mp_ssv_add_color_customizer($wp_customize, 'error_color', 'Error Color', '#F44336');
+}
+
+function mp_ssv_add_color_customizer($wp_customize, $name, $label, $default)
+{
+    /** @var WP_Customize_Manager $wp_customize */
+    $wp_customize->add_setting(
+        $name,
+        array(
+            'default' => $default,
+        )
+    );
+    $wp_customize->add_control(
+        $name,
+        array(
+            'label'   => $label,
+            'section' => 'colors',
+            'type'    => 'color',
+        )
+    );
+}
+
+add_action('customize_register', 'mp_ssv_customize_register');
+
+function mp_ssv_customize_preview_css()
+{
+    if (is_customize_preview()) {
+        require_once "compiling-source/scssphp/scss.inc.php";
+        $scss = new \Leafo\ScssPhp\Compiler();
+        $scss->setVariables(
+            array(
+                'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+                'primary-color'           => get_theme_mod('primary_color', '#005E38'),
+                'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
+                'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
+                'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
+                'link-color'              => get_theme_mod('link_color', '#039BE5'),
+                'success-color'           => get_theme_mod('success_color', '#4CAF50'),
+                'error-color'             => get_theme_mod('error_color', '#F44336'),
+            )
+        );
+        echo '<style id="moridrin">';
+        echo $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
+        echo '</style>';
+    }
+}
+
+add_action('wp_head', 'mp_ssv_customize_preview_css');
+
+function mp_ssv_customize_save_css()
+{
+    require_once "compiling-source/scssphp/scss.inc.php";
+    $scss = new \Leafo\ScssPhp\Compiler();
+    $scss->setVariables(
+        array(
+            'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+            'primary-color'           => get_theme_mod('primary_color', '#005E38'),
+            'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
+            'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
+            'text-on-secondary-color' => get_theme_mod('text_on_secondary_color', '#FFFFFF'),
+            'link-color'              => get_theme_mod('link_color', '#039BE5'),
+            'success-color'           => get_theme_mod('success_color', '#4CAF50'),
+            'error-color'             => get_theme_mod('error_color', '#F44336'),
+        )
+    );
+    $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
+
+    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export("Couldn't open file.", 1);
+    fwrite($materializeCSSFile, $compiled);
+    fclose($materializeCSSFile);
+}
+
+add_action('customize_save_after', 'mp_ssv_customize_save_css');

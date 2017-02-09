@@ -2,44 +2,43 @@
 /**
  * The template part for displaying content
  *
- * @package Moridrin
+ * @package    Moridrin
  * @subpackage SSV
- * @since SSV 1.0
+ * @since      SSV 1.0
  */
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="card hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+            <?php mp_ssv_post_thumbnail(true, array('class' => 'activator banner')); ?>
+        </div>
+        <div class="card-content">
+            <header class="entry-header">
+                <?php if (is_sticky() && is_home() && !is_paged()) : ?>
+                    <span class="sticky-post">Featured</span>
+                <?php endif; ?>
+                <h1 class="card-title activator grey-text text-darken-4"><?= the_title() ?></h1>
+            </header>
+            <?php $content = get_the_content(); ?>
+            <?php $content = wp_trim_words($content, 50); ?>
+            <?= $content ?>
+            <span class="activator link">Read More</span><br/>
+            <p><a href="<?= get_permalink() ?>">Full Post</a></p>
+        </div>
+        <div class="card-reveal">
+            <header class="entry-header">
+                <?php if (is_sticky() && is_home() && !is_paged()) : ?>
+                    <span class="sticky-post">Featured</span>
+                <?php endif; ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('card mui-panel mui-panel-with-header'); ?>>
-	<?php echo sprintf('<a href="%s" class="card-link header-link entry-header" rel="bookmark"></a>', esc_url(get_permalink())) ?>
-		<header class="entry-header">
-			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-                <span class="sticky-post"><?php _e('Featured', 'ssv'); ?></span>
-			<?php endif; ?>
-
-			<?php the_title('<h2 class="entry-title">', '</h2>'); ?>
-		</header><!-- .entry-header -->
-    <?php ssv_excerpt(); ?>
-
-    <?php ssv_post_thumbnail(true); ?>
-
-	<div class="entry-content mui-panel-content">
-		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-                             __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'ssv'),
-                             get_the_title()
-			) );
-
-			wp_link_pages( array(
-                               'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'ssv') . '</span>',
-                               'after'       => '</div>',
-                               'link_before' => '<span>',
-                               'link_after'  => '</span>',
-                               'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'ssv') . ' </span>%',
-                               'separator'   => '<span class="screen-reader-text">, </span>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-	<footer class="entry-footer">
+                <h1 class="card-title activator grey-text text-darken-4"><?= the_title() ?><i class="material-icons right">close</i></h1>
+            </header>
+            <p>
+                <?php
+                the_content('');
+                ?>
+            </p>
+        </div>
         <?php ssv_entry_meta(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+    </div>
+</article>
