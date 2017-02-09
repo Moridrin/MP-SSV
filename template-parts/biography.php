@@ -1,13 +1,3 @@
-<?php
-/**
- * The template part for displaying an Author biography
- *
- * @package Moridrin
- * @subpackage SSV
- * @since SSV 1.0
- */
-?>
-
 <div class="author-info">
 	<div class="author-avatar">
 		<?php
@@ -18,12 +8,12 @@
 	</div><!-- .author-avatar -->
 
 	<div class="author-description">
-        <h2 class="author-title"><span class="author-heading"><?php _e('Author:', 'ssv'); ?></span> <?php echo get_the_author(); ?></h2>
+        <h2 class="author-title"><span class="author-heading">Author:</span> <?php echo get_the_author(); ?></h2>
 
 		<p class="author-bio">
 			<?php the_author_meta( 'description' ); ?>
 			<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-                <?php printf(__('View all posts by %s', 'ssv'), get_the_author()); ?>
+                <?php printf('View all posts by %s', get_the_author()); ?>
 			</a>
 		</p><!-- .author-bio -->
 	</div><!-- .author-description -->

@@ -1,12 +1,3 @@
-<?php
-/**
- * The template part for displaying content
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="card hoverable">
         <div class="card-image waves-effect waves-block waves-light">

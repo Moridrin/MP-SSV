@@ -1,13 +1,3 @@
-<?php
-/**
- * The template for displaying the footer
- * Contains the closing of the #content div and all content after
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-?>
 <footer class="page-footer <?= is_404() ? '' : 'primary' ?>">
     <div>
         <div class="container footer-container">
@@ -34,4 +24,5 @@
         </div>
     </div>
 </footer>
+</body>
 <?php wp_footer(); ?>

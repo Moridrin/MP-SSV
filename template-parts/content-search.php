@@ -1,13 +1,3 @@
-<?php
-/**
- * The template part for displaying results in search pages
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <a href="<?= esc_url(get_permalink()) ?>" class="header-link entry-header" rel="bookmark">
         <header class="entry-header">
