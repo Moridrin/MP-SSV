@@ -1,13 +1,3 @@
-<?php
-/**
- * The template used for displaying page content
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php mp_ssv_post_thumbnail(); ?>
     <div class="entry-content">
@@ -15,11 +5,11 @@
         the_content();
         wp_link_pages(
             array(
-                'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'ssv') . '</span>',
+                'before'      => '<div class="page-links"><span class="page-links-title">' . 'Pages:' . '</span>',
                 'after'       => '</div>',
                 'link_before' => '<span>',
                 'link_after'  => '</span>',
-                'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'ssv') . ' </span>%',
+                'pagelink'    => '<span class="screen-reader-text">' . 'Page' . ' </span>%',
                 'separator'   => '<span class="screen-reader-text">, </span>',
             )
         );

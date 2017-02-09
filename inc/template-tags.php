@@ -1,9 +1,4 @@
 <?php
-/**
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
 
 function ssv_entry_meta()
 {
@@ -55,20 +50,20 @@ function ssv_entry_meta()
 if (!function_exists('ssv_entry_taxonomies')) :
     function ssv_entry_taxonomies()
     {
-        $categories_list = get_the_category_list(_x(', ', 'Used between list items, there is a space after the comma.', 'ssv'));
+        $categories_list = get_the_category_list(_x(', ', 'Used between list items, there is a space after the comma.', 'mp-ssv'));
         if ($categories_list && ssv_categorized_blog()) {
             printf(
                 '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-                _x('Categories', 'Used before category names.', 'ssv'),
+                _x('Categories', 'Used before category names.', 'mp-ssv'),
                 $categories_list
             );
         }
 
-        $tags_list = get_the_tag_list('', _x(', ', 'Used between list items, there is a space after the comma.', 'ssv'));
+        $tags_list = get_the_tag_list('', _x(', ', 'Used between list items, there is a space after the comma.', 'mp-ssv'));
         if ($tags_list) {
             printf(
                 '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-                _x('Tags', 'Used before tag names.', 'ssv'),
+                _x('Tags', 'Used before tag names.', 'mp-ssv'),
                 $tags_list
             );
         }
@@ -117,7 +112,7 @@ if (!function_exists('ssv_excerpt_more') && !is_admin()) :
             '<a href="%1$s" class="more-link">%2$s</a>',
             esc_url(get_permalink(get_the_ID())),
             /* translators: %s: Name of current post */
-            sprintf(__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'ssv'), get_the_title(get_the_ID()))
+            sprintf(__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'mp-ssv'), get_the_title(get_the_ID()))
         );
         return ' &hellip; ' . $link;
     }

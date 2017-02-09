@@ -1,13 +1,4 @@
-<?php
-/**
- * The template for displaying all single posts and attachments
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 <header class="full-width-entry-header">
     <div class="parallax-container <?= !has_post_thumbnail() ? 'primary' : '' ?>" style="height: 250px;">
         <?php if (has_post_thumbnail()) : ?>

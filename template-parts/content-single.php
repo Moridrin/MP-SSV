@@ -1,13 +1,3 @@
-<?php
-/**
- * The template part for displaying single posts
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="entry-content">
         <?php
@@ -15,11 +5,11 @@
 
         wp_link_pages(
             array(
-                'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'ssv') . '</span>',
+                'before'      => '<div class="page-links"><span class="page-links-title">' . 'Pages:' . '</span>',
                 'after'       => '</div>',
                 'link_before' => '<span>',
                 'link_after'  => '</span>',
-                'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'ssv') . ' </span>%',
+                'pagelink'    => '<span class="screen-reader-text">' . 'Page' . ' </span>%',
                 'separator'   => '<span class="screen-reader-text">, </span>',
             )
         )

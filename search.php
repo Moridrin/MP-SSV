@@ -1,13 +1,4 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @package Moridrin
- * @subpackage SSV
- * @since SSV 1.0
- */
-
-get_header() ?>
+<?php get_header() ?>
 <header class="full-width-entry-header">
     <div class="parallax-container primary" style="height: 250px;">
         <div class="shade darken-1" style="height: 100%">

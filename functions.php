@@ -1,13 +1,4 @@
 <?php
-/**
- * SSV functions and definitions
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-
-require_once 'general/general.php';
 require_once 'inc/template-tags.php';
 
 function mp_ssv_theme_setup()
@@ -28,9 +19,9 @@ function mp_ssv_theme_setup()
     add_image_size('ssv-banner-s', 600, 150, true);
     register_nav_menus(
         array(
-            'primary'        => __('Primary Menu', 'ssv'),
-            'mobile_primary' => __('Primary Mobile Menu', 'ssv'),
-            'mobile_profile' => __('Profile Mobile Menu', 'ssv'),
+            'primary'        => __('Primary Menu', 'mp-ssv'),
+            'mobile_primary' => __('Primary Mobile Menu', 'mp-ssv'),
+            'mobile_profile' => __('Profile Mobile Menu', 'mp-ssv'),
         )
     );
     add_theme_support(
@@ -54,10 +45,10 @@ function mp_ssv_custom_image_sizes($sizes)
     return array_merge(
         $sizes,
         array(
-            'ssv-banner-xl' => __('Banner XL'),
-            'ssv-banner-l'  => __('Banner L'),
-            'ssv-banner-m'  => __('Banner M'),
-            'ssv-banner-s'  => __('Banner S'),
+            'ssv-banner-xl' => 'Banner XL',
+            'ssv-banner-l'  => 'Banner L',
+            'ssv-banner-m'  => 'Banner M',
+            'ssv-banner-s'  => 'Banner S',
         )
     );
 }
@@ -111,9 +102,9 @@ function mp_ssv_widgets_init()
 {
     register_sidebar(
         array(
-            'name'          => __('Sidebar', 'ssv'),
+            'name'          => __('Sidebar', 'mp-ssv'),
             'id'            => 'sidebar',
-            'description'   => __('Add widgets here to appear in your sidebar.', 'ssv'),
+            'description'   => __('Add widgets here to appear in your sidebar.', 'mp-ssv'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
             'before_title'  => '<h2 class="widget-title">',
@@ -186,7 +177,8 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'welcome_message',
         array(
-            'default' => '',
+            'sanitize_callback' => 'sanitize_text',
+            'default'           => '',
         )
     );
     $wp_customize->add_control(
@@ -200,7 +192,8 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'footer_main',
         array(
-            'default' => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
+            'sanitize_callback' => 'sanitize_text',
+            'default'           => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
         )
     );
     $wp_customize->add_control(
@@ -214,7 +207,8 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'foorer_right',
         array(
-            'default' => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>',
+            'sanitize_callback' => 'sanitize_text',
+            'default'           => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>',
         )
     );
     $wp_customize->add_control(
@@ -240,7 +234,8 @@ function mp_ssv_add_color_customizer($wp_customize, $name, $label, $default)
     $wp_customize->add_setting(
         $name,
         array(
-            'default' => $default,
+            'sanitize_callback' => 'sanitize_hex_color',
+            'default'           => $default,
         )
     );
     $wp_customize->add_control(
@@ -298,7 +293,7 @@ function mp_ssv_customize_save_css()
     );
     $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
 
-    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or SSV_General::var_export("Couldn't open file.", 1);
+    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or die("Couldn't open file.");
     fwrite($materializeCSSFile, $compiled);
     fclose($materializeCSSFile);
 }

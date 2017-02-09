@@ -1,15 +1,5 @@
-<?php
-/**
- * The template for displaying the header
- * Displays all of the head element and everything up until the "site-content" div.
- *
- * @package    Moridrin
- * @subpackage SSV
- * @since      SSV 1.0
- */
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html <?php language_attributes(); ?> class="no-js">
-
     <head>
         <?php wp_head(); ?>
         <meta charset="<?php bloginfo('charset'); ?>">
@@ -23,6 +13,7 @@
         <?= mp_ssv_get_main_nav_bar() ?>
         <?= mp_ssv_get_side_menu() ?>
     </header>
+    <body <?php body_class(); ?>>
 <?php
 
 function mp_ssv_get_main_nav_bar()
@@ -69,57 +60,57 @@ function mp_ssv_menu_sub_menu_link_replace($matches)
 
 function mp_ssv_get_side_menu()
 {
-    $mobile_primary_menu       = wp_nav_menu(
-        array(
-            'theme_location' => 'mobile_primary',
-            'menu_class'     => 'left hide-on-med-and-down',
-            'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
-            'echo'           => false,
-        )
-    );
-    $mobile_primary_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_primary_menu));
-    $mobile_primary_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_primary_menu);
-    $mobile_primary_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_primary_menu);
+$mobile_primary_menu       = wp_nav_menu(
+    array(
+        'theme_location' => 'mobile_primary',
+        'menu_class'     => 'left hide-on-med-and-down',
+        'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
+        'echo'           => false,
+    )
+);
+$mobile_primary_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_primary_menu));
+$mobile_primary_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_primary_menu);
+$mobile_primary_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_primary_menu);
 
-    $mobile_profile_menu       = wp_nav_menu(
-        array(
-            'theme_location' => 'mobile_profile',
-            'menu_class'     => 'left hide-on-med-and-down',
-            'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
-            'echo'           => false,
-        )
-    );
-    $mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
-    $mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
-    $mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
-    ob_start();
-    ?>
-    <ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
-        <?php
-        if (is_user_logged_in()) {
-            $user = User::getCurrent();
-            ?>
-            <li>
-                <div class="userView">
-                    <div class="background">
-                        <img src="<?= get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg">
-                    </div>
-                    <a href="<?= $user->getProfileURL() ?>">
-                        <?= get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
-                        <span class="white-text name"><?= $user->display_name ?></span>
-                        <span class="white-text email"><?= $user->user_email ?></span>
-                    </a>
-                </div>
-            </li>
-            <?php
-        }
-        echo $mobile_primary_menu_items;
+$mobile_profile_menu       = wp_nav_menu(
+    array(
+        'theme_location' => 'mobile_profile',
+        'menu_class'     => 'left hide-on-med-and-down',
+        'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
+        'echo'           => false,
+    )
+);
+$mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
+$mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
+$mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
+ob_start();
+?>
+<ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
+    <?php
+    if (is_user_logged_in()) {
+        $user = User::getCurrent();
         ?>
         <li>
-            <div class=" divider"></div>
+            <div class="userView">
+                <div class="background">
+                    <img src="<?= get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg">
+                </div>
+                <a href="<?= $user->getProfileURL() ?>">
+                    <?= get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
+                    <span class="white-text name"><?= $user->display_name ?></span>
+                    <span class="white-text email"><?= $user->user_email ?></span>
+                </a>
+            </div>
         </li>
-        <?= $mobile_profile_menu_items ?>
-    </ul>
-    <?php
+        <?php
+    }
+    echo $mobile_primary_menu_items;
+    ?>
+    <li>
+        <div class=" divider"></div>
+    </li>
+    <?= $mobile_profile_menu_items ?>
+</ul>
+<?php
     return ob_get_clean();
 }
