@@ -427,6 +427,10 @@ $colors: (
   background-color: $error-color !important;
 }
 
+.header-text-color {
+  color: $header-text-color !important;
+}
+
 // usage: color("name_of_color", "type_of_color")
 // to avoid to repeating map-get($colors, ...)
 

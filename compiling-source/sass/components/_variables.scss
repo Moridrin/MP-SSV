@@ -57,7 +57,7 @@ $button-disabled-color: #9F9F9F !default;
 // Raised buttons
 $button-raised-background: $secondary-color !default;
 $button-raised-background-hover: lighten($button-raised-background, 5%) !default;
-$button-raised-color: #FFFFFF !default;
+$button-raised-color: $text-on-secondary-color !default;
 
 // Large buttons
 $button-large-icon-font-size: 1.6rem !default;
@@ -211,7 +211,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 $navbar-height: 64px !default;
 $navbar-height-mobile: 56px !default;
 $navbar-font-size: 1rem !default;
-$navbar-font-color: #FFFFFF !default;
+$navbar-font-color: $text-on-primary-color !default;
 $navbar-brand-font-size: 2.1rem !default;
 
 // 14. Side Navigation

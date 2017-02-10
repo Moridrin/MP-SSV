@@ -16,13 +16,13 @@ get_header() ?>
         <div class="valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
             <div class="valign center-align">
                 <?php if (count($birthdayNames) > 0): ?>
-                    <h2 class="entry-title center-align white-text valign">A Very Happy Birthday To:</h2>
+                    <h2 class="entry-title center-align header-text-color valign">A Very Happy Birthday To:</h2>
                     <?php foreach ($birthdayNames as $birthdayName): ?>
                         <h1 class="entry-title center-align white-text valign"><?= $birthdayName ?></h1>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h1 class="entry-title center-align white-text valign" style="margin-top: 0; padding-top: 30px;"><?= get_bloginfo() ?></h1>
-                    <h3 class="entry-title center-align white-text valign"><?= get_bloginfo('description') ?></h3>
+                    <h1 class="entry-title center-align header-text-color valign" style="margin-top: 0; padding-top: 30px;"><?= get_bloginfo() ?></h1>
+                    <h3 class="entry-title center-align header-text-color valign"><?= get_bloginfo('description') ?></h3>
                 <?php endif; ?>
             </div>
         </div>

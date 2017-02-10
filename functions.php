@@ -1,4 +1,5 @@
 <?php
+require_once 'general/general.php';
 require_once 'inc/template-tags.php';
 
 function mp_ssv_theme_setup()
@@ -70,6 +71,7 @@ function mp_ssv_enquire_scripts()
     } else {
         wp_enqueue_script('materialize_init', get_theme_root_uri() . '/mp-ssv/js/init.js', array('jquery'));
     }
+
 }
 
 add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
@@ -257,7 +259,7 @@ function mp_ssv_customize_preview_css()
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
             array(
-                'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+                'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
                 'primary-color'           => get_theme_mod('primary_color', '#005E38'),
                 'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
                 'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
@@ -281,7 +283,7 @@ function mp_ssv_customize_save_css()
     $scss = new \Leafo\ScssPhp\Compiler();
     $scss->setVariables(
         array(
-            'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+            'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
             'primary-color'           => get_theme_mod('primary_color', '#005E38'),
             'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
             'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
