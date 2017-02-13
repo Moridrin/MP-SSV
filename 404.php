@@ -39,4 +39,6 @@
         </div><!-- .content-area -->
     </div>
 </div>
-<?php get_footer(); ?>
+<div style="bottom: 0; position: absolute; left: 0; right: 0;">
+    <?php get_footer(); ?>
+</div>
