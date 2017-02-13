@@ -175,18 +175,31 @@ function mp_ssv_customize_register($wp_customize)
 //            'title' => 'SSV',
 //        )
 //    );
-    $wp_customize->add_setting('app_icon');
+    $wp_customize->add_setting('icon_small');
     $wp_customize->add_control(
         new WP_Customize_Cropped_Image_Control(
             $wp_customize,
-            'app_icon',
+            'icon_small',
             array(
-                'label'      => 'App Icon',
+                'label'      => 'Small Icon (square)',
                 'section'    => 'title_tagline',
                 'flex_width'  => true,
                 'flex_height' => true,
                 'width'       => 192,
                 'height'      => 192,
+            )
+        )
+    );
+    $wp_customize->add_setting('icon_large');
+    $wp_customize->add_control(
+        new WP_Customize_Cropped_Image_Control(
+            $wp_customize,
+            'icon_large',
+            array(
+                'label'      => 'Large Icon',
+                'section'    => 'title_tagline',
+                'flex_width'  => true,
+                'flex_height' => true,
             )
         )
     );
@@ -313,18 +326,10 @@ function mp_ssv_customize_save_css()
     fwrite($materializeCSSFile, $compiled);
     fclose($materializeCSSFile);
 
-    $appIcon = get_theme_mod('app_icon');
-    $appIconSize = getimagesize($appIcon);
+    $appIcon = wp_get_attachment_url(get_theme_mod('icon_small'));
     $jsonData = array(
         "short_name"  => get_bloginfo(),
         "name"        => get_bloginfo('description'),
-        "icons"       => array(
-            array(
-                "src"   => $appIcon,
-                "sizes" => '192x192',
-                "type"  => image_type_to_mime_type(exif_imagetype($appIcon)),
-            ),
-        ),
         "start_url"   => "/",
         "display"     => "standalone",
         "orientation" => "portrait",

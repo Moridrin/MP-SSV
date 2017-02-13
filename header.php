@@ -11,6 +11,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
         <link rel="manifest" href="<?= get_template_directory_uri() . '/manifest.json' ?>">
+        <link rel="icon" sizes="192x192" href="<?= wp_get_attachment_url(get_theme_mod('icon_small')) ?>">
     </head>
     <header>
         <?= mp_ssv_get_main_nav_bar() ?>
@@ -86,7 +87,6 @@ $mobile_profile_menu       = wp_nav_menu(
 $mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
 $mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
 $mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
-SSV_General::var_export(get_theme_mod('app_icon'), true);
 
 ob_start();
 ?>
