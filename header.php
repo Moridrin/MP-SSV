@@ -4,10 +4,13 @@
         <?php wp_head(); ?>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="theme-color" content="#005E38">
+        <meta name="theme-color" content="<?= get_theme_mod('primary_color', '#005E38') ?>">
         <?php if (is_singular() && pings_open(get_queried_object())) : ?>
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="manifest" href="<?= get_template_directory_uri() . '/manifest.json' ?>">
     </head>
     <header>
         <?= mp_ssv_get_main_nav_bar() ?>
@@ -83,6 +86,8 @@ $mobile_profile_menu       = wp_nav_menu(
 $mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
 $mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
 $mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
+SSV_General::var_export(get_theme_mod('app_icon'), true);
+
 ob_start();
 ?>
 <ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">

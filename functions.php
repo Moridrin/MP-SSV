@@ -71,7 +71,6 @@ function mp_ssv_enquire_scripts()
     } else {
         wp_enqueue_script('materialize_init', get_theme_root_uri() . '/mp-ssv/js/init.js', array('jquery'));
     }
-
 }
 
 add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
@@ -176,6 +175,21 @@ function mp_ssv_customize_register($wp_customize)
 //            'title' => 'SSV',
 //        )
 //    );
+    $wp_customize->add_setting('app_icon');
+    $wp_customize->add_control(
+        new WP_Customize_Cropped_Image_Control(
+            $wp_customize,
+            'app_icon',
+            array(
+                'label'      => 'App Icon',
+                'section'    => 'title_tagline',
+                'flex_width'  => true,
+                'flex_height' => true,
+                'width'       => 192,
+                'height'      => 192,
+            )
+        )
+    );
     $wp_customize->add_setting(
         'welcome_message',
         array(
@@ -298,6 +312,26 @@ function mp_ssv_customize_save_css()
     $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or die("Couldn't open file.");
     fwrite($materializeCSSFile, $compiled);
     fclose($materializeCSSFile);
+
+    $appIcon = get_theme_mod('app_icon');
+    $appIconSize = getimagesize($appIcon);
+    $jsonData = array(
+        "short_name"  => get_bloginfo(),
+        "name"        => get_bloginfo('description'),
+        "icons"       => array(
+            array(
+                "src"   => $appIcon,
+                "sizes" => '192x192',
+                "type"  => image_type_to_mime_type(exif_imagetype($appIcon)),
+            ),
+        ),
+        "start_url"   => "/",
+        "display"     => "standalone",
+        "orientation" => "portrait",
+    );
+    $jsonFile = fopen(get_theme_file_path() . '/manifest.json', "w") or die("Couldn't open file.");
+    fwrite($jsonFile, json_encode($jsonData));
+    fclose($jsonFile);
 }
 
 add_action('customize_save_after', 'mp_ssv_customize_save_css');
