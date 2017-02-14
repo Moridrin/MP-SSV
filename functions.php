@@ -200,6 +200,8 @@ function mp_ssv_customize_register($wp_customize)
                 'section'    => 'title_tagline',
                 'flex_width'  => true,
                 'flex_height' => true,
+                'width'       => 600,
+                'height'      => 292,
             )
         )
     );
@@ -332,7 +334,6 @@ function mp_ssv_customize_save_css()
         "name"        => get_bloginfo('description'),
         "start_url"   => "/",
         "display"     => "standalone",
-        "orientation" => "portrait",
     );
     $jsonFile = fopen(get_theme_file_path() . '/manifest.json', "w") or die("Couldn't open file.");
     fwrite($jsonFile, json_encode($jsonData));
