@@ -1,5 +1,4 @@
 <?php
-require_once 'general/general.php';
 require_once 'inc/template-tags.php';
 
 function mp_ssv_theme_setup()
@@ -11,6 +10,8 @@ function mp_ssv_theme_setup()
         'default-image' => get_template_directory_uri() . '/images/banner.jpg',
         'width'         => 2048,
         'height'        => 1000,
+        'flex-width'    => true,
+        'flex-height'   => true,
     );
     add_theme_support('custom-header', $args);
     set_post_thumbnail_size(1920, 480, true);
@@ -181,8 +182,8 @@ function mp_ssv_customize_register($wp_customize)
             $wp_customize,
             'icon_small',
             array(
-                'label'      => 'Small Icon (square)',
-                'section'    => 'title_tagline',
+                'label'       => 'Small Icon (square)',
+                'section'     => 'title_tagline',
                 'flex_width'  => true,
                 'flex_height' => true,
                 'width'       => 192,
@@ -196,8 +197,8 @@ function mp_ssv_customize_register($wp_customize)
             $wp_customize,
             'icon_large',
             array(
-                'label'      => 'Large Icon',
-                'section'    => 'title_tagline',
+                'label'       => 'Large Icon',
+                'section'     => 'title_tagline',
                 'flex_width'  => true,
                 'flex_height' => true,
                 'width'       => 600,
@@ -328,12 +329,12 @@ function mp_ssv_customize_save_css()
     fwrite($materializeCSSFile, $compiled);
     fclose($materializeCSSFile);
 
-    $appIcon = wp_get_attachment_url(get_theme_mod('icon_small'));
+    $appIcon  = wp_get_attachment_url(get_theme_mod('icon_small'));
     $jsonData = array(
-        "short_name"  => get_bloginfo(),
-        "name"        => get_bloginfo('description'),
-        "start_url"   => "/",
-        "display"     => "standalone",
+        "short_name" => get_bloginfo(),
+        "name"       => get_bloginfo('description'),
+        "start_url"  => "/",
+        "display"    => "standalone",
     );
     $jsonFile = fopen(get_theme_file_path() . '/manifest.json', "w") or die("Couldn't open file.");
     fwrite($jsonFile, json_encode($jsonData));

@@ -16,7 +16,7 @@ $table   = $wpdb->usermeta;
 $sql     = "SELECT user_id FROM $table WHERE `meta_key` = 'date_of_birth' AND DATE(CONCAT(YEAR(CURDATE()), RIGHT(`meta_value`, 6))) = CURDATE();";
 $results = $wpdb->get_results($sql);
 foreach ($results as $result) {
-    $birthdayNames[] = User::getByID($result->user_id)->display_name;
+    $birthdayNames[] = get_user_by('id', $result->user_id)->display_name;
 }
 the_post();
 get_header(); ?>

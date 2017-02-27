@@ -1,5 +1,6 @@
 .container {
   margin: 0 auto;
+
   &:not(.footer-container) {
     &.wpadminbar {
       min-height: calc(100vh - 491px);
@@ -16,9 +17,7 @@
       }
     }
   }
-}
 
-.container {
   @media #{$medium-and-up} {
     width: 720px;
   }

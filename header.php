@@ -93,14 +93,14 @@ ob_start();
 <ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
     <?php
     if (is_user_logged_in()) {
-        $user = User::getCurrent();
+        $user = wp_get_current_user();
         ?>
         <li>
             <div class="userView">
                 <div class="background">
                     <img src="<?= get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg">
                 </div>
-                <a href="<?= $user->getProfileURL() ?>">
+                <a href="<?= $user->user_url ?>">
                     <?= get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
                     <span class="white-text name"><?= $user->display_name ?></span>
                     <span class="white-text email"><?= $user->user_email ?></span>

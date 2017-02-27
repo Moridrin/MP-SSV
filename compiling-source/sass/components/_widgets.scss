@@ -1,4 +1,5 @@
 .widget-area {
+  z-index: -1;
 
   &.fixed {
     @media #{$medium-and-up} {

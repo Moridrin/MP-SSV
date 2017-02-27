@@ -1690,7 +1690,11 @@
   background-color: #4CAF50 !important; }
 
 .error {
-  background-color: #F44336 !important; }
+  background-color: #F44336 !important;
+  color: #FFF; }
+
+.header-text-color {
+  color: #FFFFFF !important; }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -1734,6 +1738,9 @@ nav,
 section,
 summary {
   display: block; }
+
+footer {
+  z-index: 5; }
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
@@ -2699,19 +2706,18 @@ input[type=range] + .thumb {
     min-height: calc(100vh - 791px); }
   .container:not(.footer-container).large-bar:not(.wpadminbar) {
     min-height: calc(100vh - 759px); }
-
-@media only screen and (min-width: 783px) {
-  .container {
-    width: 720px; } }
-@media only screen and (min-width: 901px) {
-  .container {
-    width: 840px; } }
-@media only screen and (min-width: 1401px) {
-  .container {
-    width: 1300px; } }
-@media only screen and (min-width: 1821px) {
-  .container {
-    width: 1700px; } }
+  @media only screen and (min-width: 783px) {
+    .container {
+      width: 720px; } }
+  @media only screen and (min-width: 901px) {
+    .container {
+      width: 840px; } }
+  @media only screen and (min-width: 1401px) {
+    .container {
+      width: 1300px; } }
+  @media only screen and (min-width: 1821px) {
+    .container {
+      width: 1700px; } }
 
 .section {
   padding-top: 1rem;
@@ -3475,7 +3481,7 @@ nav {
       transition: background-color .3s;
       float: left;
       padding: 0; }
-      nav ul li.active {
+      nav ul li.menu-item-active {
         background-color: rgba(0, 0, 0, 0.1); }
     nav ul a, nav ul .link {
       transition: background-color .3s;
@@ -5649,7 +5655,7 @@ input[type=range]:focus::-ms-fill-upper {
     float: left;
     height: 48px;
     line-height: 48px;
-    margin: 0 32px 0 0;
+    margin: 0 8px 0 0;
     width: 24px;
     color: rgba(0, 0, 0, 0.54); }
   .side-nav .divider {
@@ -6860,24 +6866,24 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 .widget-area {
   z-index: -1; }
-  .widget-area.fixed {
-    position: fixed;
-    z-index: 1; }
-    .widget-area.fixed:not(.wpadminbar) {
-      top: 0; }
-    .widget-area.fixed.wpadminbar {
-      top: 30px; }
-    @media only screen and (min-width: 783px) {
-      .widget-area.fixed {
-        width: 225.984px; } }
-    @media only screen and (min-width: 901px) {
-      .widget-area.fixed {
-        width: 193.689px; } }
-    @media only screen and (min-width: 1401px) {
-      .widget-area.fixed {
-        width: 197.91px; } }
-    @media only screen and (min-width: 1821px) {
-      .widget-area.fixed {
-        width: 264.578px; } }
+  @media only screen and (min-width: 783px) {
+    .widget-area.fixed {
+      position: fixed; } }
+  .widget-area.fixed:not(.wpadminbar) {
+    top: 0; }
+  .widget-area.fixed.wpadminbar {
+    top: 30px; }
+  @media only screen and (min-width: 783px) {
+    .widget-area.fixed {
+      width: 218.98px; } }
+  @media only screen and (min-width: 901px) {
+    .widget-area.fixed {
+      width: 188.25px; } }
+  @media only screen and (min-width: 1401px) {
+    .widget-area.fixed {
+      width: 194.16px; } }
+  @media only screen and (min-width: 1821px) {
+    .widget-area.fixed {
+      width: 260.83px; } }
 
 /*# sourceMappingURL=materialize.css.map */
