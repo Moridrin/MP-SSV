@@ -7,7 +7,7 @@
                 <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
             </div>
         <?php else : ?>
-            <div class="parallax shade darken-1 valign-wrapper">
+            <div class="shade darken-1 valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
                 <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
             </div>
         <?php endif; ?>
