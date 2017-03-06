@@ -342,3 +342,9 @@ function mp_ssv_customize_save_css()
 }
 
 add_action('customize_save_after', 'mp_ssv_customize_save_css');
+
+if(!current_user_can('administrator')) {
+    if(is_admin_bar_showing()) {
+        show_admin_bar(false);
+    }
+}
