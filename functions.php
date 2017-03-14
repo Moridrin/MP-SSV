@@ -138,7 +138,7 @@ function mp_ssv_get_pagination()
         <?php
         if ($currentPage > 1) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?= $currentPage - 1 ?>"><i class="material-icons">chevron_left</i></a></li><?php
+            <li class="waves-effect"><a href="?paged=<?= esc_html($currentPage - 1) ?>"><i class="material-icons">chevron_left</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_left</i></li><?php
@@ -148,15 +148,15 @@ function mp_ssv_get_pagination()
         for ($i = 1; $i <= $pageCount; $i++) {
             if ($i != $currentPage) {
                 ?>
-                <li class="waves-effect"><a href="?paged=<?= $i ?>"><?= $i ?></a></li><?php
+                <li class="waves-effect"><a href="?paged=<?= esc_html($i) ?>"><?= esc_html($i) ?></a></li><?php
             } else {
                 ?>
-                <li class="active waves-effect"><span class="non-link"><?= $i ?></span></li><?php
+                <li class="active waves-effect"><span class="non-link"><?= esc_html($i) ?></span></li><?php
             }
         }
         if ($currentPage < $pageCount) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?= $currentPage + 1 ?>"><i class="material-icons">chevron_right</i></a></li><?php
+            <li class="waves-effect"><a href="?paged=<?= esc_html($currentPage + 1) ?>"><i class="material-icons">chevron_right</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_right</i></li><?php
