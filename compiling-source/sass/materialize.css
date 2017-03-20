@@ -4470,7 +4470,10 @@ button.btn-floating {
 .collapsible-body {
   display: none;
   border-bottom: 1px solid #DDDDDD;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 10px; }
+  .collapsible-body.row {
+    margin-bottom: auto !important; }
   .collapsible-body p {
     margin: 0;
     padding: 2rem; }

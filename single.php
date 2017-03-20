@@ -21,13 +21,11 @@
                     <?php
                     the_post();
                     get_template_part('template-parts/content', 'single');
-                    ?>
-                    <div style="padding: 10px;"><?php
-                        if (comments_open() || get_comments_number()) {
-                            comments_template();
-                        }
-                        ?>
-                    </div>
+                    if (comments_open() || get_comments_number()): ?>
+                        <div style="padding: 10px;">
+                            <?php comments_template(); ?>
+                        </div>
+                    <?php endif; ?>
                 </main>
             </div>
         </div>

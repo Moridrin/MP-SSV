@@ -72,14 +72,11 @@ get_header(); ?>
                     <?php endif; ?>
                     <?php
                     get_template_part('template-parts/content', 'single');
-                    if (comments_open() || get_comments_number()) {
-                        ?>
+                    if (comments_open() || get_comments_number()): ?>
                         <div style="padding: 10px;">
                             <?php comments_template(); ?>
                         </div>
-                        <?php
-                    }
-                    ?>
+                    <?php endif; ?>
                 </main>
             </div>
         </div>
