@@ -3750,6 +3750,13 @@ small {
     .flow-text {
       font-size: 1.2rem; } }
 
+.header-padding:before {
+  display: block;
+  content: " ";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden; }
+
 .card-panel, .widget {
   transition: box-shadow .25s;
   padding: 20px;
