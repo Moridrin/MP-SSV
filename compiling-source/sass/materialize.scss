@@ -12,7 +12,7 @@
 // Reset
 @import "components/normalize";
 
-// components
+// Components
 @import "components/global";
 @import "components/icons-material-design";
 @import "components/grid";
@@ -40,3 +40,6 @@
 @import "components/date_picker/default.date";
 @import "components/date_picker/default.time";
 @import "components/widgets";
+
+// XDebug
+@import "components/xdebug";
