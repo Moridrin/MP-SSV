@@ -257,6 +257,12 @@ video {
   height: 500px;
 }
 
+.full-width-entry-header {
+  .parallax-container {
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+
 .parallax {
   position: absolute;
   top: 0;

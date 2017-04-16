@@ -1580,6 +1580,9 @@ img, video {
   overflow: hidden;
   height: 500px; }
 
+.full-width-entry-header .parallax-container {
+  background-color: rgba(0, 0, 0, 0.3); }
+
 .parallax {
   position: absolute;
   top: 0;
@@ -5943,25 +5946,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .widget-area {
   z-index: -1; }
-  @media only screen and (min-width : 783px) {
-    .widget-area.fixed {
-      position: fixed; } }
-  .widget-area.fixed:not(.wpadminbar) {
-    top: 0; }
-  .widget-area.fixed.wpadminbar {
-    top: 30px; }
-  @media only screen and (min-width : 783px) {
-    .widget-area.fixed {
-      width: 218.98px; } }
-  @media only screen and (min-width : 901px) {
-    .widget-area.fixed {
-      width: 188.25px; } }
-  @media only screen and (min-width : 1401px) {
-    .widget-area.fixed {
-      width: 194.16px; } }
-  @media only screen and (min-width : 1821px) {
-    .widget-area.fixed {
-      width: 260.83px; } }
 
 .xdebug-error {
   font-size: 12px !important;
