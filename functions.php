@@ -209,7 +209,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'welcome_message',
         array(
-            'sanitize_callback' => 'sanitize_text',
+            'sanitize_callback' => 'sanitize_text_field',
             'default'           => '',
         )
     );
@@ -224,7 +224,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'footer_main',
         array(
-            'sanitize_callback' => 'sanitize_text',
+            'sanitize_callback' => 'sanitize_text_field',
             'default'           => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
         )
     );
@@ -239,7 +239,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'foorer_right',
         array(
-            'sanitize_callback' => 'sanitize_text',
+            'sanitize_callback' => 'sanitize_text_field',
             'default'           => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>',
         )
     );
