@@ -1,4 +1,4 @@
-# SSV-Theme
+# SSV-Material
 Contributors: Jeroen Berkvens
 Requires at least: WordPress 4.0
 Tested up to: WordPress 4.7
@@ -8,7 +8,7 @@ License URI: http://www.wtfpl.net/txt/copying/
 Tags: one-column, right-sidebar, responsive-layout, featured-images, materialize
 
 # Description
-The SSV-Theme theme is a theme designed by Jeroen Berkvens to provide a theme for all Student Sports Clubs (Studenten Sport Verenigingen in Dutch) that they can use and customize to fit their specific needs. The theme features custom coloring in order to make sure that the sports club can change it to match their colors.
+The SSV-Material theme is a theme designed by Jeroen Berkvens to provide a theme for all Student Sports Clubs (Studenten Sport Verenigingen in Dutch) that they can use and customize to fit their specific needs. The theme features custom coloring in order to make sure that the sports club can change it to match their colors.
 
 * Mobile-first, Responsive Layout
 * Custom Colors

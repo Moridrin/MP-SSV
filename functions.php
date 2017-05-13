@@ -59,18 +59,18 @@ add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 
 function mp_ssv_enquire_scripts()
 {
-    wp_enqueue_script('materialize', get_theme_root_uri() . '/ssv-theme/js/materialize.js', array('jquery'));
+    wp_enqueue_script('materialize', get_theme_root_uri() . '/ssv-material/js/materialize.js', array('jquery'));
     if (is_customize_preview()) {
         //Uses Generated CSS
     } else {
-        wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-theme/css/materialize.css');
+        wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/materialize.css');
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {
-        wp_enqueue_script('bb8', get_theme_root_uri() . '/ssv-theme/js/BB8.js', array('jquery'));
-        wp_enqueue_style('bb8', get_theme_root_uri() . '/ssv-theme/css/BB8.css');
+        wp_enqueue_script('bb8', get_theme_root_uri() . '/ssv-material/js/BB8.js', array('jquery'));
+        wp_enqueue_style('bb8', get_theme_root_uri() . '/ssv-material/css/BB8.css');
     } else {
-        wp_enqueue_script('materialize_init', get_theme_root_uri() . '/ssv-theme/js/init.js', array('jquery'));
+        wp_enqueue_script('materialize_init', get_theme_root_uri() . '/ssv-material/js/init.js', array('jquery'));
     }
 }
 
@@ -78,9 +78,9 @@ add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
 
 function mp_ssv_enquire_admin_scripts()
 {
-    wp_enqueue_script('datetimepicker', get_theme_root_uri() . '/ssv-theme/js/jquery.datetimepicker.full.js', 'jquery-ui-datepicker');
-    wp_enqueue_script('datetimepicker_admin_init', get_theme_root_uri() . '/ssv-theme/js/admin-init.js', 'datetimepicker');
-    wp_enqueue_style('datetimepicker_admin_css', get_theme_root_uri() . '/ssv-theme/css/jquery.datetimepicker.css');
+    wp_enqueue_script('datetimepicker', get_theme_root_uri() . '/ssv-material/js/jquery.datetimepicker.full.js', 'jquery-ui-datepicker');
+    wp_enqueue_script('datetimepicker_admin_init', get_theme_root_uri() . '/ssv-material/js/admin-init.js', 'datetimepicker');
+    wp_enqueue_style('datetimepicker_admin_css', get_theme_root_uri() . '/ssv-material/css/jquery.datetimepicker.css');
 }
 
 add_action('admin_enqueue_scripts', 'mp_ssv_enquire_admin_scripts', 12);
