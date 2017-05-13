@@ -1,6 +1,11 @@
 <?php
 require_once 'inc/template-tags.php';
 
+if (!isset($content_width)) {
+    $content_width = 1700;
+}
+add_editor_style('css/materialize.css');
+
 function mp_ssv_theme_setup()
 {
     add_theme_support('automatic-feed-links');
@@ -132,6 +137,7 @@ function mp_ssv_get_pagination()
     global $wp_query;
     $pageCount   = $wp_query->max_num_pages;
     $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    paginate_links(); //TODO this is not used due to the custom styling of the pagination links.
     ob_start();
     ?>
     <ul class="pagination right">
@@ -176,22 +182,12 @@ function mp_ssv_customize_register($wp_customize)
 //            'title' => 'SSV',
 //        )
 //    );
-    $wp_customize->add_setting('icon_small');
-    $wp_customize->add_control(
-        new WP_Customize_Cropped_Image_Control(
-            $wp_customize,
-            'icon_small',
-            array(
-                'label'       => 'Small Icon (square)',
-                'section'     => 'title_tagline',
-                'flex_width'  => true,
-                'flex_height' => true,
-                'width'       => 192,
-                'height'      => 192,
-            )
+    $wp_customize->add_setting(
+        'icon_large',
+        array(
+            'sanitize_callback' => 'sanitize_url',
         )
     );
-    $wp_customize->add_setting('icon_large');
     $wp_customize->add_control(
         new WP_Customize_Cropped_Image_Control(
             $wp_customize,
@@ -326,6 +322,7 @@ function mp_ssv_customize_save_css()
     $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
 
     WP_Filesystem();
+    /** @var WP_Filesystem_Direct $wp_filesystem */
     global $wp_filesystem;
     $wp_filesystem->put_contents(get_theme_file_path() . '/css/materialize.css', $compiled, FS_CHMOD_FILE);
 

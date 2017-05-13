@@ -1064,9 +1064,9 @@
     .all-terrain-text.text-accent {
       color: #26a69a !important; }
     .all-terrain.text-on-primary {
-      background-color: #fff !important; }
+      background-color: #fcfcfc !important; }
     .all-terrain-text.text-text-on-primary {
-      color: #fff !important; }
+      color: #fcfcfc !important; }
     .all-terrain.text-on-accent {
       background-color: #fff !important; }
     .all-terrain-text.text-text-on-accent {
@@ -1122,7 +1122,7 @@
 
 .primary {
   background-color: #005e38 !important;
-  color: #fff !important; }
+  color: #fcfcfc !important; }
 
 .accent {
   background-color: #26a69a !important;
@@ -2796,7 +2796,7 @@ nav ul a span.badge, nav ul .link span.badge {
         left: 100%; } }
 
 nav {
-  color: #fff;
+  color: #fcfcfc;
   background-color: #005e38;
   width: 100%;
   height: 56px;
@@ -2806,7 +2806,7 @@ nav {
   nav.nav-extended .nav-wrapper {
     height: auto; }
   nav a, nav .link {
-    color: #fff; }
+    color: #fcfcfc; }
   nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     display: block;
     font-size: 24px;
@@ -2829,7 +2829,7 @@ nav {
     line-height: 56px; }
   nav .brand-logo {
     position: absolute;
-    color: #fff;
+    color: #fcfcfc;
     display: inline-block;
     font-size: 2.1rem;
     padding: 0;
@@ -2868,7 +2868,7 @@ nav {
   nav ul a, nav ul .link {
     transition: background-color 0.3s;
     font-size: 1rem;
-    color: #fff;
+    color: #fcfcfc;
     display: block;
     padding: 0 15px;
     cursor: pointer; }
@@ -2900,7 +2900,7 @@ nav {
       color: rgba(255, 255, 255, .7);
       transition: color 0.3s; }
     nav .input-field label.active i {
-      color: #fff; }
+      color: #fcfcfc; }
     nav .input-field label.active {
       transform: translateY(0); }
 
@@ -5946,7 +5946,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   background: #ccc !important;
   border-color: #005e38 !important;
   background: #005e38 !important;
-  color: #fff !important; }
+  color: #fcfcfc !important; }
 
 .xdebug-error span {
   display: none !important; }

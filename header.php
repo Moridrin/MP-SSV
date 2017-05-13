@@ -11,7 +11,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
         <link rel="manifest" href="<?php echo get_template_directory_uri() . '/manifest.json' ?>">
-        <link rel="icon" sizes="192x192" href="<?php echo wp_get_attachment_url(get_theme_mod('icon_small')) ?>">
     </head>
     <header>
         <?php echo mp_ssv_get_main_nav_bar() ?>

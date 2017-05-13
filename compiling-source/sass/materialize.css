@@ -2216,6 +2216,9 @@ video {
   overflow: hidden;
   height: 500px; }
 
+.full-width-entry-header .parallax-container {
+  background-color: rgba(0, 0, 0, 0.3); }
+
 .parallax {
   position: absolute;
   top: 0;
@@ -3920,8 +3923,7 @@ small {
   align-items: center;
   justify-content: space-between; }
   .toast .btn, .toast .btn-large, .toast .btn-flat {
-    margin: 0;
-    margin-left: 3rem; }
+    margin: 0 0 0 3rem; }
   .toast.rounded {
     border-radius: 24px; }
   @media only screen and (max-width: 782px) {
@@ -4584,7 +4586,6 @@ button.btn-floating {
 
 .prefix ~ .chips {
   margin-left: 3rem;
-  width: 92%;
   width: calc(100% - 3rem); }
 
 .chips:empty ~ label {
@@ -4965,17 +4966,14 @@ textarea {
   .input-field .prefix ~ .validate ~ label,
   .input-field .prefix ~ .autocomplete-content {
     margin-left: 3rem;
-    width: 92%;
     width: calc(100% - 3rem); }
   .input-field .prefix ~ label {
     margin-left: 3rem; }
   @media only screen and (max-width: 900px) {
     .input-field .prefix ~ input {
-      width: 86%;
       width: calc(100% - 3rem); } }
   @media only screen and (max-width: 782px) {
     .input-field .prefix ~ input {
-      width: 80%;
       width: calc(100% - 3rem); } }
 
 /* Search Field */
@@ -5324,7 +5322,6 @@ form p:last-child {
   height: 15px;
   background-color: #818181;
   border-radius: 15px;
-  margin-right: 10px;
   transition: background 0.3s ease;
   vertical-align: middle;
   margin: 0 16px; }
@@ -5433,7 +5430,6 @@ select:disabled {
 
 .prefix ~ .select-wrapper {
   margin-left: 3rem;
-  width: 92%;
   width: calc(100% - 3rem); }
 
 .prefix ~ label {
@@ -5617,8 +5613,7 @@ input[type=range]:focus::-ms-fill-upper {
   padding-left: 20px;
   height: 1.5rem;
   line-height: 1.5rem;
-  letter-spacing: .4px;
-  display: inline-block; }
+  letter-spacing: .4px; }
   .table-of-contents a:hover, .table-of-contents .link:hover {
     color: #a8a8a8;
     padding-left: 19px;
@@ -5634,8 +5629,6 @@ input[type=range]:focus::-ms-fill-upper {
   left: 0;
   top: 0;
   margin: 0;
-  transform: translateX(-100%);
-  height: 100%;
   height: calc(100% + 60px);
   height: -moz-calc(100%);
   padding-bottom: 60px;
@@ -5647,7 +5640,6 @@ input[type=range]:focus::-ms-fill-upper {
   transform: translateX(-105%); }
   .side-nav.right-aligned {
     right: 0;
-    transform: translateX(105%);
     left: auto;
     transform: translateX(100%); }
   .side-nav .collapsible {
@@ -6388,7 +6380,6 @@ input[type=range]:focus::-ms-fill-upper {
  */
 .picker--opened .picker__holder {
   top: 0;
-  background: transparent;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#1E000000,endColorstr=#1E000000)";
   zoom: 1;
   background: rgba(0, 0, 0, 0.32);
@@ -6831,7 +6822,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .picker__list-item--disabled:hover,
 .picker--focused .picker__list-item--disabled {
   background: #f5f5f5;
-  border-color: #f5f5f5;
   color: #dddddd;
   cursor: default;
   border-color: #dddddd;
@@ -6855,8 +6845,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .picker--time .picker__button--clear:hover,
 .picker--time .picker__button--clear:focus {
-  color: #000000;
-  background: #b1dcfb;
   background: #ee2200;
   border-color: #ee2200;
   cursor: pointer;
@@ -6896,24 +6884,33 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 .widget-area {
   z-index: -1; }
-  @media only screen and (min-width: 783px) {
-    .widget-area.fixed {
-      position: fixed; } }
-  .widget-area.fixed:not(.wpadminbar) {
-    top: 0; }
-  .widget-area.fixed.wpadminbar {
-    top: 30px; }
-  @media only screen and (min-width: 783px) {
-    .widget-area.fixed {
-      width: 218.98px; } }
-  @media only screen and (min-width: 901px) {
-    .widget-area.fixed {
-      width: 188.25px; } }
-  @media only screen and (min-width: 1401px) {
-    .widget-area.fixed {
-      width: 194.16px; } }
-  @media only screen and (min-width: 1821px) {
-    .widget-area.fixed {
-      width: 260.83px; } }
+
+.xdebug-error {
+  font-size: 12px !important;
+  width: 95% !important;
+  margin: 0 auto 10px auto !important;
+  border-color: #666 !important;
+  background: #ddd !important; }
+
+.xdebug-error th, .xdebug-error td {
+  padding: 2px !important; }
+
+.xdebug-error th {
+  background: #ccc !important;
+  border-color: #005E38 !important;
+  background: #005E38 !important;
+  color: #FFFFFF !important; }
+
+.xdebug-error span {
+  display: none !important; }
+
+.xdebug-error_description th {
+  font-size: 1.2em !important;
+  padding: 20px 4px 20px 100px !important;
+  background: #ccc no-repeat left top !important; }
+
+.xdebug-error_callStack th {
+  background: #666 !important;
+  color: #ddd !important; }
 
 /*# sourceMappingURL=materialize.css.map */
