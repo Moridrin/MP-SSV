@@ -138,7 +138,7 @@ function mp_ssv_get_pagination()
         <?php
         if ($currentPage > 1) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?= esc_html($currentPage - 1) ?>"><i class="material-icons">chevron_left</i></a></li><?php
+            <li class="waves-effect"><a href="?paged=<?php echo esc_html($currentPage - 1) ?>"><i class="material-icons">chevron_left</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_left</i></li><?php
@@ -148,15 +148,15 @@ function mp_ssv_get_pagination()
         for ($i = 1; $i <= $pageCount; $i++) {
             if ($i != $currentPage) {
                 ?>
-                <li class="waves-effect"><a href="?paged=<?= esc_html($i) ?>"><?= esc_html($i) ?></a></li><?php
+                <li class="waves-effect"><a href="?paged=<?php echo esc_html($i) ?>"><?php echo esc_html($i) ?></a></li><?php
             } else {
                 ?>
-                <li class="active waves-effect"><span class="non-link"><?= esc_html($i) ?></span></li><?php
+                <li class="active waves-effect"><span class="non-link"><?php echo esc_html($i) ?></span></li><?php
             }
         }
         if ($currentPage < $pageCount) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?= esc_html($currentPage + 1) ?>"><i class="material-icons">chevron_right</i></a></li><?php
+            <li class="waves-effect"><a href="?paged=<?php echo esc_html($currentPage + 1) ?>"><i class="material-icons">chevron_right</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_right</i></li><?php
@@ -325,9 +325,9 @@ function mp_ssv_customize_save_css()
     );
     $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
 
-    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or die("Couldn't open file.");
-    fwrite($materializeCSSFile, $compiled);
-    fclose($materializeCSSFile);
+    WP_Filesystem();
+    global $wp_filesystem;
+    $wp_filesystem->put_contents(get_theme_file_path() . '/css/materialize.css', $compiled, FS_CHMOD_FILE);
 
     $jsonData = array(
         "short_name" => get_bloginfo(),
@@ -335,9 +335,7 @@ function mp_ssv_customize_save_css()
         "start_url"  => "/",
         "display"    => "standalone",
     );
-    $jsonFile = fopen(get_theme_file_path() . '/manifest.json', "w") or die("Couldn't open file.");
-    fwrite($jsonFile, json_encode($jsonData));
-    fclose($jsonFile);
+    $wp_filesystem->put_contents(get_theme_file_path() . '/manifest.json', json_encode($jsonData), FS_CHMOD_FILE);
 }
 
 add_action('customize_save_after', 'mp_ssv_customize_save_css');

@@ -7,7 +7,7 @@
         </div>
     </div>
 </header>
-<div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
+<div id="page" class="container <?php echo is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
     <div class="col-xs-12 col-md-9">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
