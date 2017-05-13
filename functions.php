@@ -1,4 +1,6 @@
 <?php
+use mp_ssv_general\SSV_General;
+
 require_once 'inc/template-tags.php';
 
 if (!isset($content_width)) {
@@ -281,6 +283,8 @@ add_action('customize_register', 'mp_ssv_customize_register');
 function mp_ssv_customize_preview_css()
 {
     if (is_customize_preview()) {
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        define('FS_METHOD', 'direct');
         require_once "compiling-source/scssphp/scss.inc.php";
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
@@ -305,6 +309,8 @@ add_action('wp_head', 'mp_ssv_customize_preview_css');
 
 function mp_ssv_customize_save_css()
 {
+    define('FS_METHOD', 'direct');
+    require_once ABSPATH . 'wp-admin/includes/file.php';
     require_once "compiling-source/scssphp/scss.inc.php";
     $scss = new \Leafo\ScssPhp\Compiler();
     $scss->setVariables(

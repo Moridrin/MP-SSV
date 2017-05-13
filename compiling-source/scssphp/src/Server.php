@@ -130,7 +130,7 @@ class Server
 
         if (is_readable($metadataName)) {
 
-            WP_Filesystem();
+            \WP_Filesystem();
             /** @var WP_Filesystem_Direct $wp_filesystem */
             global $wp_filesystem;
             $metadata = unserialize($wp_filesystem->get_contents($metadataName));
@@ -205,7 +205,7 @@ class Server
     {
         $start = microtime(true);
 
-        WP_Filesystem();
+        \WP_Filesystem();
         /** @var WP_Filesystem_Direct $wp_filesystem */
         global $wp_filesystem;
         $css     = $this->scss->compile($wp_filesystem->get_contents($in), $in);
@@ -216,7 +216,7 @@ class Server
         $css  = "/* compiled by scssphp $v on $t (${elapsed}s) */\n\n" . $css;
         $etag = md5($css);
 
-        WP_Filesystem();
+        \WP_Filesystem();
         /** @var WP_Filesystem_Direct $wp_filesystem */
         global $wp_filesystem;
         $wp_filesystem->put_contents($out, $css, FS_CHMOD_FILE);
@@ -292,13 +292,13 @@ class Server
 
         $this->scss->addImportPath($pi['dirname'] . '/');
 
-        WP_Filesystem();
+        \WP_Filesystem();
         /** @var WP_Filesystem_Direct $wp_filesystem */
         global $wp_filesystem;
         $compiled = $this->scss->compile($wp_filesystem->get_contents($in), $in);
 
         if ($out !== null) {
-            WP_Filesystem();
+            \WP_Filesystem();
             /** @var WP_Filesystem_Direct $wp_filesystem */
             global $wp_filesystem;
             return $wp_filesystem->put_contents($out, $compiled, FS_CHMOD_FILE);
@@ -390,7 +390,7 @@ class Server
             $lastModified = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
             header('Last-Modified: ' . $lastModified);
 
-            WP_Filesystem();
+            \WP_Filesystem();
             /** @var WP_Filesystem_Direct $wp_filesystem */
             global $wp_filesystem;
             echo $wp_filesystem->get_contents($output);
@@ -429,7 +429,7 @@ class Server
             list($css, $etag) = $this->compile($in, $out);
         } else {
 
-            WP_Filesystem();
+            \WP_Filesystem();
             /** @var WP_Filesystem_Direct $wp_filesystem */
             global $wp_filesystem;
             $css = $wp_filesystem->get_contents($out);

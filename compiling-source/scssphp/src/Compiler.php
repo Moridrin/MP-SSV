@@ -13,7 +13,7 @@ use Leafo\ScssPhp\Base\Range;
 use Leafo\ScssPhp\Compiler\Environment;
 use Leafo\ScssPhp\Exception\CompilerException;
 use Leafo\ScssPhp\Formatter\OutputBlock;
-use Leafo\ScssPhp\Node;
+use mp_ssv_general\SSV_General;
 use WP_Filesystem_Direct;
 
 /**
@@ -1851,7 +1851,7 @@ class Compiler
 
                 $line  = $this->sourceLine;
                 $value = $this->compileValue($this->reduce($value, true));
-                WP_Filesystem();
+                \WP_Filesystem();
                 /** @var WP_Filesystem_Direct $wp_filesystem */
                 global $wp_filesystem;
                 $wp_filesystem->put_contents('php://stderr', "Line $line DEBUG: $value\n", FS_CHMOD_FILE);
@@ -1862,7 +1862,7 @@ class Compiler
 
                 $line  = $this->sourceLine;
                 $value = $this->compileValue($this->reduce($value, true));
-                WP_Filesystem();
+                \WP_Filesystem();
                 /** @var WP_Filesystem_Direct $wp_filesystem */
                 global $wp_filesystem;
                 $wp_filesystem->put_contents('php://stderr', "Line $line WARN: $value\n", FS_CHMOD_FILE);
@@ -3360,7 +3360,7 @@ class Compiler
 
             $tree = $this->importCache[$realPath];
         } else {
-            WP_Filesystem();
+            \WP_Filesystem();
             /** @var WP_Filesystem_Direct $wp_filesystem */
             global $wp_filesystem;
             $code   = $wp_filesystem->get_contents($path);
