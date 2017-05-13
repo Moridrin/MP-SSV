@@ -18,7 +18,7 @@ jQuery(function ($) {
         );
 
         // Init DatePicker
-        datePickers = $('input[type=date]');
+        var datePickers = $('input[type=date]');
         datePickers.each(function () {
             var dateAfter = $(this).attr('dateAfter');
             var minDate = dateAfter ? dateAfter : '';
@@ -62,7 +62,7 @@ jQuery(function ($) {
         $('select').material_select();
 
         var widgetAreaOffset = jQuery(".widget-area").offset();
-        if (typeof widgetAreaOffset != 'undefined') {
+        if (typeof widgetAreaOffset !== 'undefined') {
             var offset = widgetAreaOffset.top;
             $(window).on("scroll", function () {
                 setWidgetAreaState(offset);

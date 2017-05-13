@@ -24,7 +24,9 @@ select {
     position: relative;
     cursor: pointer;
     background-color: transparent;
+    //noinspection CssOptimizeSimilarProperties
     border: none;
+    //noinspection CssOptimizeSimilarProperties
     border-bottom: $input-border;
     outline: none;
     height: $input-height;
@@ -87,7 +89,6 @@ select:disabled {
 // Prefix Icons
 .prefix ~ .select-wrapper {
   margin-left: 3rem;
-  width: 92%;
   width: calc(100% - 3rem);
 }
 

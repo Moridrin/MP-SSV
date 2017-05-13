@@ -38,7 +38,9 @@ textarea {
 
   // General Styles
   background-color: transparent;
+  //noinspection CssOptimizeSimilarProperties
   border: none;
+  //noinspection CssOptimizeSimilarProperties
   border-bottom: $input-border;
   border-radius: 0;
   outline: none;
@@ -184,7 +186,6 @@ textarea {
   .prefix ~ .validate ~ label,
   .prefix ~ .autocomplete-content {
     margin-left: 3rem;
-    width: 92%;
     width: calc(100% - 3rem);
   }
 
@@ -194,14 +195,12 @@ textarea {
 
   @media #{$medium-and-down} {
     .prefix ~ input {
-      width: 86%;
       width: calc(100% - 3rem);
     }
   }
 
   @media #{$small-only} {
     .prefix ~ input {
-      width: 80%;
       width: calc(100% - 3rem);
     }
   }

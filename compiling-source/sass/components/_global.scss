@@ -279,7 +279,9 @@ video {
     min-width: 100%;
     min-height: 100%;
     -webkit-transform: translate3d(0, 0, 0);
+    //noinspection CssOverwrittenProperties
     transform: translate3d(0, 0, 0);
+    //noinspection CssOverwrittenProperties
     transform: translateX(-50%);
   }
 }

@@ -329,7 +329,6 @@ function mp_ssv_customize_save_css()
     fwrite($materializeCSSFile, $compiled);
     fclose($materializeCSSFile);
 
-    $appIcon  = wp_get_attachment_url(get_theme_mod('icon_small'));
     $jsonData = array(
         "short_name" => get_bloginfo(),
         "name"       => get_bloginfo('description'),

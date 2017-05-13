@@ -57,7 +57,6 @@
 .picker__list-item--disabled:hover,
 .picker--focused .picker__list-item--disabled {
   background: #f5f5f5;
-  border-color: #f5f5f5;
   color: #dddddd;
   cursor: default;
   border-color: #dddddd;
@@ -81,8 +80,6 @@
 }
 .picker--time .picker__button--clear:hover,
 .picker--time .picker__button--clear:focus {
-  color: #000000;
-  background: #b1dcfb;
   background: #ee2200;
   border-color: #ee2200;
   cursor: pointer;

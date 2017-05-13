@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?> class="no-js">
     <head>
         <?php wp_head(); ?>
-        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta charset="<?php bloginfo('charset'); ?>" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="theme-color" content="<?= get_theme_mod('primary_color', '#005E38') ?>">
         <?php if (is_singular() && pings_open(get_queried_object())) : ?>
@@ -98,7 +98,7 @@ ob_start();
         <li>
             <div class="userView">
                 <div class="background">
-                    <img src="<?= get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg">
+                    <img src="<?= get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg" alt="Profile Background Image">
                 </div>
                 <a href="<?= $user->user_url ?>">
                     <?= get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>

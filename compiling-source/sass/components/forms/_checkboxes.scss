@@ -79,9 +79,13 @@ form p:last-child {
     left: -5px;
     width: 12px;
     height: 22px;
+    //noinspection CssOptimizeSimilarProperties
     border-top: 2px solid transparent;
+    //noinspection CssOptimizeSimilarProperties
     border-left: 2px solid transparent;
+    //noinspection CssOptimizeSimilarProperties
     border-right: $radio-border;
+    //noinspection CssOptimizeSimilarProperties
     border-bottom: $radio-border;
     transform: rotate(40deg);
     backface-visibility: hidden;
@@ -101,9 +105,13 @@ form p:last-child {
     left: -12px;
     width: 10px;
     height: 22px;
+    //noinspection CssOptimizeSimilarProperties
     border-top: none;
+    //noinspection CssOptimizeSimilarProperties
     border-left: none;
+    //noinspection CssOptimizeSimilarProperties
     border-right: $radio-border;
+    //noinspection CssOptimizeSimilarProperties
     border-bottom: none;
     transform: rotate(90deg);
     backface-visibility: hidden;
@@ -164,9 +172,13 @@ form p:last-child {
       left: 1px;
       width: 8px;
       height: 13px;
+      //noinspection CssOptimizeSimilarProperties
       border-top: 2px solid transparent;
+      //noinspection CssOptimizeSimilarProperties
       border-left: 2px solid transparent;
+      //noinspection CssOptimizeSimilarProperties
       border-right: 2px solid $input-background;
+      //noinspection CssOptimizeSimilarProperties
       border-bottom: 2px solid $input-background;
       -webkit-transform: rotateZ(37deg);
       transform: rotateZ(37deg);
