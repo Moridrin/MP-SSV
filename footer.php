@@ -13,7 +13,7 @@
     </div>
     <div class="footer-copyright darken-1">
         <div class="container footer-container" style="overflow-x: scroll; white-space: nowrap; padding: 0 10px;">
-            © <?php echo date("Y", time()) ?> Copyright All Terrain.
+            &#9400; <?php echo date("Y", time()) ?> Copyright All Terrain.
             Designed and Developed by <a href="http://nl.linkedin.com/in/jberkvens/" target="_blank">Jeroen Berkvens</a>. Proudly powered by <a href="https://wordpress.org/" target="_blank">WordPress</a> and <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a>
             <?php do_action('ssv_credits'); ?>
             <?php if (is_404()): ?>
