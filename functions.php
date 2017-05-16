@@ -83,15 +83,6 @@ function mp_ssv_enquire_scripts()
 
 add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
 
-function mp_ssv_enquire_admin_scripts()
-{
-    wp_enqueue_script('datetimepicker', get_theme_root_uri() . '/ssv-material/js/jquery.datetimepicker.full.js', 'jquery-ui-datepicker');
-    wp_enqueue_script('datetimepicker_admin_init', get_theme_root_uri() . '/ssv-material/js/admin-init.js', 'datetimepicker');
-    wp_enqueue_style('datetimepicker_admin_css', get_theme_root_uri() . '/ssv-material/css/jquery.datetimepicker.css');
-}
-
-add_action('admin_enqueue_scripts', 'mp_ssv_enquire_admin_scripts', 12);
-
 function mp_special_nav_menu_class($classes, $item, $args)
 {
     if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes) || in_array('current-menu-ancestor', $classes) || in_array('current-menu-parent', $classes)) {
