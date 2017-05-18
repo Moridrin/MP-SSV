@@ -45,6 +45,7 @@ function mp_ssv_theme_setup()
     );
     add_theme_support('tabs');
     add_theme_support('materialize');
+    add_theme_support('ssv-material');
 }
 
 add_action('after_setup_theme', 'mp_ssv_theme_setup');
