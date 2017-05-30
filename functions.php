@@ -1,5 +1,6 @@
 <?php
 require_once 'inc/template-tags.php';
+require_once 'cards-text-widget.php';
 
 if (!isset($content_width)) {
     $content_width = 1700;

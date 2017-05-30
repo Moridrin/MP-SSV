@@ -1,33 +1,10 @@
-.widget-area {
-  z-index: -1;
-
-  //&.fixed {
-  //  @media #{$medium-and-up} {
-  //    position: fixed;
-  //  }
-  //
-  //  &:not(.wpadminbar) {
-  //    top: 0;
-  //  }
-  //
-  //  &.wpadminbar {
-  //    top: 30px;
-  //  }
-  //
-  //  @media #{$medium-and-up} {
-  //    width: 218.98px;
-  //  }
-  //
-  //  @media #{$large-and-up} {
-  //    width: 188.25px;
-  //  }
-  //
-  //  @media #{$extra-large-and-up} {
-  //    width: 194.16px;
-  //  }
-  //
-  //  @media #{$extra-extra-large-only} {
-  //    width: 260.83px;
-  //  }
-  //}
+.widget {
+  .test & {
+    @extend .card-panel;
+  }
+  &:not(.widget_text_cards):not(.widget_events_cards) {
+    & > div {
+      @extend .card-panel;
+    }
+  }
 }
