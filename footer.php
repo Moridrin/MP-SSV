@@ -6,7 +6,7 @@
                     <?php echo get_theme_mod('footer_main', '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>'); ?>
                 </div>
                 <div class="col s12 m4 l3 xl2">
-                    <?php echo get_theme_mod('foorer_right', '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>'); ?>
+                    <?php echo get_theme_mod('foorer_right', '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://www.facebook.com/survivalruneindhoven/">Survivalrun Eindhoven</a></li></ul>'); ?>
                 </div>
             </div>
         </div>
