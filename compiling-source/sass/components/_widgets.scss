@@ -6,5 +6,9 @@
     & > div {
       @extend .card-panel;
     }
+    & > ul {
+      @extend .card-panel;
+      padding: 20px !important;
+    }
   }
 }
