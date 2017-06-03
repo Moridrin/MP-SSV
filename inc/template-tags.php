@@ -7,14 +7,14 @@ function ssv_entry_meta()
     <footer class="entry-footer valign-wrapper">
         <?php if (is_home()): ?>
             <div class="valign">
-                <a href="<?= get_permalink() ?>" class="btn waves-effect waves-light">Full Post</a>
+                <a href="<?php echo get_permalink() ?>" class="btn waves-effect waves-light">Full Post</a>
             </div>
         <?php endif; ?>
         <div class="valign" style="margin-left: auto;">
             <div class="valign-wrapper">
             <span class="valign">
                 <span class="author vcard">
-                    <?= get_avatar(
+                    <?php echo get_avatar(
                         get_the_author_meta('user_email'),
                         $author_avatar_size,
                         '',
@@ -29,13 +29,13 @@ function ssv_entry_meta()
                     <tr>
                         <th>Author</th>
                         <td>
-                            <a class="url fn n" href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?= get_the_author() ?></a>
+                            <a class="url fn n" href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?php echo get_the_author() ?></a>
                         </td>
                     </tr>
                     <tr>
                         <th>Posted</th>
                         <td>
-                            <time class="entry-date published updated" datetime="<?= esc_attr(get_the_date('c')) ?>"><?= get_the_date() ?></time>
+                            <time class="entry-date published updated" datetime="<?php echo esc_attr(get_the_date('c')) ?>"><?php echo get_the_date() ?></time>
                         </td>
                     </tr>
                 </table>

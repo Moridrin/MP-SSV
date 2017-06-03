@@ -1,5 +1,11 @@
 <?php
 require_once 'inc/template-tags.php';
+require_once 'cards-text-widget.php';
+
+if (!isset($content_width)) {
+    $content_width = 1700;
+}
+add_editor_style('css/materialize.css');
 
 function mp_ssv_theme_setup()
 {
@@ -10,6 +16,8 @@ function mp_ssv_theme_setup()
         'default-image' => get_template_directory_uri() . '/images/banner.jpg',
         'width'         => 2048,
         'height'        => 1000,
+        'flex-width'    => true,
+        'flex-height'   => true,
     );
     add_theme_support('custom-header', $args);
     set_post_thumbnail_size(1920, 480, true);
@@ -36,6 +44,7 @@ function mp_ssv_theme_setup()
     );
     add_theme_support('tabs');
     add_theme_support('materialize');
+    add_theme_support('ssv-material');
 }
 
 add_action('after_setup_theme', 'mp_ssv_theme_setup');
@@ -57,31 +66,22 @@ add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 
 function mp_ssv_enquire_scripts()
 {
-    wp_enqueue_script('materialize', get_theme_root_uri() . '/mp-ssv/js/materialize.js', array('jquery'));
+    wp_enqueue_script('materialize', get_theme_root_uri() . '/ssv-material/js/materialize.js', array('jquery'));
     if (is_customize_preview()) {
         //Uses Generated CSS
     } else {
-        wp_enqueue_style('materialize', get_theme_root_uri() . '/mp-ssv/css/materialize.css');
+        wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/materialize.css');
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {
-        wp_enqueue_script('bb8', get_theme_root_uri() . '/mp-ssv/js/BB8.js', array('jquery'));
-        wp_enqueue_style('bb8', get_theme_root_uri() . '/mp-ssv/css/BB8.css');
+        wp_enqueue_script('bb8', get_theme_root_uri() . '/ssv-material/js/BB8.js', array('jquery'));
+        wp_enqueue_style('bb8', get_theme_root_uri() . '/ssv-material/css/BB8.css');
     } else {
-        wp_enqueue_script('materialize_init', get_theme_root_uri() . '/mp-ssv/js/init.js', array('jquery'));
+        wp_enqueue_script('materialize_init', get_theme_root_uri() . '/ssv-material/js/init.js', array('jquery'));
     }
 }
 
 add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
-
-function mp_ssv_enquire_admin_scripts()
-{
-    wp_enqueue_script('datetimepicker', get_theme_root_uri() . '/mp-ssv/js/jquery.datetimepicker.full.js', 'jquery-ui-datepicker');
-    wp_enqueue_script('datetimepicker_admin_init', get_theme_root_uri() . '/mp-ssv/js/admin-init.js', 'datetimepicker');
-    wp_enqueue_style('datetimepicker_admin_css', get_theme_root_uri() . '/mp-ssv/css/jquery.datetimepicker.css');
-}
-
-add_action('admin_enqueue_scripts', 'mp_ssv_enquire_admin_scripts', 12);
 
 function mp_special_nav_menu_class($classes, $item, $args)
 {
@@ -130,13 +130,14 @@ function mp_ssv_get_pagination()
     global $wp_query;
     $pageCount   = $wp_query->max_num_pages;
     $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    paginate_links(); //TODO this is not used due to the custom styling of the pagination links.
     ob_start();
     ?>
     <ul class="pagination right">
         <?php
         if ($currentPage > 1) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?= $currentPage - 1 ?>"><i class="material-icons">chevron_left</i></a></li><?php
+            <li class="waves-effect"><a href="?paged=<?php echo esc_html($currentPage - 1) ?>"><i class="material-icons">chevron_left</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_left</i></li><?php
@@ -146,15 +147,15 @@ function mp_ssv_get_pagination()
         for ($i = 1; $i <= $pageCount; $i++) {
             if ($i != $currentPage) {
                 ?>
-                <li class="waves-effect"><a href="?paged=<?= $i ?>"><?= $i ?></a></li><?php
+                <li class="waves-effect"><a href="?paged=<?php echo esc_html($i) ?>"><?php echo esc_html($i) ?></a></li><?php
             } else {
                 ?>
-                <li class="active waves-effect"><span class="non-link"><?= $i ?></span></li><?php
+                <li class="active waves-effect"><span class="non-link"><?php echo esc_html($i) ?></span></li><?php
             }
         }
         if ($currentPage < $pageCount) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?= $currentPage + 1 ?>"><i class="material-icons">chevron_right</i></a></li><?php
+            <li class="waves-effect"><a href="?paged=<?php echo esc_html($currentPage + 1) ?>"><i class="material-icons">chevron_right</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_right</i></li><?php
@@ -175,9 +176,29 @@ function mp_ssv_customize_register($wp_customize)
 //        )
 //    );
     $wp_customize->add_setting(
+        'icon_large',
+        array(
+            'sanitize_callback' => 'sanitize_url',
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Cropped_Image_Control(
+            $wp_customize,
+            'icon_large',
+            array(
+                'label'       => 'Large Icon',
+                'section'     => 'title_tagline',
+                'flex_width'  => true,
+                'flex_height' => true,
+                'width'       => 600,
+                'height'      => 292,
+            )
+        )
+    );
+    $wp_customize->add_setting(
         'welcome_message',
         array(
-            'sanitize_callback' => 'sanitize_text',
+            'sanitize_callback' => 'sanitize_text_field',
             'default'           => '',
         )
     );
@@ -192,7 +213,6 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'footer_main',
         array(
-            'sanitize_callback' => 'sanitize_text',
             'default'           => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
         )
     );
@@ -207,8 +227,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'foorer_right',
         array(
-            'sanitize_callback' => 'sanitize_text',
-            'default'           => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li></ul>',
+            'default'           => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://www.facebook.com/survivalruneindhoven/">Survivalrun Eindhoven</a></li></ul>',
         )
     );
     $wp_customize->add_control(
@@ -253,11 +272,13 @@ add_action('customize_register', 'mp_ssv_customize_register');
 function mp_ssv_customize_preview_css()
 {
     if (is_customize_preview()) {
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        define('FS_METHOD', 'direct');
         require_once "compiling-source/scssphp/scss.inc.php";
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
             array(
-                'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+                'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
                 'primary-color'           => get_theme_mod('primary_color', '#005E38'),
                 'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
                 'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
@@ -277,11 +298,13 @@ add_action('wp_head', 'mp_ssv_customize_preview_css');
 
 function mp_ssv_customize_save_css()
 {
+    define('FS_METHOD', 'direct');
+    require_once ABSPATH . 'wp-admin/includes/file.php';
     require_once "compiling-source/scssphp/scss.inc.php";
     $scss = new \Leafo\ScssPhp\Compiler();
     $scss->setVariables(
         array(
-            'header-text-color'       => get_theme_mod('header_textcolor', '#1e1e1e'),
+            'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
             'primary-color'           => get_theme_mod('primary_color', '#005E38'),
             'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
             'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
@@ -293,9 +316,18 @@ function mp_ssv_customize_save_css()
     );
     $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
 
-    $materializeCSSFile = fopen(get_theme_file_path() . '/css/materialize.css', "w") or die("Couldn't open file.");
-    fwrite($materializeCSSFile, $compiled);
-    fclose($materializeCSSFile);
+    WP_Filesystem();
+    /** @var WP_Filesystem_Direct $wp_filesystem */
+    global $wp_filesystem;
+    $wp_filesystem->put_contents(get_theme_file_path() . '/css/materialize.css', $compiled, FS_CHMOD_FILE);
+
+    $jsonData = array(
+        "short_name" => get_bloginfo(),
+        "name"       => get_bloginfo('description'),
+        "start_url"  => "/",
+        "display"    => "standalone",
+    );
+    $wp_filesystem->put_contents(get_theme_file_path() . '/manifest.json', json_encode($jsonData), FS_CHMOD_FILE);
 }
 
 add_action('customize_save_after', 'mp_ssv_customize_save_css');

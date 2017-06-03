@@ -7,9 +7,9 @@ get_header() ?>
             </div>
         </div>
     </header>
-    <div id="page" class="container <?= is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
+    <div id="page" class="container <?php echo is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
         <div class="row">
-            <div class="col s12 <?= is_dynamic_sidebar() ? 'col m8 l9' : '' ?>">
+            <div class="col s12 <?php echo is_dynamic_sidebar() ? 'col m8 l9' : '' ?>">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
                         <?php

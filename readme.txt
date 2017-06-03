@@ -1,4 +1,4 @@
-=== MP-SSV ===
+=== SSV-Material ===
 Contributors: moridrin
 Requires at least: 3.0.1
 Tested up to: 4.7
@@ -9,7 +9,7 @@ License URI: http://www.wtfpl.net/txt/copying/
 Tags: one-column, right-sidebar, responsive-layout, featured-images, materialize
 
 == Description ==
-The MP-SSV theme is a theme designed by Jeroen Berkvens to provide a theme for all Student Sports Clubs (Studenten Sport Verenigingen in Dutch) that they can use and customize to fit their specific needs. The theme features custom coloring in order to make sure that the sports club can change it to match their colors.
+The SSV-Material theme is a theme designed by Jeroen Berkvens to provide a theme for all Student Sports Clubs (Studenten Sport Verenigingen in Dutch) that they can use and customize to fit their specific needs. The theme features custom coloring in order to make sure that the sports club can change it to match their colors.
 
 * Mobile-first, Responsive Layout
 * Custom Colors
@@ -31,3 +31,7 @@ For more information, custom functionality or personalization please contact Jer
 The best way is to add an issue on GitHub (https://github.com/Moridrin/ssv-users/issues). But you can also send an email to J.Berkvens@Moridrin.com (the lead developer).
 = How do I report a bug? =
 The best way is to add an issue on GitHub (https://github.com/Moridrin/ssv-users/issues). But you can also send an email to J.Berkvens@Moridrin.com (the lead developer).
+
+== Changelog ==
+= 3.1 =
+* Widget Design improved

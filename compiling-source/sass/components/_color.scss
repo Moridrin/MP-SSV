@@ -425,6 +425,11 @@ $colors: (
 
 .error {
   background-color: $error-color !important;
+  color: #FFF;
+}
+
+.header-text-color {
+  color: $header-text-color !important;
 }
 
 // usage: color("name_of_color", "type_of_color")

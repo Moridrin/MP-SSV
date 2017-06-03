@@ -2,16 +2,19 @@
 <html <?php language_attributes(); ?> class="no-js">
     <head>
         <?php wp_head(); ?>
-        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta charset="<?php bloginfo('charset'); ?>" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="theme-color" content="#005E38">
+        <meta name="theme-color" content="<?php echo get_theme_mod('primary_color', '#005E38') ?>">
         <?php if (is_singular() && pings_open(get_queried_object())) : ?>
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="manifest" href="<?php echo get_template_directory_uri() . '/manifest.json' ?>">
     </head>
     <header>
-        <?= mp_ssv_get_main_nav_bar() ?>
-        <?= mp_ssv_get_side_menu() ?>
+        <?php echo mp_ssv_get_main_nav_bar() ?>
+        <?php echo mp_ssv_get_side_menu() ?>
     </header>
     <body <?php body_class(); ?>>
 <?php
@@ -44,7 +47,7 @@ function mp_ssv_get_main_nav_bar()
     $i = 0;
     ob_start();
     foreach ($subMenus[1] as $subMenuContent) {
-        ?><ul id="dropdown<?= $i ?>" class="dropdown-content"><?= $subMenuContent ?></ul><?php
+        ?><ul id="dropdown<?php echo $i ?>" class="dropdown-content"><?php echo $subMenuContent ?></ul><?php
         $i++;
     }
     $subMenus = ob_get_clean();
@@ -83,22 +86,23 @@ $mobile_profile_menu       = wp_nav_menu(
 $mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
 $mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
 $mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
+
 ob_start();
 ?>
-<ul id="slide-out" class="side-nav" style="<?= is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
+<ul id="slide-out" class="side-nav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
     <?php
     if (is_user_logged_in()) {
-        $user = User::getCurrent();
+        $user = wp_get_current_user();
         ?>
         <li>
             <div class="userView">
                 <div class="background">
-                    <img src="<?= get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg">
+                    <img src="<?php echo get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg" alt="Profile Background Image">
                 </div>
-                <a href="<?= $user->getProfileURL() ?>">
-                    <?= get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
-                    <span class="white-text name"><?= $user->display_name ?></span>
-                    <span class="white-text email"><?= $user->user_email ?></span>
+                <a href="<?php echo $user->user_url ?>">
+                    <?php echo get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
+                    <span class="white-text name"><?php echo $user->display_name ?></span>
+                    <span class="white-text email"><?php echo $user->user_email ?></span>
                 </a>
             </div>
         </li>
@@ -109,7 +113,7 @@ ob_start();
     <li>
         <div class=" divider"></div>
     </li>
-    <?= $mobile_profile_menu_items ?>
+    <?php echo $mobile_profile_menu_items ?>
 </ul>
 <?php
     return ob_get_clean();

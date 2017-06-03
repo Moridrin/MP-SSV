@@ -3,15 +3,14 @@
  * SCSSPHP
  *
  * @copyright 2012-2017 Leaf Corcoran
- *
- * @license http://opensource.org/licenses/MIT MIT
- *
- * @link http://leafo.github.io/scssphp
+ * @license   http://opensource.org/licenses/MIT MIT
+ * @link      http://leafo.github.io/scssphp
  */
 
 namespace Leafo\ScssPhp;
 
 use Leafo\ScssPhp\Exception\ServerException;
+use WP_Filesystem_Direct;
 
 /**
  * Server
@@ -121,7 +120,7 @@ class Server
      */
     protected function needsCompile($out, &$etag)
     {
-        if (! is_file($out)) {
+        if (!is_file($out)) {
             return true;
         }
 
@@ -130,7 +129,11 @@ class Server
         $metadataName = $this->metadataName($out);
 
         if (is_readable($metadataName)) {
-            $metadata = unserialize(file_get_contents($metadataName));
+
+            \WP_Filesystem();
+            /** @var WP_Filesystem_Direct $wp_filesystem */
+            global $wp_filesystem;
+            $metadata = unserialize($wp_filesystem->get_contents($metadataName));
 
             foreach ($metadata['imports'] as $import => $originalMtime) {
                 $currentMtime = filemtime($import);
@@ -200,8 +203,12 @@ class Server
      */
     protected function compile($in, $out)
     {
-        $start   = microtime(true);
-        $css     = $this->scss->compile(file_get_contents($in), $in);
+        $start = microtime(true);
+
+        \WP_Filesystem();
+        /** @var WP_Filesystem_Direct $wp_filesystem */
+        global $wp_filesystem;
+        $css     = $this->scss->compile($wp_filesystem->get_contents($in), $in);
         $elapsed = round((microtime(true) - $start), 4);
 
         $v    = Version::VERSION;
@@ -209,14 +216,20 @@ class Server
         $css  = "/* compiled by scssphp $v on $t (${elapsed}s) */\n\n" . $css;
         $etag = md5($css);
 
-        file_put_contents($out, $css);
-        file_put_contents(
+        \WP_Filesystem();
+        /** @var WP_Filesystem_Direct $wp_filesystem */
+        global $wp_filesystem;
+        $wp_filesystem->put_contents($out, $css, FS_CHMOD_FILE);
+        $wp_filesystem->put_contents(
             $this->metadataName($out),
-            serialize([
-                'etag'    => $etag,
-                'imports' => $this->scss->getParsedFiles(),
-                'vars'    => crc32(serialize($this->scss->getVariables())),
-            ])
+            serialize(
+                [
+                    'etag'    => $etag,
+                    'imports' => $this->scss->getParsedFiles(),
+                    'vars'    => crc32(serialize($this->scss->getVariables())),
+                ]
+            ),
+            FS_CHMOD_FILE
         );
 
         return [$css, $etag];
@@ -267,12 +280,11 @@ class Server
      * @param string $out Output file (.css) optional
      *
      * @return string|bool
-     *
      * @throws \Leafo\ScssPhp\Exception\ServerException
      */
     public function compileFile($in, $out = null)
     {
-        if (! is_readable($in)) {
+        if (!is_readable($in)) {
             throw new ServerException('load error: failed to find ' . $in);
         }
 
@@ -280,10 +292,16 @@ class Server
 
         $this->scss->addImportPath($pi['dirname'] . '/');
 
-        $compiled = $this->scss->compile(file_get_contents($in), $in);
+        \WP_Filesystem();
+        /** @var WP_Filesystem_Direct $wp_filesystem */
+        global $wp_filesystem;
+        $compiled = $this->scss->compile($wp_filesystem->get_contents($in), $in);
 
         if ($out !== null) {
-            return file_put_contents($out, $compiled);
+            \WP_Filesystem();
+            /** @var WP_Filesystem_Direct $wp_filesystem */
+            global $wp_filesystem;
+            return $wp_filesystem->put_contents($out, $compiled, FS_CHMOD_FILE);
         }
 
         return $compiled;
@@ -299,7 +317,7 @@ class Server
      */
     public function checkedCompile($in, $out)
     {
-        if (! is_file($out) || filemtime($in) > filemtime($out)) {
+        if (!is_file($out) || filemtime($in) > filemtime($out)) {
             $this->compileFile($in, $out);
 
             return true;
@@ -321,7 +339,7 @@ class Server
 
         if ($input = $this->findInput()) {
             $output = $this->cacheName($salt . $input);
-            $etag = $noneMatch = trim($this->getIfNoneMatchHeader(), '"');
+            $etag   = $noneMatch = trim($this->getIfNoneMatchHeader(), '"');
 
             if ($this->needsCompile($output, $etag)) {
                 try {
@@ -361,7 +379,7 @@ class Server
             }
 
             $modifiedSince = $this->getIfModifiedSinceHeader();
-            $mtime = filemtime($output);
+            $mtime         = filemtime($output);
 
             if (strtotime($modifiedSince) === $mtime) {
                 header($protocol . ' 304 Not Modified');
@@ -369,10 +387,13 @@ class Server
                 return;
             }
 
-            $lastModified  = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
+            $lastModified = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
             header('Last-Modified: ' . $lastModified);
 
-            echo file_get_contents($output);
+            \WP_Filesystem();
+            /** @var WP_Filesystem_Direct $wp_filesystem */
+            global $wp_filesystem;
+            echo $wp_filesystem->get_contents($output);
 
             return;
         }
@@ -392,23 +413,26 @@ class Server
      * @param boolean $force
      *
      * @return string Compiled CSS results
-     *
      * @throws \Leafo\ScssPhp\Exception\ServerException
      */
     public function checkedCachedCompile($in, $out, $force = false)
     {
-        if (! is_file($in) || ! is_readable($in)) {
+        if (!is_file($in) || !is_readable($in)) {
             throw new ServerException('Invalid or unreadable input file specified.');
         }
 
-        if (is_dir($out) || ! is_writable(file_exists($out) ? $out : dirname($out))) {
+        if (is_dir($out) || !is_writable(file_exists($out) ? $out : dirname($out))) {
             throw new ServerException('Invalid or unwritable output file specified.');
         }
 
         if ($force || $this->needsCompile($out, $etag)) {
             list($css, $etag) = $this->compile($in, $out);
         } else {
-            $css = file_get_contents($out);
+
+            \WP_Filesystem();
+            /** @var WP_Filesystem_Direct $wp_filesystem */
+            global $wp_filesystem;
+            $css = $wp_filesystem->get_contents($out);
         }
 
         return $css;
@@ -425,25 +449,25 @@ class Server
     {
         $this->dir = $dir;
 
-        if (! isset($cacheDir)) {
+        if (!isset($cacheDir)) {
             $cacheDir = $this->join($dir, 'scss_cache');
         }
 
         $this->cacheDir = $cacheDir;
 
-        if (! is_dir($this->cacheDir)) {
+        if (!is_dir($this->cacheDir)) {
             mkdir($this->cacheDir, 0755, true);
         }
 
-        if (! isset($scss)) {
+        if (!isset($scss)) {
             $scss = new Compiler();
             $scss->setImportPaths($this->dir);
         }
 
-        $this->scss = $scss;
+        $this->scss            = $scss;
         $this->showErrorsAsCSS = false;
 
-        if (! ini_get('date.timezone')) {
+        if (!ini_get('date.timezone')) {
             date_default_timezone_set('UTC');
         }
     }
