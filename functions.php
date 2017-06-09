@@ -5,7 +5,7 @@ require_once 'cards-text-widget.php';
 if (!isset($content_width)) {
     $content_width = 1700;
 }
-add_editor_style('css/materialize.css');
+add_editor_style('css/' . get_current_blog_id() . '_materialize.css');
 
 function mp_ssv_theme_setup()
 {
@@ -70,7 +70,7 @@ function mp_ssv_enquire_scripts()
     if (is_customize_preview()) {
         //Uses Generated CSS
     } else {
-        wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/materialize.css');
+        wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css');
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {
@@ -213,7 +213,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'footer_main',
         array(
-            'default'           => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
+            'default' => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
         )
     );
     $wp_customize->add_control(
@@ -227,7 +227,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'foorer_right',
         array(
-            'default'           => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://www.facebook.com/survivalruneindhoven/">Survivalrun Eindhoven</a></li></ul>',
+            'default' => '<h3>Partners</h3><ul><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://allterrain.nl/">All Terrain</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="http://www.eshdavinci.nl">ESH Da Vinci</a></li><li><a class="grey-text text-lighten-3 customize-unpreviewable" href="https://www.facebook.com/survivalruneindhoven/">Survivalrun Eindhoven</a></li></ul>',
         )
     );
     $wp_customize->add_control(
@@ -319,7 +319,7 @@ function mp_ssv_customize_save_css()
     WP_Filesystem();
     /** @var WP_Filesystem_Direct $wp_filesystem */
     global $wp_filesystem;
-    $wp_filesystem->put_contents(get_theme_file_path() . '/css/materialize.css', $compiled, FS_CHMOD_FILE);
+    $wp_filesystem->put_contents(get_theme_file_path() . '/css/' . get_current_blog_id() . '_materialize.css', $compiled, FS_CHMOD_FILE);
 
     $jsonData = array(
         "short_name" => get_bloginfo(),
