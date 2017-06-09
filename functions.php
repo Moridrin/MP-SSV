@@ -70,7 +70,11 @@ function mp_ssv_enquire_scripts()
     if (is_customize_preview()) {
         //Uses Generated CSS
     } else {
-        wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css');
+        if (file_exists(get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css')) {
+            wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css');
+        } else {
+            wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/materialize.css');
+        }
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {
