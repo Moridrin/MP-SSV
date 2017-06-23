@@ -202,8 +202,7 @@ function mp_ssv_customize_register($wp_customize)
     $wp_customize->add_setting(
         'welcome_message',
         array(
-            'sanitize_callback' => 'sanitize_text_field',
-            'default'           => '',
+            'default'           => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
         )
     );
     $wp_customize->add_control(
