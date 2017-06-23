@@ -129,6 +129,14 @@ a {
     color: #757575;
 }
 
+.meta-block {
+    float: left;
+    margin: 5px 20px 5px 0;
+    position: relative;
+}
+.meta-block a {
+    color: #757575;
+}
 .post-date {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -137,6 +145,26 @@ a {
 
 .post-title {
     letter-spacing: 1px;
+}
+
+.meta-bar {
+    padding-top:5px;
+    padding-left:20px;
+    background-color: #f8f8f8;
+    color: #757575 !important;
+    font-size: 1em;
+    line-height: 50px;
+    height:50px;
+}
+.page-title {
+    letter-spacing: 1px;
+    position: absolute;
+    margin: 5.555555555555555%;
+    left: 0;
+    bottom: 0;
+    width: 88.88888888888888%;
+    float: left;
+    color: #fff;
 }
 
 .read-more {

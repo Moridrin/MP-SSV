@@ -20,7 +20,7 @@
 
             </div>
             <div class="card-action">
-                <a href="#" title="Read More" class="read-more">
+                <a href="<?= get_permalink() ?>" title="Read More" class="read-more">
                     Read More <i class="fa fa-long-arrow-right right"></i>
                 </a>
             </div>

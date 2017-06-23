@@ -2,48 +2,34 @@
 
 function ssv_entry_meta()
 {
-    $author_avatar_size = apply_filters('ssv_author_avatar_size', 49);
+    $author_avatar_size = apply_filters('ssv_author_avatar_size', 25);
     ?>
-    <footer class="entry-footer valign-wrapper">
-        <?php if (is_home()): ?>
-            <div class="valign">
-                <a href="<?php echo get_permalink() ?>" class="btn waves-effect waves-light">Full Post</a>
+        <div class="post-meta meta-bar">
+            <div class="meta-block post-author">
+                <?php echo get_avatar(
+                    get_the_author_meta('user_email'),
+                    $author_avatar_size,
+                    '',
+                    '',
+                    array(
+                        'class' => 'circle',
+                    )
+                ) ?>
+                <a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>" title="Posts by <?= get_the_author() ?>" rel="author"><?= get_the_author() ?></a>
             </div>
-        <?php endif; ?>
-        <div class="valign" style="margin-left: auto;">
-            <div class="valign-wrapper">
-            <span class="valign">
-                <span class="author vcard">
-                    <?php echo get_avatar(
-                        get_the_author_meta('user_email'),
-                        $author_avatar_size,
-                        '',
-                        '',
-                        array(
-                            'class' => 'circle',
-                        )
-                    ) ?>
+            <div class="meta-block post-comments">
+                <i class="fa fa-comment"></i>
+                <a href="#">0 Comments</a>	</div>
+            <div class="meta-block post-date">
+                <i class="fa fa-calendar"></i>
+                <span>
+                    <a href="<?= get_permalink() ?>" rel="bookmark">
+                        <time class="entry-date published updated" datetime="<?php echo esc_attr(get_the_date('c')) ?>"><?php echo get_the_date() ?></time>
+                    </a>
                 </span>
-            </span>
-                <table class="small-spacing" style="width: auto;">
-                    <tr>
-                        <th>Author</th>
-                        <td>
-                            <a class="url fn n" href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?php echo get_the_author() ?></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Posted</th>
-                        <td>
-                            <time class="entry-date published updated" datetime="<?php echo esc_attr(get_the_date('c')) ?>"><?php echo get_the_date() ?></time>
-                        </td>
-                    </tr>
-                </table>
             </div>
-            <span class="right">
-            </span>
         </div>
-    </footer>
+
     <?php
 }
 

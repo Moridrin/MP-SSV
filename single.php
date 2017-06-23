@@ -1,22 +1,14 @@
 <?php get_header(); ?>
-<header class="full-width-entry-header">
-    <div class="parallax-container <?php echo !has_post_thumbnail() ? 'primary' : '' ?>" style="height: 250px;">
-        <?php if (has_post_thumbnail()) : ?>
-            <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
-            <div class="shade darken-1 valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
-                <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
-            </div>
-        <?php else : ?>
-            <div class="shade darken-1 valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
-                <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
-            </div>
-        <?php endif; ?>
-    </div>
-</header>
 <div id="page" class="container <?php echo is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
     <div class="row">
-        <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm8 l9 xxl10' : '' ?>">
+        <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm7 l8 xxl9' : '' ?>">
             <div id="primary" class="content-area <?php echo strpos(get_the_content(), 'class="card') === false ? 'card' : '' ?>">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img src="<?php the_post_thumbnail_url() ?>"/>
+                    <div class="card-overlay">
+                        <h1 class="page-title"><?= the_title() ?></h1>
+                    </div>
+                </div>
                 <main id="main" class="site-main" role="main">
                     <?php
                     the_post();
