@@ -77,7 +77,7 @@ function mp_ssv_enquire_scripts()
         } else {
             wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css');
         }
-
+        wp_enqueue_style('font-awesome', get_theme_root_uri() .'/ssv-material/css/font-awesome.min.css');
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
     if (is_404()) {

@@ -122,6 +122,32 @@ a {
     }
 }
 
+.post-meta {
+    padding: 20px;
+    font-size: .75em;
+    line-height: 20px;
+    color: #757575;
+}
+
+.post-date {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0px;
+}
+
+.post-title {
+    letter-spacing: 1px;
+}
+
+.read-more {
+    line-height: 16px;
+    display: block;
+    font-size: .75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #757575 !important;
+}
 /*.fancy-arrow {
     padding-left: 1em;
     transition: padding-left 100ms linear;
