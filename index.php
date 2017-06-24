@@ -14,7 +14,11 @@ get_header() ?>
     <div class="" >
         <div class="lt-slider slider">
             <ul class="slides" style="height:500px">
-                <?php foreach (get_uploaded_header_images() as $header): ?>
+                <?php
+                $headers = get_uploaded_header_images();
+                shuffle($headers);
+                ?>
+                <?php foreach ($headers as $header): ?>
                 <li class="slide">
                     <img src="<?= $header['url'] ?>"/>
                 </li>
@@ -36,50 +40,21 @@ get_header() ?>
                                 <?php echo $welcomeMessage ?>
                         </article>
                     <?php endif; ?>
+                    <?php for ($i = 0; $i < 4; $i++): ?>
+                    <?php if (get_theme_mod('home_button_'.$i.'_enabled', true)): ?>
                     <div class="col s6 m6 l6 xl3">
                         <div class="card hover-reveal">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="blurred" src="https://atsurvivalchallenge.nl/themes/laratify-octobercms-octaskin/assets/img/pages/home/slideshow/img-02.jpg" height="325">
+                                <img class="blurred" src="<?= wp_get_attachment_image_src(get_theme_mod('home_button_'.$i.'_image'), [485,325])[0] ?>" height="325">
                             </div>
                             <div class="card-overlay">
-                                <a href="#" class="card-url"><h3>All Terrain&rarr;</h3></a>
+                                <a href="<?= get_theme_mod('home_button_'.$i.'_url')?>" class="card-url"><h3><?= get_theme_mod('home_button_'.$i.'_title')?>&rarr;</h3></a>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col s6 m6 l6 xl3">
-                        <div class="card hover-reveal">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="blurred" src="https://atsurvivalchallenge.nl/themes/laratify-octobercms-octaskin/assets/img/pages/home/slideshow/img-02.jpg" height="325">
-                                </div>
-                                <div class="card-overlay">
-                                    <a href="#" class="card-url"><h3>Trainings&rarr;</h3></a>
-                                </div>
-
-                        </div>
-                    </div>
-                    <div class="col s6 m6 l6 xl3">
-                        <div class="card hover-reveal">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="blurred" src="https://atsurvivalchallenge.nl/themes/laratify-octobercms-octaskin/assets/img/pages/home/slideshow/img-02.jpg" height="325">
-                            </div>
-                            <div class="card-overlay">
-                                <a href="#" class="card-url"><h3>Events&rarr;</h3></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col s6 m6 l6 xl3">
-                        <div class="card hover-reveal">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="blurred" src="https://atsurvivalchallenge.nl/themes/laratify-octobercms-octaskin/assets/img/pages/home/slideshow/img-02.jpg" height="325">
-                            </div>
-                            <div class="card-overlay">
-                                <a href="#" class="card-url"><h3>Photos&rarr;</h3></a>
-                            </div>
-
-                        </div>
-                    </div>
+                    <?php endif ?>
+                    <?php endfor ?>
                     <h3>Latest news</h3>
                     <?php
                     if (have_posts()) {

@@ -183,10 +183,7 @@ function mp_ssv_customize_register($wp_customize)
 //        )
 //    );
     $wp_customize->add_setting(
-        'icon_large',
-        array(
-            'sanitize_callback' => 'sanitize_url',
-        )
+        'icon_large'
     );
     $wp_customize->add_control(
         new WP_Customize_Cropped_Image_Control(
@@ -244,6 +241,75 @@ function mp_ssv_customize_register($wp_customize)
             'type'    => 'textarea',
         )
     );
+    $wp_customize->add_section( 'homepage_buttons' , array(
+        'title'      => __( 'Homepage Buttons', 'ssv-material' ),
+        'priority'   => 30,
+    ));
+    for ($i = 0; $i < 4; $i++) {
+        $wp_customize->add_setting(
+            'home_button_'.$i.'_enabled',
+            array(
+                'default' => true
+            )
+        );
+        $wp_customize->add_control(
+            'home_button_'.$i.'_enabled',
+            array(
+                'label'    => __( 'Enable homepage button ' . $i, 'ssv-material' ),
+                'section'  => 'homepage_buttons',
+                'settings' => 'home_button_'.$i.'_enabled',
+                'type'     => 'checkbox',
+            )
+        );
+        $wp_customize->add_setting(
+            'home_button_' . $i . '_image'
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Cropped_Image_Control(
+                $wp_customize,
+                'home_button_' . $i . '_image',
+                array(
+                    'label'       => 'Homepage button #' . $i . ' image',
+                    'section'     => 'homepage_buttons',
+                    'flex_width'  => true,
+                    'flex_height' => true,
+                    'width'       => 485,
+                    'height'      => 325,
+                )
+            )
+        );
+        $wp_customize->add_setting(
+            'home_button_'.$i.'_title',
+            array(
+                'sanitize_callback' => 'sanitize_text_field',
+                'default'           => '',
+            )
+        );
+        $wp_customize->add_control(
+            'home_button_'.$i.'_title',
+            array(
+                'label'   => 'Homepage button #' . $i . ' title',
+                'section' => 'homepage_buttons',
+                'type'    => 'text',
+            )
+        );
+        $wp_customize->add_setting(
+            'home_button_'.$i.'_url',
+            array(
+                'sanitize_callback' => 'sanitize_url',
+                'default' => '#'
+            )
+        );
+        $wp_customize->add_control(
+            'home_button_'.$i.'_url',
+            array(
+                'label'   => 'Homepage button #' . $i . ' url',
+                'section' => 'homepage_buttons',
+                'type'    => 'text',
+            )
+        );
+    }
+
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
     mp_ssv_add_color_customizer($wp_customize, 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
     mp_ssv_add_color_customizer($wp_customize, 'secondary_color', 'Secondary Color', '#26A69A');

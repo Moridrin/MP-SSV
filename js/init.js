@@ -11,7 +11,7 @@ jQuery(function ($) {
         image_banner.height(image_banner.width() / 4);*/
         jQuery('.lt-slider').slider({full_width: true, indicators: false});
         jQuery(window).resize(function() {
-            jQuery('.lt-slider').height(Math.min(Math.round(0.75 * jQuery(window).height()) + 15,400)).css('position', 'relative');
+            jQuery('.lt-slider').height(Math.min(Math.round(0.75 * jQuery(window).height()) + 15,450)).css('position', 'relative');
         });
         jQuery(window).trigger('resize');
         // Init SideNav
