@@ -4,7 +4,11 @@
         <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm7 l8 xxl9' : '' ?>">
             <div id="primary" class="content-area <?php echo strpos(get_the_content(), 'class="card') === false ? 'card' : '' ?>">
                 <div class="card-image waves-effect waves-block waves-light">
+                    <?php if (has_post_thumbnail()): ?>
                     <img src="<?php the_post_thumbnail_url() ?>"/>
+                    <?php else: ?>
+                    <div class="thumbnail-placeholder"></div>
+                    <?php endif ?>
                     <div class="card-overlay">
                         <h1 class="page-title"><?= the_title() ?></h1>
                     </div>
@@ -13,13 +17,12 @@
                     <?php
                     the_post();
                     get_template_part('template-parts/content', 'single');
-                    if (comments_open() || get_comments_number()): ?>
-                        <div style="padding: 10px;">
-                            <?php comments_template(); ?>
-                        </div>
-                    <?php endif; ?>
+                    ?>
                 </main>
             </div>
+            <?php if (comments_open() || get_comments_number()): ?>
+            <?php comments_template(); ?>
+            <?php endif; ?>
         </div>
         <?php get_sidebar(); ?>
     </div>

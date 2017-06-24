@@ -167,6 +167,10 @@ a {
     color: #fff;
 }
 
+.btn {
+    background-color: #005e38 !important;
+}
+
 .read-more {
     line-height: 16px;
     display: block;
@@ -175,6 +179,11 @@ a {
     letter-spacing: 1px;
     margin: 0;
     color: #757575 !important;
+}
+.thumbnail-placeholder {
+    width: 100%;
+    height: 15vw;
+    background-color: #005e38;
 }
 /*.fancy-arrow {
     padding-left: 1em;

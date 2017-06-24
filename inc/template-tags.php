@@ -19,7 +19,7 @@ function ssv_entry_meta()
             </div>
             <div class="meta-block post-comments">
                 <i class="fa fa-comment"></i>
-                <a href="#">0 Comments</a>	</div>
+                <a href="#"><?= get_comments_number() ?> Comment<?= get_comments_number() == 1 ? '' : 's' ?></a>	</div>
             <div class="meta-block post-date">
                 <i class="fa fa-calendar"></i>
                 <span>
