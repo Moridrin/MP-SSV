@@ -4485,7 +4485,7 @@ button.btn-floating {
     margin-bottom: auto !important; }
   .collapsible-body p {
     margin: 0;
-    padding: 2rem; }
+    padding: 0; }
 
 .side-nav .collapsible,
 .side-nav.fixed .collapsible {
