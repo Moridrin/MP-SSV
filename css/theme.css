@@ -114,6 +114,13 @@ a {
     color: #005e38;
 }
 
+.card-action a {
+    color: #005e38 !important;
+}
+
+.page-footer a {
+    color: #fff;
+}
 
 @media only screen and (min-width: 1000px) {
    .sidebar {

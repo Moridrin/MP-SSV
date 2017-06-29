@@ -200,6 +200,19 @@ function mp_ssv_customize_register($wp_customize)
         )
     );
     $wp_customize->add_setting(
+        'navbar_logo'
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'navbar_logo',
+            array(
+                'label'       => 'Navbar Logo',
+                'section'     => 'title_tagline',
+            )
+        )
+    );
+    $wp_customize->add_setting(
         'welcome_message',
         array(
             'default' => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
