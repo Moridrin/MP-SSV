@@ -14,6 +14,12 @@ h6.large { font-size: $h6-fontsize-large; line-height: 110%; margin: ($h6-fontsi
   visibility: hidden;
 }
 
-.center-align {
-  width: 100%;
+body,
+button,
+input,
+select,
+textarea {
+  font-size: 15px;
+  line-height: 1.7;
+  font-family: 'Noto Sans', sans-serif;
 }

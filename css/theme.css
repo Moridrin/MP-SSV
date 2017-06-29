@@ -1,4 +1,4 @@
-h1 {
+/*h1 {
     font-size: 3em;
     margin: 0.67em 0;
 }
@@ -12,7 +12,7 @@ a {
     background-color: transparent;
     text-decoration: none;
 }
-
+*/
 a:active,
 a:hover {
     outline: 0;
@@ -22,7 +22,7 @@ a:hover {
     -o-transition: all .2s ease;
     transition: all .2s ease;
 }
-
+/*
 body,
 button,
 input,
@@ -93,7 +93,6 @@ div.card-reveal span.card-title{
     left: 0px;
     top: 0px;
     z-index: 3;
-    /*filter: blur(1.5px);*/
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.00)), to(rgba(0, 0, 0, 0.70)));
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.70));
 
@@ -123,9 +122,9 @@ a {
 }
 
 @media only screen and (min-width: 1000px) {
-   .sidebar {
-       top: 6rem;
-       position: relative;
+    .sidebar {
+        top: 6rem;
+        position: relative;
     }
 }
 
@@ -192,7 +191,7 @@ a {
     height: 15vw;
     background-color: #005e38;
 }
-/*.fancy-arrow {
+.fancy-arrow {
     padding-left: 1em;
     transition: padding-left 100ms linear;
 }*/

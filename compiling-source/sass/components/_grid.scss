@@ -17,16 +17,16 @@
   }
 
   @media #{$medium-and-up} {
-    width: 720px;
+    width: 80%;
   }
   @media #{$large-and-up} {
-    width: 840px;
+    width: 80%;
   }
   @media #{$extra-large-and-up} {
-    width: 1300px;
+    width: 75%;
   }
   @media #{$extra-extra-large-only} {
-    width: 1700px;
+    width: 70%;
   }
 }
 
