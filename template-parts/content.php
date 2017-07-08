@@ -1,4 +1,4 @@
-<div class="col s12">
+<div class="col s12 no-pad">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -21,7 +21,7 @@
             </div>
             <div class="card-action">
                 <a href="<?= get_permalink() ?>" title="Read More" class="read-more">
-                    Read More <i class="fa fa-long-arrow-right right"></i>
+                    Read More <i style="padding-top:3px" class="fa fa-long-arrow-right right"></i>
                 </a>
             </div>
         </div>
