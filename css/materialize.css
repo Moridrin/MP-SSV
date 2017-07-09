@@ -5969,7 +5969,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 @media only screen and (min-width: 1000px) {
   .sidebar {
-    top: 6rem;
+    top: 1rem;
     position: relative; } }
 
 .post-meta {
