@@ -5267,8 +5267,9 @@ input[type=range]:focus::-ms-fill-upper {
 
 .slider {
   position: relative;
-  height: 400px;
-  width: 100%; }
+  height: 450px;
+  width: 100%;
+  overflow: hidden; }
   .slider.fullscreen {
     height: 100%;
     width: 100%;
@@ -5285,7 +5286,7 @@ input[type=range]:focus::-ms-fill-upper {
   .slider .slides {
     background-color: #9e9e9e;
     margin: 0;
-    height: 400px; }
+    height: 450px; }
   .slider .slides li {
     opacity: 0;
     position: absolute;
@@ -5335,7 +5336,7 @@ input[type=range]:focus::-ms-fill-upper {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 450px;
   perspective: 500px;
   transform-style: preserve-3d;
   transform-origin: 0 50%; }
@@ -5367,7 +5368,7 @@ input[type=range]:focus::-ms-fill-upper {
   .carousel .carousel-item {
     display: none;
     width: 200px;
-    height: 400px;
+    height: 450px;
     position: absolute;
     top: 0;
     left: 0; }

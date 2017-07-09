@@ -1,8 +1,8 @@
 .slider {
   position: relative;
-  height: 400px;
+  height: 450px;
   width: 100%;
-
+  overflow: hidden;
   // Fullscreen slider
   &.fullscreen {
     height: 100%;
@@ -26,7 +26,7 @@
   .slides {
     background-color: $slider-bg-color;
     margin: 0;
-    height: 400px;
+    height: 450px;
 
     li {
       opacity: 0;
