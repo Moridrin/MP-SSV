@@ -1,13 +1,26 @@
+.collapsible {
+  border-top: 1px solid $collapsible-border-color;
+  border-right: 1px solid $collapsible-border-color;
+  border-left: 1px solid $collapsible-border-color;
+  margin: $element-top-margin 0 $element-bottom-margin 0;
+  @extend .z-depth-1;
+}
+
 .collapsible-header {
-  display: block;
-  min-height: $collapsible-height;
-  line-height: $collapsible-height;
-  padding: 0 1rem;
+  display: flex;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  padding: 1rem;
+  background-color: $collapsible-header-color;
+  border-bottom: 1px solid $collapsible-border-color;
 
   i {
-    line-height: $collapsible-height;
-    display: block;
-    float: left;
+    width: 2rem;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-align: center;
+    margin-right: 1rem;
   }
 }
 
@@ -15,15 +28,7 @@
   display: none;
   border-bottom: 1px solid $collapsible-border-color;
   box-sizing: border-box;
-  padding: 10px;
-  &.row {
-    margin-bottom: auto !important;
-  }
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
+  padding: 2rem;
 }
 
 // sideNav collapsible styling
@@ -34,9 +39,7 @@
     border: none;
     box-shadow: none;
 
-    li {
-      padding: 0;
-    }
+    li { padding: 0; }
   }
 
   .collapsible-header {
@@ -46,12 +49,8 @@
     height: inherit;
     padding: 0 $sidenav-padding;
 
-    &:hover {
-      background-color: rgba(0, 0, 0, .05);
-    }
-    i {
-      line-height: inherit;
-    }
+    &:hover { background-color: rgba(0,0,0,.05); }
+    i { line-height: inherit; }
   }
 
   .collapsible-body {
@@ -59,7 +58,8 @@
     background-color: $collapsible-header-color;
 
     li a {
-      padding: 0 (7.5px + $sidenav-padding) 0 (15px + $sidenav-padding);
+      padding: 0 (7.5px + $sidenav-padding)
+               0 (15px + $sidenav-padding);
     }
   }
 

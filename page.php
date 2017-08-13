@@ -25,7 +25,7 @@ get_header(); ?>
         <div class="parallax-container" style="height: 450px;">
             <div class="parallax"><img src="<?php echo count($birthdayNames) > 0 ? get_template_directory_uri() . '/images/birthday.gif' : get_header_image() ?>"></div>
             <div class="valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
-                <div class="valign center-align">
+                <div class="valign center-align" style="width: 100%;">
                     <?php if (count($birthdayNames) > 0): ?>
                         <h2 class="entry-title center-align header-text-color valign">A Very Happy Birthday To:</h2>
                         <?php foreach ($birthdayNames as $birthdayName): ?>

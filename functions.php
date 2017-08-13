@@ -291,10 +291,11 @@ function mp_ssv_customize_preview_css()
                 'link-color'              => get_theme_mod('link_color', '#039BE5'),
                 'success-color'           => get_theme_mod('success_color', '#4CAF50'),
                 'error-color'             => get_theme_mod('error_color', '#F44336'),
+                'roboto-font-path'        => '/wp-content/themes/ssv-material/fonts/roboto/',
             )
         );
         echo '<style id="moridrin">';
-        echo $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
+        echo $scss->compile('@import "' . get_theme_file_path() . '/css/materialize"');
         echo '</style>';
     }
 }
@@ -319,7 +320,7 @@ function mp_ssv_customize_save_css()
             'error-color'             => get_theme_mod('error_color', '#F44336'),
         )
     );
-    $compiled = $scss->compile('@import "' . get_theme_file_path() . '/compiling-source/sass/materialize"');
+    $compiled = $scss->compile('@import "' . get_theme_file_path() . '/css/materialize"');
 
     WP_Filesystem();
     /** @var WP_Filesystem_Direct $wp_filesystem */
