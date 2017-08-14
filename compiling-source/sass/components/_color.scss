@@ -346,7 +346,7 @@ $shades: (
         "darken-9": rgba(0, 0, 0, 0.9)
 );
 
-$all-terrain: (
+$ssv-colors: (
         "primary": $primary-color,
         "accent": $secondary-color,
         "text-on-primary": $text-on-primary-color,
@@ -375,17 +375,17 @@ $colors: (
         "blue-grey": $blue-grey,
         "grey": $grey,
         "shades": $shades,
-        "all-terrain": $all-terrain,
+        "all-terrain": $ssv-colors,
 );
 
 // Primary Color classes
 .primary {
-  background-color: map-get($all-terrain, 'primary') !important;
-  color: map-get($all-terrain, 'text-on-primary') !important;
+  background-color: map-get($ssv-colors, 'primary') !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
 }
 .accent {
-  background-color: map-get($all-terrain, 'accent') !important;
-  color: map-get($all-terrain, 'text-on-accent') !important;
+  background-color: map-get($ssv-colors, 'accent') !important;
+  color: map-get($ssv-colors, 'text-on-accent') !important;
 }
 
 .success {
@@ -399,4 +399,14 @@ $colors: (
 
 .header-text-color {
   color: $header-text-color !important;
+}
+
+// Shade classes
+@each $color, $color_value in $shades {
+  .#{$color} {
+    background-color: $color_value !important;
+  }
+  .#{$color}-text {
+    color: $color_value !important;
+  }
 }

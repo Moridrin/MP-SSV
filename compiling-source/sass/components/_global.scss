@@ -17,9 +17,11 @@
 // Images
 img,
 video {
-  max-width: 100%;
   height: auto;
   object-fit: cover;
+  &:not(.materialboxed) {
+    max-width: 100%;
+  }
 }
 
 .full-width-entry-header {

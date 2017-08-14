@@ -16,6 +16,78 @@
 .header-text-color {
   color: #FFFFFF !important; }
 
+.black {
+  background-color: #000000 !important; }
+
+.black-text {
+  color: #000000 !important; }
+
+.white {
+  background-color: #FFFFFF !important; }
+
+.white-text {
+  color: #FFFFFF !important; }
+
+.transparent {
+  background-color: transparent !important; }
+
+.transparent-text {
+  color: transparent !important; }
+
+.darken-1 {
+  background-color: rgba(0, 0, 0, 0.1) !important; }
+
+.darken-1-text {
+  color: rgba(0, 0, 0, 0.1) !important; }
+
+.darken-2 {
+  background-color: rgba(0, 0, 0, 0.2) !important; }
+
+.darken-2-text {
+  color: rgba(0, 0, 0, 0.2) !important; }
+
+.darken-3 {
+  background-color: rgba(0, 0, 0, 0.3) !important; }
+
+.darken-3-text {
+  color: rgba(0, 0, 0, 0.3) !important; }
+
+.darken-4 {
+  background-color: rgba(0, 0, 0, 0.4) !important; }
+
+.darken-4-text {
+  color: rgba(0, 0, 0, 0.4) !important; }
+
+.darken-5 {
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.darken-5-text {
+  color: rgba(0, 0, 0, 0.5) !important; }
+
+.darken-6 {
+  background-color: rgba(0, 0, 0, 0.6) !important; }
+
+.darken-6-text {
+  color: rgba(0, 0, 0, 0.6) !important; }
+
+.darken-7 {
+  background-color: rgba(0, 0, 0, 0.7) !important; }
+
+.darken-7-text {
+  color: rgba(0, 0, 0, 0.7) !important; }
+
+.darken-8 {
+  background-color: rgba(0, 0, 0, 0.8) !important; }
+
+.darken-8-text {
+  color: rgba(0, 0, 0, 0.8) !important; }
+
+.darken-9 {
+  background-color: rgba(0, 0, 0, 0.9) !important; }
+
+.darken-9-text {
+  color: rgba(0, 0, 0, 0.9) !important; }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
@@ -8521,9 +8593,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 img,
 video {
-  max-width: 100%;
   height: auto;
   object-fit: cover; }
+  img:not(.materialboxed),
+  video:not(.materialboxed) {
+    max-width: 100%; }
 
 .full-width-entry-header .parallax-container {
   background-color: rgba(0, 0, 0, 0.3); }
@@ -8867,6 +8941,9 @@ h6.large {
   height: 50px;
   visibility: hidden; }
 
+.center-align {
+  width: 100%; }
+
 .card {
   overflow: hidden; }
   .card.large {
@@ -9006,6 +9083,10 @@ h6.large {
       white-space: nowrap; } }
 .side-nav .sub-menu {
   margin-left: 20px; }
+
+.modal-large {
+  width: 90%;
+  max-height: 85%; }
 
 .slider {
   position: relative;
