@@ -44,7 +44,30 @@ jQuery(function ($) {
 
         // Init Parallax
         $('.parallax').parallax();
-        $('.modal').modal();
+        $('.modal').modal({
+            ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+                var contentHolder = modal.find(".ajax-getter");
+                if (contentHolder.text() === '') {
+                    var url = contentHolder.data('url');
+                    contentHolder.css('text-align', 'center');
+                    contentHolder.html('<div style="display: inline-block;"><div class="preloader-wrapper active"><div class="spinner-layer spinner-red-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div></div>');
+                    $.ajax({
+                        url: '/wp-content/themes/ssv-material/ajax-getter.php?url=' + url,
+                        type: 'GET',
+                        crossDomain: true,
+                        dataType: 'html',
+                        success: function (data) {
+                            contentHolder.css('text-align', '');
+                            contentHolder.html(data);
+                        },
+                        error: function () {
+                            contentHolder.css('text-align', '');
+                            contentHolder.html('An error occurred.');
+                        }
+                    });
+                }
+            },
+        });
 
         $('.pushpin-demo-nav').each(function () {
             var $this = $(this);
