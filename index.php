@@ -1,4 +1,16 @@
 <?php
+if (isset($_GET['modal-ajax-url'])) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    $url = $_GET['modal-ajax-url'];
+    $objectContent = file_get_contents($url);
+    $content = '<!DOCTYPE html>'.explode('</head>', explode('</html>', $objectContent)[0])[1];
+    $content = apply_filters('ssv_ajax_content_filter', $content, $url);
+    echo $content;
+    return;
+}
+
 $birthdayNames = array();
 
 global $wpdb;

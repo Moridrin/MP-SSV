@@ -52,7 +52,7 @@ jQuery(function ($) {
                     contentHolder.css('text-align', 'center');
                     contentHolder.html('<div style="display: inline-block;"><div class="preloader-wrapper active"><div class="spinner-layer spinner-red-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div></div>');
                     $.ajax({
-                        url: '/wp-content/themes/ssv-material/ajax-getter.php?url=' + url,
+                        url: '/?modal-ajax-url=' + url,
                         type: 'GET',
                         crossDomain: true,
                         dataType: 'html',
@@ -94,6 +94,10 @@ jQuery(function ($) {
         }
 
         $('.collapsible').collapsible();
+    });
+
+    $(document).ready(function () {
+        $('.tooltipped').tooltip({html: true});
     });
 });
 
