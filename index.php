@@ -1,15 +1,4 @@
-<?php
-$birthdayNames = array();
-
-global $wpdb;
-$table   = $wpdb->usermeta;
-$sql     = "SELECT user_id FROM $table WHERE `meta_key` = 'date_of_birth' AND DATE(CONCAT(YEAR(CURDATE()), RIGHT(`meta_value`, 6))) = CURDATE();";
-$results = $wpdb->get_results($sql);
-foreach ($results as $result) {
-    $birthdayNames[] = get_user_by('id', $result->user_id)->display_name;
-}
-
-get_header() ?>
+<?php get_header() ?>
 <header class="full-width-entry-header">
     <div class="" >
         <div class="lt-slider slider">
