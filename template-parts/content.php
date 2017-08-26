@@ -1,7 +1,7 @@
 <div class="col s12 no-pad">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
+            <div class="card-image">
                 <?php mp_ssv_post_thumbnail(true, array('class' => 'activator banner')); ?>
             </div>
             <div class="card-content">
