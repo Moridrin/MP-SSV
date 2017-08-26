@@ -61,7 +61,7 @@ class ssv_text_cards extends WP_Widget
         </p>
         <p>
             <label for="<?= esc_html($this->get_field_id('text')) ?>">Title:</label>
-            <textarea class="widefat" rows="16" cols="20" id="<?= esc_html($this->get_field_id('text')) ?>" name="<?= esc_html($this->get_field_name('text')) ?>"><?= esc_html($text) ?></textarea>
+            <textarea class="widefat materialize-textarea" rows="16" cols="20" id="<?= esc_html($this->get_field_id('text')) ?>" name="<?= esc_html($this->get_field_name('text')) ?>"><?= esc_html($text) ?></textarea>
         </p>
         <?php
     }

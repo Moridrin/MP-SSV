@@ -1,5 +1,4 @@
-@import "components/widgets";
-@import "components/wordpress";
+
 
 a {
   background-color: transparent;
@@ -210,5 +209,95 @@ table, th, td {
       transition: background-color .3s;
       border-radius: 50%;
     }
+  }
+}
+
+.no-pad {
+  padding: 0 !important;
+}
+textarea {
+
+  // General Styles
+  background-color: transparent;
+  border: none;
+  border-bottom: $input-border;
+  border-radius: 0;
+  outline: none;
+  height: $input-height;
+  width: 100%;
+  font-size: $input-font-size;
+  margin: $input-margin;
+  padding: $input-padding;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: $input-transition;
+
+  // Disabled input style
+  &:disabled,
+  &[readonly="readonly"] {
+    color: $input-disabled-color;
+    border-bottom: $input-disabled-border;
+  }
+
+  // Disabled label style
+  &:disabled+label,
+  &[readonly="readonly"]+label {
+    color: $input-disabled-color;
+  }
+
+  // Focused input style
+  &:focus:not([readonly]) {
+    border-bottom: 1px solid $input-focus-color;
+    box-shadow: 0 1px 0 0 $input-focus-color;
+  }
+
+  // Focused label style
+  &:focus:not([readonly])+label {
+    color: $input-focus-color;
+  }
+
+  // Valid Input Style
+  &.valid,
+  &:focus.valid {
+    @extend %valid-input-style;
+  }
+
+  // Custom Success Message
+  &.valid + label:after,
+  &:focus.valid + label:after {
+    @extend %custom-success-message;
+  }
+
+  // Invalid Input Style
+  &.invalid,
+  &:focus.invalid {
+    @extend %invalid-input-style;
+  }
+
+  // Custom Error message
+  &.invalid + label:after,
+  &:focus.invalid + label:after {
+    @extend %custom-error-message;
+  }
+
+  // Full width label when using validate for error messages
+  &.validate + label {
+    width: 100%;
+  }
+
+  // Form Message Shared Styles
+  & + label:after {
+    @extend %input-after-style;
+  }
+
+  // TODO: Remove once input fields are reworked to support validation messages better
+  &.invalid + label:after,
+  &.valid + label:after{
+    display: none;
+  }
+
+  &.invalid + label.active:after,
+  &.valid + label.active:after{
+    display: block;
   }
 }
