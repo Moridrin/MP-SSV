@@ -35,16 +35,16 @@ class ssv_birthdays extends WP_Widget
         if (!empty($birthdayNames)) {
             ?>
             <div class="birthday">
-                <div class="parallax-container" style="height: 150px; background-color: rgba(0,0,0,0.2);"> 
+                <div class="parallax-container" style="height: 150px; background-color: rgba(0,0,0,0.2);">
                     <div class="parallax">
                         <img src="<?= get_template_directory_uri() . '/images/birthday.gif'?>"/>
                     </div>
 
-                    <div class="valign center-align" style="width: 100%;"> 
-                        <h5 class="entry-title header-text-color valign">A Very Happy Birthday To:</h5> 
-                        <?php foreach ($birthdayNames as $birthdayName): ?> 
-                            <h4 class="entry-title white-text valign"><?php echo $birthdayName ?></h4> 
-                        <?php endforeach; ?> 
+                    <div class="valign center-align" style="width: 100%;">
+                        <h5 class="entry-title header-text-color valign">A Very Happy Birthday To:</h5>
+                        <?php foreach ($birthdayNames as $birthdayName): ?>
+                            <h4 class="entry-title white-text valign"><?php echo $birthdayName ?></h4>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
