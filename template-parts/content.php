@@ -21,7 +21,7 @@
             </div>
             <div class="card-action">
                 <a href="<?= get_permalink() ?>" title="Read More" class="read-more">
-                    Read More <i style="padding-top:3px" class="fa fa-long-arrow-right right"></i>
+                    Read More <i class="tiny material-icons right">arrow_forward</i>
                 </a>
             </div>
         </div>
