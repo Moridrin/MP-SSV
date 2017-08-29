@@ -204,3 +204,12 @@ a {
 .no-pad {
   padding: 0 !important;
 }
+
+.center, .center-align {
+  text-align: center;
+  width: 100%;
+}
+
+.circle {
+  border-radius: 50% !important;
+}

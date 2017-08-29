@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="footer-copyright darken-1">
-        <div class="container footer-container" style="overflow-x: scroll; white-space: nowrap; padding: 0 10px;">
+        <div class="container footer-container" style="white-space: nowrap; padding: 0 10px;">
             &copy; <?php echo date("Y", time()) ?> All Terrain
             <?php if (is_404()): ?>
                 <div class="right">
