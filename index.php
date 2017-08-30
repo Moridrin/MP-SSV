@@ -38,7 +38,7 @@
                                         <img class="blurred" src="<?= wp_get_attachment_image_src(get_theme_mod('home_button_'.$i.'_image'), [485,325])[0] ?>" height="325">
                                     </div>
                                     <a href="<?= get_theme_mod('home_button_'.$i.'_url')?>" class="card-overlay">
-                                        <h3 class="card-bottom-text"><?= get_theme_mod('home_button_'.$i.'_title')?>&rarr;</h3>
+                                        <h3 class="card-bottom-text"><?= get_theme_mod('home_button_'.$i.'_title')?><i class="tiny material-icons right">arrow_forward</i></h3>
                                     </a>
                                 </div>
                             </div>
