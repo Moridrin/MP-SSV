@@ -71,12 +71,10 @@ function mp_ssv_enquire_scripts()
     if (is_customize_preview()) {
         //Uses Generated CSS
     } else {
-        $url = get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css';
-        $file_headers = @get_headers($url);
-        if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
-            wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/materialize.css');
-        } else {
+        if(file_exists(__DIR__ . '/css/' . get_current_blog_id() . '_materialize.css')) {
             wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/' . get_current_blog_id() . '_materialize.css');
+        } else {
+            wp_enqueue_style('materialize', get_theme_root_uri() . '/ssv-material/css/materialize.css');
         }
     }
     wp_enqueue_style('material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -103,7 +101,7 @@ function mp_special_nav_menu_class($classes, $item, $args)
     return $classes;
 }
 
-add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
+//add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
 
 function mp_ssv_widgets_init()
 {
