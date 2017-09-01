@@ -85,6 +85,7 @@ function mp_ssv_enquire_scripts()
         wp_enqueue_style('bb8', get_theme_root_uri() . '/ssv-material/css/BB8.css');
     } else {
         wp_enqueue_script('materialize_init', get_theme_root_uri() . '/ssv-material/js/init.js', array('jquery'));
+        wp_localize_script('materialize_init', 'theme_vars', ['slider_interval' => get_theme_mod('slider_interval', 6000)]);
     }
 }
 
@@ -322,6 +323,20 @@ function mp_ssv_customize_register($wp_customize)
                 'label'   => 'Homepage button #' . $i . ' url',
                 'section' => 'homepage_buttons',
                 'type'    => 'text',
+            )
+        );
+        $wp_customize->add_setting(
+            'slider_interval',
+            array(
+                'default' => '6000',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_interval',
+            array(
+                'label'   => 'Slider interval',
+                'section' => 'header_image',
+                'type'    => 'number',
             )
         );
     }
