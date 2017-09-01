@@ -184,10 +184,10 @@ function mp_ssv_customize_register($wp_customize)
 //        )
 //    );
     $wp_customize->add_setting(
+        'icon_large',
         array(
             'sanitize_callback' => 'sanitize_url',
-        ),
-        'icon_large'
+        )
     );
     $wp_customize->add_control(
         new WP_Customize_Cropped_Image_Control(
