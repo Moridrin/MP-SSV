@@ -266,7 +266,7 @@ function mp_ssv_customize_register($wp_customize)
         $wp_customize->add_setting(
             'home_button_'.$i.'_enabled',
             array(
-                'default' => true
+                'default' => false
             )
         );
         $wp_customize->add_control(
