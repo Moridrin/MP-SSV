@@ -1,4 +1,7 @@
 .modal-large {
   width: 90%;
   max-height: 85%;
+  &.fixed {
+    height: 85%;
+  }
 }

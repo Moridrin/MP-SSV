@@ -8592,6 +8592,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .valign-wrapper .valign {
   display: block; }
 
+.halign {
+  margin: auto; }
+
+.material-placeholder {
+  height: 100%; }
+
 img,
 video {
   height: auto;
@@ -9008,6 +9014,8 @@ textarea {
 .modal-large {
   width: 90%;
   max-height: 85%; }
+  .modal-large.fixed {
+    height: 85%; }
 
 .slider {
   position: relative;
