@@ -9,47 +9,49 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area card">
+	<div class="card-content">
+		<?php if ( have_comments() ) : ?>
+			<h2 class="comments-title">
+				<?php
+				printf(_x('Thoughts on &ldquo;%1$s&rdquo;', 'comments title', 'mp-ssv'), get_the_title());
+				?>
+			</h2>
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-            printf(_x('Thoughts on &ldquo;%1$s&rdquo;', 'comments title', 'mp-ssv'), get_the_title());
-			?>
-		</h2>
+			<?php the_comments_navigation(); ?>
 
-		<?php the_comments_navigation(); ?>
-
-		<div class="comment-list">
-			<?php
+			<div class="comment-list">
+				<?php
 				$comments = wp_list_comments( array(
-                                                  'style'       => 'div',
-                                                  'short_ping'  => true,
-                                                  'avatar_size' => 42,
-                                                  'callback'    => "ssv_format_comment"
+					'style'       => 'div',
+					'short_ping'  => true,
+					'avatar_size' => 42,
+					'callback'    => "ssv_format_comment"
 				) );
-			echo "<xmp>".$comments."</xmp>";
-			?>
-		</div><!-- .comment-list -->
+				echo "<xmp>".$comments."</xmp>";
+				?>
+			</div><!-- .comment-list -->
 
-		<?php the_comments_navigation(); ?>
+			<?php the_comments_navigation(); ?>
 
-	<?php endif; // Check for have_comments(). ?>
+		<?php endif; // Check for have_comments(). ?>
 
-	<?php
+		<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-            <p class="no-comments"><?php _e('Comments are closed.', 'mp-ssv'); ?></p>
-	<?php endif; ?>
+			?>
+			<p class="no-comments"><?php _e('Comments are closed.', 'mp-ssv'); ?></p>
+		<?php endif; ?>
 
-	<?php
+		<?php
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
 			'class_submit'       => 'btn',
 		) );
-	?>
+		?>
+	</div>
+
 
 </div><!-- .comments-area -->
 <?php

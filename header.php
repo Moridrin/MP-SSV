@@ -23,7 +23,15 @@ function mp_ssv_get_main_nav_bar()
 {
     ob_start();
     if (!is_home() && !is_front_page()) {
-        ?><a class="brand-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a><?php
+        ?><a class="nav-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+        <?php
+        $logoPath = get_theme_mod('navbar_logo', false);
+        if (!$logoPath) {
+            $logoPath = get_template_directory_uri() . '/images/logo.svg';
+        }
+        ?>
+        <img src="<?= $logoPath ?>" alt="<?php bloginfo('name'); ?>" style="height:55px"/></a>
+        <?php
     }
     $branding           = ob_get_clean();
     $mobile_menu_toggle = '<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>';

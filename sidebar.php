@@ -9,7 +9,7 @@
 ?>
 
 <?php if (is_active_sidebar('sidebar')) : ?>
-    <aside id="secondary" class="sidebar col s12 m4 l3 xl2" role="complementary">
+    <aside id="secondary" class="sidebar col s12 m5 l4 xl3" role="complementary">
         <div class="widget-area-container">
             <div class="widget-area <?php echo is_admin_bar_showing() ? 'wpadminbar' : '' ?>">
                 <?php dynamic_sidebar('sidebar'); ?>

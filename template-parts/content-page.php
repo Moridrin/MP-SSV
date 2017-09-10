@@ -15,5 +15,4 @@
         );
         ?>
     </div>
-    <?php ssv_entry_meta(); ?>
 </article>
