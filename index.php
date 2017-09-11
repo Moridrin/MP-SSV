@@ -1,21 +1,4 @@
 <?php get_header() ?>
-<header class="full-width-entry-header">
-    <div class="" >
-        <div class="lt-slider slider">
-            <ul class="slides" style="height:500px">
-                <?php
-                $headers = get_uploaded_header_images();
-                shuffle($headers);
-                ?>
-                <?php foreach ($headers as $header): ?>
-                <li class="slide">
-                    <img src="<?= $header['url'] ?>"/>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
-</header>
 <div id="page" class="container <?php echo is_admin_bar_showing() ? 'wpadminbar' : '' ?> large-bar">
     <div class="row">
         <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm7 l8 xl9' : '' ?>">

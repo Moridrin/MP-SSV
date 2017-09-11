@@ -65,7 +65,7 @@ function mp_ssv_get_main_nav_bar()
 function mp_ssv_menu_sub_menu_link_replace($matches)
 {
     global $count;
-    $count = isset($count) ?: 0;
+    $count = isset($count) ? $count : 0;
     return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
 }
 
@@ -123,6 +123,25 @@ ob_start();
     </li>
     <?php echo $mobile_profile_menu_items ?>
 </ul>
+<?php if (is_front_page()): ?>
+<header class="full-width-entry-header">
+    <div class="" >
+        <div class="lt-slider slider">
+            <ul class="slides" style="height:500px">
+                <?php
+                $headers = get_uploaded_header_images();
+                shuffle($headers);
+                ?>
+                <?php foreach ($headers as $header): ?>
+                    <li class="slide">
+                        <img src="<?= $header['url'] ?>"/>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</header>
+<?php endif ?>
 <?php
     return ob_get_clean();
 }
