@@ -102,7 +102,7 @@ function mp_special_nav_menu_class($classes, $item, $args)
     return $classes;
 }
 
-//add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
+add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
 
 function mp_ssv_widgets_init()
 {
