@@ -30,7 +30,7 @@ function mp_ssv_get_main_nav_bar()
             $logoPath = get_template_directory_uri() . '/images/logo.svg';
         }
         ?>
-        <img src="<?= $logoPath ?>" alt="<?php bloginfo('name'); ?>" style="height:55px"/></a>
+        <img src="<?= $logoPath ?>" alt="<?php bloginfo('name'); ?>"/></a>
         <?php
     }
     $branding           = ob_get_clean();

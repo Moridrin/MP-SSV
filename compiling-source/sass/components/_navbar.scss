@@ -18,7 +18,7 @@ nav {
       transform: translateX(-50%);
     }
 
-    @media only screen and (max-width: 783px) {
+    @media only screen and (max-width: $small-screen-up) {
       left: 50%;
       transform: translateX(-50%);
       margin-left: 0;
@@ -39,11 +39,8 @@ nav {
       padding: 0;
     }
 
-    i,
-    [class^="mdi-"], [class*="mdi-"],
-    i.material-icons {
-      float: left;
-      margin-right: 15px;
+    img {
+      height: $navbar-height-mobile;
     }
   }
 
