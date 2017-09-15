@@ -13,7 +13,8 @@
     </div>
     <div class="footer-copyright darken-1">
         <div class="container footer-container" style="white-space: nowrap; padding: 0 10px;">
-            &copy; <?php echo date("Y", time()) ?> <?= get_bloginfo() ?>
+            &copy; <?php echo date("Y", time()) ?> <?= get_bloginfo() ?>.
+            Created by <a href="http://nl.linkedin.com/in/jberkvens/" target="_blank">Jeroen Berkvens</a>. Server powered by <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a>
             <?php if (is_404()): ?>
                 <div class="right">
                     <a href="http://apexdesignstudios.com" target="_blank">404 page by Apex Design Studio</a>
