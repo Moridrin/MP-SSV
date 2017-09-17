@@ -141,6 +141,16 @@ ob_start();
         </div>
     </div>
 </header>
+<?php elseif (get_post_type() === 'page' && has_post_thumbnail()): ?>
+    <header class="full-width-entry-header">
+        <div class="parallax-container" style="height: 250px;">
+            <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+            <div class="shade darken-1 valign-wrapper"
+                 style="position: absolute; bottom: 0; width: 100%; height: 100%">
+                <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
+            </div>
+        </div>
+    </header>
 <?php endif ?>
 <?php
     return ob_get_clean();

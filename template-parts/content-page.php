@@ -1,7 +1,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php mp_ssv_post_thumbnail(); ?>
     <div class="entry-content">
         <?php
+        if (!has_post_thumbnail())
+        {
+            the_title('<h1>', '</h1>');
+        }
         the_content();
         wp_link_pages(
             array(
