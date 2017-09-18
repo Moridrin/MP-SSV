@@ -1,58 +1,13 @@
-<?php
-if (isset($_GET['modal-ajax-url'])) {
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    $url = $_GET['modal-ajax-url'];
-    $objectContent = file_get_contents($url);
-    $content = '<!DOCTYPE html>'.explode('</head>', explode('</html>', $objectContent)[0])[1];
-    $content = apply_filters('ssv_ajax_content_filter', $content, $url);
-    echo $content;
-    return;
-}
-
-$birthdayNames = array();
-
-global $wpdb;
-$table   = $wpdb->usermeta;
-$sql     = "SELECT user_id FROM $table WHERE `meta_key` = 'date_of_birth' AND DATE(CONCAT(YEAR(CURDATE()), RIGHT(`meta_value`, 6))) = CURDATE();";
-$results = $wpdb->get_results($sql);
-foreach ($results as $result) {
-    $birthdayNames[] = get_user_by('id', $result->user_id)->display_name;
-}
-
-get_header() ?>
-<header class="full-width-entry-header">
-    <div class="parallax-container" style="height: 450px; background-color: rgba(0,0,0,0.2);">
-        <div class="parallax"><img src="<?php echo count($birthdayNames) > 0 ? get_template_directory_uri() . '/images/birthday.gif' : get_header_image() ?>"></div>
-        <div class="valign-wrapper" style="position: absolute; bottom: 0; width: 100%; height: 100%">
-            <div class="valign center-align" style="width: 100%;">
-                <?php if (count($birthdayNames) > 0): ?>
-                    <h2 class="entry-title header-text-color valign">A Very Happy Birthday To:</h2>
-                    <?php foreach ($birthdayNames as $birthdayName): ?>
-                        <h1 class="entry-title white-text valign"><?php echo $birthdayName ?></h1>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <h1 class="entry-title header-text-color valign" style="margin-top: 0; padding-top: 30px;"><?php echo get_bloginfo() ?></h1>
-                    <h3 class="entry-title header-text-color valign"><?php echo get_bloginfo('description') ?></h3>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</header>
+<?php get_header() ?>
 <div id="page" class="container <?php echo is_admin_bar_showing() ? 'wpadminbar' : '' ?> large-bar">
     <div class="row">
-        <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm8 l9 xl10' : '' ?>">
+        <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm7 l8 xl9' : '' ?>">
+            <h1 class="entry-title center-align valign" style="margin-top: 0; padding-top: 30px;"><?php echo get_bloginfo() ?></h1>
+            <h3 class="entry-title center-align valign"><?php echo get_bloginfo('description') ?></h3>
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
-                    <?php $welcomeMessage = get_theme_mod('welcome_message', ''); ?>
-                    <?php if (!empty($welcomeMessage)): ?>
-                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                            <div class="card-panel">
-                                <?php echo $welcomeMessage ?>
-                            </div>
-                        </article>
-                    <?php endif; ?>
+                    <?php get_template_part('template-parts/content', 'front-page'); ?>
+                    <h3>Latest news</h3>
                     <?php
                     if (have_posts()) {
                         while (have_posts()) {

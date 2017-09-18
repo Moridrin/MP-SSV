@@ -23,7 +23,15 @@ function mp_ssv_get_main_nav_bar()
 {
     ob_start();
     if (!is_home() && !is_front_page()) {
-        ?><a class="brand-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a><?php
+        ?><a class="nav-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+        <?php
+        $logoPath = get_theme_mod('navbar_logo', false);
+        if (!$logoPath) {
+            $logoPath = get_template_directory_uri() . '/images/logo.svg';
+        }
+        ?>
+        <img src="<?= $logoPath ?>" alt="<?php bloginfo('name'); ?>"/></a>
+        <?php
     }
     $branding           = ob_get_clean();
     $mobile_menu_toggle = '<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>';
@@ -57,7 +65,7 @@ function mp_ssv_get_main_nav_bar()
 function mp_ssv_menu_sub_menu_link_replace($matches)
 {
     global $count;
-    $count = isset($count) ?: 0;
+    $count = isset($count) ? $count : 0;
     return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
 }
 
@@ -115,6 +123,35 @@ ob_start();
     </li>
     <?php echo $mobile_profile_menu_items ?>
 </ul>
+<?php if (is_front_page()): ?>
+<header class="full-width-entry-header">
+    <div class="" >
+        <div class="lt-slider slider">
+            <ul class="slides" style="height:500px">
+                <?php
+                $headers = get_uploaded_header_images();
+                shuffle($headers);
+                ?>
+                <?php foreach ($headers as $header): ?>
+                    <li class="slide">
+                        <img src="<?= $header['url'] ?>"/>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</header>
+<?php elseif (get_post_type() === 'page' && has_post_thumbnail()): ?>
+    <header class="full-width-entry-header">
+        <div class="parallax-container" style="height: 250px;">
+            <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+            <div class="shade darken-1 valign-wrapper"
+                 style="position: absolute; bottom: 0; width: 100%; height: 100%">
+                <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
+            </div>
+        </div>
+    </header>
+<?php endif ?>
 <?php
     return ob_get_clean();
 }

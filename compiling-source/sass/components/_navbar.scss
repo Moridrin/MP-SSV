@@ -6,14 +6,41 @@ nav {
   }
 
   // Logo
-  .brand-logo {
-    &:not(.center) {
-      margin-left: 20px;
-    }
-
-    @media #{$small-only} {
+  .nav-logo {
+    position: absolute;
+    color: $navbar-font-color;
+    display: inline-block;
+    font-size: $navbar-brand-font-size;
+    padding: 0;
+    margin-left: 20px;
+    &.center {
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    @media #{$small-only}  {
+      left: 50%;
+      transform: translateX(-50%);
+      margin-left: 0;
+      &.left, &.right {
+        padding: 0;
+        transform: none;
+      }
+
+      &.left { left: 0.5rem; }
+      &.right {
+        right: 0.5rem;
+        left: auto;
+      }
+    }
+
+    &.right {
+      right: 0.5rem;
+      padding: 0;
+    }
+
+    img {
+      height: $navbar-height-mobile;
     }
   }
 

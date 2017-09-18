@@ -80,8 +80,8 @@ $button-floating-radius: 50% !default;
 
 $card-padding: 20px !default;
 $card-bg-color: #FFFFFF !default;
-$card-link-color: color("orange", "accent-2") !default;
-$card-link-color-light: lighten($card-link-color, 20%) !default;
+$card-link-color: #757575 !default;
+$card-link-color-light: #757575 !default;
 
 // 5. Collapsible
 // ==========================================================================
@@ -260,15 +260,15 @@ $toast-text-color: #FFFFFF !default;
 
 $off-black: rgba(0, 0, 0, 0.87) !default;
 // Header Styles
-$h1-fontsize-large: 4.2rem !default;
-$h2-fontsize-large: 3.56rem !default;
-$h3-fontsize-large: 2.92rem !default;
+$h1-fontsize-large: 3em !default;
+$h2-fontsize-large: 2em !default;
+$h3-fontsize-large: 1.17em !default;
 $h4-fontsize-large: 2.28rem !default;
 $h5-fontsize-large: 1.64rem !default;
 $h6-fontsize-large: 1rem !default;
-$h1-fontsize: 2.92rem !default;
-$h2-fontsize: 2.28rem !default;
-$h3-fontsize: 1.64rem !default;
+$h1-fontsize: 3em !default;
+$h2-fontsize: 2em !default;
+$h3-fontsize: 1.17em !default;
 $h4-fontsize: 1rem !default;
 $h5-fontsize: 1rem !default;
 $h6-fontsize: 1rem !default;

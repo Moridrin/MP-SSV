@@ -4,12 +4,17 @@
 jQuery(function ($) {
     $(document).ready(function () {
 
-        var image_banner = $('img.banner');
+        /*var image_banner = $('img.banner');
         $(window).resize(function () {
             image_banner.height(image_banner.width() / 4);
         });
-        image_banner.height(image_banner.width() / 4);
-
+        image_banner.height(image_banner.width() / 4);*/
+        console.log(theme_vars);
+        jQuery('.lt-slider').slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
+        jQuery(window).resize(function() {
+            jQuery('.lt-slider').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15,450)).css('position', 'relative');
+        });
+        jQuery(window).trigger('resize');
         // Init SideNav
         $('.button-collapse').sideNav({
                 closeOnClick: true,
@@ -94,6 +99,7 @@ jQuery(function ($) {
         }
 
         $('.collapsible').collapsible();
+
     });
 
     $(document).ready(function () {

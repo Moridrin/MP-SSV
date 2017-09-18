@@ -1,6 +1,7 @@
 <?php
 require_once 'inc/template-tags.php';
 require_once 'cards-text-widget.php';
+require_once 'birthday-widget.php';
 
 if (!isset($content_width)) {
     $content_width = 1700;
@@ -82,6 +83,7 @@ function mp_ssv_enquire_scripts()
         wp_enqueue_style('bb8', get_theme_root_uri() . '/ssv-material/css/BB8.css');
     } else {
         wp_enqueue_script('materialize_init', get_theme_root_uri() . '/ssv-material/js/init.js', array('jquery'));
+        wp_localize_script('materialize_init', 'theme_vars', ['slider_interval' => get_theme_mod('slider_interval', 6000)]);
     }
 }
 
@@ -100,7 +102,7 @@ function mp_special_nav_menu_class($classes, $item, $args)
     return $classes;
 }
 
-//add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
+add_filter('nav_menu_css_class', 'mp_special_nav_menu_class', 10, 3);
 
 function mp_ssv_widgets_init()
 {
@@ -200,6 +202,19 @@ function mp_ssv_customize_register($wp_customize)
         )
     );
     $wp_customize->add_setting(
+        'navbar_logo'
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'navbar_logo',
+            array(
+                'label'       => 'Navbar Logo',
+                'section'     => 'title_tagline',
+            )
+        )
+    );
+    $wp_customize->add_setting(
         'welcome_message',
         array(
             'default' => '<h3>About the SSV Library</h3><p>The SSV Library started with the website for <a href="https://allterrain.nl/">All Terrain</a> for which a lot of functionality was needed in a format that would be easy enough for everyone to work with.</p>',
@@ -241,6 +256,89 @@ function mp_ssv_customize_register($wp_customize)
             'type'    => 'textarea',
         )
     );
+    $wp_customize->add_section( 'homepage_buttons' , array(
+        'title'      => __( 'Homepage Buttons', 'ssv-material' ),
+        'priority'   => 30,
+    ));
+    for ($i = 0; $i < 4; $i++) {
+        $wp_customize->add_setting(
+            'home_button_'.$i.'_enabled',
+            array(
+                'default' => false
+            )
+        );
+        $wp_customize->add_control(
+            'home_button_'.$i.'_enabled',
+            array(
+                'label'    => __( 'Enable homepage button ' . $i, 'ssv-material' ),
+                'section'  => 'homepage_buttons',
+                'settings' => 'home_button_'.$i.'_enabled',
+                'type'     => 'checkbox',
+            )
+        );
+        $wp_customize->add_setting(
+            'home_button_' . $i . '_image'
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Cropped_Image_Control(
+                $wp_customize,
+                'home_button_' . $i . '_image',
+                array(
+                    'label'       => 'Homepage button #' . $i . ' image',
+                    'section'     => 'homepage_buttons',
+                    'flex_width'  => true,
+                    'flex_height' => true,
+                    'width'       => 485,
+                    'height'      => 325,
+                )
+            )
+        );
+        $wp_customize->add_setting(
+            'home_button_'.$i.'_title',
+            array(
+                'sanitize_callback' => 'sanitize_text_field',
+                'default'           => '',
+            )
+        );
+        $wp_customize->add_control(
+            'home_button_'.$i.'_title',
+            array(
+                'label'   => 'Homepage button #' . $i . ' title',
+                'section' => 'homepage_buttons',
+                'type'    => 'text',
+            )
+        );
+        $wp_customize->add_setting(
+            'home_button_'.$i.'_url',
+            array(
+                'sanitize_callback' => 'sanitize_url',
+                'default' => '#'
+            )
+        );
+        $wp_customize->add_control(
+            'home_button_'.$i.'_url',
+            array(
+                'label'   => 'Homepage button #' . $i . ' url',
+                'section' => 'homepage_buttons',
+                'type'    => 'text',
+            )
+        );
+        $wp_customize->add_setting(
+            'slider_interval',
+            array(
+                'default' => '6000',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_interval',
+            array(
+                'label'   => 'Slider interval',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
+    }
+
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
     mp_ssv_add_color_customizer($wp_customize, 'text_on_primary_color', 'Text On Primary Color', '#FFFFFF');
     mp_ssv_add_color_customizer($wp_customize, 'secondary_color', 'Secondary Color', '#26A69A');

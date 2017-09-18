@@ -11,7 +11,6 @@
 
 // Components
 @import "../compiling-source/sass/components/global";
-@import "../compiling-source/sass/components/grid";
 @import "../compiling-source/sass/components/navbar";
 @import "../compiling-source/sass/components/typography";
 @import "../compiling-source/sass/components/cards";
@@ -21,8 +20,9 @@
 @import "../compiling-source/sass/components/sideNav";
 @import "../compiling-source/sass/components/modal";
 @import "../compiling-source/sass/components/slider";
-@import "../compiling-source/sass/components/carousel";
 @import "../compiling-source/sass/components/widgets";
+@import "../compiling-source/sass/components/wordpress";
+@import "../compiling-source/sass/components/forms/input-fields";
 
 // XDebug
 @import "../compiling-source/sass/components/xdebug";
