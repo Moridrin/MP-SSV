@@ -337,6 +337,40 @@ function mp_ssv_customize_register($wp_customize)
                 'type'    => 'number',
             )
         );
+
+        $wp_customize->add_setting(
+            'logo_on_home',
+            array(
+                'default' => 0,
+            )
+        );
+        $wp_customize->add_control(
+            'logo_on_home',
+            array(
+                'label'   => 'Show logo on Homepage',
+                'section' => 'title_tagline',
+                'type'    => 'checkbox',
+            )
+        );
+
+        $wp_customize->add_setting(
+            'site_title_position',
+            array(
+                'default' => 'under_header',
+            )
+        );
+        $wp_customize->add_control(
+            'site_title_position',
+            array(
+                'label'   => 'Site title position on Homepage',
+                'section' => 'title_tagline',
+                'type'    => 'select',
+                'choices' => [
+                        'on_header' => 'On header images',
+                        'under_header' => 'Under header images',
+                ]
+            )
+        );
     }
 
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');

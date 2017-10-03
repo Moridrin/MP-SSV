@@ -13,8 +13,11 @@
         <link rel="manifest" href="<?php echo get_template_directory_uri() . '/manifest.json' ?>">
     </head>
     <header>
-        <?php echo mp_ssv_get_main_nav_bar() ?>
-        <?php echo mp_ssv_get_side_menu() ?>
+        <?= mp_ssv_get_main_nav_bar() ?>
+        <?= mp_ssv_get_side_menu() ?>
+        <?php if (is_front_page()): ?>
+            <?= mp_ssv_get_header() ?>
+        <?php endif; ?>
     </header>
     <body <?php body_class(); ?>>
 <?php
@@ -22,7 +25,7 @@
 function mp_ssv_get_main_nav_bar()
 {
     ob_start();
-    if (!is_home() && !is_front_page()) {
+    if ((!is_home() && !is_front_page()) || get_theme_mod('logo_on_home', 0)) {
         ?><a class="nav-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
         <?php
         $logoPath = get_theme_mod('navbar_logo', false);
@@ -71,87 +74,103 @@ function mp_ssv_menu_sub_menu_link_replace($matches)
 
 function mp_ssv_get_side_menu()
 {
-$mobile_primary_menu       = wp_nav_menu(
-    array(
-        'theme_location' => 'mobile_primary',
-        'menu_class'     => 'left hide-on-med-and-down',
-        'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
-        'echo'           => false,
-    )
-);
-$mobile_primary_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_primary_menu));
-$mobile_primary_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_primary_menu);
-$mobile_primary_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_primary_menu);
+    $mobile_primary_menu       = wp_nav_menu(
+        array(
+            'theme_location' => 'mobile_primary',
+            'menu_class'     => 'left hide-on-med-and-down',
+            'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
+            'echo'           => false,
+        )
+    );
+    $mobile_primary_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_primary_menu));
+    $mobile_primary_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_primary_menu);
+    $mobile_primary_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_primary_menu);
 
-$mobile_profile_menu       = wp_nav_menu(
-    array(
-        'theme_location' => 'mobile_profile',
-        'menu_class'     => 'left hide-on-med-and-down',
-        'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
-        'echo'           => false,
-    )
-);
-$mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
-$mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
-$mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
+    $mobile_profile_menu       = wp_nav_menu(
+        array(
+            'theme_location' => 'mobile_profile',
+            'menu_class'     => 'left hide-on-med-and-down',
+            'items_wrap'     => '<ul style="line-height: 64px;" id="%1$s" class="%2$s">%3$s</ul>',
+            'echo'           => false,
+        )
+    );
+    $mobile_profile_menu       = preg_replace('/\s+/', ' ', str_replace(PHP_EOL, '', $mobile_profile_menu));
+    $mobile_profile_menu       = preg_replace('/<div.*?>(.*)<\/div>/s', '$1', $mobile_profile_menu);
+    $mobile_profile_menu_items = preg_replace('/<ul.*?>(.*)<\/ul>/s', '$1', $mobile_profile_menu);
 
-ob_start();
-?>
-<ul id="slide-out" class="side-nav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
-    <?php
-    if (is_user_logged_in()) {
-        $user = wp_get_current_user();
+    ob_start();
+    ?>
+    <ul id="slide-out" class="side-nav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
+        <?php
+        if (is_user_logged_in()) {
+            $user = wp_get_current_user();
+            ?>
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="<?php echo get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg" alt="Profile Background Image">
+                    </div>
+                    <a href="<?php echo $user->user_url ?>">
+                        <?php echo get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
+                        <span class="white-text name"><?php echo $user->display_name ?></span>
+                        <span class="white-text email"><?php echo $user->user_email ?></span>
+                    </a>
+                </div>
+            </li>
+            <?php
+        }
+        echo $mobile_primary_menu_items;
         ?>
         <li>
-            <div class="userView">
-                <div class="background">
-                    <img src="<?php echo get_template_directory_uri() . '/' ?>images/menu_profile_background.jpg" alt="Profile Background Image">
-                </div>
-                <a href="<?php echo $user->user_url ?>">
-                    <?php echo get_avatar($user->ID, 96, '', '', array('class' => 'circle')) ?>
-                    <span class="white-text name"><?php echo $user->display_name ?></span>
-                    <span class="white-text email"><?php echo $user->user_email ?></span>
-                </a>
-            </div>
+            <div class=" divider"></div>
         </li>
+        <?php echo $mobile_profile_menu_items ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+function mp_ssv_get_header() {
+    if (is_front_page()) {
+        ?>
+        <header class="full-width-entry-header">
+            <div class="" >
+                <div class="lt-slider slider">
+                    <ul class="slides" style="height:500px">
+                        <?php
+                        $headers = get_uploaded_header_images();
+                        shuffle($headers);
+                        ?>
+                        <?php foreach ($headers as $header): ?>
+                            <li class="slide">
+                                <img src="<?= $header['url'] ?>"/>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php if (get_theme_mod('site_title_position', 'under_header') === 'on_header'): ?>
+                        <div class="valign-wrapper" style="z-index: 5000; position: absolute; top: 0px; height: 450px; width: 100%; background-color: rgba(0, 0, 0, 0.5);">
+                            <div style="width: 100%;">
+                                <h1 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo() ?></h1>
+                                <h3 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo('description') ?></h3>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </header>
+        <?php
+    } elseif (get_post_type() === 'page' && has_post_thumbnail()) {
+        ?>
+        <header class="full-width-entry-header">
+            <div class="parallax-container" style="height: 250px;">
+                <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+                <div class="shade darken-1 valign-wrapper"
+                     style="position: absolute; bottom: 0; width: 100%; height: 100%">
+                    <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
+                </div>
+            </div>
+        </header>
         <?php
     }
-    echo $mobile_primary_menu_items;
-    ?>
-    <li>
-        <div class=" divider"></div>
-    </li>
-    <?php echo $mobile_profile_menu_items ?>
-</ul>
-<?php if (is_front_page()): ?>
-<header class="full-width-entry-header">
-    <div class="" >
-        <div class="lt-slider slider">
-            <ul class="slides" style="height:500px">
-                <?php
-                $headers = get_uploaded_header_images();
-                shuffle($headers);
-                ?>
-                <?php foreach ($headers as $header): ?>
-                    <li class="slide">
-                        <img src="<?= $header['url'] ?>"/>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
-</header>
-<?php elseif (get_post_type() === 'page' && has_post_thumbnail()): ?>
-    <header class="full-width-entry-header">
-        <div class="parallax-container" style="height: 250px;">
-            <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
-            <div class="shade darken-1 valign-wrapper"
-                 style="position: absolute; bottom: 0; width: 100%; height: 100%">
-                <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
-            </div>
-        </div>
-    </header>
-<?php endif ?>
-<?php
     return ob_get_clean();
 }
