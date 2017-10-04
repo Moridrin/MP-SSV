@@ -152,7 +152,7 @@ function mp_ssv_get_header() {
                                     <h1 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo() ?></h1>
                                     <h3 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo('description') ?></h3>
                                 <?php else: ?>
-                                    <h1 class="entry-title center-align valign header-text-color">Archive</h1>
+                                    <h1 class="entry-title center-align valign header-text-color"><?=single_cat_title()?></h1>
                                 <?php endif; ?>
                             </div>
                         </div>

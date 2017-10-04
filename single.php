@@ -3,9 +3,9 @@
     <div class="row">
         <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm7 l8 xxl9' : '' ?>">
             <div id="primary" class="content-area <?php echo strpos(get_the_content(), 'class="card') === false ? 'card' : '' ?>">
-                <div class="card-image">
+                <div class="card-image" style="">
                     <?php if (has_post_thumbnail()): ?>
-                    <img src="<?php the_post_thumbnail_url() ?>"/>
+                    <img src="<?php the_post_thumbnail_url('ssv-banner-s') ?>" style="width: auto; margin-left: auto; margin-right: auto;"/>
                     <?php else: ?>
                     <div class="thumbnail-placeholder"></div>
                     <?php endif ?>
