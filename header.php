@@ -15,9 +15,7 @@
     <header>
         <?= mp_ssv_get_main_nav_bar() ?>
         <?= mp_ssv_get_side_menu() ?>
-        <?php if (is_front_page()): ?>
-            <?= mp_ssv_get_header() ?>
-        <?php endif; ?>
+        <?= mp_ssv_get_header() ?>
     </header>
     <body <?php body_class(); ?>>
 <?php
@@ -131,12 +129,12 @@ function mp_ssv_get_side_menu()
 }
 
 function mp_ssv_get_header() {
-    if (is_front_page()) {
+    if (is_front_page() || is_archive()) {
         ?>
         <header class="full-width-entry-header">
             <div class="" >
-                <div class="lt-slider slider">
-                    <ul class="slides" style="height:500px">
+                <div class="lt-slider slider" style="height: <?= is_front_page() ? get_theme_mod('slider_height', 450) : get_theme_mod('slider_height_archives', 250) ?>px;">
+                    <ul class="slides">
                         <?php
                         $headers = get_uploaded_header_images();
                         shuffle($headers);
@@ -148,10 +146,14 @@ function mp_ssv_get_header() {
                         <?php endforeach; ?>
                     </ul>
                     <?php if (get_theme_mod('site_title_position', 'under_header') === 'on_header'): ?>
-                        <div class="valign-wrapper" style="z-index: 5000; position: absolute; top: 0px; height: 450px; width: 100%; background-color: rgba(0, 0, 0, 0.5);">
+                        <div class="valign-wrapper js_overlay" style="z-index: 5; position: absolute; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5);">
                             <div style="width: 100%;">
-                                <h1 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo() ?></h1>
-                                <h3 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo('description') ?></h3>
+                                <?php if (is_front_page()): ?>
+                                    <h1 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo() ?></h1>
+                                    <h3 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo('description') ?></h3>
+                                <?php else: ?>
+                                    <h1 class="entry-title center-align valign header-text-color">Archive</h1>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endif; ?>

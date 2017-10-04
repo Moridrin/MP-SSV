@@ -10,7 +10,7 @@
                     <div class="thumbnail-placeholder"></div>
                     <?php endif ?>
                     <div class="card-overlay hide-on-small">
-                        <div class="page-title"><h1><?= the_title() ?></h1></div>
+                        <div class="page-title valign-wrapper"><h1><?= the_title() ?></h1></div>
                     </div>
                 </div>
                 <main id="main" class="site-main" role="main">

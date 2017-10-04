@@ -371,6 +371,36 @@ function mp_ssv_customize_register($wp_customize)
                 ]
             )
         );
+
+        $wp_customize->add_setting(
+            'slider_height',
+            array(
+                'default' => '450',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_height',
+            array(
+                'label'   => 'Slider height on Homepage',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
+
+        $wp_customize->add_setting(
+            'slider_height_archives',
+            array(
+                'default' => '250',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_height_archives',
+            array(
+                'label'   => 'Slider height on Archive pages',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
     }
 
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');

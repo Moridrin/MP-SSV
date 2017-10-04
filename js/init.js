@@ -10,9 +10,12 @@ jQuery(function ($) {
         });
         image_banner.height(image_banner.width() / 4);*/
         console.log(theme_vars);
-        jQuery('.lt-slider').slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
+        let $slider = jQuery('.lt-slider');
+        let sliderHeight = $slider.height();
+        $slider.slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
         jQuery(window).resize(function() {
-            jQuery('.lt-slider').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15,450)).css('position', 'relative');
+            $slider.height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight)).css('position', 'relative');
+            jQuery('.lt-slider .js_overlay').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight));
         });
         jQuery(window).trigger('resize');
         // Init SideNav

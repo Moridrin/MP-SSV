@@ -1,6 +1,6 @@
 <?php get_header() ?>
 <header class="full-width-entry-header">
-    <div class="parallax-container primary" style="height: 150px;">
+    <div class="parallax-container primary" style="height: 100px;">
         <div class="shade darken-1" style="height: 100%">
             <h1 class="entry-title center-align white-text" style="margin-top: 0; padding-top: 30px">404</h1>
             <h3 class="entry-title center-align white-text">This is not the page you're looking for.</h3>
