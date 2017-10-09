@@ -390,13 +390,14 @@ function mp_ssv_customize_register($wp_customize)
         $wp_customize->add_setting(
             'slider_height_archives',
             array(
-                'default' => '250',
+                'default' => '0',
             )
         );
         $wp_customize->add_control(
             'slider_height_archives',
             array(
                 'label'   => 'Slider height on Archive pages',
+                'description' => 'Set to 0 to use the default header instead of the slider on archives.',
                 'section' => 'header_image',
                 'type'    => 'number',
             )

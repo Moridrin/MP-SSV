@@ -129,11 +129,18 @@ function mp_ssv_get_side_menu()
 }
 
 function mp_ssv_get_header() {
-    if (is_front_page() || is_archive()) {
+    if (is_front_page()) {
+        $sliderHeight = get_theme_mod('slider_height', 450);
+    } elseif (is_archive()) {
+        $sliderHeight = get_theme_mod('slider_height_archives', 0);
+    } else {
+        $sliderHeight = 0;
+    }
+    if ($sliderHeight > 0) {
         ?>
         <header class="full-width-entry-header">
             <div class="" >
-                <div class="lt-slider slider" style="height: <?= is_front_page() ? get_theme_mod('slider_height', 450) : get_theme_mod('slider_height_archives', 250) ?>px;">
+                <div class="lt-slider slider" style="height: <?= $sliderHeight ?>px;">
                     <ul class="slides">
                         <?php
                         $headers = get_uploaded_header_images();
