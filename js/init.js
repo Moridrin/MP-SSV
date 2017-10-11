@@ -132,9 +132,11 @@ function antiSpamReplace() {
             let tag = $this.attr('data-anti-spam-tag');
             let emailBeforeAt = $this.attr('data-before-at');
             let emailAfterAt = $this.attr('data-after-at');
-            $this.attr(tag, emailBeforeAt+'@'+emailAfterAt);
+            let mailto = $this.attr('data-mailto');
+            $this.attr(tag, mailto+emailBeforeAt+'@'+emailAfterAt);
             $this.removeAttr('data-before-at');
             $this.removeAttr('data-after-at');
+            $this.removeAttr('data-mailto');
             $this.removeAttr('data-anti-spam-tag');
         });
         $('span[data-before-at][data-after-at]').each(function () {

@@ -501,13 +501,14 @@ add_action('customize_save_after', 'mp_ssv_customize_save_css');
 
 function mp_ssv_email_antispam($content)
 {
-    preg_match_all('/<([^<>]+)?[\"\'\?](?:mailto:?:)?([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})[\"\'\?]([^<>]+)?>/i', $content, $matches);
+    preg_match_all('/<([^<>]+)?[\"\'\?]((?:mailto:?:)?)([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})[\"\'\?]([^<>]+)?>/i', $content, $matches);
     foreach ($matches[0] as $key => $found) {
         $tags = explode(' ', $matches[1][$key]);
         $tag = str_replace('=', '', end($tags));
-        $email = $matches[2][$key];
+        $mailto = $matches[2][$key];
+        $email = $matches[3][$key];
         $emailSplit = explode('@', $email);
-        $antiSpamTags = str_replace('>', 'data-before-at="'.$emailSplit[0].'" data-after-at="'.$emailSplit[1].'" data-anti-spam-tag="'.$tag.'">', $found);
+        $antiSpamTags = str_replace('>', 'data-before-at="'.$emailSplit[0].'" data-after-at="'.$emailSplit[1].'" data-mailto="'.$mailto.'" data-anti-spam-tag="'.$tag.'">', $found);
         $antiSpam = str_replace($email, '[anti-spam-tag]', $antiSpamTags);
         $content = str_replace($found, $antiSpam, $content);
     }
