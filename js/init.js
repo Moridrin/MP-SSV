@@ -4,6 +4,8 @@
 jQuery(function ($) {
     $(document).ready(function () {
 
+        antiSpamReplace();
+
         /*var image_banner = $('img.banner');
         $(window).resize(function () {
             image_banner.height(image_banner.width() / 4);
@@ -117,5 +119,29 @@ function setWidgetAreaState(offset) {
         } else {
             wrap.removeClass("fixed");
         }
+    });
+}
+
+function antiSpamReplace() {
+    jQuery(function ($) {
+        $('[data-anti-spam-tag]').each(function () {
+            let $this = $(this);
+            let tag = $this.attr('data-anti-spam-tag');
+            let emailBeforeAt = $this.attr('data-before-at');
+            let emailAfterAt = $this.attr('data-after-at');
+            let mailto = $this.attr('data-mailto');
+            $this.attr(tag, mailto+emailBeforeAt+'@'+emailAfterAt);
+            $this.removeAttr('data-before-at');
+            $this.removeAttr('data-after-at');
+            $this.removeAttr('data-mailto');
+            $this.removeAttr('data-anti-spam-tag');
+        });
+        $('span[data-before-at][data-after-at]').each(function () {
+            let $this = $(this);
+            console.log(this);
+            let emailBeforeAt = $this.attr('data-before-at');
+            let emailAfterAt = $this.attr('data-after-at');
+            $this.replaceWith(emailBeforeAt+'@'+emailAfterAt);
+        });
     });
 }
