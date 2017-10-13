@@ -15,9 +15,7 @@
     <header>
         <?= mp_ssv_get_main_nav_bar() ?>
         <?= mp_ssv_get_side_menu() ?>
-        <?php if (is_front_page()): ?>
-            <?= mp_ssv_get_header() ?>
-        <?php endif; ?>
+        <?= mp_ssv_get_header() ?>
     </header>
     <body <?php body_class(); ?>>
 <?php
