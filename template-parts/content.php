@@ -6,7 +6,7 @@
             </div>
             <div class="card-content">
             <span class="post-meta post-date">
-                <?php the_date('M j, Y') ?>
+                <?= get_the_date('M j, Y') ?>
             </span>
                 <div class="post-title">
                     <?php if (is_sticky() && is_home() && !is_paged()) : ?>

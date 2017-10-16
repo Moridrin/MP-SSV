@@ -14,13 +14,15 @@ function ssv_entry_meta()
             <div class="meta-block post-author valign-wrapper">
                 <?php echo get_avatar(
                     get_the_author_meta('user_email'),
-                    $author_avatar_size,
+                    40,
                     '',
                     '',
                     array(
                         'class' => 'circle',
                     )
                 ) ?>
+            </div>
+            <div class="meta-block post-author">
                 <a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>" style="margin-left: 10px;" title="Posts by <?= get_the_author() ?>" rel="author"><?= get_the_author() ?></a>
             </div>
             <div class="meta-block post-comments">

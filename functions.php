@@ -520,5 +520,4 @@ function mp_ssv_email_antispam($content)
     }
     return $content;
 }
-
 add_action('the_content', 'mp_ssv_email_antispam', 100);
