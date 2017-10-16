@@ -2,19 +2,20 @@
 
 function ssv_entry_meta()
 {
-    $author_avatar_size = apply_filters('ssv_author_avatar_size', 25);
     ?>
         <div class="post-meta meta-bar">
             <div class="meta-block post-author">
                 <?php echo get_avatar(
                     get_the_author_meta('user_email'),
-                    $author_avatar_size,
+                    40,
                     '',
                     '',
                     array(
                         'class' => 'circle',
                     )
                 ) ?>
+            </div>
+            <div class="meta-block post-author">
                 <a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>" title="Posts by <?= get_the_author() ?>" rel="author"><?= get_the_author() ?></a>
             </div>
             <div class="meta-block post-comments">
