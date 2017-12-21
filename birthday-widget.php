@@ -8,8 +8,7 @@ if (!defined('ABSPATH')) {
 class ssv_birthdays extends WP_Widget
 {
 
-    #region Construct
-    public function __construct()
+        public function __construct()
     {
         $widget_ops = array(
             'classname'                   => 'widget_birthdays',
@@ -18,10 +17,8 @@ class ssv_birthdays extends WP_Widget
         );
         parent::__construct('birthdays', 'Birthdays', $widget_ops);
     }
-    #endregion
 
-    #region Widget
-    public function widget($args, $instance)
+        public function widget($args, $instance)
     {
         $birthdayNames = array();
 
@@ -53,21 +50,16 @@ class ssv_birthdays extends WP_Widget
             <?php
         }
     }
-    #endregion
 
-    #region Update
-    public function update($new_instance, $old_instance)
+        public function update($new_instance, $old_instance)
     {
         return $old_instance;
     }
-    #endregion
 
-    #region Form
-    public function form($instance)
+        public function form($instance)
     {
 
     }
-    #endregion
 
 }
 

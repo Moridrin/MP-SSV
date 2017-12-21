@@ -8,8 +8,7 @@ if (!defined('ABSPATH')) {
 class ssv_text_cards extends WP_Widget
 {
 
-    #region Construct
-    public function __construct()
+        public function __construct()
     {
         $widget_ops = array(
             'classname'                   => 'widget_text_cards',
@@ -18,10 +17,8 @@ class ssv_text_cards extends WP_Widget
         );
         parent::__construct('text_cards', 'Text (with Cards)', $widget_ops);
     }
-    #endregion
-
-    #region Widget
-    public function widget($args, $instance)
+    
+        public function widget($args, $instance)
     {
         $title = apply_filters('widget_title', $instance['title'], $instance, $this->id_base);
         $text = apply_filters('widget_text', $instance['text'], $instance, $this->id_base);
@@ -34,10 +31,8 @@ class ssv_text_cards extends WP_Widget
         echo $text;
         echo $args['after_widget'];
     }
-    #endregion
-
-    #region Update
-    public function update($new_instance, $old_instance)
+    
+        public function update($new_instance, $old_instance)
     {
         $instance          = $old_instance;
         $instance['title'] = $new_instance['title'];
@@ -45,10 +40,8 @@ class ssv_text_cards extends WP_Widget
 
         return $instance;
     }
-    #endregion
-
-    #region Form
-    public function form($instance)
+    
+        public function form($instance)
     {
         //Defaults
         $instance = wp_parse_args((array)$instance, array('title' => '', 'text' => ''));
@@ -65,8 +58,7 @@ class ssv_text_cards extends WP_Widget
         </p>
         <?php
     }
-    #endregion
-
+    
 }
 
 add_action('widgets_init', create_function('', 'return register_widget("ssv_text_cards");'));
