@@ -13,7 +13,7 @@ use Leafo\ScssPhp\Base\Range;
 use Leafo\ScssPhp\Compiler\Environment;
 use Leafo\ScssPhp\Exception\CompilerException;
 use Leafo\ScssPhp\Formatter\OutputBlock;
-use mp_ssv_general\SSV_General;
+use mp_ssv_general\BaseFunctions;
 use WP_Filesystem_Direct;
 
 /**
