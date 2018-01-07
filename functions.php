@@ -65,7 +65,7 @@ function mp_ssv_custom_image_sizes($sizes)
 
 add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 
-function mp_ssv_enquire_scripts()
+function mp_ssv_enqueue_scripts()
 {
     wp_enqueue_script('materialize', get_theme_root_uri() . '/ssv-material/js/materialize.js', array('jquery'));
     if (is_customize_preview()) {
@@ -87,7 +87,7 @@ function mp_ssv_enquire_scripts()
     }
 }
 
-add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
+add_action('wp_enqueue_scripts', 'mp_ssv_enqueue_scripts');
 
 function mp_special_nav_menu_class($classes, $item, $args)
 {
