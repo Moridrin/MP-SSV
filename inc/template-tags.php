@@ -68,6 +68,7 @@ endif;
 if (!function_exists('mp_ssv_post_thumbnail')) :
     function mp_ssv_post_thumbnail($without_link = false, $args = array())
     {
+        global $currentBlogId;
         if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
             return;
         }
@@ -78,7 +79,7 @@ if (!function_exists('mp_ssv_post_thumbnail')) :
                 <?php the_post_thumbnail('ssv-banner-xl', array('class' => $class)); ?>
             </div><!-- .post-thumbnail -->
         <?php elseif (!$without_link) : ?>
-            <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+            <a class="post-thumbnail" href="<?php the_permalink(); ?>" target="<?= $currentBlogId !== get_current_blog_id() ? '_blank' : '_self' ?>" aria-hidden="true">
                 <?php the_post_thumbnail('ssv-banner-xl', array('alt' => the_title_attribute('echo=0'), 'class' => $class)); ?>
             </a>
         <?php else: ?>

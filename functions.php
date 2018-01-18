@@ -446,7 +446,7 @@ function mp_ssv_customize_preview_css()
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
             array(
-                'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
+                'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#212121'),
                 'primary-color'           => get_theme_mod('primary_color', '#005E38'),
                 'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
                 'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
@@ -473,7 +473,7 @@ function mp_ssv_customize_save_css()
     $scss = new \Leafo\ScssPhp\Compiler();
     $scss->setVariables(
         array(
-            'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
+            'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#212121'),
             'primary-color'           => get_theme_mod('primary_color', '#005E38'),
             'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
             'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),

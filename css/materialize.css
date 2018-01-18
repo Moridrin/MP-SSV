@@ -8728,8 +8728,8 @@ a, .link {
   background-color: transparent;
   text-decoration: none; }
 
-.page-footer a, .page-footer .link {
-  color: #fff; }
+.page-footer h1, .page-footer h2, .page-footer h3, .page-footer h4, .page-footer h5, .page-footer h6, .page-footer a, .page-footer .link {
+  color: #FFFFFF; }
 
 .no-pad {
   padding: 0 !important; }
@@ -8781,7 +8781,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   clear: both;
   letter-spacing: .5px;
-  line-height: 1.2; }
+  line-height: 1.2;
+  color: #FFFFFF; }
+  h1 a, h1 .link, h2 a, h2 .link, h3 a, h3 .link, h4 a, h4 .link, h5 a, h5 .link, h6 a, h6 .link {
+    color: #FFFFFF; }
 
 h1 {
   font-size: 3em;
