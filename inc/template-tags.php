@@ -8,7 +8,6 @@ function ssv_entry_meta()
     } else {
         $params['fullscreen'] = true;
     }
-    $author_avatar_size = apply_filters('ssv_author_avatar_size', 25);
     ?>
         <div class="post-meta meta-bar">
             <div class="meta-block post-author valign-wrapper">
@@ -36,7 +35,9 @@ function ssv_entry_meta()
                     </a>
                 </span>
             </div>
-            <div style="height: 100%; float: right;" class="valign-wrapper"><a href="?<?= http_build_query($params) ?>" style="height: 25px;"><i class="material-icons">fullscreen<?= $params['fullscreen'] ? '' : '_exit' ?></i></a></div>
+            <div style="height: 100%; float: right;" class="valign-wrapper">
+                <a href="?<?= http_build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $params['fullscreen'] ? 'fullscreen' : 'fullscreen_exit' ?></i></a>
+            </div>
         </div>
 
     <?php

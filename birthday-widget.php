@@ -38,7 +38,7 @@ class ssv_birthdays extends WP_Widget
                     </div>
 
                     <div class="valign center-align" style="width: 100%;">
-                        <h5 class="entry-title header-text-color valign">A Very Happy Birthday To:</h5>
+                        <h5 class="entry-title valign">A Very Happy Birthday To:</h5>
                         <?php foreach ($birthdayNames as $birthdayName): ?>
                             <h4 class="entry-title white-text valign"><?php echo $birthdayName ?></h4>
                         <?php endforeach; ?>

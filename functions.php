@@ -402,6 +402,27 @@ function mp_ssv_customize_register($wp_customize)
                 'type'    => 'number',
             )
         );
+
+        $wp_customize->add_setting(
+            'slider_overlay_color',
+            array(
+                'default' => 'black',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_overlay_color',
+            array(
+                'label'   => 'Slider Overlay Color',
+                'description' => 'The slider has a semy transparent overlay. The default color is black.',
+                'section' => 'header_image',
+                'type'    => 'select',
+                'choices' => [
+                        'black' => 'Black',
+                        'primary' => 'Primary Color',
+                        'accent' => 'Accent Color',
+                ]
+            )
+        );
     }
 
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
@@ -467,7 +488,9 @@ add_action('wp_head', 'mp_ssv_customize_preview_css');
 
 function mp_ssv_customize_save_css()
 {
-    define('FS_METHOD', 'direct');
+    if (!defined('FS_METHOD')) {
+        define('FS_METHOD', 'direct');
+    }
     require_once ABSPATH . 'wp-admin/includes/file.php';
     require_once "compiling-source/scssphp/scss.inc.php";
     $scss = new \Leafo\ScssPhp\Compiler();

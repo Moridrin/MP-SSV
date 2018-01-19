@@ -35,8 +35,8 @@ The best way is to add an issue on GitHub (https://github.com/Moridrin/ssv-users
 == Changelog ==
 
 = 3.2.1 =
-* Colors Assignment Edited
-  * Header Color
+* Header Colors functionality changed.
+* Overlay color choice for Slider (black, primary or accent).
 
 = 3.1 =
 * Widget Design improved

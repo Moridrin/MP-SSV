@@ -132,6 +132,7 @@ function mp_ssv_get_side_menu()
 }
 
 function mp_ssv_get_header() {
+    $sliderOverlayColor = get_theme_mod('slider_overlay_color', 'black');
 if (is_front_page()) {
     $sliderHeight = get_theme_mod('slider_height', 450);
 } elseif (is_archive()) {
@@ -160,18 +161,18 @@ if ($sliderHeight > 0) {
                     ?>
                     <?php foreach ($headers as $header): ?>
                         <li class="slide parallax">
-                            <img src="<?= $header['url'] ?>" style="height: <?= $header['height'] ?>px; background-size: 100% auto; background-repeat: no-repeat;"/>
+                            <img src="<?= $header['url'] ?>" style="height: <?= $header['height'] ?>px;"/>
                         </li>
                     <?php endforeach; ?>
                 </ul>
                 <?php if (get_theme_mod('site_title_position', 'under_header') === 'on_header'): ?>
-                    <div class="valign-wrapper js_overlay" style="z-index: 5; position: absolute; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="valign-wrapper js_overlay slider-overlay <?= $sliderOverlayColor !== 'black' ? $sliderOverlayColor : '' ?>">
                         <div style="width: 100%;">
                             <?php if (is_front_page()): ?>
-                                <h1 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo() ?></h1>
-                                <h3 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo('description') ?></h3>
+                                <h1 class="entry-title center-align valign"><?php echo get_bloginfo() ?></h1>
+                                <h3 class="entry-title center-align valign"><?php echo get_bloginfo('description') ?></h3>
                             <?php else: ?>
-                                <h1 class="entry-title center-align valign header-text-color"><?= single_cat_title() ?></h1>
+                                <h1 class="entry-title center-align valign"><?= single_cat_title() ?></h1>
                             <?php endif; ?>
                         </div>
                     </div>

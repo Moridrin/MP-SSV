@@ -28,7 +28,7 @@ For more information, custom functionality or personalization please contact Jer
 == Changelog ==
 
 = 3.2.1 =
-* Colors Assignment Edited
-  * Header Color
+* Header Colors functionality changed.
+* Overlay color choice for Slider (black, primary or accent).
 
 

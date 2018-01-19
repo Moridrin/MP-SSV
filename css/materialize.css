@@ -1,6 +1,10 @@
 .primary {
   background-color: #005E38 !important;
   color: #FFFFFF !important; }
+  .primary h1, .primary h2, .primary h3, .primary h4, .primary h5, .primary h6 {
+    color: #FFFFFF; }
+  .primary a, .primary .link {
+    color: #FFFFFF; }
 
 .accent {
   background-color: #063359 !important;
@@ -8750,7 +8754,7 @@ nav .nav-logo {
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
-  margin-left: 20px; }
+  margin: 0 0 0 20px; }
   nav .nav-logo.center {
     left: 50%;
     transform: translateX(-50%); }
@@ -8771,7 +8775,7 @@ nav .nav-logo {
     right: 0.5rem;
     padding: 0; }
   nav .nav-logo img {
-    height: 56px; }
+    height: 64px; }
 nav ul li.menu-item-active {
   background-color: rgba(0, 0, 0, 0.1); }
 nav form {
@@ -9044,10 +9048,11 @@ textarea {
       height: inherit;
       overflow: hidden; }
       .slider .slides li img {
-        height: 100%;
-        width: 100%;
         background-size: cover;
-        background-position: center; }
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        width: 100%; }
       .slider .slides li .caption {
         color: #fff;
         position: absolute;
@@ -9081,6 +9086,14 @@ textarea {
 
 .widget:not(.widget_text_cards):not(.widget_events_cards) > ul {
   padding: 20px !important; }
+
+#page.wpadminbar {
+  min-height: calc(100vh - 340px); }
+#page:not(.wpadminbar) {
+  min-height: calc(100vh - 310px); }
+
+.page-footer {
+  height: 224px; }
 
 @media only screen and (min-width: 1000px) {
   .sidebar {
@@ -9119,8 +9132,7 @@ textarea {
 .page-title {
   letter-spacing: 1px;
   position: absolute;
-  height: 150px;
-  margin-left: 25px;
+  margin-left: 3.5%;
   color: #fff; }
 
 .read-more {
@@ -9134,8 +9146,26 @@ textarea {
 
 .thumbnail-placeholder {
   width: 100%;
-  height: 150px;
-  background-color: #005E38; }
+  height: 15vw;
+  max-height: 300px;
+  background-color: #005E38;
+  color: #FFFFFF; }
+
+.card-image > .card-overlay,
+.card-image > .card-overlay {
+  color: #FFFFFF; }
+  .card-image > .card-overlay h1, .card-image > .card-overlay h2, .card-image > .card-overlay h3, .card-image > .card-overlay h4, .card-image > .card-overlay h5, .card-image > .card-overlay h6,
+  .card-image > .card-overlay h1,
+  .card-image > .card-overlay h2,
+  .card-image > .card-overlay h3,
+  .card-image > .card-overlay h4,
+  .card-image > .card-overlay h5,
+  .card-image > .card-overlay h6 {
+    color: #FFFFFF; }
+  .card-image > .card-overlay a, .card-image > .card-overlay .link,
+  .card-image > .card-overlay a,
+  .card-image > .card-overlay .link {
+    color: #FFFFFF; }
 
 @media only screen and (max-width: 1080px) {
   .hide-on-small h3 {
@@ -9143,6 +9173,35 @@ textarea {
 
   .hide-on-small h1 {
     font-size: 1.5em; } }
+.slider-overlay {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF; }
+  .slider-overlay h1, .slider-overlay h2, .slider-overlay h3, .slider-overlay h4, .slider-overlay h5, .slider-overlay h6 {
+    color: #FFFFFF; }
+    .slider-overlay h1 a, .slider-overlay h1 .link, .slider-overlay h2 a, .slider-overlay h2 .link, .slider-overlay h3 a, .slider-overlay h3 .link, .slider-overlay h4 a, .slider-overlay h4 .link, .slider-overlay h5 a, .slider-overlay h5 .link, .slider-overlay h6 a, .slider-overlay h6 .link {
+      color: #FFFFFF; }
+  .slider-overlay.primary {
+    background-color: rgba(0, 94, 56, 0.5) !important;
+    color: #FFFFFF; }
+    .slider-overlay.primary h1, .slider-overlay.primary h2, .slider-overlay.primary h3, .slider-overlay.primary h4, .slider-overlay.primary h5, .slider-overlay.primary h6 {
+      color: #FFFFFF; }
+      .slider-overlay.primary h1 a, .slider-overlay.primary h1 .link, .slider-overlay.primary h2 a, .slider-overlay.primary h2 .link, .slider-overlay.primary h3 a, .slider-overlay.primary h3 .link, .slider-overlay.primary h4 a, .slider-overlay.primary h4 .link, .slider-overlay.primary h5 a, .slider-overlay.primary h5 .link, .slider-overlay.primary h6 a, .slider-overlay.primary h6 .link {
+        color: #FFFFFF; }
+  .slider-overlay.accent {
+    background-color: rgba(6, 51, 89, 0.5) !important;
+    color: #FFFFFF; }
+    .slider-overlay.accent h1, .slider-overlay.accent h2, .slider-overlay.accent h3, .slider-overlay.accent h4, .slider-overlay.accent h5, .slider-overlay.accent h6 {
+      color: #FFFFFF; }
+      .slider-overlay.accent h1 a, .slider-overlay.accent h1 .link, .slider-overlay.accent h2 a, .slider-overlay.accent h2 .link, .slider-overlay.accent h3 a, .slider-overlay.accent h3 .link, .slider-overlay.accent h4 a, .slider-overlay.accent h4 .link, .slider-overlay.accent h5 a, .slider-overlay.accent h5 .link, .slider-overlay.accent h6 a, .slider-overlay.accent h6 .link {
+        color: #FFFFFF; }
+
+.fullscreen-toggle {
+  display: none; }
+
 textarea {
   background-color: transparent;
   border: none;

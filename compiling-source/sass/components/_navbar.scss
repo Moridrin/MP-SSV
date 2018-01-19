@@ -12,7 +12,7 @@ nav {
     display: inline-block;
     font-size: $navbar-brand-font-size;
     padding: 0;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
     &.center {
       left: 50%;
       transform: translateX(-50%);
@@ -40,7 +40,7 @@ nav {
     }
 
     img {
-      height: $navbar-height-mobile;
+      height: $navbar-height;
     }
   }
 
