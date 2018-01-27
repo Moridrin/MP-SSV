@@ -63,7 +63,7 @@ function mp_ssv_get_main_nav_bar()
         $i++;
     }
     $subMenus = ob_get_clean();
-    return $subMenus . '<nav><div class="nav-wrapper">' . $mobile_menu_toggle . $branding . $menu . '</div></nav>';
+    return $subMenus . '<nav id="menu"><div class="nav-wrapper">' . $mobile_menu_toggle . $branding . $menu . '</div></nav>';
 }
 
 function mp_ssv_menu_sub_menu_link_replace($matches)

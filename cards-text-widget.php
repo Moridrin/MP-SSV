@@ -61,4 +61,7 @@ class ssv_text_cards extends WP_Widget
     
 }
 
-add_action('widgets_init', create_function('', 'return register_widget("ssv_text_cards");'));
+function ssv_material_init_cards_text_widget() {
+    register_widget('ssv_text_cards');
+}
+add_action('widgets_init', 'ssv_material_init_cards_text_widget');

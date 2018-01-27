@@ -3,15 +3,21 @@
  */
 jQuery(function ($) {
     $(document).ready(function () {
+        function calculatePageMinHeight() {
+            let navHeight = $('nav#menu').height();
+            let footerHeight = $('#page-footer').height();
+            let adminBarHeight = $('#wpadminbar').height();
+            let heightOtherElements = Math.round(navHeight + footerHeight + adminBarHeight + 40);
+            console.log(heightOtherElements);
+            $('#page').css('min-height', 'calc(100vh - ' + heightOtherElements + 'px)');
+        }
+        calculatePageMinHeight();
+        $( window ).resize(function() {
+            calculatePageMinHeight();
+        });
 
         antiSpamReplace();
 
-        /*var image_banner = $('img.banner');
-        $(window).resize(function () {
-            image_banner.height(image_banner.width() / 4);
-        });
-        image_banner.height(image_banner.width() / 4);*/
-        console.log(theme_vars);
         let $slider = jQuery('.lt-slider');
         let sliderHeight = $slider.height();
         $slider.slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});

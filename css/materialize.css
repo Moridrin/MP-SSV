@@ -9092,9 +9092,6 @@ textarea {
 #page:not(.wpadminbar) {
   min-height: calc(100vh - 310px); }
 
-.page-footer {
-  height: 224px; }
-
 @media only screen and (min-width: 1000px) {
   .sidebar {
     top: 1rem;
