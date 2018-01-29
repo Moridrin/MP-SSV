@@ -2,7 +2,7 @@
 Contributors: Jeroen Berkvens
 Requires at least: WordPress 4.0
 Tested up to: WordPress 4.7
- Version: 3.2.2
+ Version: 3.2.3
 License: WTFPL-2.0 or later
 License URI: http://www.wtfpl.net/txt/copying/
 Tags: one-column, right-sidebar, responsive-layout, featured-images, materialize
@@ -26,6 +26,10 @@ For more information, custom functionality or personalization please contact Jer
 4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 == Changelog ==
+
+= 3.2.3 =
+* Colors updated
+* Clickable title for posts
 
 = 3.2.2 =
 * Settings added

@@ -8,7 +8,6 @@ jQuery(function ($) {
             let footerHeight = $('#page-footer').height();
             let adminBarHeight = $('#wpadminbar').height();
             let heightOtherElements = Math.round(navHeight + footerHeight + adminBarHeight + 40);
-            console.log(heightOtherElements);
             $('#page').css('min-height', 'calc(100vh - ' + heightOtherElements + 'px)');
         }
         calculatePageMinHeight();

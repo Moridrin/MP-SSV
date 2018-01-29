@@ -12,7 +12,7 @@
                     <?php if (is_sticky() && is_home() && !is_paged()) : ?>
                         <span class="sticky-post">Featured</span>
                     <?php endif; ?>
-                    <h3><?php echo the_title() ?></h3>
+                    <h3><a href="<?= get_permalink() ?>"><?php echo the_title() ?></a></h3>
                 </div>
                 <?php $content = get_the_content(); ?>
                 <?php $content = wp_trim_words($content, 50); ?>

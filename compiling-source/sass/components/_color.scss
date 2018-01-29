@@ -389,9 +389,17 @@ $colors: (
   }
 }
 
+.text-primary {
+  color: map-get($ssv-colors, 'primary') !important;
+}
+
 .accent {
   background-color: map-get($ssv-colors, 'accent') !important;
   color: map-get($ssv-colors, 'text-on-accent') !important;
+}
+
+.text-accent {
+  color: map-get($ssv-colors, 'accent');
 }
 
 .success {

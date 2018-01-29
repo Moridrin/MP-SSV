@@ -6,9 +6,15 @@
   .primary a, .primary .link {
     color: #FFFFFF; }
 
+.text-primary {
+  color: #005E38 !important; }
+
 .accent {
   background-color: #063359 !important;
   color: #FFFFFF !important; }
+
+.text-accent {
+  color: #063359; }
 
 .success {
   background-color: #4CAF50 !important; }
@@ -8780,6 +8786,11 @@ nav ul li.menu-item-active {
   background-color: rgba(0, 0, 0, 0.1); }
 nav form {
   height: 100%; }
+
+.dropdown-content .menu-item {
+  background: #FFFFFF; }
+  .dropdown-content .menu-item :hover {
+    background: #f2f2f2; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;

@@ -58,3 +58,12 @@ nav {
     height: 100%;
   }
 }
+
+.dropdown-content {
+  .menu-item {
+    background: $text-on-secondary-color;
+    :hover {
+      background: darken($text-on-secondary-color, 5%);
+    }
+  }
+}
