@@ -383,6 +383,38 @@ $colors: (
   background-color: map-get($ssv-colors, 'primary') !important;
   color: map-get($ssv-colors, 'text-on-primary') !important;
 }
+.primary-lighten-1 {
+  background-color: lighten(map-get($ssv-colors, 'primary'), 5%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-lighten-2 {
+  background-color: lighten(map-get($ssv-colors, 'primary'), 10%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-lighten-3 {
+  background-color: lighten(map-get($ssv-colors, 'primary'), 20%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-lighten-4 {
+  background-color: lighten(map-get($ssv-colors, 'primary'), 40%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-darken-1 {
+  background-color: darken(map-get($ssv-colors, 'primary'), 5%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-darken-2 {
+  background-color: darken(map-get($ssv-colors, 'primary'), 10%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-darken-3 {
+  background-color: darken(map-get($ssv-colors, 'primary'), 20%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
+.primary-darken-4 {
+  background-color: darken(map-get($ssv-colors, 'primary'), 40%) !important;
+  color: map-get($ssv-colors, 'text-on-primary') !important;
+}
 .accent {
   background-color: map-get($ssv-colors, 'accent') !important;
   color: map-get($ssv-colors, 'text-on-accent') !important;

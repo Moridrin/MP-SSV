@@ -53,6 +53,13 @@ nav {
     }
   }
 
+  // Submenu items
+  ul.dropdown-content {
+    li {
+      @extend .primary-lighten-3;
+    }
+  }
+
   // Navbar Search Form
   form {
     height: 100%;
