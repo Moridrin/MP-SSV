@@ -2,7 +2,7 @@
 get_header() ?>
     <?php if (get_theme_mod('slider_height_archives', 0) === 0): ?>
         <header class="full-width-entry-header">
-            <div class="parallax-container primary" style="height: 250px;">
+            <div class="parallax-container primary" style="height: <?= get_theme_mod('header_height', 250) ?>px;">
                 <div class="shade darken-1 valign-wrapper" style="height: 100%">
                     <h1 class="entry-title center-align white-text valign">Archive</h1>
                 </div>

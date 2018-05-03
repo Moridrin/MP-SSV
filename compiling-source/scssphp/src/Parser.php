@@ -2,7 +2,7 @@
 /**
  * SCSSPHP
  *
- * @copyright 2012-2017 Leaf Corcoran
+ * @copyright 2012-2018 Leaf Corcoran
  *
  * @license http://opensource.org/licenses/MIT MIT
  *
@@ -11,8 +11,11 @@
 
 namespace Leafo\ScssPhp;
 
+use Leafo\ScssPhp\Block;
+use Leafo\ScssPhp\Compiler;
 use Leafo\ScssPhp\Exception\ParserException;
 use Leafo\ScssPhp\Node;
+use Leafo\ScssPhp\Type;
 
 /**
  * Parser
@@ -705,6 +708,7 @@ class Parser
         list($line, $column) = $this->getSourcePosition($pos);
 
         $b = new Block;
+        $b->sourceName   = $this->sourceName;
         $b->sourceLine   = $line;
         $b->sourceColumn = $column;
         $b->sourceIndex  = $this->sourceIndex;
@@ -2465,7 +2469,13 @@ class Parser
      */
     private function saveEncoding()
     {
-        if (ini_get('mbstring.func_overload') & 2) {
+        if (version_compare(PHP_VERSION, '7.2.0') >= 0) {
+            return;
+        }
+
+        $iniDirective = 'mbstring' . '.func_overload'; // deprecated in PHP 7.2
+
+        if (ini_get($iniDirective) & 2) {
             $this->encoding = mb_internal_encoding();
 
             mb_internal_encoding('iso-8859-1');

@@ -1,6 +1,6 @@
 <?php get_header() ?>
 <header class="full-width-entry-header">
-    <div class="parallax-container primary" style="height: 250px;">
+    <div class="parallax-container primary" style="height: <?= get_theme_mod('header_height', 250) ?>px;">
         <div class="shade darken-1" style="height: 100%">
             <h1 class="entry-title center-align white-text" style="margin-top: 0; padding-top: 30px"><?php echo get_bloginfo() ?></h1>
             <h3 class="entry-title center-align white-text"><?php echo get_bloginfo('description') ?></h3>

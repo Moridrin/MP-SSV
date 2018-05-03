@@ -423,6 +423,21 @@ function mp_ssv_customize_register($wp_customize)
                 ]
             )
         );
+
+        $wp_customize->add_setting(
+            'header_height',
+            array(
+                'default' => '250',
+            )
+        );
+        $wp_customize->add_control(
+            'header_height',
+            array(
+                'label'   => 'Default Header Image Height',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
     }
 
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
