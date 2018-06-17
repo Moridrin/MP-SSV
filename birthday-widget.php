@@ -23,6 +23,9 @@ class ssv_birthdays extends WP_Widget
     #region Widget
     public function widget($args, $instance)
     {
+        if (!is_user_logged_in()) {
+            return;
+        }
         $birthdayNames = array();
 
         global $wpdb;

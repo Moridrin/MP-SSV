@@ -8744,38 +8744,46 @@ a, .link {
 @media only screen and (min-width: 783px) {
   nav a.button-collapse, nav .button-collapse.link {
     display: none; } }
-nav .nav-logo {
-  position: absolute;
-  color: #FFFFFF;
-  display: inline-block;
-  font-size: 2.1rem;
-  padding: 0;
+nav .brand-logo:not(.center) {
   margin-left: 20px; }
-  nav .nav-logo.center {
+@media only screen and (max-width: 782px) {
+  nav .brand-logo {
     left: 50%;
-    transform: translateX(-50%); }
-  @media only screen and (max-width: 782px) {
-    nav .nav-logo {
-      left: 50%;
-      transform: translateX(-50%);
-      margin-left: 0; }
-      nav .nav-logo.left, nav .nav-logo.right {
-        padding: 0;
-        transform: none; }
-      nav .nav-logo.left {
-        left: 0.5rem; }
-      nav .nav-logo.right {
-        right: 0.5rem;
-        left: auto; } }
-  nav .nav-logo.right {
-    right: 0.5rem;
-    padding: 0; }
-  nav .nav-logo img {
-    height: 56px; }
+    transform: translateX(-50%); } }
 nav ul li.menu-item-active {
   background-color: rgba(0, 0, 0, 0.1); }
 nav form {
   height: 100%; }
+
+h1.large {
+  font-size: 3em;
+  line-height: 110%;
+  margin: 1.5em 0 1.2em 0; }
+
+h2.large {
+  font-size: 2em;
+  line-height: 110%;
+  margin: 1em 0 0.8em 0; }
+
+h3.large {
+  font-size: 1.17em;
+  line-height: 110%;
+  margin: 0.585em 0 0.468em 0; }
+
+h4.large {
+  font-size: 2.28rem;
+  line-height: 110%;
+  margin: 1.14rem 0 0.912rem 0; }
+
+h5.large {
+  font-size: 1.64rem;
+  line-height: 110%;
+  margin: 0.82rem 0 0.656rem 0; }
+
+h6.large {
+  font-size: 1rem;
+  line-height: 110%;
+  margin: 0.5rem 0 0.4rem 0; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -9091,7 +9099,7 @@ textarea {
 
 .meta-block {
   float: left;
-  margin: 0 10px;
+  margin: 5px 20px 5px 0;
   position: relative; }
 
 .meta-block a, .meta-block .link {
@@ -9106,11 +9114,12 @@ textarea {
   letter-spacing: 1px; }
 
 .meta-bar {
-  padding: 5px 25px;
+  padding-top: 5px;
+  padding-left: 40px;
   background-color: #f8f8f8;
   color: #757575 !important;
   font-size: 1em;
-  line-height: 40px;
+  line-height: 25px;
   height: 50px; }
 
 .page-title {
