@@ -8,7 +8,12 @@ if (!defined('ABSPATH')) {
 class ssv_birthdays extends WP_Widget
 {
 
-        public function __construct()
+    public static function init()
+    {
+        register_widget("ssv_birthdays");
+    }
+
+    public function __construct()
     {
         $widget_ops = array(
             'classname'                   => 'widget_birthdays',
@@ -60,10 +65,6 @@ class ssv_birthdays extends WP_Widget
     {
 
     }
-
 }
 
-function ssv_material_init_birthday_widget() {
-    register_widget('ssv_birthdays');
-}
-add_action('widgets_init', 'ssv_material_init_birthday_widget');
+add_action('widgets_init', [ssv_birthdays::class, 'init']);

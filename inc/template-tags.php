@@ -9,36 +9,36 @@ function ssv_entry_meta()
         $params['fullscreen'] = true;
     }
     ?>
-        <div class="post-meta meta-bar">
-            <div class="meta-block post-author valign-wrapper">
-                <?php echo get_avatar(
-                    get_the_author_meta('user_email'),
-                    40,
-                    '',
-                    '',
-                    array(
-                        'class' => 'circle',
-                    )
-                ) ?>
-            </div>
-            <div class="meta-block post-author">
-                <a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>" style="margin-left: 10px;" title="Posts by <?= get_the_author() ?>" rel="author"><?= get_the_author() ?></a>
-            </div>
-            <div class="meta-block post-comments">
-                <i class="fa fa-comment"></i>
-                <a href="#"><?= get_comments_number() ?> Comment<?= get_comments_number() == 1 ? '' : 's' ?></a>	</div>
-            <div class="meta-block post-date">
-                <i class="fa fa-calendar"></i>
-                <span>
+    <div class="post-meta meta-bar">
+        <div class="meta-block post-author valign-wrapper">
+            <?php echo get_avatar(
+                get_the_author_meta('user_email'),
+                40,
+                '',
+                '',
+                [
+                    'class' => 'circle',
+                ]
+            ) ?>
+        </div>
+        <div class="meta-block post-author">
+            <a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>" style="margin-left: 10px;" title="Posts by <?= get_the_author() ?>" rel="author"><?= get_the_author() ?></a>
+        </div>
+        <div class="meta-block post-comments">
+            <i class="fa fa-comment"></i>
+            <a href="#"><?= get_comments_number() ?> Comment<?= get_comments_number() == 1 ? '' : 's' ?></a></div>
+        <div class="meta-block post-date">
+            <i class="fa fa-calendar"></i>
+            <span>
                     <a href="<?= get_permalink() ?>" rel="bookmark">
                         <time class="entry-date published updated" datetime="<?php echo esc_attr(get_the_date('c')) ?>"><?php echo get_the_date() ?></time>
                     </a>
                 </span>
-            </div>
-            <div style="height: 100%; float: right;" class="valign-wrapper">
-                <a href="?<?= http_build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $params['fullscreen'] ? 'fullscreen' : 'fullscreen_exit' ?></i></a>
-            </div>
         </div>
+        <div style="height: 100%; float: right;" class="valign-wrapper">
+            <a href="?<?= http_build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $params['fullscreen'] ? 'fullscreen' : 'fullscreen_exit' ?></i></a>
+        </div>
+    </div>
 
     <?php
 }
@@ -67,24 +67,37 @@ if (!function_exists('ssv_entry_taxonomies')) :
 endif;
 
 if (!function_exists('mp_ssv_post_thumbnail')) :
-    function mp_ssv_post_thumbnail($without_link = false, $args = array())
+    function mp_ssv_post_thumbnail($without_link = false, $args = [])
     {
         global $currentBlogId;
         if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
             return;
         }
         $class = isset($args['class']) ? $args['class'] : '';
-
+        switch (true) {
+            case is_archive():
+            case is_home():
+            case is_category():
+            case is_front_page():
+                $target = '_self';
+                break;
+            case $currentBlogId !== get_current_blog_id():
+                $target = '_blank';
+                break;
+            default:
+                $target = '_self';
+                break;
+        }
         if (is_singular()) : ?>
             <div class="post-thumbnail parallax">
-                <?php the_post_thumbnail('ssv-banner-xl', array('class' => $class)); ?>
+                <?php the_post_thumbnail('ssv-banner-xl', ['class' => $class]); ?>
             </div><!-- .post-thumbnail -->
         <?php elseif (!$without_link) : ?>
-            <a class="post-thumbnail" href="<?php the_permalink(); ?>" target="<?= $currentBlogId !== get_current_blog_id() ? '_blank' : '_self' ?>" aria-hidden="true">
-                <?php the_post_thumbnail('ssv-banner-xl', array('alt' => the_title_attribute('echo=0'), 'class' => $class)); ?>
+            <a class="post-thumbnail" href="<?php the_permalink(); ?>" target="<?= $target ?>" aria-hidden="true">
+                <?php the_post_thumbnail('ssv-banner-xl', ['alt' => the_title_attribute('echo=0'), 'class' => $class]); ?>
             </a>
         <?php else: ?>
-            <?php the_post_thumbnail('ssv-banner-xl', array('alt' => the_title_attribute('echo=0'), 'class' => $class)); ?>
+            <?php the_post_thumbnail('ssv-banner-xl', ['alt' => the_title_attribute('echo=0'), 'class' => $class]); ?>
         <?php endif; // End is_singular()
     }
 endif;
@@ -122,11 +135,11 @@ function ssv_categorized_blog()
     if (false === ($all_the_cool_cats = get_transient('ssv_categories'))) {
         // Create an array of all the categories that are attached to posts.
         $all_the_cool_cats = get_categories(
-            array(
+            [
                 'fields' => 'ids',
                 // We only need to know if there is more than one category.
                 'number' => 2,
-            )
+            ]
         );
 
         // Count the number of categories that are attached to the posts.

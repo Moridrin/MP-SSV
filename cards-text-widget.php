@@ -8,20 +8,25 @@ if (!defined('ABSPATH')) {
 class ssv_text_cards extends WP_Widget
 {
 
-        public function __construct()
+    public static function init()
     {
-        $widget_ops = array(
+        register_widget("ssv_text_cards");
+    }
+
+    public function __construct()
+    {
+        $widget_ops = [
             'classname'                   => 'widget_text_cards',
             'description'                 => 'A text field that expects the content to have one or multiple implementations of the "card" class.',
             'customize_selective_refresh' => true,
-        );
+        ];
         parent::__construct('text_cards', 'Text (with Cards)', $widget_ops);
     }
-    
+
         public function widget($args, $instance)
     {
         $title = apply_filters('widget_title', $instance['title'], $instance, $this->id_base);
-        $text = apply_filters('widget_text', $instance['text'], $instance, $this->id_base);
+        $text  = apply_filters('widget_text', $instance['text'], $instance, $this->id_base);
 
         echo $args['before_widget'];
         if ($title) {
@@ -31,20 +36,20 @@ class ssv_text_cards extends WP_Widget
         echo $text;
         echo $args['after_widget'];
     }
-    
+
         public function update($new_instance, $old_instance)
     {
         $instance          = $old_instance;
         $instance['title'] = $new_instance['title'];
-        $instance['text'] = $new_instance['text'];
+        $instance['text']  = $new_instance['text'];
 
         return $instance;
     }
-    
-        public function form($instance)
+
+    public function form($instance)
     {
         //Defaults
-        $instance = wp_parse_args((array)$instance, array('title' => '', 'text' => ''));
+        $instance = wp_parse_args((array)$instance, ['title' => '', 'text' => '']);
         $title    = $instance['title'];
         $text     = $instance['text'];
         ?>
@@ -58,10 +63,6 @@ class ssv_text_cards extends WP_Widget
         </p>
         <?php
     }
-    
 }
 
-function ssv_material_init_cards_text_widget() {
-    register_widget('ssv_text_cards');
-}
-add_action('widgets_init', 'ssv_material_init_cards_text_widget');
+add_action('widgets_init', [ssv_text_cards::class, 'init']);
