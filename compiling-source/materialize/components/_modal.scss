@@ -1,5 +1,9 @@
 .modal {
-  @extend .z-depth-4;
+  &:focus {
+    outline: none;
+  }
+
+  @extend .z-depth-5;
 
   display: none;
   position: fixed;
@@ -20,9 +24,6 @@
   }
 
   h1,h2,h3,h4 {
-    &.large {
-      margin-top: 0;
-    }
     margin-top: 0;
   }
 

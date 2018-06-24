@@ -1,4 +1,10 @@
 .materialboxed {
+  &:hover {
+    &:not(.active) {
+      opacity: .8;
+    }
+  }
+
   display: block;
   cursor: zoom-in;
   position: relative;
@@ -7,7 +13,6 @@
 
   &.active {
     cursor: zoom-out;
-    max-width: none;
   }
 }
 
@@ -31,7 +36,7 @@
   left: 0;
   width: 100%;
   text-align: center;
-  padding: 0 15%;
+  padding: 0% 15%;
   height: 50px;
   z-index: 1000;
   -webkit-font-smoothing: antialiased;
