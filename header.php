@@ -101,7 +101,7 @@ function mp_ssv_get_side_menu()
 
     ob_start();
     ?>
-    <ul id="slide-out" class="side-nav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
+    <ul id="slide-out" class="sidenav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
         <?php
         if (is_user_logged_in()) {
             $user = wp_get_current_user();

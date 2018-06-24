@@ -33,7 +33,7 @@ function ssv_entry_meta()
                 </span>
         </div>
         <div style="height: 100%; float: right;" class="valign-wrapper">
-            <a href="?<?= $_SERVER['REDIRECT_URL'] . '?' . build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $isFullScreen ? 'fullscreen_exit' : 'fullscreen' ?></i></a>
+            <a href="<?= $_SERVER['REDIRECT_URL'] . '?' . build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $isFullScreen ? 'fullscreen_exit' : 'fullscreen' ?></i></a>
         </div>
     </div>
 

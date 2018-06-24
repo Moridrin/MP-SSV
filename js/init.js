@@ -26,7 +26,7 @@ jQuery(function ($) {
         });
         jQuery(window).trigger('resize');
         // Init SideNav
-        $('.button-collapse').sideNav({
+        $('.button-collapse').sidenav({
                 closeOnClick: true,
                 draggable: true
             }
@@ -97,7 +97,7 @@ jQuery(function ($) {
         $('ul.tabs').tabs();
 
         // Init Select
-        $('select').material_select();
+        $('select').formSelect();
 
         var widgetAreaOffset = jQuery(".widget-area").offset();
         if (typeof widgetAreaOffset !== 'undefined') {

@@ -493,14 +493,18 @@ function mp_ssv_customize_preview_css()
                 'roboto-font-path'        => '/wp-content/themes/ssv-material/fonts/roboto/',
             )
         );
+        $css = $scss->compile('@import "' . get_theme_file_path() . '/css/materialize"');
         echo '<style id="moridrin">';
-        echo $scss->compile('@import "' . get_theme_file_path() . '/css/materialize"');
+        echo $css;
         echo '</style>';
     }
 }
 
 add_action('wp_head', 'mp_ssv_customize_preview_css');
 
+/**
+ * @throws Exception
+ */
 function mp_ssv_customize_save_css()
 {
     if (!defined('FS_METHOD')) {
@@ -526,7 +530,10 @@ function mp_ssv_customize_save_css()
     WP_Filesystem();
     /** @var WP_Filesystem_Direct $wp_filesystem */
     global $wp_filesystem;
-    $wp_filesystem->put_contents(get_theme_file_path() . '/css/' . get_current_blog_id() . '_materialize.css', $compiled, FS_CHMOD_FILE);
+    $success = $wp_filesystem->put_contents(get_theme_file_path() . '/css/' . get_current_blog_id() . '_materialize.css', $compiled, FS_CHMOD_FILE);
+    if (!$success) {
+        throw new Exception('Could not save the css files.');
+    }
 
     $jsonData = array(
         "short_name" => get_bloginfo(),
@@ -534,7 +541,10 @@ function mp_ssv_customize_save_css()
         "start_url"  => "/",
         "display"    => "standalone",
     );
-    $wp_filesystem->put_contents(get_theme_file_path() . '/manifest.json', json_encode($jsonData), FS_CHMOD_FILE);
+    $success = $wp_filesystem->put_contents(get_theme_file_path() . '/manifest.json', json_encode($jsonData), FS_CHMOD_FILE);
+    if (!$success) {
+        throw new Exception('Could not save the manifest.');
+    }
 }
 
 add_action('customize_save_after', 'mp_ssv_customize_save_css');
