@@ -2,12 +2,9 @@
 
 function ssv_entry_meta()
 {
-    $params = $_GET;
-    if (isset($params['fullscreen']) && filter_var($params['fullscreen'], FILTER_VALIDATE_BOOLEAN)) {
-        $params['fullscreen'] = false;
-    } else {
-        $params['fullscreen'] = true;
-    }
+    $params               = $_GET;
+    $isFullScreen         = filter_var($params['fullscreen'] ?? false, FILTER_VALIDATE_BOOLEAN);
+    $params['fullscreen'] = !$isFullScreen;
     ?>
     <div class="post-meta meta-bar">
         <div class="meta-block post-author valign-wrapper">
@@ -36,7 +33,7 @@ function ssv_entry_meta()
                 </span>
         </div>
         <div style="height: 100%; float: right;" class="valign-wrapper">
-            <a href="?<?= http_build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $params['fullscreen'] ? 'fullscreen' : 'fullscreen_exit' ?></i></a>
+            <a href="?<?= $_SERVER['REDIRECT_URL'] . '?' . build_query($params) ?>" style="height: 25px;"><i class="material-icons"><?= $isFullScreen ? 'fullscreen_exit' : 'fullscreen' ?></i></a>
         </div>
     </div>
 
