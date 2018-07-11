@@ -10,8 +10,9 @@ jQuery(function ($) {
             let heightOtherElements = Math.round(navHeight + footerHeight + adminBarHeight + 40);
             $('#page').css('min-height', 'calc(100vh - ' + heightOtherElements + 'px)');
         }
+
         calculatePageMinHeight();
-        $( window ).resize(function() {
+        $(window).resize(function () {
             calculatePageMinHeight();
         });
 
@@ -20,17 +21,15 @@ jQuery(function ($) {
         let $slider = jQuery('.lt-slider');
         let sliderHeight = $slider.height();
         $slider.slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
-        jQuery(window).resize(function() {
+        jQuery(window).resize(function () {
             $slider.height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight)).css('position', 'relative');
             jQuery('.lt-slider .js_overlay').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight));
         });
         jQuery(window).trigger('resize');
         // Init SideNav
-        $('.button-collapse').sidenav({
-                closeOnClick: true,
-                draggable: true
-            }
-        );
+
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
 
         // Init DatePicker
         var datePickers = $('input[type=date]');
@@ -60,7 +59,7 @@ jQuery(function ($) {
         // Init Parallax
         $('.parallax').parallax();
         $('.modal').modal({
-            ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+            ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
                 var contentHolder = modal.find(".ajax-getter");
                 if (contentHolder.text() === '') {
                     var url = contentHolder.data('url');
@@ -115,6 +114,25 @@ jQuery(function ($) {
     $(document).ready(function () {
         $('.tooltipped').tooltip({html: true});
     });
+
+    $(document).ready(function () {
+        $('.materialboxed-link').click(function (event) {
+            event.preventDefault();
+            let imageId = 'materialbox_' + Math.round(new Date().getTime() + (Math.random() * 100));
+            let image = document.createElement('img');
+            image.setAttribute('id', imageId);
+            image.setAttribute('src', this.getAttribute('href'));
+            this.parentElement.insertBefore(image, this);
+            let elems = document.querySelectorAll('#' + imageId);
+            M.Materialbox.init(elems, {
+                'onCloseStart': function () {
+                    generalFunctions.removeElement(image.parentElement);
+                }
+            });
+            image.click();
+        });
+    });
+    M.AutoInit();
 });
 
 function setWidgetAreaState(offset) {
@@ -138,7 +156,7 @@ function antiSpamReplace() {
             let emailBeforeAt = $this.attr('data-before-at');
             let emailAfterAt = $this.attr('data-after-at');
             let mailto = $this.attr('data-mailto');
-            $this.attr(tag, mailto+emailBeforeAt+'@'+emailAfterAt);
+            $this.attr(tag, mailto + emailBeforeAt + '@' + emailAfterAt);
             $this.removeAttr('data-before-at');
             $this.removeAttr('data-after-at');
             $this.removeAttr('data-mailto');
@@ -149,7 +167,7 @@ function antiSpamReplace() {
             console.log(this);
             let emailBeforeAt = $this.attr('data-before-at');
             let emailAfterAt = $this.attr('data-after-at');
-            $this.replaceWith(emailBeforeAt+'@'+emailAfterAt);
+            $this.replaceWith(emailBeforeAt + '@' + emailAfterAt);
         });
     });
 }

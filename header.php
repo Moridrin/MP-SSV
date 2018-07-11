@@ -37,7 +37,7 @@ function mp_ssv_get_main_nav_bar()
         <?php
     }
     $branding           = ob_get_clean();
-    $mobile_menu_toggle = '<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>';
+    $mobile_menu_toggle = '<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>';
     $menu               = wp_nav_menu(
         array(
             'theme_location' => 'primary',
