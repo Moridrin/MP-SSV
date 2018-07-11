@@ -28,8 +28,7 @@ jQuery(function ($) {
         jQuery(window).trigger('resize');
         // Init SideNav
 
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, {});
+        M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
 
         // Init DatePicker
         var datePickers = $('input[type=date]');
@@ -116,20 +115,21 @@ jQuery(function ($) {
     });
 
     $(document).ready(function () {
-        $('.materialboxed-link').click(function (event) {
-            event.preventDefault();
+        $.each($('.materialboxed-link'), function (key, link) {
             let imageId = 'materialbox_' + Math.round(new Date().getTime() + (Math.random() * 100));
+            let imageContainer = document.createElement('div');
+            imageContainer.setAttribute('class', 'hidden-materialbox-container');
             let image = document.createElement('img');
             image.setAttribute('id', imageId);
-            image.setAttribute('src', this.getAttribute('href'));
-            this.parentElement.insertBefore(image, this);
-            let elems = document.querySelectorAll('#' + imageId);
-            M.Materialbox.init(elems, {
-                'onCloseStart': function () {
-                    generalFunctions.removeElement(image.parentElement);
-                }
+            image.setAttribute('src', link.getAttribute('href'));
+            image.setAttribute('class', 'materialboxed');
+            imageContainer.appendChild(image);
+            document.body.appendChild(imageContainer);
+            M.Materialbox.init(document.querySelectorAll('#' + imageId), {});
+            $(link).click(function (event) {
+                event.preventDefault();
+                image.click();
             });
-            image.click();
         });
     });
     M.AutoInit();
