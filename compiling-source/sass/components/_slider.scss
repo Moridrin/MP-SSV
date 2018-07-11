@@ -39,10 +39,11 @@
       overflow: hidden;
 
       img {
-        height: 100%;
-        width: 100%;
         background-size: cover;
+        background-repeat: no-repeat;
         background-position: center;
+        display: block;
+        width: 100%;
       }
 
       .caption {
@@ -53,7 +54,9 @@
         width: 70%;
         opacity: 0;
 
-        p { color: $slider-bg-color-light; }
+        p {
+          color: $slider-bg-color-light;
+        }
       }
 
       &.active {
@@ -61,7 +64,6 @@
       }
     }
   }
-
 
   .indicators {
     position: absolute;

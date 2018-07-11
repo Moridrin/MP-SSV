@@ -2,7 +2,7 @@
 /**
  * SCSSPHP
  *
- * @copyright 2012-2017 Leaf Corcoran
+ * @copyright 2012-2018 Leaf Corcoran
  *
  * @license http://opensource.org/licenses/MIT MIT
  *
@@ -12,6 +12,7 @@
 namespace Leafo\ScssPhp\Formatter;
 
 use Leafo\ScssPhp\Formatter;
+use Leafo\ScssPhp\Formatter\OutputBlock;
 
 /**
  * Expanded formatter
@@ -58,10 +59,10 @@ class Expanded extends Formatter
             }
         }
 
-        echo $inner . implode($glue, $block->lines);
+        $this->write($inner . implode($glue, $block->lines));
 
         if (empty($block->selectors) || ! empty($block->children)) {
-            echo $this->break;
+            $this->write($this->break);
         }
     }
 }

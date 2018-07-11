@@ -1,15 +1,14 @@
 @charset "UTF-8";
 
-// Materialize
+// Init
 @import "../compiling-source/sass/components/colorVariables";
 @import "../compiling-source/sass/components/color";
-@import "../compiling-source/materialize/components/color";
+@import "../compiling-source/materialize/components/color-variables";
+@import "../compiling-source/materialize/components/color-classes";
 @import "../compiling-source/sass/components/baseVariables";
 @import "../compiling-source/materialize/materialize";
 
-// Override
-
-// Components
+// Component Overrides
 @import "../compiling-source/sass/components/global";
 @import "../compiling-source/sass/components/navbar";
 @import "../compiling-source/sass/components/typography";

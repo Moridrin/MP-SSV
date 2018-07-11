@@ -8,7 +8,11 @@ if (!defined('ABSPATH')) {
 class ssv_birthdays extends WP_Widget
 {
 
-    #region Construct
+    public static function init()
+    {
+        register_widget("ssv_birthdays");
+    }
+
     public function __construct()
     {
         $widget_ops = array(
@@ -18,10 +22,8 @@ class ssv_birthdays extends WP_Widget
         );
         parent::__construct('birthdays', 'Birthdays', $widget_ops);
     }
-    #endregion
 
-    #region Widget
-    public function widget($args, $instance)
+        public function widget($args, $instance)
     {
         if (!is_user_logged_in()) {
             return;
@@ -44,7 +46,7 @@ class ssv_birthdays extends WP_Widget
                     </div>
 
                     <div class="valign center-align" style="width: 100%;">
-                        <h5 class="entry-title header-text-color valign">A Very Happy Birthday To:</h5>
+                        <h5 class="entry-title valign">A Very Happy Birthday To:</h5>
                         <?php foreach ($birthdayNames as $birthdayName): ?>
                             <h4 class="entry-title white-text valign"><?php echo $birthdayName ?></h4>
                         <?php endforeach; ?>
@@ -56,22 +58,16 @@ class ssv_birthdays extends WP_Widget
             <?php
         }
     }
-    #endregion
 
-    #region Update
-    public function update($new_instance, $old_instance)
+        public function update($new_instance, $old_instance)
     {
         return $old_instance;
     }
-    #endregion
 
-    #region Form
-    public function form($instance)
+        public function form($instance)
     {
 
     }
-    #endregion
-
 }
 
-add_action('widgets_init', function() { return register_widget("ssv_birthdays"); });
+add_action('widgets_init', [ssv_birthdays::class, 'init']);

@@ -68,7 +68,7 @@ function mp_ssv_custom_image_sizes($sizes)
 
 add_filter('image_size_names_choose', 'mp_ssv_custom_image_sizes');
 
-function mp_ssv_enquire_scripts()
+function mp_ssv_enqueue_scripts()
 {
     wp_enqueue_script('materialize', get_theme_root_uri() . '/ssv-material/js/materialize.js', array('jquery'));
     if (is_customize_preview()) {
@@ -90,7 +90,7 @@ function mp_ssv_enquire_scripts()
     }
 }
 
-add_action('wp_enqueue_scripts', 'mp_ssv_enquire_scripts');
+add_action('wp_enqueue_scripts', 'mp_ssv_enqueue_scripts');
 
 function mp_special_nav_menu_class($classes, $item, $args)
 {
@@ -374,6 +374,73 @@ function mp_ssv_customize_register($wp_customize)
                 ]
             )
         );
+
+        $wp_customize->add_setting(
+            'slider_height',
+            array(
+                'default' => '450',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_height',
+            array(
+                'label'   => 'Slider height on Homepage',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
+
+        $wp_customize->add_setting(
+            'slider_height_archives',
+            array(
+                'default' => '0',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_height_archives',
+            array(
+                'label'   => 'Slider height on Archive pages',
+                'description' => 'Set to 0 to use the default header instead of the slider on archives.',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
+
+        $wp_customize->add_setting(
+            'slider_overlay_color',
+            array(
+                'default' => 'black',
+            )
+        );
+        $wp_customize->add_control(
+            'slider_overlay_color',
+            array(
+                'label'   => 'Slider Overlay Color',
+                'description' => 'The slider has a semy transparent overlay. The default color is black.',
+                'section' => 'header_image',
+                'type'    => 'select',
+                'choices' => [
+                        'black' => 'Black',
+                        'primary' => 'Primary Color',
+                        'accent' => 'Accent Color',
+                ]
+            )
+        );
+
+        $wp_customize->add_setting(
+            'header_height',
+            array(
+                'default' => '250',
+            )
+        );
+        $wp_customize->add_control(
+            'header_height',
+            array(
+                'label'   => 'Default Header Image Height',
+                'section' => 'header_image',
+                'type'    => 'number',
+            )
+        );
     }
 
     mp_ssv_add_color_customizer($wp_customize, 'primary_color', 'Primary Color', '#005E38');
@@ -418,7 +485,7 @@ function mp_ssv_customize_preview_css()
         $scss = new \Leafo\ScssPhp\Compiler();
         $scss->setVariables(
             array(
-                'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
+                'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#212121'),
                 'primary-color'           => get_theme_mod('primary_color', '#005E38'),
                 'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
                 'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
@@ -429,14 +496,18 @@ function mp_ssv_customize_preview_css()
                 'roboto-font-path'        => '/wp-content/themes/ssv-material/fonts/roboto/',
             )
         );
+        $css = $scss->compile('@import "' . get_theme_file_path() . '/css/materialize"');
         echo '<style id="moridrin">';
-        echo $scss->compile('@import "' . get_theme_file_path() . '/css/materialize"');
+        echo $css;
         echo '</style>';
     }
 }
 
 add_action('wp_head', 'mp_ssv_customize_preview_css');
 
+/**
+ * @throws Exception
+ */
 function mp_ssv_customize_save_css()
 {
     if (!defined('FS_METHOD')) {
@@ -447,7 +518,7 @@ function mp_ssv_customize_save_css()
     $scss = new \Leafo\ScssPhp\Compiler();
     $scss->setVariables(
         array(
-            'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#ffaa00'),
+            'header-text-color'       => '#' . get_theme_mod('header_textcolor', '#212121'),
             'primary-color'           => get_theme_mod('primary_color', '#005E38'),
             'text-on-primary-color'   => get_theme_mod('text_on_primary_color', '#FFFFFF'),
             'secondary-color'         => get_theme_mod('secondary_color', '#26A69A'),
@@ -462,7 +533,10 @@ function mp_ssv_customize_save_css()
     WP_Filesystem();
     /** @var WP_Filesystem_Direct $wp_filesystem */
     global $wp_filesystem;
-    $wp_filesystem->put_contents(get_theme_file_path() . '/css/' . get_current_blog_id() . '_materialize.css', $compiled, FS_CHMOD_FILE);
+    $success = $wp_filesystem->put_contents(get_theme_file_path() . '/css/' . get_current_blog_id() . '_materialize.css', $compiled, FS_CHMOD_FILE);
+    if (!$success) {
+        throw new Exception('Could not save the css files.');
+    }
 
     $jsonData = array(
         "short_name" => get_bloginfo(),
@@ -470,7 +544,10 @@ function mp_ssv_customize_save_css()
         "start_url"  => "/",
         "display"    => "standalone",
     );
-    $wp_filesystem->put_contents(get_theme_file_path() . '/manifest.json', json_encode($jsonData), FS_CHMOD_FILE);
+    $success = $wp_filesystem->put_contents(get_theme_file_path() . '/manifest.json', json_encode($jsonData), FS_CHMOD_FILE);
+    if (!$success) {
+        throw new Exception('Could not save the manifest.');
+    }
 }
 
 add_action('customize_save_after', 'mp_ssv_customize_save_css');

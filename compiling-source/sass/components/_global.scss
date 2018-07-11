@@ -34,7 +34,7 @@ video {
 
 .full-width-entry-header {
   .parallax-container {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -205,8 +205,10 @@ a {
   text-decoration: none;
 }
 
-.page-footer a {
-  color: #fff;
+.page-footer {
+  h1, h2, h3, h4, h5, h6, a {
+    color: #FFFFFF;
+  }
 }
 
 .no-pad {

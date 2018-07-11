@@ -1,4 +1,6 @@
-<?php ssv_entry_meta(); ?>
+<?php
+ssv_entry_meta();
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="entry-content">
         <?php

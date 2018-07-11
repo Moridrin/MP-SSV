@@ -3,22 +3,30 @@
  */
 jQuery(function ($) {
     $(document).ready(function () {
+        function calculatePageMinHeight() {
+            let navHeight = $('nav#menu').height();
+            let footerHeight = $('#page-footer').height();
+            let adminBarHeight = $('#wpadminbar').height();
+            let heightOtherElements = Math.round(navHeight + footerHeight + adminBarHeight + 40);
+            $('#page').css('min-height', 'calc(100vh - ' + heightOtherElements + 'px)');
+        }
+        calculatePageMinHeight();
+        $( window ).resize(function() {
+            calculatePageMinHeight();
+        });
 
         antiSpamReplace();
 
-        /*var image_banner = $('img.banner');
-        $(window).resize(function () {
-            image_banner.height(image_banner.width() / 4);
-        });
-        image_banner.height(image_banner.width() / 4);*/
-        console.log(theme_vars);
-        jQuery('.lt-slider').slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
+        let $slider = jQuery('.lt-slider');
+        let sliderHeight = $slider.height();
+        $slider.slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
         jQuery(window).resize(function() {
-            jQuery('.lt-slider').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15,450)).css('position', 'relative');
+            $slider.height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight)).css('position', 'relative');
+            jQuery('.lt-slider .js_overlay').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight));
         });
         jQuery(window).trigger('resize');
         // Init SideNav
-        $('.button-collapse').sideNav({
+        $('.button-collapse').sidenav({
                 closeOnClick: true,
                 draggable: true
             }
@@ -89,7 +97,7 @@ jQuery(function ($) {
         $('ul.tabs').tabs();
 
         // Init Select
-        $('select').material_select();
+        $('select').formSelect();
 
         var widgetAreaOffset = jQuery(".widget-area").offset();
         if (typeof widgetAreaOffset !== 'undefined') {

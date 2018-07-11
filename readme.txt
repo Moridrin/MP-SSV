@@ -3,7 +3,7 @@ Contributors: moridrin
 Requires at least: 3.0.1
 Tested up to: 4.7
 Stable tag: trunk
-Version: 3.0.0
+ Version: 3.2.3
 License: WTFPL-2.0 or later
 License URI: http://www.wtfpl.net/txt/copying/
 Tags: one-column, right-sidebar, responsive-layout, featured-images, materialize
@@ -33,5 +33,23 @@ The best way is to add an issue on GitHub (https://github.com/Moridrin/ssv-users
 The best way is to add an issue on GitHub (https://github.com/Moridrin/ssv-users/issues). But you can also send an email to J.Berkvens@Moridrin.com (the lead developer).
 
 == Changelog ==
+
+= 3.2.3 =
+* Colors updated
+* Clickable title for posts
+
+= 3.2.2 =
+* Settings added
+* Support for consulting theme added
+* Added Profile Values to form fields
+* Updated for PHP 7.2
+* Error Handling improved
+* Customizing added for base fields
+* Added Database shell for catching errors
+
+= 3.2.1 =
+* Header Colors functionality changed.
+* Overlay color choice for Slider (black, primary or accent).
+
 = 3.1 =
 * Widget Design improved

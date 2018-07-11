@@ -1,4 +1,4 @@
-<footer class="page-footer <?php echo is_404() ? '' : 'primary' ?>">
+<footer id="page-footer" class="page-footer <?php echo is_404() ? '' : 'primary' ?>">
     <div>
         <div class="container footer-container">
             <div class="row">

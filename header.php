@@ -1,23 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html <?php language_attributes(); ?> class="no-js">
-    <head>
-        <?php wp_head(); ?>
-        <meta charset="<?php bloginfo('charset'); ?>" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="theme-color" content="<?php echo get_theme_mod('primary_color', '#005E38') ?>">
-        <?php if (is_singular() && pings_open(get_queried_object())) : ?>
-            <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-        <?php endif; ?>
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
-        <link rel="manifest" href="<?php echo get_template_directory_uri() . '/manifest.json' ?>">
-    </head>
-    <header>
-        <?= mp_ssv_get_main_nav_bar() ?>
-        <?= mp_ssv_get_side_menu() ?>
-        <?= mp_ssv_get_header() ?>
-    </header>
-    <body <?php body_class(); ?>>
+<html <?php
+
+language_attributes(); ?> class="no-js">
+<head>
+    <?php wp_head(); ?>
+    <meta charset="<?php bloginfo('charset'); ?>" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="<?php echo get_theme_mod('primary_color', '#005E38') ?>">
+    <?php if (is_singular() && pings_open(get_queried_object())) : ?>
+        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <?php endif; ?>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="<?php echo get_template_directory_uri() . '/manifest.json' ?>">
+</head>
+<header>
+    <?= mp_ssv_get_main_nav_bar() ?>
+    <?= mp_ssv_get_side_menu() ?>
+    <?= mp_ssv_get_header() ?>
+</header>
+<body <?php body_class(); ?>>
 <?php
 
 function mp_ssv_get_main_nav_bar()
@@ -56,11 +58,12 @@ function mp_ssv_get_main_nav_bar()
     $i = 0;
     ob_start();
     foreach ($subMenus[1] as $subMenuContent) {
-        ?><ul id="dropdown<?php echo $i ?>" class="dropdown-content"><?php echo $subMenuContent ?></ul><?php
+        ?>
+        <ul id="dropdown<?php echo $i ?>" class="dropdown-content"><?php echo $subMenuContent ?></ul><?php
         $i++;
     }
     $subMenus = ob_get_clean();
-    return $subMenus . '<nav><div class="nav-wrapper">' . $mobile_menu_toggle . $branding . $menu . '</div></nav>';
+    return $subMenus . '<nav id="menu"><div class="nav-wrapper">' . $mobile_menu_toggle . $branding . $menu . '</div></nav>';
 }
 
 function mp_ssv_menu_sub_menu_link_replace($matches)
@@ -98,7 +101,7 @@ function mp_ssv_get_side_menu()
 
     ob_start();
     ?>
-    <ul id="slide-out" class="side-nav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
+    <ul id="slide-out" class="sidenav" style="<?php echo is_admin_bar_showing() ? 'top: 46px;' : '' ?>">
         <?php
         if (is_user_logged_in()) {
             $user = wp_get_current_user();
@@ -129,46 +132,67 @@ function mp_ssv_get_side_menu()
 }
 
 function mp_ssv_get_header() {
-    if (is_front_page()) {
-        ?>
-        <header class="full-width-entry-header">
-            <div class="" >
-                <div class="lt-slider slider">
-                    <ul class="slides" style="height:500px">
-                        <?php
-                        $headers = get_uploaded_header_images();
-                        shuffle($headers);
-                        ?>
-                        <?php foreach ($headers as $header): ?>
-                            <li class="slide">
-                                <img src="<?= $header['url'] ?>"/>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <?php if (get_theme_mod('site_title_position', 'under_header') === 'on_header'): ?>
-                        <div class="valign-wrapper" style="z-index: 5000; position: absolute; top: 0px; height: 450px; width: 100%; background-color: rgba(0, 0, 0, 0.5);">
-                            <div style="width: 100%;">
-                                <h1 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo() ?></h1>
-                                <h3 class="entry-title center-align valign header-text-color"><?php echo get_bloginfo('description') ?></h3>
-                            </div>
+    $sliderOverlayColor = get_theme_mod('slider_overlay_color', 'black');
+if (is_front_page()) {
+    $sliderHeight = get_theme_mod('slider_height', 450);
+} elseif (is_archive()) {
+    $sliderHeight = get_theme_mod('slider_height_archives', 0);
+} else {
+    $sliderHeight = 0;
+}
+if ($sliderHeight > 0) {
+    ?>
+    <header class="full-width-entry-header">
+        <div class="">
+            <div class="lt-slider slider" style="height: <?= $sliderHeight ?>px;">
+                <ul class="slides parallax-container">
+                    <?php
+                    $headers = get_uploaded_header_images();
+                    if (!count($headers)) {
+                        $headers = [
+                            [
+                                'url'    => get_template_directory_uri() . '/images/banner.jpg',
+                                'height' => 1000,
+                            ],
+                        ];
+                    }
+                    shuffle($headers);
+                    ob_start();
+                    ?>
+                    <?php foreach ($headers as $header): ?>
+                        <li class="slide parallax">
+                            <img src="<?= $header['url'] ?>" style="height: <?= $header['height'] ?>px;"/>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php if (get_theme_mod('site_title_position', 'under_header') === 'on_header'): ?>
+                    <div class="valign-wrapper js_overlay slider-overlay <?= $sliderOverlayColor !== 'black' ? $sliderOverlayColor : '' ?>">
+                        <div style="width: 100%;">
+                            <?php if (is_front_page()): ?>
+                                <h1 class="entry-title center-align valign"><?php echo get_bloginfo() ?></h1>
+                                <h3 class="entry-title center-align valign"><?php echo get_bloginfo('description') ?></h3>
+                            <?php else: ?>
+                                <h1 class="entry-title center-align valign"><?= single_cat_title() ?></h1>
+                            <?php endif; ?>
                         </div>
-                    <?php endif; ?>
-                </div>
+                    </div>
+                <?php endif; ?>
             </div>
-        </header>
-        <?php
-    } elseif (get_post_type() === 'page' && has_post_thumbnail()) {
-        ?>
-        <header class="full-width-entry-header">
-            <div class="parallax-container" style="height: 250px;">
-                <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
-                <div class="shade darken-1 valign-wrapper"
-                     style="position: absolute; bottom: 0; width: 100%; height: 100%">
-                    <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
-                </div>
-            </div>
-        </header>
-        <?php
-    }
-    return ob_get_clean();
+        </div>
+    </header>
+    <?php
+} elseif (get_post_type() === 'page' && has_post_thumbnail()) {
+?>
+<header class="full-width-entry-header">
+    <div class="parallax-container" style="height: <?= get_theme_mod('header_height', 250) ?>px;">
+        <div class="parallax"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+        <div class="shade darken-1 valign-wrapper"
+             style="position: absolute; bottom: 0; width: 100%; height: 100%">
+            <?php the_title('<h1 class="entry-title center-align white-text valign">', '</h1>'); ?>
+        </div>
+    </div>
+</header>
+<?php
+}
+return ob_get_clean();
 }
