@@ -1,7 +1,5 @@
 <?php
 
-use mp_ssv_general\base\BaseFunctions;
-
 require_once 'inc/template-tags.php';
 require_once 'cards-text-widget.php';
 require_once 'birthday-widget.php';
@@ -99,6 +97,7 @@ function mp_special_nav_menu_class($classes, $item, $args)
     }
     if (in_array('menu-item-has-children', $classes) && strpos($args->theme_location, 'mobile') === false) {
         $classes[]   = 'dropdown-button';
+        $classes[]   = 'dropdown-trigger';
         $item->title = $item->title . '<i class="material-icons right">arrow_drop_down</i>';
     }
     $classes[] = 'waves-effect';

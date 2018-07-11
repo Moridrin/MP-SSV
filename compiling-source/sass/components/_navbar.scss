@@ -57,6 +57,7 @@ nav {
   ul.dropdown-content {
     li {
       @extend .primary-lighten-3;
+      background-color: transparent !important;
     }
   }
 

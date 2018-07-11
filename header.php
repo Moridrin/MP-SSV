@@ -70,7 +70,7 @@ function mp_ssv_menu_sub_menu_link_replace($matches)
 {
     global $count;
     $count = isset($count) ? $count : 0;
-    return $matches[0] . 'data-activates="dropdown' . $count++ . '"';
+    return $matches[0] . 'data-target="dropdown' . $count++ . '"';
 }
 
 function mp_ssv_get_side_menu()
