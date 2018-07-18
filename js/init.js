@@ -20,7 +20,7 @@ jQuery(function ($) {
 
         let $slider = jQuery('.lt-slider');
         let sliderHeight = $slider.height();
-        $slider.slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval)});
+        $slider.slider({full_width: true, indicators: false, interval: parseInt(theme_vars.slider_interval), height: sliderHeight});
         jQuery(window).resize(function () {
             $slider.height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight)).css('position', 'relative');
             jQuery('.lt-slider .js_overlay').height(Math.min(Math.round(0.5 * jQuery(window).height()) + 15, sliderHeight));
