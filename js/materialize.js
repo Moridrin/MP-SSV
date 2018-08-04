@@ -1003,7 +1003,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   return cash;
 });
-;
 var Component = function () {
   /**
    * Generic constructor for all components
@@ -1058,7 +1057,8 @@ var Component = function () {
   return Component;
 }();
 
-; // Required for Meteor package, the use of window prevents export by Meteor
+
+// Required for Meteor package, the use of window prevents export by Meteor
 (function (window) {
   if (window.Package) {
     M = {};
@@ -1464,11 +1464,11 @@ M.throttle = function (func, wait, options) {
     return result;
   };
 };
-; /*
-  v2.2.0
-  2017 Julian Garnier
-  Released under the MIT license
-  */
+/*
+ v2.2.0
+ 2017 Julian Garnier
+ Released under the MIT license
+ */
 var $jscomp = { scope: {} };$jscomp.defineProperty = "function" == typeof Object.defineProperties ? Object.defineProperty : function (e, r, p) {
   if (p.get || p.set) throw new TypeError("ES3 does not support getters and setters.");e != Array.prototype && e != Object.prototype && (e[r] = p.value);
 };$jscomp.getGlobal = function (e) {
@@ -1881,8 +1881,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     return Math.floor(Math.random() * (c - a + 1)) + a;
   };return q;
 });
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     accordion: true,
@@ -2208,8 +2208,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Collapsible, 'collapsible', 'M_Collapsible');
   }
 })(cash, M.anime);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     alignment: 'left',
@@ -2855,8 +2855,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Dropdown, 'dropdown', 'M_Dropdown');
   }
 })(cash, M.anime);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     opacity: 0.5,
@@ -3294,8 +3294,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Modal, 'modal', 'M_Modal');
   }
 })(cash, M.anime);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     inDuration: 275,
@@ -3797,8 +3797,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Materialbox, 'materialbox', 'M_Materialbox');
   }
 })(cash, M.anime);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     responsiveThreshold: 0 // breakpoint for swipeable
@@ -3960,8 +3960,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Parallax, 'parallax', 'M_Parallax');
   }
 })(cash);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     duration: 300,
@@ -4426,8 +4426,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Tabs, 'tabs', 'M_Tabs');
   }
 })(cash, M.anime);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     exitDelay: 200,
@@ -4767,17 +4767,17 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Tooltip, 'tooltip', 'M_Tooltip');
   }
 })(cash, M.anime);
-; /*!
-  * Waves v0.6.4
-  * http://fian.my.id/Waves
-  *
-  * Copyright 2014 Alfiana E. Sibuea and other contributors
-  * Released under the MIT license
-  * https://github.com/fians/Waves/blob/master/LICENSE
-  */
+/*!
+ * Waves v0.6.4
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
 
-;(function (window) {
-  'use strict';
+(function (window) {
+    'use strict';
 
   var Waves = Waves || {};
   var $$ = document.querySelectorAll.bind(document);
@@ -5100,8 +5100,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     Waves.displayEffect();
   }, false);
 })(window);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     html: '',
@@ -5451,8 +5451,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     return new Toast(options);
   };
 })(cash, M.anime);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     edge: 'left',
@@ -6096,8 +6096,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Sidenav, 'sidenav', 'M_Sidenav');
   }
 })(cash, M.anime);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     throttle: 100,
@@ -6414,8 +6414,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(ScrollSpy, 'scrollSpy', 'M_ScrollSpy');
   }
 })(cash, M.anime);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     data: {}, // Autocomplete data set
@@ -6908,8 +6908,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Autocomplete, 'autocomplete', 'M_Autocomplete');
   }
 })(cash);
-;(function ($) {
-  // Function to update labels of text fields
+(function ($) {
+    // Function to update labels of text fields
   M.updateTextFields = function () {
     var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], input[type=date], input[type=time], textarea';
     $(input_selector).each(function (element, index) {
@@ -7115,7 +7115,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         $this.one('blur', function (e) {
           $(this).removeClass('tabbed');
         });
-        return;
+
       }
     });
 
@@ -7152,8 +7152,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     });
   }); // End of $(document).ready
 })(cash);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     indicators: true,
@@ -7566,8 +7566,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Slider, 'slider', 'M_Slider');
   }
 })(cash, M.anime);
-;(function ($, anim) {
-  $(document).on('click', '.card', function (e) {
+(function ($, anim) {
+    $(document).on('click', '.card', function (e) {
     if ($(this).children('.card-reveal').length) {
       var $card = $(e.target).closest('.card');
       if ($card.data('initialOverflow') === undefined) {
@@ -7600,8 +7600,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     }
   });
 })(cash, M.anime);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     data: [],
@@ -8154,8 +8154,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     });
   });
 })(cash);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     top: 0,
@@ -8320,8 +8320,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Pushpin, 'pushpin', 'M_Pushpin');
   }
 })(cash);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {
     direction: 'top',
@@ -8719,8 +8719,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(FloatingActionButton, 'floatingActionButton', 'M_FloatingActionButton');
   }
 })(cash, M.anime);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     // Close when date is selected
@@ -9644,8 +9644,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Datepicker, 'datepicker', 'M_Datepicker');
   }
 })(cash);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     dialRadius: 135,
@@ -10281,8 +10281,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Timepicker, 'timepicker', 'M_Timepicker');
   }
 })(cash);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {};
 
@@ -10451,8 +10451,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(CharacterCounter, 'characterCounter', 'M_CharacterCounter');
   }
 })(cash);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     duration: 200, // ms
@@ -11238,8 +11238,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Carousel, 'carousel', 'M_Carousel');
   }
 })(cash);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     onOpen: undefined,
@@ -11592,8 +11592,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(TapTarget, 'tapTarget', 'M_TapTarget');
   }
 })(cash);
-;(function ($) {
-  'use strict';
+(function ($) {
+    'use strict';
 
   var _defaults = {
     classes: '',
@@ -12058,8 +12058,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(FormSelect, 'formSelect', 'M_FormSelect');
   }
 })(cash);
-;(function ($, anim) {
-  'use strict';
+(function ($, anim) {
+    'use strict';
 
   var _defaults = {};
 
