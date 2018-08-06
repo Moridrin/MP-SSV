@@ -136,16 +136,17 @@ add_action('wp_loaded', 'mp_ssv_init_js');
 function mp_ssv_get_pagination()
 {
     global $wp_query;
+    $tag = 'paged';
     $pageCount   = $wp_query->max_num_pages;
-    $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    paginate_links(); //TODO this is not used due to the custom styling of the pagination links.
+    $currentPage = get_query_var($tag) ?: 1;
+    paginate_links(); // This is not used due to the custom styling of the pagination links.
     ob_start();
     ?>
     <ul class="pagination right">
         <?php
         if ($currentPage > 1) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?php echo esc_html($currentPage - 1) ?>"><i class="material-icons">chevron_left</i></a></li><?php
+            <li class="waves-effect"><a href="<?= \mp_general\base\BaseFunctions::escape(\mp_general\base\BaseFunctions::getCurrentUrlWithArguments([$tag => $currentPage - 1]), 'url') ?>"><i class="material-icons">chevron_left</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_left</i></li><?php
@@ -155,7 +156,7 @@ function mp_ssv_get_pagination()
         for ($i = 1; $i <= $pageCount; $i++) {
             if ($i != $currentPage) {
                 ?>
-                <li class="waves-effect"><a href="?paged=<?php echo esc_html($i) ?>"><?php echo esc_html($i) ?></a></li><?php
+                <li class="waves-effect"><a href="<?= \mp_general\base\BaseFunctions::escape(\mp_general\base\BaseFunctions::getCurrentUrlWithArguments([$tag => $i]), 'url') ?>"><?php echo esc_html($i) ?></a></li><?php
             } else {
                 ?>
                 <li class="active waves-effect"><span class="non-link"><?php echo esc_html($i) ?></span></li><?php
@@ -163,7 +164,7 @@ function mp_ssv_get_pagination()
         }
         if ($currentPage < $pageCount) {
             ?>
-            <li class="waves-effect"><a href="?paged=<?php echo esc_html($currentPage + 1) ?>"><i class="material-icons">chevron_right</i></a></li><?php
+            <li class="waves-effect"><a href="<?= \mp_general\base\BaseFunctions::escape(\mp_general\base\BaseFunctions::getCurrentUrlWithArguments([$tag => $currentPage + 1]), 'url') ?>"><i class="material-icons">chevron_right</i></a></li><?php
         } else {
             ?>
             <li class="disabled waves-effect"><i class="material-icons">chevron_right</i></li><?php
