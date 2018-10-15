@@ -88,14 +88,14 @@ if (!function_exists('mp_ssv_post_thumbnail')) :
         if (is_singular()) : ?>
             <div class="post-thumbnail parallax">
                 <?php the_post_thumbnail('ssv-banner-xl', ['class' => $class]); ?>
-            </div><!-- .post-thumbnail -->
+            </div>
         <?php elseif (!$without_link) : ?>
             <a class="post-thumbnail" href="<?php the_permalink(); ?>" target="<?= $target ?>" aria-hidden="true">
                 <?php the_post_thumbnail('ssv-banner-xl', ['alt' => the_title_attribute('echo=0'), 'class' => $class]); ?>
             </a>
         <?php else: ?>
             <?php the_post_thumbnail('ssv-banner-xl', ['alt' => the_title_attribute('echo=0'), 'class' => $class]); ?>
-        <?php endif; // End is_singular()
+        <?php endif;
     }
 endif;
 
