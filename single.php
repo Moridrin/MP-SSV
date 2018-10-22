@@ -10,10 +10,9 @@ if (isset($_GET['fullscreen']) && filter_var($_GET['fullscreen'], FILTER_VALIDAT
             <div class="col s12 <?php echo is_dynamic_sidebar() ? 'm7 l8 xxl9' : '' ?>">
                 <div id="primary"
                      class="content-area <?php echo strpos(get_the_content(), 'class="card') === false ? 'card' : '' ?>">
-                    <div class="card-image" style="">
+                    <div class="card-image">
                         <?php if (has_post_thumbnail()): ?>
-                            <img src="<?php the_post_thumbnail_url('ssv-banner-s') ?>"
-                                 style="width: auto; margin-left: auto; margin-right: auto;" />
+                            <img src="<?php the_post_thumbnail_url('ssv-banner-s') ?>"/>
                         <?php else: ?>
                             <div class="thumbnail-placeholder"></div>
                         <?php endif ?>
