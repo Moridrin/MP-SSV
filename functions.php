@@ -575,3 +575,74 @@ function mp_ssv_email_antispam($content)
     return $content;
 }
 add_action('the_content', 'mp_ssv_email_antispam', 100);
+
+
+function custom_table_reset_password_mail_html($message, $key, $user_login, $user_data)
+{
+    $url = network_site_url("wp-login.php?action=rp&key=$key&login=" . rawurlencode($user_login), 'https');
+
+    ob_start();
+
+?>
+
+    <table style="width: 80%; margin: auto; border-collapse: collapse; border: 2px solid #005e38">
+        <tbody>
+            <tr>
+                <td style="padding: 0;">
+
+                    <table style="height: 64px; background-color: #005e38; width: 100%; border: none;">
+                        <tbody>
+                            <tr>
+                                <td style="paddign: 0;">
+                                    <img src="http://allterrain.nl/wp-content/themes/ssv-material/images/logo.svg" title="All Terrain" alt="All Terrain" style="height: 56px; width: 115px; margin-left: 20px; display: block;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table style="margin-top: 1em; padding: 1em; margin-left: auto; margin-right: auto;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p style="width: 100%;">
+                                        Someone has requested a password reset for the following account:<br><br>
+                                        <?php echo(sprintf('<b>Username:</b> %s', $user_login) . '<br>') ?>
+                                        <b>Website:</b> <a href="<?php echo(network_home_url('/'));?>"> <?php echo(network_home_url( '/' ));?> </a><br><br>
+                                        If this was a mistake, just ignore this email and nothing will happen.<br><br>
+                                        To reset your password, click the button below.<br><br>
+
+                                        <table style="margin: auto;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="background-color: #005E38; border: 1px none; border-radius: 5px; display: flex; align-items: center; padding: 0;">
+                                                        <a href="<?php echo($url);?>" style="font-weight: bold; letter-spacing: normal; line-height: 100%; text-align: center; text-decoration: none; color: #FFFFFF; display: block; margin: 0; padding: 1em; height: 100%; width: 100%;">Reset Password</a><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height: 2em;"> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        If the button doesn't work, visit the url below via your browser:<br>
+                                        <a href="<?php echo($url);?>"><?php echo($url);?></a><br>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+<?php
+
+    return ob_get_clean();
+}
+
+
+
+
+add_filter('retrieve_password_message', 'custom_table_reset_password_mail_html', 10, 4);
